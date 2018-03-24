@@ -1,0 +1,80 @@
+
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script src="/Public/hyw/js/script.js"></script>
+
+<div class="foot">
+  <div class="foot2">
+  <div class="footlogo">
+   <div class="logo2"><img src="/Public/hyw/images/logo2.gif" width="389" height="65" /></div>
+   <div class="footliax">
+    <p class="tongy">全国统一热线：</p>
+    <p> {$config.mobile}      </p>
+    <p>地址：{$config.address}</p>
+    </div>
+    <div class="erwm">
+     <div class="erwm1"><img src="{$config.android_img}" width="86" height="85" /><span>安卓二维码</span></div>
+     <div class="erwm1"><img src="{$config.ios_img}" width="86" height="85" /><span>苹果二维码</span></div>
+     <div class="erwm1"><img src="{$config.weixin_img}" width="86" height="85" /><span>微信公众号</span></div>
+     <div clsas="clear"></div>
+    </div>
+  </div>
+  <div class="footmenu">
+   <div class="fmen1">
+    <div class="fmen1tit">叉车租赁  </div>
+    <ul class="fmenu1">
+     <li><a href="{:U('Goods/goodsList')}">年月租</a></li>
+     <li><a href="{:U('Goods/goodsTemp')}">临时租</a></li>
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">好运商城 </div>
+    <ul class="fmenu1">
+     <li><a href="{:U('Special/index')}">特价叉车</a></li>
+     <!-- <li>其他</li> -->
+    </ul>
+   </div>
+   <div class="fmen1">
+      <div class="fmen1tit">最新资讯 </div>
+        <ul class="fmenu1">
+           <li><a href="{:U('Home/News/articleList/cat_id/102')}">市场动态</a></li>
+           <li><a href="{:U('News/news1')}">租赁问答</a></li>
+        </ul>
+      </div>
+      <div class="fmen1">
+        <div class="fmen1tit">加盟合作 </div>
+        <ul class="fmenu1">
+          <li><a href="{:U('service/join')}">加盟合作</a></li>   
+        </ul>
+      </div>
+      <div class="fmen1">
+        <div class="fmen1tit">联系我们 </div>
+          <ul class="fmenu1">
+             <li><a href="{:U('Home/News/about/cat_id/96')}">联系方式</a></li>
+             <li><a href="{:U('Home/News/about/cat_id/95')}">公司简介</a></li>
+             <li><a href="{:U('Home/News/download')}">下载专区</a></li>
+          </ul>
+        </div>
+   <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  </div>
+  <div class="copyright">
+   <div class="coyr2">      
+      Copyright © 2014 好运旺租叉车电商平台 东莞市粤力叉车租赁有限公司 All Rights Reserved<br/>备案号：{$config.record_no}  技术支持：
+      <a target='_block' href="http://web66.cn">云鸿科技</a> 
+    </div>
+  </div>
+  <script>
+    $.ajax({ 
+        type:'get',
+        url: "{:U('Public/search')}", 
+        success: function(data){
+          $('.now2').html('');
+          $('.now2').append(data);
+        }
+    });
+  </script>
+ 

@@ -1,0 +1,82 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+		<section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <!-- <h3 class="box-title">增加分类</h3> -->
+			                <div class="pull-right">
+			                	<a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+			                </div>
+                        </div>
+ 
+                        <!-- /.box-header -->
+                        <form action="{:U('Goods/editCarCate')}" method="post" class="form-horizontal" id="category_form">
+                        <div class="box-body">                         
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">品牌名称</label>
+                                    <div class="col-sm-3">
+                                        <select name="name" id="name" class="small form-control">
+                                            <foreach name="cat_list" item="v" >
+                                                <option value="{$v[name]}" <if condition="$v[name] eq $catInfo[name]">selected</if>>{$v[name]}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>                                    
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">产地来源</label>
+                                    <div class="col-sm-3">
+                                      <select name="type" id="type"  <if condition="$catInfo.id eq true">disabled="disabled"</if> class="small form-control">
+                                        <option value="0">进口</option>
+                                        <option value="1" <if condition="$catInfo.type eq 1">selected</if>>国产</option>
+                                      </select>  
+                                    </div>                                      
+                                </div>
+                                <div class="form-group">
+                                     <label class="col-sm-2 control-label">标准价格</label>
+                                     <div class="col-sm-3">
+                                        <input type="text" placeholder="0.00"  onKeyUp="amount_verify(this)" class="form-control large" name="money" value="{$catInfo.money}">
+                                        <span class="help-inline" style="color:#F00; display:none;" id="err_money"></span>
+                                    </div>
+                                </div>
+				                <!-- <div class="form-group">
+                                    <label class="control-label col-sm-2">展示图片</label>
+                                    <div class="col-sm-6" style='float:left'>
+                                        <input type="text" value="{$goods_category_info.image}" name="image" id="image" class="form-control large"   style="width:350px;display:block;float:left"/> &nbsp;
+                                        <input  style='align:left;height:34px' onclick="GetUploadify(1,'image','category');" type="button" value="上传图片"/>
+                                    </div>
+                                </div> -->                                
+                        </div>
+                        <div class="box-footer">                        	
+                            <input type="hidden" name="id" value="{$catInfo.id}">
+                        	<button type="reset" class="btn btn-primary pull-left"><i class="icon-ok"></i>重填  </button>
+                            <button type="submit" class="btn btn-primary pull-right"><i class="icon-ok"></i>提交  </button>
+                        </div> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+</div>
+<script>  
+    
+/** 以下是编辑时默认选中某个商品分类*/
+$(document).ready(function(){
+	<if condition="$level_cat['2'] gt 0">	
+		 // 如果当前是二级分类就让一级父id默认选中
+		 $("#parent_id_1").val('{$level_cat[1]}'); 
+		 get_category('{$level_cat[1]}','parent_id_2','0');		 
+	</if>	 
+	<if condition="$level_cat['3'] gt 0">
+		 // 如果当前是三级分类就一级和二级父id默认 都选中
+		 $("#parent_id_1").val('{$level_cat[1]}');		 	
+		 get_category('{$level_cat[1]}','parent_id_2','{$level_cat[2]}');	
+	</if>	
+});
+ 
+</script>
+   
+</body>
+</html>

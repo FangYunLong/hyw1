@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.7.3.min.js"></script>
+<script type="text/javascript" src="/Public/hyw/js/manhuaDate2.1.0.js"></script>
+<link rel="stylesheet" href="/Public/Reboxlightbox/css/jquery-rebox.css">
+<script src="/Public/Reboxlightbox/js/jquery.min.js"></script>
+<script src="/Public/Reboxlightbox/js/jquery-rebox.js"></script>
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+<div class="neiCent2">
+  <div class="mayLeft">  
+    <!--------左边导航开始-------------->
+    <include file="Public/userLeft" />
+    <!--------左边导航结束-------------->
+  </div>
+  <div class="mayRight">
+    <div class="rigbiaot">我的报表 >  <if condition="$model_type eq 1"><a href='{:U("User/carInfo")}'>出租情况</a><else/><a href='{:U("User/userCarInfo")}'>租车情况</a></if> > 维修记录</div>
+  
+<foreach item='RepairLog' name='RepairLog'>
+    <div class="mayxiax1">
+     <div class="weiiu1">
+        <p>叉车编号：  {$RepairLog.car_sn}</p>
+        <p>属具编号：  {$RepairLog.shuju_sn}</p>
+        <p>维修时间：  {$RepairLog.repair_time}</p>                      
+        <p>维修时长：  {$RepairLog.repair_time_long}</p>
+        <p>仪表时间：  {$RepairLog.instrument_time}</p>
+        <p>维修人员：  {$RepairLog.repair_man}</p>
+     </div>
+     <div class="weigu">
+      <div class="weigu1">故障描述：</div>
+      <div class="weigu2">{$RepairLog.describe}</div>
+      <div class="clear"></div>
+     </div>
+     <div class="weigu">
+      <div class="weigu1">维修内容：</div>
+      <div class="weigu2">{$RepairLog.content}</div>
+      <div class="clear"></div>
+     </div>
+     <div class="weigu">
+      <div class="weigu1">维修图片：</div>
+      <div class="weigu2 imglook">
+          <a target='_block' href="{$RepairLog.img1}">
+            <img src="{$RepairLog.img1}" width="145" height="125" />
+          </a>
+          <a target='_block' href="{$RepairLog.img2}">
+            <img src="{$RepairLog.img2}" width="145" height="125" />
+          </a>
+          <a target='_block' href="{$RepairLog.img3}">
+            <img src="{$RepairLog.img3}" width="145" height="125" />
+          </a>
+          <a target='_block' href="{$RepairLog.img4}">
+            <img src="{$RepairLog.img4}" width="145" height="125" />
+          </a>
+      </div>
+      <div class="clear"></div>
+     </div>
+    </div>
+  </foreach>
+
+    </div>    
+  </div>
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束-------------->
+</body>
+<script>
+  $('.imglook').rebox({ selector: 'a' });
+</script>
+</html>

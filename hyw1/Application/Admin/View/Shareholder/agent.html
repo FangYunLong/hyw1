@@ -1,0 +1,177 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+  <include file="Public/breadcrumb"/>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 加盟商列表</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="navbar navbar-default">
+                            <form action="" id="search-form2" class="navbar-form form-inline" method="post" onsubmit="return false">
+                            	<div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" name="company" value="" placeholder="公司名称" id="input-mobile" class="form-control" style="width:200px;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" name="username" value="" placeholder="联系人" id="input-mobile" class="form-control" style="width:200px;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" name="mobile" value="" placeholder="手机号" id="input-mobile" class="form-control" style="width:200px;">
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <div class="input-group">
+                                        <select name="level_id" class="form-control" style="width:100px;">
+                                            <option value="">省份</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <select name="level_id" class="form-control" style="width:100px;">
+                                            <option value="">城市</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+<!--                                 <div class="form-group">
+                                    <div class="input-group">
+                                        <select name="level_id" class="form-control" style="width:100px;">
+                                            <option value="">状态</option>
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div> -->                             
+                                 <div class="form-group">
+                                    <input type="hidden" name="order_by" value="user_id">
+                                	<input type="hidden" name="sort" value="desc">
+                                	<button type="submit" onclick="ajax_get_table('search-form2',1)" id="button-filter search-order" class="btn btn-primary pull-right"><i class="fa fa-search"></i> 筛选</button>
+                                 </div>
+								 <a href="{:U('Shareholder/agent_info')}" class="btn btn-info pull-right">添加加盟商</a>
+                            </form>
+                    </div>
+                    <div id="ajax_return">
+
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script>
+    $(document).ready(function(){
+
+        ajax_get_table('search-form2',1,1);//第三参数代表会员分组，默认是用户端会员1
+
+    });
+
+    // 点击分页触发的事件
+    $(".pagination  a").click(function(){
+        cur_page = $(this).data('p');
+        ajax_get_table('search-form2',cur_page);
+    });
+
+    //查询相应的组会员
+    function getLevel() {
+        var id =$(this).attr('attr_id');
+        //调用ajax获取页面信息
+        ajax_get_table('search-form2',1,id);
+    }
+
+    // ajax 抓取页面
+    function ajax_get_table(tab,page,id){
+        cur_page = page; //当前页面 保存为全局变量
+            $.ajax({
+                type : "POST",
+                url:"/index.php/Admin/Shareholder/ajaxAgent/p/"+page,//+tab,添加用户id
+                data : $('#'+tab).serialize(),// 你的formid
+                success: function(data){
+                    $("#ajax_return").html('');
+                    $("#ajax_return").append(data);
+                }
+         	});
+    }
+
+    // 点击排序
+    function sort(field)
+    {
+        $("input[name='order_by']").val(field);
+        var v = $("input[name='sort']").val() == 'desc' ? 'asc' : 'desc';
+        $("input[name='sort']").val(v);
+        ajax_get_table('search-form2',cur_page);
+    }
+
+    //发送站内信
+    function send_message(id)
+    {
+        var obj = $("input[name*='selected']");
+        var url = "{:U('Admin/User/sendMessage')}";
+        if(obj.is(":checked")){
+            var check_val = [];
+            for(var k in obj){
+                if(obj[k].checked)
+                    check_val.push(obj[k].value);
+            }
+            url += "?user_id_array="+check_val;
+        }
+        layer.open({
+            type: 2,
+            title: '站内信',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['580px', '480px'],
+            content: url
+        });
+    }
+
+    //发送邮件
+    function send_mail(id)
+    {
+        var obj = $("input[name*='selected']");
+        var url = "{:U('Admin/User/sendMail')}";
+        if(obj.is(":checked")){
+            var check_val = [];
+            for(var k in obj){
+                if(obj[k].checked)
+                    check_val.push(obj[k].value);
+            }
+            url += "?user_id_array="+check_val;
+            layer.open({
+                type: 2,
+                title: '发送邮箱',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['580px', '480px'],
+                content: url
+            });
+        }else{
+            layer.msg('请选择会员');
+        }
+
+    }
+
+    /**
+     * 回调函数
+     */
+    function call_back(v) {
+        layer.closeAll();
+        if (v == 1) {
+            layer.msg('发送成功');
+        } else {
+            layer.msg('发送失败');
+        }
+    }
+
+
+</script>
+</body>
+</html>

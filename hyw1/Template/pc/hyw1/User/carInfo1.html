@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="../css/base.css" rel="stylesheet" type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="../js/jquery-1.7.3.min.js"></script>
+<script type="text/javascript" src="../js/manhuaDate2.1.0.js"></script>
+
+  <script type="text/javascript">
+$(document).ready(function() {
+	$('.inactive').click(function(){
+		if($(this).siblings('ul').css('display')=='none'){
+			$(this).parent('li').siblings('li').removeClass('inactives');
+			$(this).addClass('inactives');
+			$(this).siblings('ul').slideDown(100).children('li');
+			if($(this).parents('li').siblings('li').children('ul').css('display')=='block'){
+				$(this).parents('li').siblings('li').children('ul').parent('li').children('a').removeClass('inactives');
+				$(this).parents('li').siblings('li').children('ul').slideUp(100);
+
+			}
+		}else{
+			//控制自身变成+号
+			$(this).removeClass('inactives');
+			//控制自身菜单下子菜单隐藏
+			$(this).siblings('ul').slideUp(100);
+			//控制自身子菜单变成+号
+			$(this).siblings('ul').children('li').children('ul').parent('li').children('a').addClass('inactives');
+			//控制自身菜单下子菜单隐藏
+			$(this).siblings('ul').children('li').children('ul').slideUp(100);
+
+			//控制同级菜单只保持一个是展开的（-号显示）
+			$(this).siblings('ul').children('li').children('a').removeClass('inactives');
+		}
+	})
+});
+</script>
+</head>
+
+
+<body>
+<div class="top">
+ <div class="toplink">
+   <div class="toplink2">
+    <div class="tophun"> 您好，欢迎登录东莞市粤力叉车租赁公司官网!</div>
+   <div class="topdeng"><a href="#" class="huiy1">会员登录</a> <a href="#" class="huiy2">免费注册</a> <a href="#">设为首页 |</a>   <a href="#">在线商城 |</a>  <a href="#">联系我们</a></div>
+   <div class="clear"></div>
+   </div>
+ </div>
+ <div class="logoTel">
+  <div class="logo"><img src="../images/logo.gif" width="409" height="59" /></div>
+  <div class="tel"><img src="../images/tel.gif" width="279" height="59" /></div>
+  <div class="clear"></div>
+ </div>
+ <div class="menu">
+   <div class="caid">
+    <ul class="menuLink">
+     <li><a href="index.html" class="current">首页</a></li>
+     <li><a href="zuli/lease.html">叉车租赁</a>
+      <ul>
+        <li><a href="#">年月租</a></li>
+        <li><a href="#">临时租</a></li>
+        <li><a href="#">快捷租车</a></li>
+      </ul>
+     </li>
+     <li><a href="mallshop.html">好运商城</a>
+        <ul>
+        <li><a href="#">特价车</a></li>
+        <li><a href="#">工业品</a></li>       
+      </ul>
+     </li>
+     <li> <a href="news.html">资讯中心</a>
+       <ul>
+        <li><a href="#">叉车租赁问答</a></li>
+        <li><a href="#">叉车保养知识</a></li>
+        <li><a href="#">叉车故障排除</a></li>
+        <li><a href="#">行业新闻</a></li>
+        <li><a href="#">公司新闻</a></li>
+        <li><a href="#">叉车百科</a></li>
+        <li><a href="#">叉车证</a></li>
+        <li><a href="#">叉车上牌</a></li>
+        <li><a href="#">下载专区</a></li>
+      </ul>
+     </li>
+     <li><a href="car.html">服务网络</a></li>     
+     <li><a href="join.html">加盟合作</a></li>
+     <li class="last"><a href="about/about1.html">关于我们</a>
+      <ul>
+        <li><a href="#">好运旺简介</a></li>
+        <li><a href="#">联系方式</a></li>       
+        <li><a href="#">荣誉资质</a></li>        
+        <li><a href="#">成功案例</a></li>
+        <li><a href="#">发展历程</a></li>
+        <li><a href="#">招贤纳士</a></li>
+      </ul>
+     </li> 
+    </ul>
+   </div>
+ </div>
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="#">首页</a>  >车主个人中心</div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+</div>
+<div class="neiCent2">
+  <div class="mayLeft">  
+   <ul class="leftNav">
+		<li><a href="Myself-chezhu.html">个人资料</a></li>
+		<li><a href="#" class="inactive current"> 订单中心</a>
+			<ul style="display: none">
+				<li><a href="Myself-order(chezhu).html" class="inactive active">我的订单</a>	</li> 
+				<li ><a href="Myself-sales.html">我的分销</a></li> 
+			</ul>
+		</li>
+		<li><a href="Myself-xiaoxi.html" class="inactive">我的消息</a></li>
+        <li><a href="Myself-qiuz.html" class="inactive">我的求职</a></li>
+        <li><a href="Myself-teji.html" class="inactive ">我的特价车</a></li>
+        <li><a href="#" class="inactive">我的报表</a>
+          <ul style="display: none">
+			<li><a href="Myself-baob(chezhu).html" class="inactive active">租车情况</a></li>
+			<li><a href="Myself-baob2(chezhu).html" class="inactive active">出租情况</a></li>					
+		 </ul>
+			</ul>
+  </div>
+  <div class="mayRight">
+    <div class="rigbiaot">我的报表 >  出租情况</div>
+    <div class="mayxiax">
+     <div class="report">
+   <script type="text/javascript">
+$(function (){
+	$("input.mh_date").manhuaDate({					       
+		Event : "click",//可选				       
+		Left : 0,//弹出时间停靠的左边位置
+		Top : -16,//弹出时间停靠的顶部边位置
+		fuhao : "-",//日期连接符默认为-
+		isTime : false,//是否开启时间值默认为false
+		beginY : 2017,//年份的开始默认为1949
+		endY :2020//年份的结束默认为2049
+	});
+	
+});
+</script>
+       <div class="reportTime">
+         <div class="shijian"><input type="text" class="mh_date" readonly="true" /></div>
+          <div class="jigex"><img src="../images/lin2.png" width="31" height="35" /></div>
+         <div class="shijian"><input type="text" class="mh_date" readonly="true" /></div>
+         <div class="clear"></div>
+       </div>
+       <div class="reportqi">
+         <div class="jijang"><a href="#">即将到期</a></div>
+         <div class="jijang2"><a href="#">已到期</a></div>
+       </div>
+       <div class="clear"></div>
+     </div>
+     <div class="baogege">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="bianh">编号</td>
+    <td class="chenj">成交时间</td>
+    <td class="dansj">订单号</td>
+    <td class="chexin">品牌吨位车型</td>
+    <td class="shul">数量</td>
+    <td class="daoc">到车</td>
+    <td class="daoq">到期</td>
+    <td class="luoz">裸租价</td>
+    <td class="cheb">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="Myself-baob2(chezhu)-车编.html">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="Myself-baob2(chezhu)-维修.html">维修记录</a></td>
+  </tr>
+  <tr>
+    <td class="bianh2">01</td>
+    <td class="chenj2">2017-03-12</td>
+    <td  class="dansj2">20170203A</td>
+    <td class="chexin2">三菱3吨平衡电车</td>
+    <td class="shul2">2</td>
+    <td class="daoc2">2017-01-10</td>
+    <td class="daoq2">2017-01-10</td>
+    <td class="luoz2">3800/月</td>
+    <td class="cheb2"><a href="#">添加车编</a><br/>
+      <a href="#">维修记录</a></td>
+  </tr>
+</table>
+     </div>
+     <div class="mypage">
+    <a href="#" class="page1">上一页</a> <a href="#" >1</a> <a href="#">2</a>  <a href="#">3</a>  <a href="#">4</a>  <a href="#">5</a>  <a hidden="#">6    <a href="#" class="page2">下一页</a><span>共6页　 　当前第1页 </span> 
+  </div>
+  <div class="report">
+    <div class="bgzj">总计：</div>
+    <div class="bgzj2">
+     <p>出租数量：<strong>XX</strong>台  </p>
+     <p>已到期数量：<strong>XX</strong>台  </p>
+     <p>即将到期：<strong>XX</strong>台  </p>
+     <p>累计收益：<strong>XX</strong>元  </p>
+     
+    </div>
+  </div>
+    </div>  
+    </div>    
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<div class="foot">
+  <div class="foot2">
+  <div class="footlogo">
+   <div class="logo2"><img src="../images/logo2.gif" width="389" height="65" /></div>
+   <div class="footliax">
+    <p class="tongy">全国统一热线：</p>
+    <p> 400 1648 168； 0769-23102690；  15812814965      </p>
+    <p>地址：广州市天河区建中路勤天大厦</p>
+    </div>
+    <div class="erwm">
+     <div class="erwm1"><img src="../images/erwm1.gif" width="86" height="85" /><span>app 二维码</span></div>
+     <div class="erwm1"><img src="../images/erwm1.gif" width="86" height="85" /><span>微信公众号</span></div>
+     <div clsas="clear"></div>
+    </div>
+  </div>
+  <div class="footmenu">
+   <div class="fmen1">
+    <div class="fmen1tit">叉车租赁  </div>
+    <ul class="fmenu1">
+     <li>年月租</li>
+     <li><a href="#">临时租</a></li>
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">好运商城 </div>
+    <ul class="fmenu1">
+     <li><a href="#">特价叉车</a></li>
+     <li>其他</li>
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">最新资讯 </div>
+    <ul class="fmenu1">
+     <li><a href="#">市场动态</a></li>
+     <li><a href="#">租赁问答</a></li>
+     
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">加盟合作 </div>
+    <ul class="fmenu1">
+     <li><a href="#">加盟合作</a></li>   
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">联系我们 </div>
+    <ul class="fmenu1">
+     <li><a href="#">联系方式</a></li>
+     <li><a href="#">公司简介</a></li>
+     <li><a href="#">下载专区</a></li>
+    </ul>
+   </div> 
+   <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  </div>
+  <div class="copyright">
+   <div class="coyr2">      Copyright © 2014 好运旺租叉车电商平台 东莞市粤力叉车租赁有限公司 All Rights Reserved<br/>   
+备案号：粤ICP备13001988号  技术支持：<a href="#">云鸿科技</a> <a href="#">app开发</a></div>
+  </div>
+</div> 
+</body>
+</html>

@@ -1,0 +1,189 @@
+<include file="Public/min-header"/>
+<script type="text/javascript">
+    window.UEDITOR_Admin_URL = "__ROOT__/Public/plugins/Ueditor/";
+    var URL_upload = "{$URL_upload}";
+    var URL_fileUp = "{$URL_fileUp}";
+    var URL_scrawlUp = "{$URL_scrawlUp}";
+    var URL_getRemoteImage = "{$URL_getRemoteImage}";
+    var URL_imageManager = "{$URL_imageManager}";
+    var URL_imageUp = "{$URL_imageUp}";
+    var URL_getMovie = "{$URL_getMovie}";
+    var URL_home = "{$URL_home}";    
+</script>
+
+<load href="__ROOT__/Public/plugins/Ueditor/ueditor.config.js"/>
+<load href="__ROOT__/Public/plugins/Ueditor/ueditor.all.js"/>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content">
+        <!-- Main content -->
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="panel panel-default">           
+                <div class="panel-body ">   
+                   	<ul class="nav nav-tabs">
+                        <foreach name="group_list" item="vo" key="k">
+                     		<li <if condition="$k eq 'smtp'">class="active"</if>><a href="javascript:void(0)" data-url="{:U('System/index',array('inc_type'=>$k))}" data-toggle="tab" onclick="goset(this)">{$vo}</a></li>
+                     	</foreach>                        
+                    </ul>
+                    <!--表单数据-->
+                        <!--通用信息-->
+                    <!-- <div class="tab-content" style="padding:20px 0px;">     -->
+                        <div class="col-sm-8" style='margin-left:170px;margin-top:50px;'>
+                            <form method="post" id="handlepost" action="{:U('System/handle')}">
+                            <textarea class="span12 ckeditor" id="post_content" name="bankAccuss" title="">
+                                {$config.bankAccuss}
+                            </textarea>
+                            <br>
+                            <input type="hidden" name="inc_type" value="{$inc_type}">
+                            <button type="submit" class="btn btn-info pull-right">提交</button>
+                            </form>
+                        </div>             	  
+                        <!-- <div class="tab-pane active" id="tab_smtp">                           
+                            <table class="table table-bordered tab1">
+                                <tr>
+                                   <th colspan='3'>
+                                    <form action="" id='addBank'>
+										银行名称: 
+                                        <input class='' type="text" name='bankname'>
+                                        银行账号: 
+                                        <input class='' type="text" name='bank_account'>
+                                        银行帐户名称  : 
+                                        <input class='' type="text" name='cardholder'>
+                                        <button class='btn btn-primary' type='button' onclick='addBanks()' >添加</button>
+                                    </form>
+                                    </th>
+                               </tr>
+                                <tr>
+                                    <th>银行名称</th>
+                                    <th>银行账号</th>
+                                    <th>银行帐户名称</th>
+                                    <th>操作</th>
+                                </tr>
+
+                               <foreach item='BankAccount' name='BankAccount'>
+                               <tr delid="butt{$BankAccount.id}">
+                                   <td>{$BankAccount.bankname}</td>
+                                   <td>{$BankAccount.bank_account}</td>
+                                   <td>{$BankAccount.cardholder}</td>
+                                   <td>
+                                        <button class="btn btn-primary" type="button" onclick="del({$BankAccount.id})">删除</button>
+                                    </td>
+                               </tr>    
+                               </foreach>                          
+                            </table>
+                        </div> -->                           
+                    <!-- </div>               -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+var editor;
+    $(function () {
+        //具体参数配置在  editor_config.js 中
+        var options = {
+            zIndex: 999,
+            initialFrameWidth: "100%", //初化宽度
+            initialFrameHeight: 400, //初化高度
+            focus: false, //初始化时，是否让编辑器获得焦点true或false
+            maximumWords: 99999, removeFormatAttributes: 'class,style,lang,width,height,align,hspace,valign',//允许的最大字符数 'fullscreen',
+            pasteplain:false, //是否默认为纯文本粘贴。false为不使用纯文本粘贴，true为使用纯文本粘贴
+            autoHeightEnabled: true
+         /*   autotypeset: {
+                mergeEmptyline: true,        //合并空行
+                removeClass: true,           //去掉冗余的class
+                removeEmptyline: false,      //去掉空行
+                textAlign: "left",           //段落的排版方式，可以是 left,right,center,justify 去掉这个属性表示不执行排版
+                imageBlockLine: 'center',    //图片的浮动方式，独占一行剧中,左右浮动，默认: center,left,right,none 去掉这个属性表示不执行排版
+                pasteFilter: false,          //根据规则过滤没事粘贴进来的内容
+                clearFontSize: false,        //去掉所有的内嵌字号，使用编辑器默认的字号
+                clearFontFamily: false,      //去掉所有的内嵌字体，使用编辑器默认的字体
+                removeEmptyNode: false,      //去掉空节点
+                                             //可以去掉的标签
+                removeTagNames: {"font": 1},
+                indent: false,               // 行首缩进
+                indentValue: '0em'           //行首缩进的大小
+            }*/
+        };
+        editor = new UE.ui.Editor(options);
+        editor.render("post_content");
+    });
+var flag = true;
+function adsubmit(){
+	check_form();
+	if(flag){
+		$('#handlepost').submit();
+	}
+}
+
+function check_form(){
+	if($('input[name="smtp_server"]').val() == ''){
+		alert('请填写邮件发送服务器地址');
+		flag = false;
+		return;
+	}
+	if($('input[name="smtp_user"]').val() == '' || !checkEmail($('input[name="smtp_user"]').val())){
+		alert('请填写正确的邮箱账号');
+		flag = false;
+		return;
+	}
+	if($('input[name="smtp_pwd"]').val() == ''){
+		alert('请填写发送邮箱密码');
+		flag = false;
+		return;
+	}
+}
+
+$(document).ready(function(){
+	get_province();
+});
+
+function goset(obj){
+	window.location.href = $(obj).attr('data-url');
+}
+
+function del(id){   
+    $.post(
+        "{:U('System/delBank')}",
+        {id:id},
+        function(data){
+            if(data==1){
+                layer.msg('删除成功！', {icon: 1});
+                $('tr[delid="butt'+id+'"]').remove();
+            }else{
+                layer.msg('删除失败', {icon: 2,time: 2000});
+            }
+        },
+        'json'
+    )
+}
+
+    function addBanks(){
+    		$.ajax({
+    			type : "post",
+    			data : $('#addBank').serialize(),
+    			dataType : 'json',
+    			url : "{:U('System/addBank')}",
+    			success : function(res){
+    				if(res['status']==1){
+    					layer.msg('添加成功', {icon: 1});
+                        var tr;
+                        tr = '<tr delid="butt'+res['id']+'"><td>'+$('input[name="bank_account"]').val()+'</td><td>'+$('input[name="cardholder"]').val()+'</td><td><button class="btn btn-primary" type="button" onclick="del('+res['id']+')">删除</button></td></tr>';
+                        $('.tab1').append(tr);
+                        $('input[name="bank_account"]').val('');
+                        $('input[name="cardholder"]').val('') ;
+    				}else{
+    					layer.msg('添加失败', {icon: 2,time: 2000});
+    				}
+    			}
+    		})
+    }
+
+
+</script>
+</body>
+</html>

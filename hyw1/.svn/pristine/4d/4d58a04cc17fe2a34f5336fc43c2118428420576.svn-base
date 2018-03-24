@@ -1,0 +1,113 @@
+
+                    <form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" style="font-size:12px;">
+                                <thead>
+                                <tr>
+                                    <!-- <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"></td> -->
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_id');">订单id</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('is_playmoney');">成交时间</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_sn');">订单编号</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('mobile');">车辆信息</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_status');">用车地点</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_status');">车主信息</a>
+                                    </td>
+                                    <!-- <td class="text-center">发货状态</td> -->
+                                    <!-- <td class="text-center">支付方式</td> -->
+                                    <!-- <td class="text-center">配送方式</td> -->
+                                    <td class="text-center">
+                                        <a href="javascript:sort('add_time');">订单信息</a>
+                                    </td>
+                                    <td class="text-center">提成（2%）</td>
+                                    <td class="text-center">查看详情</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="orderList" id="list">
+                                    <tr>
+                                        <!-- <td class="text-center">
+                                        	<input type="checkbox" name="selected[]" value="6">
+                                        	<input type="hidden" name="shipping_code[]" value="flat.flat">
+                                        </td> -->
+                                        <td class="text-center">{$list.order_id}</td>
+                                        <td class="text-center">{$list.playmoney_time|date='Y-m-d H:i:s',###}</td>
+                                        <td class="text-center">{$list.order_sn}</td>
+                                        <td class="text-center">
+                                            <a name='lookinfo' href="{:U('Admin/Report/car_info',array('order_id'=>$list['order_id']))}">点击查看</a>
+                                        </td>
+                                        <td class="text-center">{$list.address}</td>
+                                        <td class="text-center">{$list.user_id}</td>
+                                        <td class="text-center">{$list.number}台<br/>{$list.mprice}元<br/>{$list.tenancy}个月</td>
+                                        <td class="text-center">{$list.a}</td>
+                                        <!-- <td class="text-center">{$shipping_status[$list[shipping_status]]}</td> -->
+                                        <!-- <td class="text-center">{$list.pay_name|default='其他方式'}</td> -->
+                                        <!-- <td class="text-center">{$list.shipping_name}</td> -->
+                                        <td class="text-center">
+                                            <a href="{:U('Admin/Report/order_info',array('order_id'=>$list['order_id']))}" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="查看详情"><i class="fa fa-eye"></i></a>
+                                           </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-sm-6 text-left"></div>
+                        <div class="col-sm-6 text-content">{$page}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-left">
+                            <b>合计：</b><br/>
+                            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <label>成交数量：</label>
+                            <label>&nbsp;&nbsp;{$sum}台&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <label>成交总金额：</label>
+                            <label>&nbsp;&nbsp;{$sum_money}元&nbsp;&nbsp;&nbsp;</label><br/>
+                            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                           <!-- <label>全省成交总金额：</label>
+                            <label>&nbsp;&nbsp;123123元&nbsp;&nbsp;&nbsp;</label>-->
+                            <label>我的提成：</label>
+                            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sum_mone}元</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-left"></div>
+                        <div class="col-sm-6 text-right">
+                            <label>注：每笔提现无论金额多少，均收取2元/笔手续费</label>
+                        </div>
+                    </div>
+<script>
+    $(".pagination  a").click(function(){
+        var page = $(this).data('p');
+        ajax_get_table('search-form2',page);
+    });
+
+    // 删除操作
+    function del(id)
+    {
+        if(!confirm('确定要删除吗?'))
+            return false;
+        $.ajax({
+            url:"/index.php?m=Admin&c=Order&a=del_order&id="+id,
+            success: function(v){
+                var v =  eval('('+v+')');
+                if(v.hasOwnProperty('status') && (v.status == 1))
+                    ajax_get_table('search-form2',cur_page);
+                else
+                    layer.msg(v.msg, {icon: 2,time: 1000}); //alert(v.msg);
+            }
+        });
+        return false;
+    }
+</script>

@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>好运旺租叉车</title>
+    <link href="__PUBLIC__/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
+    <link href="__PUBLIC__/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />    
+    <script type="text/javascript" src="js/pptBox.js"></script>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.4 -->
+    <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- FontAwesome 4.3.0 -->
+    <link href="__PUBLIC__/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons 2.0.0 --
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="__PUBLIC__/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+        folder instead of downloading all of them to reduce the load. -->
+    <link href="__PUBLIC__/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <!-- iCheck -->
+    <link href="__PUBLIC__/plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />   
+    <!-- jQuery 2.1.4 -->
+</head>
+
+
+<body>
+<div class="top">
+    <!--------头部开始-------------->
+    <include file="Public/header" />
+    <!--------头部结束-------------->
+    <div class="now">
+        <div class="now1">您当前的位置：<a href="#">首页</a>  ><a href="#">加盟合作</a></div>
+        <div class="now2"><form action="" method="get">
+            <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+            <div clsas="souk2">
+                <input name="" type="button" class="anniu2"/>
+            </div>
+            <div class="clear"></div>
+        </form></div>
+        <div class="clear"></div>
+    </div>
+    <div class="neiBanner"><a href="{$ad.ad_link}"><img src="{$ad.ad_code}" width="1198" height="296" /></a></div>
+ <!--   <div class="neiBanner"><img src="__PUBLIC__/images/neibn8.jpg" width="1198" height="296" /></div>-->
+    <div class="neiNav">
+        <ul class="navlist">
+            <li><a href="#" class="current">加盟合作</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="neiCent2">
+    <div class="xinwen">
+        <div class="xinbit">
+            <foreach name="about" item="v" key="k" >
+                <div class="newtit">{$v['title']}</div>
+                <div class="newtime">发布时间：{$v['add_time']|date="Y-m-d",###}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{$v['cat_name']} &nbsp;&nbsp;&nbsp;&nbsp;阅读次数：{$v['click']}</div>
+            </foreach>
+        </div>
+        <div class="xinCent">
+            <foreach name="about" item="v" key="k" >
+            {$v['content']|htmlspecialchars_decode}
+            </foreach>
+            <div>
+            <br>
+            <style>
+            .jiaruwomen{
+                width:1170px;
+                height:650px;
+                background:#F7FBFE;
+                padding:30px;
+            }
+
+            </style>
+            <div class='jiaruwomen'>
+                <span><b style='color:#D44D25;font-size:16px'>加盟申请</b></span>
+            <form id='join' action="" method='post'>
+                <table class="table table-bordered" cellspacing="25">
+                    <tr>
+                        <td style='text-align:right;width:200px;'>公司名：</td>
+                        <td><input name='company' required class="form-control" type="text" /></td>
+                    </tr>                
+                    <tr>
+                        <td style='text-align:right;width:200px;'>联系人：</td>
+                        <td><input name='username' required class="form-control" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td style='text-align:right'>联系方式：</td>
+                        <td><input name='mobile' required class="form-control" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td style='text-align:right'>E-mail：</td>
+                        <td><input name='email' required class="form-control" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td style='text-align:right'>传真：</td>
+                        <td><input name='fax' required class="form-control" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td style='text-align:right'>网址：</td>
+                        <td><input name='webUrl' required class="form-control" type="text" /></td>
+                    </tr>                                        
+                    <tr>
+                        <td style='text-align:right'>加盟地区：</td>
+                        <td>
+                            <div class='col-xs-2'>
+                            <select name='province' class="form-control" onchange="get_city(this)" id="province"   name="province">
+                                <option value="0">选择省份</option>
+                            </select>
+                            </div>
+                            <div class='col-xs-2'>
+                            <select name='city' class="form-control" onchange="get_area(this)" id="city" name="city">
+                                <option value="0">选择城市</option>
+                            </select>
+                            </div>
+                            <div class='col-xs-2'>
+                            <select name='district' class="form-control" id="district" name="district">
+                                <option value="0">选择区域</option>
+                            </select>
+                            </div>
+                            <div class='col-xs-6'>
+                                <input required placeholder="详细地址" name='address' class="form-control" type="text" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style='text-align:right'>留言：</td>
+                        <td> 
+                            <textarea name='content' style="resize:none" class="form-control" required name="" id="" cols="30" rows="8"></textarea> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style='text-align:left'>
+                            <input class="btn btn-primary" onclick='add_join_info()' type="button" value='提交' />&nbsp;&nbsp;&nbsp;&nbsp;<span class='errors'></span>
+                            <input type="reset" style='display:none' value='重置' />
+                        </td>
+                    </tr>                            
+                </table>
+            </form>
+            </div>
+            </div>
+            <div class="fanhui"><a href="javascript:history.go(-1)">返回 >></a></div>
+        </div>
+    </div>
+<!------底部开始------------>
+<include file="Public/footer" />
+<!------底部结束------------>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r3.gif" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</body>
+<script>
+get_city1();
+
+function get_city1(obj)
+{
+    $.post(
+        '{:U("Home/News/get_city")}',
+        function(data){
+            var str = '<option value="0">选择省份</option>';
+            $.each(data['list'],function(key,val){
+                str += '<option value="'+val['id']+'">'+val['name']+'</option>';
+            });
+            $('#province').html('');
+            $('#province').append(str);
+        },
+        'json'
+    )
+}
+
+function get_city(obj)
+{
+    $.post(
+        '{:U("Home/News/get_city")}',
+        {id:$(obj).val()},
+        function(data){
+            var str = '<option value="0">选择城市</option>';
+            $.each(data['list'],function(key,val){
+                str += '<option value="'+val['id']+'">'+val['name']+'</option>';
+            });
+            $('#city').html('');
+            $('#city').append(str);
+        },
+        'json'
+    )
+}
+
+function get_area(obj)
+{
+    $.post(
+        '{:U("News/get_city")}',
+        {id:$(obj).val()},
+        function(data){
+            var str = '<option value="0">选择区域</option>';
+            $.each(data['list'],function(key,val){
+                str += '<option value="'+val['id']+'">'+val['name']+'</option>';
+            });
+            $('#district').html('');
+            $('#district').append(str);
+        },
+        'json'
+    )
+}
+
+//添加加盟商
+function add_join_info()
+{
+    $.ajax({
+        type : "POST",
+        url  : "{:U('News/addInfo')}",
+        data : $('#join').serialize(),// 你的formid
+        dataType : 'json',
+        success: function(date){
+            if(date['status']==1){
+                $(".errors").css({'color':'green'});
+                $('input[type="reset"]').click();
+            }else{
+                $(".errors").css({'color':'red'});
+            }
+            $(".errors").html('');
+            $(".errors").append(date['msg']);
+        }                
+
+    });
+}
+</script>
+</html>

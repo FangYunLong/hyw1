@@ -1,0 +1,162 @@
+﻿<form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+              <!--  <td style="width: 1px;" class="text-center">
+                &lt;!&ndash;
+                    <input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);">
+                &ndash;&gt;
+                </td>  -->
+                <td style="width: 1px;" class="text-right">
+                    <a href="javascript:sort('goods_id');">ID</a>
+                </td>
+                <td style="width: 130px;" class="text-left">
+                    <a href="javascript:sort('goods_name');">商品名称</a>
+                </td>
+                <td style="width: 80px;" class="text-left">
+                    <a href="javascript:sort('pinpai');">品牌</a>
+                </td>                                
+                <td style="width: 60px;" class="text-left">
+                    <a href="javascript:sort('dunwei');">吨位</a>
+                </td>                
+                <td style="width: 170px;" class="text-left">
+                    <a href="javascript:sort('cart_type');">车类型</a>
+                </td>
+                <td style="width: 150px;" class="text-left">
+                    <a href="javascript:sort('menjia');">门架</a>
+                </td>                
+                <td style="width: 60px;" class="text-center">
+                    <a href="javascript:sort('mj_height');">门架提升高度</a>
+                </td>
+                <td style="width: 65px;" class="text-center">
+                    <a href="javascript:sort('shuju');">属具</a>
+                </td>
+                <td style="width: 60px;" class="text-center">
+                    <a href="javascript:sort('shuju');">备用电池</a>
+                </td>
+                <td style="width: 60px;" class="text-center">
+                    <a href="javascript:sort('chexing');">车型</a>
+                </td>   
+                <td style="width: 60px;" class="text-center">
+                    <a href="javascript:sort('chezhong');">车种</a>
+                </td>                   
+                <td style="width: 60px;" class="text-center">
+                    <a href="javascript:">优惠</a>
+                </td>
+                <td style="width: 60px;" class="text-center">
+                    <a href="javascript:">特价车</a>
+                </td>
+                <td style="width: 100px;" class="text-center">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="goodsList" id="list">
+                <tr>
+                  <!--  <td class="text-center">
+                       &lt;!&ndash; <input type="checkbox" name="selected[]" value="6">&ndash;&gt;
+                        <input type="hidden" name="shipping_code[]" value="flat.flat">
+                    </td>-->
+                    <td class="text-right">{$list.goods_id}</td>
+                    <td class="text-left">{$list.goods_name|getSubstr=0,33}</td>
+                    <td class="text-left">{$list.pinpai}</td>
+                    <td class="text-left">{$list.dunwei}</td>
+                    <td class="text-left">{$list.cart_type}</td>
+                    <td class="text-left">{$list.menjia}</td>
+                    <td class="text-left">{$list.mj_height}</td>
+                    <td class="text-left">{$list.shuju}</td>
+                    <td class="text-left">{$list.bydc}组</td>
+                    <td class="text-left">{$list.chexing}</td>
+                    <td class="text-left">{$list.chezhong}</td>
+                    <!--<td class="text-left">
+                    <input type="text" onkeyup="this.value=this.value.replace(/[^\d.]/g,'')" onpaste="this.value=this.value.replace(/[^\d.]/g,'')"  onchange="ajaxUpdateField(this);" name="store_count" size="4" data-table="goods" data-id="{$list.goods_id}" value="{$list.store_count}"/>   
+                    </td>
+                    <td class="text-center">                        
+                        <img width="20" height="20" src="__PUBLIC__/images/<if condition='$list[is_on_sale] eq 1'>yes.png<else />cancel.png</if>" onclick="changeTableVal('goods','goods_id','{$list.goods_id}','is_on_sale',this)"/>
+                    </td>
+                    <td class="text-center">
+                        <img width="20" height="20" src="__PUBLIC__/images/<if condition='$list[is_recommend] eq 1'>yes.png<else />cancel.png</if>" onclick="changeTableVal('goods','goods_id','{$list.goods_id}','is_recommend',this)"/>
+                    </td>
+                    <td class="text-center">
+                        <img width="20" height="20" src="__PUBLIC__/images/<if condition='$list[is_new] eq 1'>yes.png<else />cancel.png</if>" onclick="changeTableVal('goods','goods_id','{$list.goods_id}','is_new',this)"/>
+                    </td>
+                    <td class="text-center">
+                        <img width="20" height="20" src="__PUBLIC__/images/<if condition='$list[is_hot] eq 1'>yes.png<else />cancel.png</if>" onclick="changeTableVal('goods','goods_id','{$list.goods_id}','is_hot',this)"/>
+                    </td>                    -->
+                    <td class="text-center">
+                        <?php if ($list['is_prefer']==1) { echo "是";}else{echo "否";}?>
+                      <!--  <label>
+                            是
+                            <input type="radio"  <?php if ($list['is_prefer']==1) { echo "checked";}else{echo "disabled";}?>  value="{$list.is_prefer}"  />
+                        </label>
+                        <label>
+                            否
+                            <input type="radio"  <?php if ($list['is_prefer']==0) { echo "checked";}else{echo "disabled";}?>  value="{$list.is_prefer}" />
+                        </label>-->
+                    </td>
+                    <td class="text-center">
+                        <?php if ($list['is_special']==1) { echo "是";}else{echo "否";}?>
+                       <!-- <label>
+                            是
+                            <input type="radio"  <?php if ($list['is_special']==1) { echo "checked";}else{echo "disabled";}?>  value="{$list.is_special}"  />
+                        </label>
+                        <label>
+                            否
+                            <input type="radio"  <?php if ($list['is_special']==0) { echo "checked";}else{echo "disabled";}?>  value="{$list.is_special}" />
+                        </label>-->
+                    </td>
+                    <td class="text-right">
+                       <!-- <a  target="_blank" href="{:U('Home/Goods/goodsInfo',array('id'=>$list['goods_id']))}" class="btn btn-info" title="查看详情"><i class="fa fa-eye"></i></a>-->
+                        <a href="{:U('Admin/Goods/addEditGoods',array('id'=>$list['goods_id']))}" class="btn btn-primary" title="编辑"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:void(0);" onclick="del('{$list[goods_id]}')" class="btn btn-danger" title="删除"><i class="fa fa-trash-o"></i></a>
+                        <!--<a href="javascript:void(0);" onclick="ClearGoodsHtml('{$list[goods_id]}')" class="btn btn-default" title="清除静态缓存页面"><i class="fa fa-fw fa-refresh"></i></a>
+                        <a href="javascript:void(0);" onclick="ClearGoodsThumb('{$list[goods_id]}')" class="btn btn-default" title="清除缩略图缓存"><i class="glyphicon glyphicon-picture"></i></a>-->
+                    </td>                        
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</form>
+<div class="row">
+    <div class="col-sm-3 text-left"></div>
+    <div class="col-sm-9 text-right">{$page}</div>
+</div>
+<script>
+    // 点击分页触发的事件
+    $(".pagination  a").click(function(){
+        cur_page = $(this).data('p');
+        ajax_get_table('search-form2',cur_page);
+    });
+	
+    /*
+     * 清除静态页面缓存
+     */
+    function ClearGoodsHtml(goods_id)
+    {
+    	$.ajax({
+				type:'GET',
+				url:"{:U('Admin/System/ClearGoodsHtml')}",
+				data:{goods_id:goods_id},
+				dataType:'json',
+				success:function(data){
+					layer.alert(data.msg, {icon: 2});								 
+				}
+		});
+    }
+    /*
+     * 清除商品缩列图缓存
+     */
+    function ClearGoodsThumb(goods_id)
+    {
+    	$.ajax({
+				type:'GET',
+				url:"{:U('Admin/System/ClearGoodsThumb')}",
+				data:{goods_id:goods_id},
+				dataType:'json',
+				success:function(data){
+					layer.alert(data.msg, {icon: 2});								 
+				}
+		});
+    }		
+</script>

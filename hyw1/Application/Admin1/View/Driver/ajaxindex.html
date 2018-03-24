@@ -1,0 +1,80 @@
+
+                    <form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" style="font-size:12px;">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('user_name');">姓名</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('sex');">性别</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('age');">年龄</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('jingyan');">经验</a>
+                                    </td>                                    
+                                    <td class="text-center">
+                                        <a href="">学历</a>
+                                    </td>      
+                                    <td class="text-center">
+                                        <a href="">联系电话</a>
+                                    </td>
+                                    <td class="text-center">省份</td>
+                                    <td class="text-center">城市</td>
+                                    <!-- <td class="text-center">详细地址</td> -->
+                                    <td class="text-center" width="100px">操作</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="diverList" id="list">
+                                    <tr>
+                                        <td class="text-center">{$list.user_name}</td>
+                                        <td class="text-center"><?php if($list['sex'] == 1){echo "男";}else{echo "女";};?></td>
+                                        <td class="text-center">{$list.age}</td>
+                                        <td class="text-center">{$jingyan[$list['jingyan']]}</td>
+                                        <td class="text-center">{$list.xueli}</td>
+                                        <td class="text-center">{$list.mobile}</td>
+                                        <td class="text-center">{$list.province}</td>
+                                        <td class="text-center">{$list.city}</td>
+                                        <!-- <td class="text-center">{$list.address}</td> -->
+                                        <td class="text-center">
+                                          <!-- <a href="{:U('Admin/driver/driver_info',array('user_id'=>$list['user_id']))}" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="查看详情"><i class="fa fa-eye"></i></a>
+                                           --><a href="javascript:void(0);" onclick="del('{$list[user_id]}')" class="btn btn-danger" title="删除"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-sm-6 text-left"></div>
+                        <div class="col-sm-6 text-right">{$page}</div>
+                    </div>
+<script>
+    $(".pagination  a").click(function(){
+        var page = $(this).data('p');
+        ajax_get_table('search-form2',page);
+    });
+
+    // 删除操作
+    function del(id)
+    {
+        if(!confirm('确定要删除吗?'))
+            return false;
+        $.ajax({
+            url:"/index.php?m=Admin&c=driver&a=driver_del&id="+id,
+            success: function(v){
+                var v =  eval('('+v+')');
+                if(v.hasOwnProperty('status') && (v.status == 1))
+                    ajax_get_table('search-form2',cur_page);
+                else
+                    layer.msg(v.msg, {icon: 2,time: 1000}); //alert(v.msg);
+            }
+        });
+        return false;
+    }
+</script>

@@ -1,0 +1,107 @@
+/*
+SQLyog Ultimate v11.11 (64 bit)
+MySQL - 5.1.51-community-log : Database - hyw
+*********************************************************************
+*/
+
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`hyw` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `hyw`;
+
+/*Table structure for table `tp_account_log` */
+
+DROP TABLE IF EXISTS `tp_account_log`;
+
+CREATE TABLE `tp_account_log` (
+  `log_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '日志id',
+  `user_id` mediumint(8) unsigned NOT NULL COMMENT '用户id',
+  `user_money` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '用户金额',
+  `frozen_money` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '冻结金额',
+  `pay_points` mediumint(9) NOT NULL COMMENT '支付积分',
+  `change_time` int(10) unsigned NOT NULL COMMENT '变动时间',
+  `desc` varchar(255) NOT NULL COMMENT '描述',
+  `order_sn` varchar(50) DEFAULT NULL COMMENT '订单编号',
+  `order_id` int(10) DEFAULT NULL COMMENT '订单id',
+  PRIMARY KEY (`log_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=240 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tp_account_log` */
+
+insert  into `tp_account_log`(`log_id`,`user_id`,`user_money`,`frozen_money`,`pay_points`,`change_time`,`desc`,`order_sn`,`order_id`) values (1,5,1100000.00,0.00,0,1242140736,'',NULL,NULL),(2,3,400000.00,0.00,0,1242140752,'',NULL,NULL),(3,2,300000.00,0.00,0,1242140775,'',NULL,NULL),(31,1,-1910.00,0.00,0,1245047978,'',NULL,NULL),(32,1,0.00,0.00,1900,1245048189,'',NULL,NULL),(33,1,0.00,0.00,-1900,1245048212,'',NULL,NULL),(34,1,1910.00,0.00,0,1245048212,'',NULL,NULL),(35,1,-500.00,0.00,0,1245048585,'',NULL,NULL),(36,5,99999999.99,-10000.00,0,1431761035,'',NULL,NULL),(37,5,-267.00,0.00,0,1431761105,'',NULL,NULL),(38,5,0.00,0.00,252,1431761149,'',NULL,NULL),(39,5,-2083.20,0.00,0,1431934148,'',NULL,NULL),(40,5,0.00,0.00,2068,1431934208,'',NULL,NULL),(41,5,-279.20,0.00,0,1435112218,'',NULL,NULL),(42,5,0.00,0.00,-800,1435112218,'',NULL,NULL),(43,5,-779.20,0.00,0,1435112371,'',NULL,NULL),(44,5,0.00,0.00,-800,1435112371,'',NULL,NULL),(45,5,-780.00,0.00,0,1435112502,'',NULL,NULL),(46,5,0.00,0.00,-720,1435112502,'',NULL,NULL),(47,5,0.00,0.00,772,1435112584,'',NULL,NULL),(48,5,-1264.20,0.00,0,1435808076,'',NULL,NULL),(49,5,10.00,0.00,0,1442840816,'',NULL,NULL),(50,5,90.00,0.
+
+
+/*Table structure for table `tp_argument_cat` */
+
+DROP TABLE IF EXISTS `tp_argument_cat`;
+
+CREATE TABLE `tp_argument_cat` (
+  `brand_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '品牌id',
+  `cat_name` varcher(50)  NOT NULL DEFAULT NULL COMMENT '品牌名称',
+  `sort` mediumint(8)  NOT NULL unsigned DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`brand_id`),
+  KEY `cat_name` (`cat_name`)
+) ENGINE=MyISAM AUTO_INCREMENT=240 DEFAULT CHARSET=utf8;
+
+cerate table tp_argument_cat(
+ brand_id  mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '品牌id',
+ cat_name varchar(30) unsinged not null default '' comment '品牌名称',
+ sort mediumint(8) unsinged not null default '' comment '排序',
+ PRIMARY KEY (`brand_id`),
+ KEY `cat_name` (`cat_name`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='参数类别表';
+
+/*Data for the table `tp_argument_cat` */
+
+
+
+/*Table structure for table `tp_argument` */
+
+DROP TABLE IF EXISTS `tp_argument`;
+
+CREATE TABLE `tp_argument` (
+
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `brand_id` mediumint(8) unsigned NOT NULL COMMENT '品牌id',
+  `title` varcher(50)  NOT NULL DEFAULT '' COMMENT '标题',
+  `img` varcher(300)  NOT NULL DEFAULT '' COMMENT '图片',
+  `content` text  NOT NULL DEFAULT '' COMMENT '参数系数',
+  `sort` mediumint(8)  NOT NULL unsigned DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`),
+  KEY `brand_id` (`brand_id`),
+  KEY `title` (`title`),
+) ENGINE=MyISAM AUTO_INCREMENT=240 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tp_argument` */
+
+-- 运动记录表
+create table cmf_sport(
+  sport_id bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT "id",
+  user_id mediumint(8) unsigned not null default '0' comment "用户id",
+  start_time int(11) not null default '0' comment "运动开始时间",
+  end_time int(11) not null default '0' comment "运动结束时间",
+  sport_time int(11) not null default '0' comment "运动时长",
+  speed int(11) not null default '0' comment "速度（km/h）",
+  km int(11) not null default '0' comment "运动距离",
+  calorie int(8)  not null default '0' comment "卡路里",
+  start_earth_time int(8)  not null default '0' comment "触地时间",
+  mean_stride_frequency int(8)  not null default '0' comment "平均步频",
+  step_sum int(8)  not null default '0' comment "步数",
+  date datetime not null default '2000-01-01 00:00:00' comment "日期",
+  PRIMARY KEY (`sport_id`),
+  KEY `sport_time` (`sport_time`),
+  KEY `user_id` (`user_id`),
+  KEY `calorie` (`calorie`),
+  KEY `km` (`km`),
+  KEY `step_sum` (`step_sum`),
+  KEY `date` (`date`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='运动记录表';

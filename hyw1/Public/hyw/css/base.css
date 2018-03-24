@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+/* 全局公共样式的设定 */
+*{margin:0; padding:0;}
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd{margin:0;padding:0;border:0;}
+body{background:#fff;color:#444;font:14px Arial,'微软雅黑';}
+li{list-style-type:none;}
+h1,h2,h3,h4,h5,h6 {font-size:14px; font-weight:normal;}
+input,button,textarea,select{font:100% Arial,'微软雅黑';}
+
+/* 默认全局样式超链接样式 */
+a:link {color: #444; text-decoration:none;}/* 链接基本样式 */
+a:visited {color: #444;text-decoration:none;}/* 链接点击过后的样式 */
+a:hover {color: #ea4e09; text-decoration:underline;}/* 链接移上时的样式 */
+a:active {color: #444; text-decoration:underline;}/* 链接点击时的样式 */
+
+/* 其它常用样式的定义 */
+.clear{clear:both; }
+.noBorder{border:none;	}

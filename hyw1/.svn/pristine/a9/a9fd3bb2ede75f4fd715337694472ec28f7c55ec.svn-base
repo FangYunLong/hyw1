@@ -1,0 +1,71 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+  <include file="Public/breadcrumb"/>
+    <section class="content">
+    <!-- Main content -->
+    <div class="container-fluid">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-list"></i> 订单价格修改</h3>
+            </div>
+            <div class="panel-body">
+                <form action="{:U('Admin/Order/editprice',array('order_id'=>$order['order_id']))}" method="post" id="edit_price">
+                    <table class="table table-bordered">
+                    <tbody>
+
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2">租金：</td>
+                                <td colspan="3">
+                                    <input type="text" value="{$order.mprice}" name="mprice" onkeyup="this.value=this.value.replace(/[^-?\d.]/g,'')" onpaste="this.value=this.value.replace(/[^-?\d.]/g,'')" class="input-sm">
+                                    
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2">押金：</td>
+                                <td colspan="3">
+                                    <input type="text" value="{$order.yajin}" name="yajin" onkeyup="this.value=this.value.replace(/[^-?\d.]/g,'')" onpaste="this.value=this.value.replace(/[^-?\d.]/g,'')" class="input-sm">
+                                    
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2"></td>
+                                <td colspan="3">
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                    <button onclick='ajaxEditPrices()' class="btn btn-primary" type="button">保存</button>
+                                    <button class="btn btn-default" type="button" onclick="javascript:history.go(-1)">返回</button>
+                                </td>
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+                </form>
+            </div>
+        </div>
+    </div>   
+   </section>
+</div>
+</body>
+<script>
+function ajaxEditPrices(){
+    $.ajax({
+        type : "POST",
+        url:"{:U('Admin/Order/editprices',array('order_id'=>$order['order_id']))}",
+        data : $('#edit_price').serialize(),// 你的formid
+        success: function(data){
+            alert('保存成功！');
+        }
+    });    
+}
+
+
+</script>
+</html>

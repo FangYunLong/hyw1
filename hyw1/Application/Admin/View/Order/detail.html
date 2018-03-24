@@ -1,0 +1,562 @@
+<include file="Public/min-header"/>
+<link rel="stylesheet" href="__PUBLIC__/Reboxlightbox/css/jquery-rebox.css">
+<script src="__PUBLIC__/Reboxlightbox/js/jquery.min.js"></script>
+<script src="__PUBLIC__/Reboxlightbox/js/jquery-rebox.js"></script>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <nav class="navbar navbar-default">
+                        <div class="collapse navbar-collapse">
+                            <div class="navbar-form pull-right margin">
+								<a class="btn btn-default" type="button" onclick="window.location.reload();">刷新</a>
+                                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!--新订单列表 基本信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">基本信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class='text-center'>订单 ID</td>
+                                    <td class='text-center'>订单号</td>
+                                    <td class='text-center'>会员昵称</td>
+                                    <td class='text-center'>收车人手机</td>
+                                    <td class='text-center'>订单状态</td>
+                                    <td class='text-center'>下单时间</td>
+                                </tr>
+                                <tr>
+                                    <td class='text-center'>{$order.order_id}</td>
+                                    <td class='text-center'>{$order.order_sn}</td>
+                                    <td class='text-center'>{$Users.nickname|default='无'}</td>
+                                    <td class='text-center'>{$order.mobile}</td>
+                                    <td id="order-status"  class='text-center'>
+                                        {$order_status[$order[order_status]]}
+                                    </td>
+                                    <td class='text-center'>{$order.add_time}</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--新订单列表 收货人信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">收车信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tbody><tr>
+                                    <td class='text-center'>收车人</td>
+                                    <td class='text-center'>联系方式</td>
+                                    <td class='text-center'>收车地址</td>
+                                    <!-- <td class='text-center'>发票抬头</td> -->
+                                    <td class='text-center'>叉车数量</td>
+                                    <!-- <td>邮编:</td> -->
+                                    <!-- <td>配送方式:</td> -->
+
+                                </tr>
+                                <tr>
+                                    <td class='text-center'>{$order.use_user}</td>
+                                    <td class='text-center'>{$order.mobile}</td>
+                                    <td class='text-center'>{$order.address}</td>
+                                    <!-- <td class='text-center'>{$order.invoice_title|default='无'}</td> -->
+                                    <td class='text-center'>{$order.number|default='无'}辆</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--新订单列表 商品信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">租车需求 </h3>
+                        </div>
+                        <div class="panel-body" >
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr style="">
+                                    <td class='text-center'>租期</td>
+                                    <td class='text-center'>年使用小时</td>
+                                    <td class='text-center'>品牌</td>
+                                    <td class='text-center'>车类型</td>
+                                    <td class='text-center'>吨位</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='text-center' style="color:red" >{$order.tenancy}个月</td>
+                                    <td class='text-center' style="color:red" >{$order.yhours}小时</td>
+                                    <td class='text-center'>{$Goods.pinpai}</td>
+                                    <td class='text-center'>{$Goods.cart_type}</td>
+                                    <td class='text-center'>{$Goods.dunwei}吨</td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                    <td class='text-center'>备份电池</td>
+                                    <td class='text-center'>属具</td>
+                                    <td class='text-center'>普通/冷库/防爆</td>
+                                    <td class='text-center'>门架类型</td>
+                                    <td class='text-center'>门架提升高度</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='text-center'>{$Goods.bydc}组</td>
+                                    <td class='text-center'>{$Goods.shuju|default='无'}</td>
+                                    <td class='text-center'>{$is_yt[$Goods[is_yt]]}</td>
+                                    <td class='text-center'>{$Goods.menjia}</td>
+                                    <td class='text-center'>{$Goods.mj_height}mm</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <!--新订单列表 费用信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">费用信息
+                                <a class="btn btn-primary btn-xs" data-original-title="修改费用" title="" data-toggle="tooltip" href="{:U('Admin/Order/editprice',array('order_id'=>$order['order_id']))}">
+                                    <i class="fa fa-pencil"></i>
+                                </a></h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class="text-right" style='text-align:center' width="200px">租金</td>
+                                    <td class="text-right" style='text-align:center' width="200px">押金</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style='text-align:center'>{$order.mprice}元</td>
+                                    <td class="text-right" style='text-align:center'>{$order.yajin}元</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <!--新订单列表 操作记录信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">车主信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">车主名称</td>
+                                    <td class="text-center">联系方式</td>
+                                    <td class="text-center">叉车数量</td>
+                                    <td class="text-center">抢单时间</td>
+                                    <td class="text-center">匹配</td>
+                                    <td class="text-center">推荐</td>
+                                    <td class="text-center">操作</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach item='OrderInfo' name='OrderInfo'>
+                                    <tr>
+                                        <td class='text-center'>{$OrderInfo['nickname']}</td>
+                                        <td class='text-center'>
+                                            {$OrderInfo['mobile']}</td>
+                                        <td class='text-center'>{$OrderInfo['paly_num']}</td>
+                                        <td class='text-center'> {$OrderInfo['add_time']|date='Y-m-d H:i:s',###}</td>
+                                        <td class='text-center'><img onclick="matching({$OrderInfo.id},{$OrderInfo.order_id},$(this))" style="cursor:pointer" src="<if condition='$OrderInfo.status gt 3'>/Public/images/yes.png<else/>/Public/images/cancel.png</if>" alt=""></td>
+                                        <td class='text-center'><img class='recom' onclick="pairing({$OrderInfo.id},{$OrderInfo.order_id},$(this))" style="cursor:pointer" src="<if condition='$OrderInfo.recom_status eq 1'>/Public/images/yes.png<else/>/Public/images/cancel.png</if>" alt=""></td>
+                                        <td class='text-center'>
+                                            <a name='lookinfo' href="javescript:void(0)" onclick="carinfo({$OrderInfo['id']},{$OrderInfo['order_id']},{$OrderInfo['status']})">查看</a>&nbsp;
+                                            <a href="{:U('Order/carinfoEdit',array('id'=>$OrderInfo['id']))}">编辑</a>&nbsp;
+<!--                                             <if condition="$OrderInfo['status'] eq 1">
+                                                <a name="del" href="javescript:void(0)" onclick='matching({$OrderInfo.id},{$OrderInfo.order_id})'>匹配</a>
+                                            </if> -->
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .carinfopar{
+                        width:100%;
+                        height:100%;
+                        position:fixed;left:0;top:0;
+                        /*opacity:0.3; filter: alpha(opacity=30);*/
+                        background-color:#000;
+                        background: rgba(0, 0, 0, 0.5);
+                        display:none;
+                    }
+                    .carinfo{
+                        width:850px;
+                        height:550px;
+                        background-color:#fff;
+                        border:1px sole #000;
+                        position:fixed;left:10%;top:0;
+                        opacity:1; filter: alpha(opacity=100);
+                        padding-left:30px;
+                        padding-right:30px;
+                        padding-top:30px;
+
+                    }
+                    .div123{
+                        width:100%;
+                        height:40px;
+                        size:24px;
+                        line-height:40px;
+                        top:10px;
+                        background-color:#f5f5f5;float:left;
+                    }
+                    .carleft{
+
+                        float:left;
+                        width:48%;
+                        border:1px solid #000;
+                        height:90%;
+                    }
+                    .carright{
+                        margin-left:20px;
+                        width:48%;
+                        height:90%;
+                        float:right;
+                        border:1px solid #000;
+                    }
+                </style>
+                <script>
+                    $('a[name="lookinfo"]').click(function(){
+                        $('.carinfopar').css({display:'block'});
+                    })
+                </script>
+                <div class='carinfopar'>
+                    <div class='carinfo'>
+                        <div class='carleft'>
+                            <table class='table table-bordered'>
+                                <tr>
+                                    <th colspan='3' class='text-center'>
+                                        客户需求
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>品牌</th>
+                                    <th width='30%'>吨位</th>
+                                    <th width='30%'>门架提升高度</th>
+
+                                </tr>
+                                <tr>
+                                    <td>{$Goods.pinpai}</td>
+                                    <td>{$Goods.dunwei}吨</td>
+                                    <td>{$Goods.mj_height}mm</td>
+
+                                </tr>
+                                <tr>
+                                    <th width='30%'>备用电池</th>
+                                    <th width='30%'>属具</th>
+                                    <th width='30%'>冷库/防爆</th>
+
+                                </tr>
+                                <tr>
+                                    <td>{$Goods.bydc}组</td>
+                                    <td>{$Goods.shuju}</td>
+                                    <td>{$is_yt[$Goods[is_yt]]}</td>
+
+                                </tr>
+                                <tr>
+                                    <th width='30%'>租期</th>
+                                    <th>租用数量</th>
+                                    <th width='30%'>年使用小时数</th>
+
+                                </tr>
+                                <tr>
+                                    <td>{$order.tenancy}个月</td>
+                                    <td>{$order.number}</td>
+                                    <td>{$order.yhours}小时</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>车类型</th>
+                                    <td colspan='2'>{$Goods.cart_type}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>门架</th>
+                                    <td colspan='2'>{$Goods.menjia}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>收车人</th>
+                                    <td colspan='2'>{$order.use_user}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>联系电话</th>
+                                    <td colspan='2'>{$order.mobile}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class='carright'>
+                            <table  class='table table-bordered carinfos'>
+                            </table>
+                        </div>
+                        <div class='text-right pipeidan'>
+                            <!-- <a class="btn btn-primary margin" href="javascript:void(0)">匹配该单</a> -->
+                            <a class="btn btn-primary margin" href="javascript:void(0)" onclick='fanhui()'>返回列表</a>
+                        </div>
+                    </div>
+                </div> 
+                <if condition="$order.end_time gt 0">
+                <!--新订单列表 租赁期限-->
+                <!-- <div class="panel panel-default" >
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">租赁期限
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <td class="text-right" style='text-align:center' width="100px">到车时间</td>
+                                <td class="text-right" style='text-align:center' width="100px">到期时间</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" style='text-align:center'>{$order.start_time|date='Y-m-d',###}
+                                <input type="date" onchange="orderTime('{$order.order_id}',1,this)" size="7" value="{$order.start_time|date='Y-m-d',###}" class="input-sm" />
+                                </td>
+                                <td class="text-right" style='text-align:center'>{$order.end_time|date='Y-m-d',###}
+                                <input type="date" onchange="orderTime('{$order.order_id}',2,this)" size="7" value="{$order.end_time|date='Y-m-d',###}" class="input-sm" />
+                                </td>
+                            </tr>
+                            <script>
+                            function orderTime(order_id,type,obj)
+                            {
+                                var time = $(obj).val();
+                                console.log(time);
+                                $.post(
+                                    '{:U("Admin/Order/orderTime")}',
+                                    {order_id:order_id,type:type,time:time},
+                                    function(date){
+                                        if(date == 1){
+                                            layer.msg('操作成功！', {icon: 1},1000);
+                                        }else{
+                                            layer.msg('操作失败！', {icon: 2},1000);
+                                        }                                        
+                                    },
+                                    'json'
+                                );
+                            }
+                            </script>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> -->
+                </if>
+                <script>
+                    function carinfo(id,orderid,status){
+                        
+                        var str;
+                        var status;
+                        if(status!=1){
+                            str = '<a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        }else{
+                            str = '<a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        }
+                        $('.pipeidan').html('');
+                        $('.pipeidan').append(str);
+                        $.ajax({
+                            type : "POST",
+                            url:"{:U('Order/carinfo')}",
+                            data : "id="+id,
+                            success: function(data){
+                                $(".carinfos").html('');
+                                $(".carinfos").append(data);
+                            }
+                        });
+                    }
+                </script>
+                <!--新订单列表 操作信息-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">操作管理</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <td colspan="3" class='text-center' align='center'>
+                                    <a class="btn btn-primary margin" href="{:U('Admin/Order/index')}">返回列表</a>
+                                    <if condition='$order.order_status eq 3 or $order.order_status eq 0'>
+                                        <a class="btn btn-primary margin pipeiyes" href="javascript:void(0)" onclick="match_order({$order.order_id})">匹配完成</a>
+                                    </if>
+                                    <if condition='$order.order_status eq 4'>
+                                        <a class="btn btn-primary yajinPay " href="javascript:void(0)" onclick="yajinPay({$order.order_id})">押金确认收款</a>
+                                    </if>
+                                    <if condition='$order.order_status eq 5'>
+                                        <a class="btn btn-primary mpricePay " href="javascript:void(0)" onclick="mpricePay({$order.order_id})">租金确认收款</a>
+									</if>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+
+<script>
+window.loaction.reload();
+    function fanhui(){
+        $('.carinfopar').css({'display':'none'});
+    }
+
+    function match_order(order_id){
+        $.post(
+                "{:U('Order/matchOrder')}",
+                { order_id: order_id },
+                function(data){
+                    if(data['status']==1){
+                        $('#order-status').text('待支付');
+                        $('.pipeiyes').remove();
+                        layer.msg(data.msg, {icon: 1},1000);
+                    }else{
+                        layer.msg(data.msg, {icon: 2},1000);
+                    }
+                },
+                "json");
+    }
+
+    function matching(carid,orderid,obj)
+    {
+        $.post(
+                "{:U('Order/matching')}",
+                { id: carid, order_id: orderid },
+                function(data){
+                    if(data.status==1){
+                        var str;
+                        str = '<label style="color:red">该单已匹配成功！<label><a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        $('.pipeidan').html('');
+                        $('.pipeidan').append(str);
+                        $('a[name="del"]').remove();
+                        $('.carinfopar').css({'display':'none'});
+                        layer.msg(data.msg, {icon: 1},2000);
+                        if(data.o_status == 4){
+                    		obj.attr({'src':'/Public/images/yes.png'});
+                        }else{
+                            obj.attr({'src':'/Public/images/cancel.png'});
+                    		obj.parents().next().children('img').attr({'src':'/Public/images/cancel.png'});
+                        }
+                    }else{
+                        layer.msg(data.msg, {icon: 2},2000);
+                    }
+
+                },
+                "json");
+    }
+
+    function pairing(carid,orderid,obj)
+    {
+        $.post(
+                "{:U('Order/pairing')}",
+                { id: carid, order_id: orderid },
+                function(data){
+                    if(data.status==1){
+                        $('.recom').attr({'src':'/Public/images/cancel.png'});
+                        if(data.pairing == 1){
+                            obj.attr({'src':'/Public/images/yes.png'});
+                        }else{
+                            obj.attr({'src':'/Public/images/cancel.png'});
+                        }
+                        layer.msg(data.msg, {icon: 1},2000);
+                    }else{
+                        layer.msg(data.msg, {icon: 2},2000);
+                    }
+
+                },
+                "json");
+    }
+
+    function yajinPay(order_id){
+        $.post(
+                "{:U('Order/yajinPay')}",
+                { order_id: order_id },
+                function(data){
+                    if(data['status']==1){
+                    	$('.yajinPay').remove();
+                        layer.msg(data.msg, {icon: 1},1000);
+                    }else{
+                        layer.msg(data.msg, {icon: 2},1000);
+                    }
+                },
+                "json");
+    }
+
+    function mpricePay(order_id){
+        $.post(
+                "{:U('Order/mpricePay')}",
+                { order_id: order_id },
+                function(data){
+                    if(data['status']==1){
+                        layer.msg(data.msg, {icon: 1},1000);
+                        window.location.reload();
+                    }else{
+                        layer.msg(data.msg, {icon: 2},1000);
+                    }
+                },
+                "json");
+    }
+
+    function pay_cancel(obj){
+        var url =  $(obj).attr('data-url')+'/'+Math.random();
+        layer.open({
+            type: 2,
+            title: '退款操作',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['45%', '50%'],
+            content: url,
+        });
+    }
+    //取消付款
+    function pay_callback(s){
+        if(s==1){
+            layer.msg('操作成功', {icon: 1});
+            layer.closeAll('iframe');
+            location.href =	location.href;
+        }else{
+            layer.msg('操作失败', {icon: 3});
+            layer.closeAll('iframe');
+            location.href =	location.href;
+        }
+    }
+
+    // 弹出退换货商品
+    function selectGoods2(order_id){
+        var url = "/index.php?m=Admin&c=Order&a=get_order_goods&order_id="+order_id;
+        layer.open({
+            type: 2,
+            title: '选择商品',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['60%', '60%'],
+            content: url,
+        });
+    }
+    // 申请退换货
+    function call_back(order_id,goods_id)
+    {
+        var url = "/index.php?m=Admin&c=Order&a=add_return_goods&order_id="+order_id+"&goods_id="+goods_id;
+        location.href = url;
+    }
+</script>
+</html>

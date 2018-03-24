@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/jquery.spinner.css" rel="stylesheet" type="text/css" />
+
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script type="text/javascript" src="zuli/js/jquery-1.7.2.min.js"></script>
+</head>
+
+
+<body>
+<!-- <div class="noguj">
+    <div class="readTips">    
+      <div class="reading" >请阅读《好运旺租叉车交易细则》</div>      
+      <div class="carsure2">确定</div>
+      <div class="clear"></div>
+    </div>
+  </div> -->
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="#">首页</a>  >支付中心</div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+<!--   <div class="neiBanner"><img src="/Public/hyw/images/neibn6.jpg" width="1198" height="296" /></div>-->
+    <div class="neiBanner"><a target='_block' href="{$ad.ad_link}"><img src="{$ad.ad_code}" width="1198" height="296" /></a></div>
+    <!-- <div class="zhifu1">请输入:</div> -->
+</div>
+<div class="neiCent2">
+<!--   <div class="zhifdiz">
+   <div class="diztit">收车人信息</div>
+   <div class="shouche">
+    <div class="shouc1">广州市天河区建中路XX街xx路XX号</div>
+    <div class="shouc2"><a href="#">编辑</a></div>
+    <div class="clear"></div>
+   </div>
+  </div> -->
+   <div class="payment">
+    <div class="paymtit">支付方式</div>
+     <div class="payCent">
+     <div class="payynh">
+       <div class="payynh">
+         <div class="payytit">线上支付</div>
+         <div class="payfsh">
+          <div class="yinhk"> 
+       <input class="magic-radio2" type="radio" name="check_id" id="r1" value="1" checked>
+       <label for="r1" class="zhiwenz"> <img src="/Public/hyw/images/pic263.jpg" width="147" height="37" /></label>  
+     </div>
+         </div>
+         <div class="clear"></div>
+       </div>
+       <div class="payynh">
+         <div class="payytit">线下支付</div>
+         <div class="payfsh">
+          <div class="yinhk"> 
+       <input class="magic-radio2" type="radio" name="check_id" id="r3" value="2">
+       <label for="r3" class="zhiwenz"> <img src="/Public/hyw/images/pic26.gif" width="147" height="37" /></label>  
+     </div>         
+         </div>
+         <div class="clear"></div>
+       </div>       
+     </div>     
+   </div>
+  <div class="payment" style='width:1118px;'>
+   <form action="" method="get">
+     <div class="jiesuan">订单结算</div>
+    <div class="heji1" style='width:1118px;'>
+      <div class="hejw">{$data.msg}</div>
+      <div class="hejw2">¥{$data.money}</div>
+       <div class="clear"></div>
+       <input type="hidden" class='order_type' value="{$data.type}"/>
+       <input type="hidden" class='order_id' value="{$data.order_id}"/>
+       <input type="hidden" class='goods_id' value="{$data.goods_id}"/>
+    </div>
+    <div class="jiesun1" style='width:1118px;'>应付总额：<span>¥ {$data.money}</span></div>
+     <div class="jiesun2" style='width:1118px;'><input name="提交" type="button"  class="quzhif" value="确认付款">
+    </div>
+   </form>
+  </div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束-------------->
+
+</body>
+<script>
+    $('.quzhif').click(function(){
+      var check_id = $('input[name="check_id"]:radio:checked').val();
+      var type     = $('.order_type').val();
+      var order_id = $('.order_id').val();
+      var goods_id = $('.goods_id').val();
+      if(check_id == 2){
+        type = 0;
+      }
+
+      switch(type){
+        case '1':
+          var url = '/index.php/Home/Pay/yongyiPay/order_id/'+order_id;
+        break;
+        case '2':
+          var url = '/index.php/Home/Pay/specialPay/goods_id/'+goods_id;
+        break;
+        case '3':
+          var url = '/index.php/Home/Pay/rentPay/order_id/'+order_id;
+        break;
+        default:
+          var url = '/index.php/Home/Pay/offline';
+      }
+
+      window.location.href=url;
+           
+    });
+
+
+    $('.magic-checkbox2').change(function(){
+      var val = $('.magic-checkbox2').attr('checked');
+      if(val==undefined){
+        $('.jcpgBtn2').attr("disabled",true);
+        $('.jcpgBtn2').css({background:'#ccc'});
+      }else{
+        $('.jcpgBtn2').attr("disabled",false);
+        $('.jcpgBtn2').css({background:'#039cf4'});
+      }
+    })  
+    
+    $('.jcpgBtn2').click(function(){
+      var val = $('.magic-checkbox2').attr('checked');
+      if(val==undefined){
+        return false;
+      }else{
+        window.location.href="{:U('Pay/specialPay',array('goods_id'=>$goodsInfo['goods_id']))}";
+      }
+    })
+</script>
+</html>

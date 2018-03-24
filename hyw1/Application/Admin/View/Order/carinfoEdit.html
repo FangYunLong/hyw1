@@ -1,0 +1,103 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+  <include file="Public/breadcrumb"/>
+    <section class="content">
+    <!-- Main content -->
+    <div class="container-fluid">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-list"></i> 车主信息修改</h3>
+            </div>
+            <div class="panel-body">
+                <form action="{:U('Admin/Order/carinfoEditAction')}" method="post" id="edit_price">
+                    <table class="table table-bordered">
+                    <tbody>
+
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2">车龄：</td>
+                                <td colspan="3">
+                                    <input type="text" value="{$order.cart_age}" name="cart_age" class="input-sm">
+                                    
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2">货期：</td>
+                                <td colspan="3">
+                                    <input type="text" value="{$order.huoqi}" name="huoqi"  class="input-sm">
+                                    
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2">可出租数量：</td>
+                                <td colspan="3">
+                                    <input type="text" value="{$order.paly_num}" name="paly_num" class="input-sm">
+                                    
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2">已用小时数：</td>
+                                <td colspan="3">
+                                    <input type="text" value="{$order.use_hours}" name="use_hours"  class="input-sm">
+                                    
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2">电池使用时间：</td>
+                                <td colspan="3">
+                                    <input type="text" value="{$order.dcsj}" name="dcsj"  class="input-sm">
+                                    
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2">最低裸租价：</td>
+                                <td colspan="3">
+                                    <input type="text" value="{$order.zdlzj}"  onKeyUp="amount_verify(this)" name="zdlzj"  class="input-sm">
+                                    
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <td class="text-right col-sm-2">差异性描述：</td>
+                                <td colspan="3">
+                                    <textarea name="description" id="" cols="60" rows="6">{$order.description}</textarea>
+                                </td>
+                            </div>
+                        </tr>
+                        <input type="hidden" name='order_id' value='{$order.order_id}'>
+                        <input type="hidden" name='id' value='{$order.id}'>
+                        <tr> 
+                            <div class="row">
+                                <td class="text-right col-sm-2"></td>
+                                <td colspan="3">
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                    <button onclick='ajaxEditPrices()' class="btn btn-primary" type="submit">保存</button>
+                                    <button class="btn btn-default" type="button" onclick="javascript:history.go(-1)">返回</button>
+                                </td>
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+                </form>
+            </div>
+        </div>
+    </div>   
+   </section>
+</div>
+</body>
+</html>

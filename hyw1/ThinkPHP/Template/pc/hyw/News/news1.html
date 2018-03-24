@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="__PUBLIC__/css/base.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/pptBox.js"></script>
+
+</head>
+
+
+<body>
+<div class="top">
+    <!--------头部开始-------------->
+    <include file="Public/header" />
+    <!--------头部结束-------------->
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="#">首页</a>  ><a href="#">资讯中心</a></div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+    <div class="neiBanner"><a href="{$ad.ad_link}"><img src="{$ad.ad_code}" width="1198" height="296" /></a></div>
+ <!--   <div class="neiBanner"><img src="__PUBLIC__/images/neibn8.jpg" width="1198" height="296" /></div>-->
+    <div class="neiNav">
+    <ul class="navlist">
+     <!-- <li><a href="{:U('News/news')}" >市场动态</a></li> -->
+     <li><a href="{:U('News/news1')}" class="current">租赁问答</a></li>
+    </ul>
+   </div>
+</div>
+
+<div class="neiCent2">
+  <div class="wenLeft">
+    <foreach item='Article' name='Article'>
+     <div class="wendt">
+       <div class="wedak">
+        <div class="went">
+         <div class="went2">q:</div>
+         <div class="went3">{$Article.ask}</div>
+         <div class="clear"></div>
+        </div>
+       <div class="went">
+         <div class="went2">r:</div>
+         <div class="went4">{$Article.answer}</div>
+         <div class="clear"></div>
+        </div>
+       </div>
+     </div>
+    </foreach>
+   <div class="wtpage">
+    <a href="{:U('News/news1',array('page'=>$page['page']-1))}" class="page1">上一页</a> 
+    <foreach item='pageRows' name='pageRows'>
+    <a href="{:U('News/news1',array('page'=>$pageRows))}" style="<if condition='$page.page eq $pageRows'>background:#039cf4;color:#fff</if>">{$pageRows}</a>
+    </foreach> 
+    <a href="{:U('News/news1',array('page'=>$page['page']+1))}" class="page2">下一页</a>
+    <span>共{$page.pages}页　 　当前第{$page.page}页 </span> 
+  </div>
+  </div>
+  <div class="wenright">
+    <div class="wenlian">联系方式</div>
+    <div class="wenlia">
+      <p class="tongy2">全国统一热线： </p>
+      <p class="tongy3">400 1648 168</p>
+      <p class="tongy2">固话</p>
+      <p class="tongy3">0769-23102690</p>
+    </div>
+    <div class="guangw">广告位</div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!------底部开始------------>
+<include file="Public/footer" />
+<!------底部结束------------>
+</body>
+</html>

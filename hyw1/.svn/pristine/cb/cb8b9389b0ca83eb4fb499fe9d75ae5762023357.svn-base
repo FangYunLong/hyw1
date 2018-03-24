@@ -1,0 +1,650 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>管理后台系统</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.4 -->
+    <link href="/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- FontAwesome 4.3.0 -->
+ 	<link href="/Public/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons 2.0.0 --
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/Public/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+    	folder instead of downloading all of them to reduce the load. -->
+    <link href="/Public/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <!-- iCheck -->
+    <link href="/Public/plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />   
+    <!-- jQuery 2.1.4 -->
+    <script src="/Public/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="/Public/js/global.js"></script>
+    <script src="/Public/js/myFormValidate.js"></script>    
+    <script src="/Public/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/Public/js/layer/layer-min.js"></script><!-- 弹窗js 参考文档 http://layer.layui.com/-->
+    <script src="/Public/js/myAjax.js"></script>
+    <script type="text/javascript">
+    function delfunc(obj){
+    	layer.confirm('确认删除？', {
+    		  btn: ['确定','取消'] //按钮
+    		}, function(){
+   				$.ajax({
+   					type : 'post',
+   					url : $(obj).attr('data-url'),
+   					data : {act:'del',del_id:$(obj).attr('data-id')},
+   					dataType : 'json',
+   					success : function(data){
+   						if(data==1){
+   							layer.msg('操作成功', {icon: 1});
+   							$(obj).parent().parent().remove();
+   						}else{
+   							layer.msg(data, {icon: 2,time: 2000});
+   						}
+   						layer.closeAll();
+   					}
+   				})
+    		}, function(index){
+    			layer.close(index);
+    			return false;// 取消
+    		}
+    	);
+    }
+    
+    //全选
+    function selectAll(name,obj){
+    	$('input[name*='+name+']').prop('checked', $(obj).checked);
+    }   
+    
+    function get_help(obj){
+        layer.open({
+            type: 2,
+            title: '帮助手册',
+            shadeClose: true,
+            shade: 0.3,
+            area: ['90%', '90%'],
+            content: $(obj).attr('data-url'), 
+        });
+    }
+    
+    function delAll(obj,name){
+    	var a = [];
+    	$('input[name*='+name+']').each(function(i,o){
+    		if($(o).is(':checked')){
+    			a.push($(o).val());
+    		}
+    	})
+    	if(a.length == 0){
+    		layer.alert('请选择删除项', {icon: 2});
+    		return;
+    	}
+    	layer.confirm('确认删除？', {btn: ['确定','取消'] }, function(){
+    			$.ajax({
+    				type : 'get',
+    				url : $(obj).attr('data-url'),
+    				data : {act:'del',del_id:a},
+    				dataType : 'json',
+    				success : function(data){
+    					if(data == 1){
+    						layer.msg('操作成功', {icon: 1});
+    						$('input[name*='+name+']').each(function(i,o){
+    							if($(o).is(':checked')){
+    								$(o).parent().parent().remove();
+    							}
+    						})
+    					}else{
+    						layer.msg(data, {icon: 2,time: 2000});
+    					}
+    					layer.closeAll();
+    				}
+    			})
+    		}, function(index){
+    			layer.close(index);
+    			return false;// 取消
+    		}
+    	);	
+    }
+    </script>        
+  </head>
+  <body style="background-color:#ecf0f5;">
+ 
+
+<div class="wrapper">
+    <div class="breadcrumbs" id="breadcrumbs">
+	<ol class="breadcrumb">
+	<?php if(is_array($navigate_admin)): foreach($navigate_admin as $k=>$v): if($k == '后台首页'): ?><li><a href="<?php echo ($v); ?>"><i class="fa fa-home"></i>&nbsp;&nbsp;<?php echo ($k); ?></a></li>
+	    <?php else: ?>    
+	        <li><a href="<?php echo ($v); ?>"></a></li><?php endif; endforeach; endif; ?>          
+	</ol>
+</div>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <nav class="navbar navbar-default">
+                        <div class="collapse navbar-collapse">
+                            <div class="navbar-form pull-right margin">
+                                <!--<div><label>订单查看</label></div>-->
+
+                                <!-- <?php if($order['order_status'] < 2): ?><a href="<?php echo U('Admin/order/edit_order',array('order_id'=>$order['order_id']));?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑">修改订单</a><?php endif; ?>
+                                <?php if(($split == 1) and ($order['order_status'] < 2)): ?><a href="<?php echo U('Admin/order/split_order',array('order_id'=>$order['order_id']));?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑">拆分订单</a><?php endif; ?>
+                                <a href="<?php echo U('Order/order_print',array('order_id'=>$order['order_id']));?>" target="_blank" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="打印订单">
+                                   <i class="fa fa-print"></i>打印订单
+                                </a> -->
+                                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!--新订单列表 基本信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">基本信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class='text-center'>订单 ID</td>
+                                    <td class='text-center'>订单号</td>
+                                    <td class='text-center'>会员昵称</td>
+                                    <!-- <td>E-Mail:</td> -->
+                                    <td class='text-center'>收车人手机</td>
+                                    <!-- <td>应付</td> -->
+                                    <td class='text-center'>订单状态</td>
+                                    <td class='text-center'>下单时间</td>
+                                    <!--<td class='text-center'>支付时间</td>-->
+                                    <!-- <td class='text-center'>支付方式</td> -->
+                                </tr>
+                                <tr>
+                                    <td class='text-center'><?php echo ($order["order_id"]); ?></td>
+                                    <td class='text-center'><?php echo ($order["order_sn"]); ?></td>
+                                    <td class='text-center'><?php echo ((isset($Users["nickname"]) && ($Users["nickname"] !== ""))?($Users["nickname"]):'无'); ?></td>
+                                    <!-- <td><a href="#"><?php echo ($order["email"]); ?></a></td> -->
+                                    <td class='text-center'><?php echo ($order["mobile"]); ?></td>
+                                    <!-- <td><?php echo ($order["order_amount"]); ?></td> -->
+                                    <td id="order-status"  class='text-center'>
+                                        <?php echo ($order_status[$order[order_status]]); ?>
+                                    </td>
+                                    <td class='text-center'><?php echo ($order["add_time"]); ?></td>
+                                    <!--<td class='text-center'><?php if($order["pay_time"] != 0): echo (date('Y-m-d H:i',$order["pay_time"])); ?>
+                                     <?php else: ?>
+                                        N<?php endif; ?>-->
+                                    </td>
+                                    <!-- <td id="pay-type"  class='text-center'>
+                                        <?php echo ((isset($order["pay_name"]) && ($order["pay_name"] !== ""))?($order["pay_name"]):'其他方式'); ?>
+                                    </td> -->
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--新订单列表 收货人信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">收车信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tbody><tr>
+                                    <td class='text-center'>收车人</td>
+                                    <td class='text-center'>联系方式</td>
+                                    <td class='text-center'>收车地址</td>
+                                    <td class='text-center'>发票抬头</td>
+                                    <td class='text-center'>叉车数量</td>
+                                    <!-- <td>邮编:</td> -->
+                                    <!-- <td>配送方式:</td> -->
+
+                                </tr>
+                                <tr>
+                                    <td class='text-center'><?php echo ($order["use_user"]); ?></td>
+                                    <td class='text-center'><?php echo ($order["mobile"]); ?></td>
+                                    <td class='text-center'><?php echo ($order["address"]); ?></td>
+                                    <td class='text-center'><?php echo ((isset($order["invoice_title"]) && ($order["invoice_title"] !== ""))?($order["invoice_title"]):'无'); ?></td>
+                                    <td class='text-center'><?php echo ((isset($order["number"]) && ($order["number"] !== ""))?($order["number"]):'无'); ?>辆</td>
+                                    <!--                         <td>
+                                                                <?php if($order["zipcode"] != ''): echo ($order["zipcode"]); ?>
+                                                                    <?php else: ?>
+                                                                    N<?php endif; ?>
+                                                            </td> -->
+                                    <!--                         <td>
+                                                                <?php echo ($order["shipping_name"]); ?>
+                                                                <?php if($order[shipping_status] == 1): ?><a href="<?php echo U('Admin/Order/shipping_print',array('order_id'=>$order['order_id'],'code'=>$order['shipping_code']));?>" target="_blank" class="btn btn-primary input-sm" onclick="">打印快递单</a><?php endif; ?>
+                                                            </td> -->
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--新订单列表 商品信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">租车需求 </h3>
+                        </div>
+                        <div class="panel-body" >
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr style="">
+                                    <td class='text-center'>租期</td>
+                                    <td class='text-center'>年使用小时</td>
+                                    <td class='text-center'>品牌</td>
+                                    <td class='text-center'>车类型</td>
+                                    <td class='text-center'>吨位</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='text-center' style="color:red" ><?php echo ($order["tenancy"]); ?>个月</td>
+                                    <td class='text-center' style="color:red" ><?php echo ($order["yhours"]); ?>小时</td>
+                                    <td class='text-center'><?php echo ($Goods["pinpai"]); ?></td>
+                                    <td class='text-center'><?php echo ($Goods["cart_type"]); ?></td>
+                                    <td class='text-center'><?php echo ($Goods["dunwei"]); ?>吨</td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                    <td class='text-center'>备份电池</td>
+                                    <td class='text-center'>属具</td>
+                                    <td class='text-center'>冷库/防爆</td>
+                                    <td class='text-center'>门架类型</td>
+                                    <td class='text-center'>门架提升高度</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='text-center'><?php echo ($Goods["bydc"]); ?>组</td>
+                                    <td class='text-center'><?php echo ($Goods["shuju"]); ?></td>
+                                    <td class='text-center'><?php echo ($is_yt[$Goods[is_yt]]); ?></td>
+                                    <td class='text-center'><?php echo ($Goods["menjia"]); ?></td>
+                                    <td class='text-center'><?php echo ($Goods["mj_height"]); ?>mm</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <!--新订单列表 费用信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">费用信息
+                                <a class="btn btn-primary btn-xs" data-original-title="修改费用" title="" data-toggle="tooltip" href="<?php echo U('Admin/Order/editprice',array('order_id'=>$order['order_id']));?>">
+                                    <i class="fa fa-pencil"></i>
+                                </a></h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class="text-right" style='text-align:center' width="200px">租金</td>
+                                    <!-- <td class="text-right">运费:</td> -->
+                                    <!-- <td class="text-right">积分 (-<?php echo ($order["integral"]); ?>):</td> -->
+                                    <!-- <td class="text-right">余额抵扣</td>
+                                    <td class="text-right">优惠券抵扣</td>
+                                    <td class="text-right">价格调整:</td> -->
+                                    <td class="text-right" style='text-align:center' width="200px">押金</td>
+                                    <td class="text-right" style='text-align:center'>单位（发票抬头）</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style='text-align:center'><?php echo ($order["mprice"]); ?>元</td>
+                                    <!--                         <td class="text-right">+<?php echo ($order["shipping_price"]); ?></td>
+                                                            <td class="text-right">-<?php echo ($order["integral_money"]); ?></td>
+                                                            <td class="text-right">-<?php echo ($order["user_money"]); ?></td>
+                                                            <td class="text-right">-<?php echo ($order["coupon_price"]); ?></td>
+                                                            <td class="text-right">减:<?php echo ($order["discount"]); ?></td> -->
+                                    <td class="text-right" style='text-align:center'><?php echo ($order["yajin"]); ?>元</td>
+                                    <td class="text-right" style='text-align:center'><?php echo ($order["invoice_title"]); ?></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+
+                    <!--新订单列表 操作记录信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">车主信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">车主名称</td>
+                                    <td class="text-center">联系方式</td>
+                                    <td class="text-center">叉车数量</td>
+                                    <td class="text-center">抢单时间</td>
+                                    <td class="text-center">操作</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php if(is_array($OrderInfo)): foreach($OrderInfo as $key=>$OrderInfo): ?><tr>
+                                        <td class='text-center'><?php echo ($OrderInfo['nickname']); ?></td>
+                                        <td class='text-center'>
+                                            <?php echo ($OrderInfo['mobile']); ?></td>
+                                        <td class='text-center'><?php echo ($OrderInfo['paly_num']); ?></td>
+                                        <td class='text-center'> <?php echo (date('Y-m-d H:i:s',$OrderInfo['add_time'])); ?></td>
+                                        <td class='text-center'>
+                                            <a name='lookinfo' href="javescript:void(0)" onclick="carinfo(<?php echo ($OrderInfo['id']); ?>,<?php echo ($OrderInfo['order_id']); ?>,<?php echo ($OrderInfo['status']); ?>)">查看详情</a>
+                                            <?php if($OrderInfo['status'] == 1): ?><a name="del" href="javescript:void(0)" onclick='matching(<?php echo ($OrderInfo["id"]); ?>,<?php echo ($OrderInfo["order_id"]); ?>)'>匹配该单</a><?php endif; ?>
+                                        </td>
+                                    </tr><?php endforeach; endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .carinfopar{
+                        width:100%;
+                        height:100%;
+                        position:fixed;left:0;top:0;
+                        /*opacity:0.3; filter: alpha(opacity=30);*/
+                        background-color:#000;
+                        background: rgba(0, 0, 0, 0.5);
+                        display:none;
+                    }
+                    .carinfo{
+                        width:850px;
+                        height:550px;
+                        background-color:#fff;
+                        border:1px sole #000;
+                        position:fixed;left:10%;top:0;
+                        opacity:1; filter: alpha(opacity=100);
+                        padding-left:30px;
+                        padding-right:30px;
+                        padding-top:30px;
+
+                    }
+                    .div123{
+                        width:100%;
+                        height:40px;
+                        size:24px;
+                        line-height:40px;
+                        top:10px;
+                        background-color:#f5f5f5;float:left;
+                    }
+                    .carleft{
+
+                        float:left;
+                        width:48%;
+                        border:1px solid #000;
+                        height:90%;
+                    }
+                    .carright{
+                        margin-left:20px;
+                        width:48%;
+                        height:90%;
+                        float:right;
+                        border:1px solid #000;
+                    }
+                </style>
+                <script>
+                    $('a[name="lookinfo"]').click(function(){
+                        $('.carinfopar').css({display:'block'});
+                    })
+                </script>
+                <div class='carinfopar'>
+                    <div class='carinfo'>
+                        <div class='carleft'>
+                            <table class='table table-bordered'>
+                                <tr>
+                                    <th colspan='3' class='text-center'>
+                                        客户需求
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>品牌</th>
+                                    <th width='30%'>吨位</th>
+                                    <th width='30%'>门架提升高度</th>
+
+                                </tr>
+                                <tr>
+                                    <td><?php echo ($Goods["pinpai"]); ?></td>
+                                    <td><?php echo ($Goods["dunwei"]); ?>吨</td>
+                                    <td><?php echo ($Goods["mj_height"]); ?>mm</td>
+
+                                </tr>
+                                <tr>
+                                    <th width='30%'>备用电池</th>
+                                    <th width='30%'>属具</th>
+                                    <th width='30%'>冷库/防爆</th>
+
+                                </tr>
+                                <tr>
+                                    <td><?php echo ($Goods["bydc"]); ?>组</td>
+                                    <td><?php echo ($Goods["shuju"]); ?></td>
+                                    <td><?php echo ($is_yt[$Goods[is_yt]]); ?></td>
+
+                                </tr>
+                                <tr>
+                                    <th width='30%'>租期</th>
+                                    <th>租用数量</th>
+                                    <th width='30%'>年使用小时数</th>
+
+                                </tr>
+                                <tr>
+                                    <td><?php echo ($order["tenancy"]); ?>个月</td>
+                                    <td><?php echo ($order["number"]); ?></td>
+                                    <td><?php echo ($order["yhours"]); ?>小时</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>车类型</th>
+                                    <td colspan='2'><?php echo ($Goods["cart_type"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>门架</th>
+                                    <td colspan='2'><?php echo ($Goods["menjia"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>收车人</th>
+                                    <td colspan='2'><?php echo ($order["use_user"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>联系电话</th>
+                                    <td colspan='2'><?php echo ($order["mobile"]); ?></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class='carright'>
+                            <table  class='table table-bordered carinfos'>
+                                <!-- <tr>
+                                    <th colspan='2' class='text-center'>
+                                        车主信息
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>车龄</th>
+                                    <td><?php echo ($OrderInfo["cart_age"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>已用小时数</th>
+                                    <td><?php echo ($OrderInfo["use_hours"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>货期</th>
+                                    <td><?php echo ($OrderInfo["huoqi"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>电池使用时间</th>
+                                    <td><?php echo ($OrderInfo["dcsj"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>可出租数量</th>
+                                    <td><?php echo ($OrderInfo["paly_num"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>最低裸租价</th>
+                                    <td><?php echo ($OrderInfo["cart_age"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>差异性描述</th>
+                                    <td><?php echo ($OrderInfo["description"]); ?></td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>图片</th>
+                                    <td><img src="<?php echo ($OrderInfo["zm_pic"]); ?>" alt=""></td>
+                                </tr>  -->
+                            </table>
+                        </div>
+                        <div class='text-right pipeidan'>
+                            <a class="btn btn-primary margin" href="javascript:void(0)">匹配该单</a>
+                            <a class="btn btn-primary margin" href="javascript:void(0)" onclick='fanhui()'>返回列表</a>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function carinfo(id,orderid,status){
+                        // $.post(
+                        // "<?php echo U('Order/carinfo');?>",
+                        // { id: id },
+                        // function(data){
+                        //     alert(111);
+                        //     console.log(111)
+                        //     console.dir(data);
+                        //     $(".carinfos").html('');
+                        //     $(".carinfos").append(data);
+                        // },
+                        //  "json");
+                        var str;
+                        var status;
+                        if(status!=1){
+                            str = '<label style="color:red">该单已匹配成功！<label><a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        }else{
+                            str = '<a onclick="matching('+id+','+orderid+')" class="btn btn-primary margin" href="javascript:void(0)">匹配该单</a><a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        }
+                        $('.pipeidan').html('');
+                        $('.pipeidan').append(str);
+                        $.ajax({
+                            type : "POST",
+                            url:"<?php echo U('Order/carinfo');?>",
+                            data : "id="+id,
+                            success: function(data){
+                                $(".carinfos").html('');
+                                $(".carinfos").append(data);
+                            }
+                        });
+                    }
+                </script>
+                <!--新订单列表 操作信息-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">操作管理</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <!-- <tr>
+                                <div class="row">
+                                    <td class="text-right col-sm-2"><p class="margin">操作备注：</p></td>
+                                    <td colspan="3">
+                                        <form id="order-action">
+                                            <textarea name="note" placeholder="请输入操作备注" rows="3" class="form-control"></textarea>
+                                        </form>
+                                    </td>
+                                </div>
+                            </tr> -->
+                            <tr>
+                                <td colspan="3" class='text-center' align='center'>
+                                    <?php if($order["order_status"] == 3): ?><a class="btn btn-primary margin" href="javascript:void(0)" onclick="match_order(<?php echo ($order["order_id"]); ?>)">匹配完成</a><?php endif; ?>
+                                    <a class="btn btn-primary margin" href="javascript:history.go(-1)">返回列表</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+<script>
+
+    function fanhui(){
+        $('.carinfopar').css({'display':'none'});
+    }
+
+    function match_order(order_id){
+        $.post(
+                "<?php echo U('Order/matchOrder');?>",
+                { order_id: order_id },
+                function(data){
+                    alert(data['msg']);
+                    if(data['status']==1){
+                        $('#order-status').text('待支付');
+                    }
+                },
+                "json");
+    }
+
+    function matching(carid,orderid)
+    {
+        $.post(
+                "<?php echo U('Order/matching');?>",
+                { id: carid, order_id: orderid },
+                function(data){
+                    if(data==1){
+                        var str;
+                        str = '<label style="color:red">该单已匹配成功！<label><a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        $('.pipeidan').html('');
+                        $('.pipeidan').append(str);
+                        $('a[name="del"]').remove();
+                        $('.carinfopar').css({'display':'none'});
+                        alert('匹配成功！');
+                    }else{
+                        alert('匹配失败！');
+                    }
+
+                },
+                "json");
+    }
+
+    function pay_cancel(obj){
+        var url =  $(obj).attr('data-url')+'/'+Math.random();
+        layer.open({
+            type: 2,
+            title: '退款操作',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['45%', '50%'],
+            content: url,
+        });
+    }
+    //取消付款
+    function pay_callback(s){
+        if(s==1){
+            layer.msg('操作成功', {icon: 1});
+            layer.closeAll('iframe');
+            location.href =	location.href;
+        }else{
+            layer.msg('操作失败', {icon: 3});
+            layer.closeAll('iframe');
+            location.href =	location.href;
+        }
+    }
+
+    // 弹出退换货商品
+    function selectGoods2(order_id){
+        var url = "/index.php?m=Admin&c=Order&a=get_order_goods&order_id="+order_id;
+        layer.open({
+            type: 2,
+            title: '选择商品',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['60%', '60%'],
+            content: url,
+        });
+    }
+    // 申请退换货
+    function call_back(order_id,goods_id)
+    {
+        var url = "/index.php?m=Admin&c=Order&a=add_return_goods&order_id="+order_id+"&goods_id="+goods_id;
+        location.href = url;
+    }
+</script>
+</html>

@@ -1,0 +1,389 @@
+[ 2017-05-19T09:13:38+08:00 ] 127.0.0.1 /index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000683s ]
+INFO: [ app_begin ] --START--
+
+[ 2017-05-19T09:13:38+08:00 ] 127.0.0.1 /index.php/home/js/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000959s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002939s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014124s ]
+ERR: 无法加载控制器:Js
+
+[ 2017-05-19T09:13:39+08:00 ] 127.0.0.1 /index.php/home/js/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000623s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002829s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013320s ]
+ERR: 无法加载控制器:Js
+
+[ 2017-05-19T09:13:41+08:00 ] 127.0.0.1 /index.php/Home/Index/ajaxGoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000643s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003034s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.016376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.019585s ]
+NOTIC: [8] Undefined index: pinpai F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 64 行.
+NOTIC: [8] Undefined index: cart_type F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: dunwei F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 78 行.
+NOTIC: [8] Undefined index: mj_height F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: menjia F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 88 行.
+NOTIC: [8] Undefined index: bydc F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 93 行.
+NOTIC: [8] Undefined index: shuju F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: rows F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+NOTIC: [2] Division by zero F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.006693s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.006782s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000122s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.038093s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038183s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003237s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003059s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006599s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003004s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003075s ]
+
+[ 2017-05-19T09:13:47+08:00 ] 127.0.0.1 /index.php/Home/Login/regist.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000716s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003240s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.014736s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.018147s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.009625s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.009723s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000187s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000263s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.067425s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.067512s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002819s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003438s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006346s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002950s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003020s ]
+
+[ 2017-05-19T09:13:47+08:00 ] 127.0.0.1 /index.php/Home/Login/js/jquery-1.7.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002977s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008708s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011840s ]
+ERR: 非法操作:js
+
+[ 2017-05-19T09:13:51+08:00 ] 127.0.0.1 /index.php/Home/Login/client.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000663s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002950s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012443s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007254s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007356s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000139s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000221s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051189s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051273s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003126s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003269s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006497s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003776s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003849s ]
+
+[ 2017-05-19T09:13:51+08:00 ] 127.0.0.1 /index.php/Home/Login/js/jquery-1.7.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002855s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008935s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011936s ]
+ERR: 非法操作:js
+
+[ 2017-05-19T09:28:55+08:00 ] 127.0.0.1 /index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000599s ]
+INFO: [ app_begin ] --START--
+
+[ 2017-05-19T09:28:55+08:00 ] 127.0.0.1 /index.php/Home/Index/ajaxGoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000654s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002799s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.012656s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015589s ]
+NOTIC: [8] Undefined index: pinpai F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 64 行.
+NOTIC: [8] Undefined index: cart_type F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: dunwei F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 78 行.
+NOTIC: [8] Undefined index: mj_height F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: menjia F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 88 行.
+NOTIC: [8] Undefined index: bydc F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 93 行.
+NOTIC: [8] Undefined index: shuju F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: rows F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+NOTIC: [2] Division by zero F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008354s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008448s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000045s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000117s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024069s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024163s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004700s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003267s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008077s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002763s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002814s ]
+
+[ 2017-05-19T09:42:19+08:00 ] 127.0.0.1 /index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000612s ]
+INFO: [ app_begin ] --START--
+
+[ 2017-05-19T09:42:20+08:00 ] 127.0.0.1 /index.php/Home/Index/ajaxGoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000685s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004068s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009064s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013303s ]
+NOTIC: [8] Undefined index: pinpai F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 64 行.
+NOTIC: [8] Undefined index: cart_type F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: dunwei F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 78 行.
+NOTIC: [8] Undefined index: mj_height F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: menjia F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 88 行.
+NOTIC: [8] Undefined index: bydc F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 93 行.
+NOTIC: [8] Undefined index: shuju F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: rows F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+NOTIC: [2] Division by zero F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007304s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007437s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000132s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027960s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028046s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003381s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.002984s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006527s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003315s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003470s ]
+
+[ 2017-05-19T09:47:25+08:00 ] 127.0.0.1 /index.php/Home/Login/user_register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000716s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003498s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012118s ]
+
+[ 2017-05-19T09:47:25+08:00 ] 127.0.0.1 /index.php/Home/Login/js/jquery-1.7.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004424s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002882s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.012538s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015585s ]
+ERR: 非法操作:js
+
+[ 2017-05-19T10:02:39+08:00 ] 127.0.0.1 /index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000617s ]
+INFO: [ app_begin ] --START--
+
+[ 2017-05-19T10:02:40+08:00 ] 127.0.0.1 /index.php/Home/Index/ajaxGoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000622s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003418s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008789s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012352s ]
+NOTIC: [8] Undefined index: pinpai F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 64 行.
+NOTIC: [8] Undefined index: cart_type F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: dunwei F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 78 行.
+NOTIC: [8] Undefined index: mj_height F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: menjia F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 88 行.
+NOTIC: [8] Undefined index: bydc F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 93 行.
+NOTIC: [8] Undefined index: shuju F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: rows F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+NOTIC: [2] Division by zero F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007020s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007193s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000109s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021039s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021115s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002838s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.002950s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005872s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003641s ]
+
+[ 2017-05-19T10:20:28+08:00 ] 127.0.0.1 /index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000600s ]
+INFO: [ app_begin ] --START--
+
+[ 2017-05-19T10:20:29+08:00 ] 127.0.0.1 /index.php/Home/Index/ajaxGoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000991s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005838s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010212s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016213s ]
+NOTIC: [8] Undefined index: pinpai F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 64 行.
+NOTIC: [8] Undefined index: cart_type F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: dunwei F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 78 行.
+NOTIC: [8] Undefined index: mj_height F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: menjia F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 88 行.
+NOTIC: [8] Undefined index: bydc F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 93 行.
+NOTIC: [8] Undefined index: shuju F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: rows F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+NOTIC: [2] Division by zero F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008680s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008788s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000135s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027422s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027517s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002899s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.002794s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005782s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002999s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003080s ]
+
+[ 2017-05-19T13:37:53+08:00 ] 127.0.0.1 /index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000694s ]
+INFO: [ app_begin ] --START--
+
+[ 2017-05-19T13:37:55+08:00 ] 127.0.0.1 /index.php/Home/Index/ajaxGoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000608s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002920s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009835s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012886s ]
+NOTIC: [8] Undefined index: pinpai F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 64 行.
+NOTIC: [8] Undefined index: cart_type F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: dunwei F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 78 行.
+NOTIC: [8] Undefined index: mj_height F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: menjia F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 88 行.
+NOTIC: [8] Undefined index: bydc F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 93 行.
+NOTIC: [8] Undefined index: shuju F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: rows F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+NOTIC: [2] Division by zero F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007692s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007796s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000126s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.110068s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.110162s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.005899s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003551s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011480s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004206s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004287s ]
+
+[ 2017-05-19T13:38:01+08:00 ] 127.0.0.1 /index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000788s ]
+INFO: [ app_begin ] --START--
+
+[ 2017-05-19T13:38:02+08:00 ] 127.0.0.1 /index.php/Home/Index/ajaxGoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001861s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002980s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.013132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016274s ]
+NOTIC: [8] Undefined index: pinpai F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 64 行.
+NOTIC: [8] Undefined index: cart_type F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 69 行.
+NOTIC: [8] Undefined index: dunwei F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 78 行.
+NOTIC: [8] Undefined index: mj_height F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: menjia F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 88 行.
+NOTIC: [8] Undefined index: bydc F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 93 行.
+NOTIC: [8] Undefined index: shuju F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 98 行.
+NOTIC: [8] Undefined variable: rows F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+NOTIC: [2] Division by zero F:\Project\haoyunwang\Application\Home\Controller\IndexController.class.php 第 114 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.010161s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.010255s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000058s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000126s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027287s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027466s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003156s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003428s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006689s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003913s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003987s ]
+

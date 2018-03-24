@@ -1,0 +1,91 @@
+
+                    <form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" style="font-size:12px;">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_id');">姓名</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_id');">手机号</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_id');">银行卡号</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_sn');">提现金额</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_sn');">手续费</a>
+                                    </td>                                       <td class="text-center">
+                                        <a href="javascript:sort('order_sn');">实际应付</a>
+                                    </td>                                 
+                                    <td class="text-center">
+                                        <a href="javascript:sort('use_user');">提现时间</a>
+                                    </td>
+                                    <td class="text-center">状态</td>
+                                    <td class="text-center">操作</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="List" id="list">
+                                    <tr>
+                                        <td class="text-center">{$list.name}</td>
+                                        <td class="text-center">{$list.mobile}</td>
+                                        <td class="text-center">{$list.bank_account}</td>
+                                        <td class="text-center">{$list.amount}</td>
+                                        <td class="text-center">2.00</td>
+                                        <td class="text-center"><?= sprintf('%.2f',$list['amount'] - 2);?></td>
+                                        <td class="text-center">{$list.add_time|date='Y-m-d H:i:s',###}</td>
+                                        <td class="text-center" name='abc{$list.id}'>{$money_status[$list[status]]}</td>
+                                        <td class="text-center" name='adc{$list.id}'>
+                                            <if condition="$list.status eq 1">
+                                            <a onclick="action({$list.id},1)" href="javascript:void(0)" class='btn btn-primary'>已处理</a>&nbsp;&nbsp;                        
+                                            <a onclick="action({$list.id},2)" href="javascript:void(0)" class='btn btn-primary'>审核不通过</a>                        
+                                            <else/>
+                                            -
+                                            </if>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-sm-6 text-left"></div>
+                        <div class="col-sm-6 text-right">{$page}</div>
+                    </div>
+<script>
+    $(".pagination  a").click(function(){
+        var page = $(this).data('p');
+        ajax_get_table('search-form2',page);
+    });
+
+    function action(id,type)
+    {
+        var str;
+        if(type==1){
+            str = '已处理';
+        }else{
+            str = '审核不通过';
+        }
+        $.post(
+            '{:U("Distribut/actionExtract")}',
+            {id:id,type:type},
+            function(data){
+                if(data==1){
+                    alert('操作成功！');
+                    $('td[name="adc'+id+'"]').html('');
+                    $('td[name="adc'+id+'"]').append('-');
+                    $('td[name="abc'+id+'"]').html('');
+                    $('td[name="abc'+id+'"]').append(str);                    
+                }else{
+                    alert('操作失败！');
+                }
+            },
+            'json'
+        )
+    }
+</script>

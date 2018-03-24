@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<script type="text/javascript" src="/Public/hyw/js/pptBox.js"></script>
+
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+ <div class="now">
+    <input type="hidden" class='pinpai' value='{$pinpai}'/>
+    <div class="now1">您当前的位置：<a href="#">首页</a>  >  <a href="{:U('Goods/carData')}">叉车参数</a></div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+   <div class="neiBanner"><img src="/Public/hyw/images/neibn2.jpg" width="1198" height="296" /></div>
+   <div class="neiNav">
+   <script> 
+  <!-- 
+  /*tab切换脚本*/ 
+  function setTab(name,cursel,n){ 
+  /*参数意义:name为标签id标识,即不带数字的,cursel为标签数字,n为一共有几个标签*/
+    for(i=1;i<=n;i++){ 
+      var menu=document.getElementById(name+i); /*循环取得所有标签*/
+      var con=document.getElementById("tab_"+name+"_"+i); /*循环取得所有的内容块*/
+      menu.className=i==cursel?"current":""; /*判断自身的数字是否等于current*/
+      con.style.display=i==cursel?"block":"none"; /*如果是则显示出当前标签所应的内容块,否则隐藏*/
+    } 
+  } 
+  //--> 
+  </script>
+    <ul class="canlist">
+     <li><a href="{:U('Goods/carData',array('pinpai'=>1))}" <if condition="$pinpai_where eq 1">class="current"</if>>三菱力至优 </a></li>
+     <li><a href="{:U('Goods/carData',array('pinpai'=>2))}" <if condition="$pinpai_where eq 2">class="current"</if>>丰 田</a></li>
+     <li><a href="{:U('Goods/carData',array('pinpai'=>3))}" <if condition="$pinpai_where eq 3">class="current"</if>>林 德</a></li>
+     <li><a href="{:U('Goods/carData',array('pinpai'=>4))}" <if condition="$pinpai_where eq 4">class="current"</if>>合 力</a></li>
+     <li><a href="{:U('Goods/carData',array('pinpai'=>5))}" <if condition="$pinpai_where eq 5">class="current"</if>>杭 叉</a></li>
+     <li><a href="{:U('Goods/carData',array('pinpai'=>'other'))}" <if condition="$pinpai eq 'other'">class="current"</if>>其 他</a></li>
+    </ul>
+   </div>
+</div>
+<div class="neiCent2">
+<div class="canshu"> 
+
+</div>
+
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束-------------->
+</body>
+<script>
+ajaxgoods($('.pinpai').val());
+$('.xumu a').click(function(){
+    var wheres = $(this).attr('value');
+    $(this).siblings().attr({'class':''});
+    $(this).attr({'class':'current'});
+    var parents = $(this).parent().attr('value');
+    $('input[name="'+parents+'"]').val(wheres);
+    $('input[name="page"]').val('1');
+    ajaxgoods();
+});
+
+function ajaxgoods(pinpai)
+{
+    $.ajax({ 
+        type:'post',
+        url: "{:U('Goods/ajaxGoods')}", 
+        data: {content_type:1,pinpai:pinpai}, 
+        success: function(data){
+          $('.canshu').html('');
+          $('.canshu').append(data);
+        }
+    });
+} 
+// $('.page1,.page2').click(function(){
+//   alert(1111);
+//     $('input[name="page"]').val($(this).val());
+//     ajaxgoods();
+// })  
+function pageclick(value)
+{
+    $('input[name="page"]').val(value);
+    ajaxgoods();  
+}
+</script>
+</html>

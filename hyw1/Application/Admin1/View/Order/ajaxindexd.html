@@ -1,0 +1,87 @@
+
+                    <form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" style="font-size:12px;">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_id');">订单id</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_sn');">订单编号</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('use_user');">收货人</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('mobile');">手机号</a>
+                                    </td>                                    
+                                    <td class="text-center">
+                                        <a href="">吨位</a>
+                                    </td>      
+                                    <td class="text-center">
+                                        <a href="">位置</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_status');">订单状态</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('add_time');">下单时间</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('add_time');">操作</a>
+                                    </td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="orderList" id="list">
+                                    <tr>
+                                        <td class="text-center">{$list.temp_id}</td>
+                                        <td class="text-center">{$list.temp_sn}</td>
+                                        <td class="text-center">{$list.username}</td>
+                                        <td class="text-center">{$list.mobile}</td>
+                                        <td class="text-center">{$list.dunwei}吨</td>
+                                        <td class="text-center">{$list.address}</td>
+                                        <td class="text-center">{$temp_status[$list[status]-1]}</td>
+                                        <td class="text-center">{$list.add_time}</td>
+                                        <td class="text-right">
+                                            <!-- <a  target="_blank" href="{:U('Home/Goods/goodsInfo',array('id'=>$list['goods_id']))}" class="btn btn-info" title="查看详情"><i class="fa fa-eye"></i></a>-->
+                                            <a href="{:U('Admin/order/temporary_info',array('order_id'=>$list['temp_id']))}" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="查看详情"><i class="fa fa-eye"></i></a>
+                                            <a href="javascript:void(0);" onclick="del('{$list[temp_id]}')" class="btn btn-danger" title="删除"><i class="fa fa-trash-o"></i></a>
+                                            <!--<a href="javascript:void(0);" onclick="ClearGoodsHtml('{$list[goods_id]}')" class="btn btn-default" title="清除静态缓存页面"><i class="fa fa-fw fa-refresh"></i></a>
+                                            <a href="javascript:void(0);" onclick="ClearGoodsThumb('{$list[goods_id]}')" class="btn btn-default" title="清除缩略图缓存"><i class="glyphicon glyphicon-picture"></i></a>-->
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-sm-6 text-left"></div>
+                        <div class="col-sm-6 text-right">{$page}</div>
+                    </div>
+<script>
+    $(".pagination  a").click(function(){
+        var page = $(this).data('p');
+        ajax_get_table('search-form2',page);
+    });
+
+    // 删除操作
+    function del(id)
+    {
+        if(!confirm('确定要删除吗?'))
+            return false;
+        $.ajax({
+            url:"/index.php?m=Admin&c=Order&a=del_temporary&id="+id,
+            success: function(v){
+                var v =  eval('('+v+')');
+                if(v.hasOwnProperty('status') && (v.status == 1))
+                    ajax_get_table('search-form2',cur_page);
+                else
+                    layer.msg(v.msg, {icon: 2,time: 1000}); //alert(v.msg);
+            }
+        });
+        return false;
+    }
+</script>

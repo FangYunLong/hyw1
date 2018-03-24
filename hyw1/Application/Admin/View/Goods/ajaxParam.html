@@ -1,0 +1,82 @@
+﻿<form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <td style="width: 1px;" class="text-right">
+                    <a href="javascript:sort('goods_id');">ID</a>
+                </td>
+                <td style="width: 130px;" class="text-left">
+                    <a href="javascript:sort('goods_name');">品牌</a>
+                </td>
+                <td style="width: 80px;" class="text-left">
+                    <a href="javascript:sort('pinpai');">车类型</a>
+                </td>                                
+                <td style="width: 170px;" class="text-left">
+                    <a href="javascript:sort('cart_type');">叉车图片</a>
+                </td>
+                <td style="width: 100px;" class="text-center">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="goodsList" id="list">
+                <tr>
+                    <td class="text-center">{$list.goods_id}</td>
+                    <td class="text-center">{$list.pinpai}</td>
+                    <td class="text-center">{$list.cart_type}</td>
+                    <td class="text-center" width='60'>
+                        <img src="{$list.zm_pic}" width='50' height='30' alt="">
+                    </td>
+                    <td class="text-center">
+                       
+                        <a href="{:U('Admin/Goods/addEditParam',array('id'=>$list['goods_id']))}" class="btn btn-primary" title="编辑"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:void(0);" onclick="del('{$list[goods_id]}')" class="btn btn-danger" title="删除"><i class="fa fa-trash-o"></i></a>
+                    </td>                        
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</form>
+<div class="row">
+    <div class="col-sm-3 text-left"></div>
+    <div class="col-sm-9 text-right">{$page}</div>
+</div>
+<script>
+    // 点击分页触发的事件
+    $(".pagination  a").click(function(){
+        cur_page = $(this).data('p');
+        ajax_get_table('search-form2',cur_page);
+    });
+	
+    /*
+     * 清除静态页面缓存
+     */
+    function ClearGoodsHtml(goods_id)
+    {
+    	$.ajax({
+				type:'GET',
+				url:"{:U('Admin/System/ClearGoodsHtml')}",
+				data:{goods_id:goods_id},
+				dataType:'json',
+				success:function(data){
+					layer.alert(data.msg, {icon: 2});								 
+				}
+		});
+    }
+    /*
+     * 清除商品缩列图缓存
+     */
+    function ClearGoodsThumb(goods_id)
+    {
+    	$.ajax({
+				type:'GET',
+				url:"{:U('Admin/System/ClearGoodsThumb')}",
+				data:{goods_id:goods_id},
+				dataType:'json',
+				success:function(data){
+					layer.alert(data.msg, {icon: 2});								 
+				}
+		});
+    }		
+</script>

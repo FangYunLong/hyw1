@@ -1,0 +1,99 @@
+
+                    <form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+<!--                                     <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"></td> -->
+                                    <td class="text-center">
+                                    </td>
+                                    <td class="text-center">
+                                        公司名称
+                                    </td>
+                                    <td class="text-center">
+                                        联系人
+                                    </td>
+                                    <td class="text-center">
+                                        联系方式
+                                    </td>
+                                    <td class="text-center">
+                                        email地址
+                                    </td>
+                                    <td class="text-center">
+                                        审核状态
+                                    </td> 
+                                    <td class="text-center">操作</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="Join" id="list" key='key'>
+                                    <tr>
+                                        <!-- <td class="text-center">
+                                            <input type="checkbox" name="selected[]" value="{$list['user_id']}">
+                                            <input type="hidden" name="shipping_code[]" value="flat.flat">
+                                        </td> -->
+                                        <td class="text-right"></td>
+                                        <td class="text-center">{$list.company}</td>
+                                        <td class="text-center">{$list.username}</td>
+                                        <td class="text-center">{$list.mobile}
+                                        </td>
+                                        <td class="text-center">{$list.email}</td>
+                                        <td class="text-center"><img onclick="setJoinStatus({$list.join_id},$(this))" style="cursor:pointer" src="<if condition='$list.join_status eq 1'>/Public/images/yes.png<else/>/Public/images/cancel.png</if>" alt=""></td>
+                                        <td class="text-center">
+                                            <a href="{:U('Admin/Shareholder/joinInfo',array('join_id'=>$list['join_id']))}" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="查看详情"><i class="fa fa-eye"></i></a>
+                                            <a href="javascript:void(0)" id="button-delete6" onclick='delJoin({$list.join_id},this)' data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-sm-3 text-left"></div>
+                        <div class="col-sm-9 text-right">{$page}</div>
+                    </div>
+<script>
+
+$(".pagination  a").click(function(){
+    var page = $(this).data('p');
+    ajax_get_table('search-form2',page);
+});
+
+function setJoinStatus(join_id,obj)
+{
+    $.post(
+        '{:U("Shareholder/setJoinStatus")}',
+        {join_id:join_id},
+        function(data){
+            if(data['status']==1){
+                if(data['join_status'] == 1){
+                    console.log(obj);
+                    obj.attr({'src':'/Public/images/yes.png'});
+                }else{
+                    obj.attr({'src':'/Public/images/cancel.png'});
+                }
+            }else{
+
+            }
+        },
+        'json'
+    );
+}
+
+function delJoin(join_id,obj)
+{
+    $.post(
+        '{:U("Shareholder/delJoin")}',
+        {join_id:join_id},
+        function(data){
+            if(data['status']==1){
+                $(obj).parents('tr').remove();
+            }else{
+                alert(data['msg']);
+            }
+        },
+        'json'
+    );
+}    
+</script>

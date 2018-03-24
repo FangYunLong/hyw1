@@ -1,0 +1,20 @@
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>甬易支付</title>
+	</head>
+	<body>
+		<form action="{$url}" method='post'>
+			<input type='hidden' name='interfaceName' value='{$data.interfaceName}'>
+			<input type='hidden' name='version' value='{$data.version}'>
+			<input type='hidden' name='merchantId' value='{$data.merchantId}'>
+			<input type='hidden' name='tranData' value='{$data.tranData}'> 
+			<input type='hidden' name='merSignMsg' value='{$data.merSignMsg}'>
+			<input type="submit" style='display:none' class='submit' value='提交'>
+		</form>		
+	</body>
+	<script>
+	$('.submit').click();
+	</script>
+</html>

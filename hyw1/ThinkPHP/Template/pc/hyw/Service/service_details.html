@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="__PUBLIC__/css/base.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/pptBox.js"></script>
+
+</head>
+
+
+<body>
+<div class="top">
+    <!--------头部开始-------------->
+    <include file="Public/header" />
+    <!--------头部结束-------------->
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="{:U('Index/index')}">首页</a>  ><a href="{:U('Service/service')}">服务网络</a></div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+    <div class="neiBanner"><img src="__PUBLIC__/images/neibn7.jpg" width="1198" height="296" /></div>
+    <div class="neiNav">
+    <ul class="navlist">
+     <li><a href="{:U('Service/service')}" class="current">服务网络</a></li>     
+    </ul>
+   </div>
+</div>
+<div class="neiCent2">
+  <div class="fuwu">
+    <div class="fuwleft">
+      <div class="fuwtit2"><h2>加盟商信息</h2></div>
+      <div class="fuwtit3">{$type}：</div>
+      <foreach item='Join' name='Join'>
+        <div class="fuwfanw">
+         <div class="fuwbit">{$Join.company}</div>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="fuwdi">
+            <tr class="fuwdx">
+              <td class="fulei">地　　址：</td>
+              <td class="fuwen">{$Join.name1}{$Join.name2}{$Join.name3}{$Join.address}</td>
+            </tr>
+            <tr class="fuwdx">
+              <td class="fulei">电　　话：</td>
+              <td class="fuwen">{$Join.mobile}</td>
+            </tr>
+            <tr class="fuwdx">
+              <td class="fulei">传　　真：</td>
+              <td class="fuwen">{$Join.fax}</td>
+            </tr>
+            <tr class="fuwdx">
+              <td class="fulei">邮件地址：</td>
+              <td class="fuwen">{$Join.email}</td>
+            </tr>
+            <tr class="fuwdx">
+              <td class="fulei">联 系 人：</td>
+              <td class="fuwen">{$Join.username}</td>
+            </tr>
+            <tr class="fuwdx">
+              <td class="fulei">网　　址：</td>
+              <td class="fuwen"><a href="#">{$Join.weburl}</a></td>
+            </tr>
+          </table>
+        </div>
+      </foreach>
+      </div>
+    <div class="fuwright">
+      <div class="dianfa">
+       <div class="dianfbt">联系方式</div>
+       <div class="diannei">
+         <div class="dianNub">
+          <p class="nubTi">全国统一热线： </p>
+          <p class="nubTi2">400 1648 168</p>
+         </div>
+         <div class="dianNub">
+          <p class="nubTi">固话： </p>
+          <p class="nubTi2">0769-23102690</p>
+         </div>
+       </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!------底部开始------------>
+<include file="Public/footer" />
+<!------底部结束------------>
+</body>
+</html>

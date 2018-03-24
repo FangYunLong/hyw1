@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/Public/hyw/js/manhuaDate2.1.0.js"></script>
+  
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+<div class="neiCent2">
+  <div class="mayLeft">  
+    <!--------左边导航开始-------------->
+    <include file="Public/userLeft" />
+    <!--------左边导航结束-------------->
+  </div>
+
+  <div class="mayRight">
+    <div class="rigbiaot">我的报表 >  出租情况</div>
+    <div class="mayxiax">
+     <div class="report">
+   <script type="text/javascript">
+$(function (){
+  $("input.mh_date").manhuaDate({                
+    Event : "click",//可选               
+    Left : 0,//弹出时间停靠的左边位置
+    Top : -16,//弹出时间停靠的顶部边位置
+    fuhao : "-",//日期连接符默认为-
+    isTime : false,//是否开启时间值默认为false
+    beginY : 2017,//年份的开始默认为1949
+    endY :2020//年份的结束默认为2049
+  });
+  
+});
+</script>
+       <div class="reportTime">
+         <form action="{:U('Home/User/carInfo')}" method='post'>
+            <div class="shijian">
+              <input name='start_time' value='{$where.start_time}' type="text" class="mh_date start_time" readonly="true" />
+            </div>
+            <div class="jigex">
+              <img src="/Public/hyw/images/lin2.png" width="31" height="35" />
+            </div>
+            <div class="shijian">
+              <input name='end_time' value='{$where.end_time}' type="text" class="mh_date end_time" readonly="true" />
+            </div>&nbsp;
+            <img class='submitse' style="cursor:pointer" src="/Public/hyw/images/sousuo1.png" alt="" />
+            <input type="submit" style='display:none' />
+         </form>
+         <script>
+         $('.submitse').click(function(){
+          $('input[type="submit"]').click();
+         })
+         </script>
+         <div class="clear"></div>
+       </div>
+       <div class="reportqi">
+         <div class="jijang"><a href="{:U('Home/User/carInfo/old_time2/2')}">即将到期</a></div>
+         <div class="jijang2"><a href="{:U('Home/User/carInfo/old_time1/2')}">已到期</a></div>
+       </div>
+       <div class="clear"></div>
+     </div>
+     <div class="baogege">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="bianh">编号</td>
+    <td class="dansj">订单号</td>
+    <td class="chenj">抢单时间</td>
+    <!-- <td class="chexin">品牌吨位车型</td> -->
+    <td class="shul">数量</td>
+    <td class="daoc">到车</td>
+    <td class="daoq">到期</td>
+    <td class="luoz">裸租价</td>
+    <td class="luoz">操作</td>
+  </tr>
+  <foreach item='OrderInfo' name='OrderInfo' key='key'>
+  <tr>
+    <td class="bianh2">{$key+1}</td>
+    <td class="chenj2">{$OrderInfo.order_sn}</td>
+    <td  class="dansj2">{$OrderInfo.add_time|date='Y-m-d',###}</td>
+    <!-- <td class="chexin2">三菱3吨平衡电车</td> -->
+    <td class="shul2">{$OrderInfo.paly_num}</td>
+    <td class="daoc2"><if condition="$OrderInfo[start_time] eq 0">等待发车<else/>{$OrderInfo.start_time|date='Y-m-d',###}</if></td>
+    <td class="daoq2"><if condition="$OrderInfo[end_time] eq 0">等待发车<else/>{$OrderInfo.end_time|date='Y-m-d',###}</if></td>
+    <td class="luoz2">￥{$OrderInfo.zdlzj}/月</td>
+    <td class="cheb2">
+      <a href="{:U('User/carSn',array('order_id'=>$OrderInfo[order_id]))}">车辆状况</a><br>
+      <a href="{:U('User/carRepairLog',array('order_id'=>$OrderInfo[order_id]))}">&nbsp;维修记录</a>
+    <br/>
+  </tr>
+  </foreach>
+</table>
+     </div>
+    <div class="mypage">
+    <a href="{:U('User/carInfo',array('start_time'=>$where['start_time'],'end_time'=>$where['end_time'],'old_time1'=>$where['old_time1'],'old_time2'=>$where['old_time2'],'page'=>$page['page']-1))}" class="page1">上一页</a> 
+    <foreach item='pageRows' name='pageRows'>
+    <a href="{:U('User/carInfo',array('start_time'=>$where['start_time'],'end_time'=>$where['end_time'],'old_time1'=>$where['old_time1'],'old_time2'=>$where['old_time2'],'page'=>$pageRows))}" style="<if condition='$page.page eq $pageRows'>background:#039cf4;color:#fff</if>">{$pageRows}</a>
+    </foreach> 
+    <a href="{:U('User/carInfo',array('start_time'=>$where['start_time'],'end_time'=>$where['end_time'],'old_time1'=>$where['old_time1'],'old_time2'=>$where['old_time2'],'page'=>$page['page']+1))}" class="page2">下一页</a>
+    <span>共{$page.pages}页　 　当前第{$page.page}页 </span> 
+  </div>
+  <div class="report">
+    <div class="bgzj">总计：</div>
+    <div class="bgzj2">
+     <p>出租数量：<strong>{$count.car_count|default='0'}</strong>台  </p>
+     <p>已到期数量：<strong>{$count.overdue_count|default='0'}</strong>台  </p>
+     <p>即将到期：<strong>{$count.will_be_overdue_count|default='0'}</strong>台  </p>
+     <p>累计收益：<strong>{$count.money_count|default='0'}</strong>元  </p>
+     
+    </div>
+  </div>
+    </div>  
+    </div>    
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束--------------> 
+</body>
+<script>
+  $('img[title="删除"]').click(function(){
+    var obj = $(this);
+          // $(this).parents('li').remove();return false;
+    var msg_id = $(this).attr('msg_id');
+    $.post(
+      "{:U('User/delMsg')}",
+      {'msg_id':msg_id},
+      function(data){
+        if(data['status']==1){
+          obj.parents('li').remove();
+          alert(data['msg']);
+        }
+      },
+      'json'
+    )
+    // alert(msg_id);
+  })
+</script>
+</html>

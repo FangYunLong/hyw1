@@ -1,0 +1,24 @@
+
+<ul class="yearSea">
+	<foreach item='goodsList' name='goodsList'>
+	<li>
+		<a href="{:U('Goods/carDataInfo',['goods_id'=>$goodsList['goods_id']])}">
+			<img src="{$goodsList.zm_pic}" width="278" height="259" />
+		</a>
+		<span>
+			<a href="{:U('Goods/carDataInfo',['goods_id'=>$goodsList['goods_id']])}">
+				{$goodsList.pinpai}{$goodsList.cart_type}
+			</a>
+		</span>
+	</li>
+	</foreach>  
+</ul>
+
+<div class="yepage">
+		<a href="javascript:void(0)" onclick="pageclick({$page['page']-1})"  class="page1">上一页</a> 
+      <foreach item='pageRows' name='pageRows'>
+      <a href="javascript:void(0)" onclick="pageclick({$pageRows})" style="<if condition='$page.page eq $pageRows'>background:#039cf4;color:#fff</if>">{$pageRows}</a>
+      </foreach> 
+      <a href="javascript:void(0)" onclick="pageclick({$page['page']+1})" class="page2">下一页</a>
+      <span>共{$page.pages}页　 　当前第{$page.page}页 </span> 
+</div>

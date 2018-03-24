@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+  
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+
+<div class="neiCent2">
+  <div class="mayLeft">  
+    <!--------左边导航开始-------------->
+    <include file="Public/userLeft" />
+    <!--------左边导航结束-------------->
+  </div>
+  <div class="mayRight">
+    <div class="rigbiaot">订单中心 &gt; <a href="{:U('User/carOrder')}">抢单订单</a> &gt; <a href="{:U('User/carTempStatus')}">临时租订单</a> &gt; <a href="{:U('User/carTempStatusList',array('status'=>$status))}"><if condition="$status eq 3">已<else/>未</if>完成订单</a></div>
+    <div class="orderdd">
+      <div class="wancdd">
+       <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td rowspan="2" class="ddbg"><if condition="$status eq 3">已<else/>未</if><br/>完<br/>成<br/>订<br/>单</td>
+    <td>
+    <foreach item='TempList' name='TempList'>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ordList">
+        <tr>
+          <td colspan="4" class="ddbgiti">抢单时间：{$TempList.push_time}</td>
+          </tr>
+        <tr>
+          <!-- <td class="ddtu"><img src="{$TempList.add_time}" width="98" height="89" /></td> -->
+          <td class="ddWeng">吨位：{$TempList.dunwei}吨<br/>
+          用车地点：{$TempList.address}<br/>
+          联系方式：{$TempList.mobile}
+            </td>
+          <td class="ddjge">&nbsp;</td>
+          <td class="ddMore"><a href="{:U('User/carTempInfo',array('temp_id'=>$TempList['temp_id']))}"><img src="/Public/hyw/images/btn6.gif" width="77" height="27" /></a></td>
+          </tr>
+    </table>
+    </foreach>
+  </td> 
+</tr>
+  
+       </table>       
+      </div>
+    </div>
+    <div class="mypage">
+      <a href="{:U('User/carTempStatusList',array('status'=>$status,'page'=>$page['page']-1))}" class="page1">上一页</a> 
+      <foreach item='pageRows' name='pageRows'>
+      <a href="{:U('User/carTempStatusList',array('status'=>$status,'page'=>$pageRows))}" style="<if condition='$page.page eq $pageRows'>background:#039cf4;color:#fff</if>">{$pageRows}</a>
+      </foreach> 
+      <a href="{:U('User/carTempStatusList',array('status'=>$status,'page'=>$page['page']+1))}" class="page2">下一页</a>
+      <span>共{$page.pages}页　 　当前第{$page.page}页 </span> 
+    </div>
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束-------------->
+</body>
+</html>

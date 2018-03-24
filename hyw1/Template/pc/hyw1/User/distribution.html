@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/Public/hyw/js/manhuaDate2.1.0.js"></script>  
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+<div class="neiCent2">
+  <div class="mayLeft">  
+    <!--------左边导航开始-------------->
+    <include file="Public/userLeft" />
+    <!--------左边导航结束-------------->
+  </div>
+
+  <div class="mayRight">
+  <script type="text/javascript">
+$(function (){
+  $("input.mh_date").manhuaDate({                
+    Event : "click",//可选               
+    Left : 0,//弹出时间停靠的左边位置
+    Top : -16,//弹出时间停靠的顶部边位置
+    fuhao : "-",//日期连接符默认为-
+    isTime : false,//是否开启时间值默认为false
+    beginY : 2017,//年份的开始默认为1949
+    endY :2020//年份的结束默认为2049
+  });
+  
+});
+</script>
+    <div class="rigbiaot">订单中心 >我的分销</div>
+    <div class="mayxiax">
+    <div class="dindt2">
+     <div class="reportTime">
+        <form action='' method='post'>
+         <div class="shijian">
+            <input type="text" name='stact_time' class="mh_date" readonly="true" />
+            <!-- <input type="date" name='stact_time' value="{$time.stact_time}" /> -->
+          </div>
+          <div class="jigex"><img src="/Public/hyw/images/lin2.png" width="31" height="35" /></div>
+         <div class="shijian">
+            <!-- <input type="date" name="end_time" value="{$time.end_time}" /> -->
+            <input type="text" name='end_time' class="mh_date" readonly="true"  />
+          </div>&nbsp;
+          <input type="button" class='anniu2' />
+          
+        </form>
+        <script>
+        $('input[name="stact_time"]').change(function(){
+          var date = new Date('2017-5-5'); 
+          alert(date);
+        });
+        </script>
+         <div class="clear"></div>
+       </div>
+      <div class="clear"></div>
+    </div>
+    </div> 
+    <div class="fenxio">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="fenxio2">
+  <tr>
+    <td class="fentou">手机号</td>
+    <td class="fentou2">订单号</td>
+    <td class="fentou3">成交时间</td>
+    <td class="fentou4">成交金额</td>
+    <td class="fentou5">分销奖励</td>
+  </tr>
+  <foreach item='list' name='list'>
+  <tr>
+    <td class="fenbg">{$list.mobile}</td>
+    <td class="fenbg2">{$list.order_sn}</td>
+    <td class="fenbg3">{$list.create_time|date='Y-m-d',###}</td>
+    <td class="fenbg4">{$list.goods_price}</td>
+    <td class="fenbg5">{$list.money}</td>
+  </tr>
+  </foreach>
+</table>
+    </div>
+    <div class="mypage">
+      <a href="{:U('User/distribution',array('page'=>$page['page']-1))}" class="page1">上一页</a> 
+      <foreach item='pageRows' name='pageRows'>
+      <a href="{:U('User/distribution',array('page'=>$pageRows))}" style="<if condition='$page.page eq $pageRows'>background:#039cf4;color:#fff</if>">{$pageRows}</a>
+      </foreach> 
+      <a href="{:U('User/distribution',array('page'=>$page['page']+1))}" class="page2">下一页</a>
+      <span>共{$page.pages|default='0'}页　 　当前第{$page.page|default='0'}页 </span> 
+    </div> 
+  <div class="report2">
+    <h2>可提取奖励：</h2>
+    <span>{$page.money_count|default='0.00'}元</span>
+  </div>
+  <div class="tuqu"><a href="{:U('User/reward')}">提取所有奖励</a> </div>
+  <div class="tizhum">注：提现不论金额多少，统一手续费2元/笔</div>
+  </div>    
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束--------------> 
+</body>
+</html>

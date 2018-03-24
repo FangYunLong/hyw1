@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+  
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+<div class="neiCent2">
+  <div class="mayLeft">  
+    <!--------左边导航开始-------------->
+    <include file="Public/userLeft" />
+    <!--------左边导航结束-------------->
+  </div>
+
+  <div class="mayRight">
+    <div class="rigbiaot">我的特价车</div>
+    <div class="mayxiax">
+      <ul class="telist">
+        <foreach item='goodsList' name='goodsList'>
+         <li><a href="{:U('User/specialInfo',array('goods_id'=>$goodsList['goods_id']))}"><img src="{$goodsList.zm_pic}" width="273" height="228" /></a><span class="tename"><a href="#">{$goodsList.pinpai}{$goodsList.dunwei}吨叉车</a></span><span class="tename2">特价：<strong>￥{$goodsList.special_price}元</strong></span></li>
+        </foreach>
+      </ul>
+      <div class="line2"></div>
+      <div class="mypage">
+    <a href="{:U('User/specialList',array('page'=>$page['page']-1))}" class="page1">上一页</a> 
+    <foreach item='pageRows' name='pageRows'>
+    <a href="{:U('User/specialList',array('page'=>$pageRows))}" style="<if condition='$page.page eq $pageRows'>background:#039cf4;color:#fff</if>">{$pageRows}</a>
+    </foreach> 
+    <a href="{:U('User/specialList',array('page'=>$page['page']+1))}" class="page2">下一页</a>
+    <span>共{$page.pages}页　 　当前第{$page.page}页 </span> 
+  </div>
+    </div>
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束--------------> 
+</body>
+<script>
+  $('img[title="删除"]').click(function(){
+    var obj = $(this);
+          // $(this).parents('li').remove();return false;
+    var msg_id = $(this).attr('msg_id');
+    $.post(
+      "{:U('User/delMsg')}",
+      {'msg_id':msg_id},
+      function(data){
+        if(data['status']==1){
+          obj.parents('li').remove();
+          alert(data['msg']);
+        }
+      },
+      'json'
+    )
+    // alert(msg_id);
+  })
+</script>
+</html>

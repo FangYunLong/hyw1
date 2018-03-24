@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<script type="text/javascript" src="/Public/hyw/js/pptBox.js"></script>
+
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="{:U('Index/index')}">首页</a>  >叉车搜索</div>
+    <div class="now2">
+      <form action="{:U('Goods/goodsSearch')}" method="post">
+        <div class="souk">
+          <input name="keyword" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/>
+        </div>
+        <div clsas="souk2">
+          <input name="" type="button" class="anniu2"/>
+        </div>
+        <div class="clear"></div>
+      </form>
+    </div>
+    <div class="clear"></div>
+  </div>
+  </div>
+  </div>
+</div>
+<div class="neiCent2">
+  <div class="canshu">
+    <ul class="yearSea">
+      <foreach item='goodsList' name='goodsList'>
+      <li>
+        <a target='_block' href="{:U('Goods/goodsInfo',['goods_id'=>$goodsList['goods_id']])}">
+          <img src="{$goodsList.zm_pic}" width="278" height="259" />
+        </a>
+        <span>
+          <a target='_block' href="{:U('Goods/GoodsInfo',['goods_id'=>$goodsList['goods_id']])}">
+            {$goodsList.pinpai}{$goodsList.cart_type}
+          </a>
+        </span>
+          <div class="yearJia">{$goodsList.goods_name}</div>
+      </li>
+      </foreach>  
+    </ul>
+    <div class="yepage">
+        <a href="{:U('Goods/goodsSearch',array('page'=>$page['page']-1,'keyword'=>'$keyword'))}" class="page1">上一页</a> 
+          <foreach item='pageRows' name='pageRows'>
+          <a href="{:U('Goods/goodsSearch',array('page'=>$page['page'],'keyword'=>$keyword))}" style="<if condition='$page.page eq $pageRows'>background:#039cf4;color:#fff</if>">{$pageRows}</a>
+          </foreach> 
+          <a href="{:U('Goods/goodsSearch',array('page'=>$page['page']+1,'keyword'=>$keyword))}" class="page2">下一页</a>
+          <span>共{$page.pages}页　 　当前第{$page.page}页 </span> 
+    </div>    
+  </div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束-------------->
+</body>
+<script>
+// ajaxgoods();
+$('.xumu a').click(function(){
+    var wheres = $(this).attr('value');
+    $(this).siblings().attr({'class':''});
+    $(this).attr({'class':'current'});
+    var parents = $(this).parent().attr('value');
+    $('input[name="'+parents+'"]').val(wheres);
+    $('input[name="page"]').val('1');
+    ajaxgoods();
+});
+
+function ajaxgoods()
+{
+    $.ajax({ 
+        type:'post',
+        url: "{:U('Goods/ajaxGoods')}", 
+        data: $('#goodsList').serialize(), 
+        success: function(data){
+          $('.canshu').html('');
+          $('.canshu').append(data);
+        }
+    });
+} 
+
+function pageclick(value)
+{
+    $('input[name="page"]').val(value);
+    ajaxgoods();  
+}
+</script>
+</html>

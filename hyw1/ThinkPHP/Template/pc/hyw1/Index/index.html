@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<script type="text/javascript" src="/Public/hyw/js/pptBox.js"></script>
+
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+<script type="text/javascript">  
+function flag(){
+ var userAgentInfo = navigator.userAgent;
+ var Agents = ["Android", "iPhone",
+             "SymbianOS", "Windows Phone",
+             "iPad", "iPod"];
+ var flag = true;
+ for (var v = 0; v < Agents.length; v++) {
+     if (userAgentInfo.indexOf(Agents[v]) > 0) {
+         flag = false;
+         break;
+     }
+ }
+ return flag;
+}
+
+//判断是否是微信端
+function isWeiXin(){ 
+  var ua = navigator.userAgent.toLowerCase(); 
+  if(ua.indexOf('micromessenger') != -1) { 
+     return true; 
+  } else { 
+     return false; 
+  } 
+}
+
+if(flag()==false){
+  $('body').css({'width':'1200px'});
+}
+if(isWeiXin()){
+  $('body').css({'width':'1200px'});
+}
+
+</script>
+ <div class="banner">
+  <div class="fouse">
+    <div id="xxx"  >
+     <script>
+     var box =new PPTBox();
+     box.width = 854; //宽度
+     box.height = 469;//高度
+     box.autoplayer = 3;//自动播放间隔时间
+     // box.add({"url":"图片地址","title":"悬浮标题","href":"链接地址"})
+     <?php foreach($banner as $k => $v){ ?>
+        box.add({"url":"<?php echo $v['ad_code'];?>","href":"","title":""})
+     <?php }?>
+     // box.add({"url":"{$banner[1]['ad_code']}","href":"#","title":"悬浮提示标题3"}) 
+     // box.add({"url":"{$banner[2]['ad_code']}","href":"#","title":"悬浮提示标题4"})  
+     box.show();
+    </script>
+</div>
+  </div>
+  <div class="htub">
+   <div class="zutub1">
+     <a href="{:U('Goods/goodsList')}">年月租</a>       
+     <span>年月租车，价格更低</span>
+   </div>
+   <div class="zutub2">
+     <a href="{:U('Goods/goodsTemp')}">临时租</a>       
+     <span>临时租车，随时随地</span>
+   </div>
+   <div class="zutub3">
+     <a href="{:U('Driver/index')}">招司机</a>       
+     <span>在线求职，更便捷</span>
+   </div>
+   <div class="zutub4">
+     <a href="{:U('Special/index')}">特价车</a>       
+     <span>无限低价，惊喜到爆</span>
+   </div>
+   <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+ </div>  
+ </div>
+ <div class="hCent">
+   <div class="hsousuo">
+  <div class="guanjic">
+    <form id="form1" name="form1" method="post" action="{:U('Goods/goodsSearch')}">
+    <div class="keyword">
+      <div class="keyword2"><input name="keyword" type="text"  class="kye" value="请输入关键字" onfocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字';this.style.color='#999'}"/></div>
+      <div class="sobtn"><input value='' type="submit" class="sobtn2"/></div>
+      <div class="clear"></div>
+    </div>   
+    </form>
+     <div class="kwez">热门关键字：杭州、合力、台励福，杭州用HC，合力为HELI等</div>
+  </div>
+  <div class="tel2"><img src="/Public/hyw/images/tel2.gif" width="261" height="86" /></div>
+  <div class="clear"></div>
+  </div>
+ <div class="haicha">
+   <div class="htltle1"><img src="/Public/hyw/images/h-titl1.gif" width="1187" height="63" /></div>
+   <div class="haichac">
+     <div class="haic">
+       <div class="htij">
+          <div class="hbit1">叉车品牌</div>
+          <div class="htiaoj2 where1" value='pinpai'>
+            <a href="javascript:void(0)" value=''>不限</a>
+            <a href="javascript:void(0)" value='三菱&力至优'>三菱&力至优</a>
+            <a href="javascript:void(0)" value='丰田'>丰田</a> 
+            <a href="javascript:void(0)" value='林德'>林德</a> 
+            <a href="javascript:void(0)" value='合力'>合力</a> 
+            <a href="javascript:void(0)" value='杭叉'>杭叉</a> 
+            <a href="javascript:void(0)" value='other'>其它</a>
+          </div>
+       </div>
+       <div class="htij">
+          <div class="hbit1">车 型</div>
+          <div class="htiaoj2 where1" value='cart_type'>
+            <a href="javascript:void(0)" value=''>不限</a> 
+            <a href="javascript:void(0)" value='柴油叉车'>柴油叉车</a> <br/>
+            <a href="javascript:void(0)" value='液化汽油叉车'>液化汽油叉车</a> <br/>
+            <a href="javascript:void(0)" value='平衡重式电车'>平衡重式电车</a> <br/>
+            <a href="javascript:void(0)" value='座驾前移式电车'>座驾前移式电车</a><br/> 
+            <a href="javascript:void(0)" value='前移式电动叉车'>前移式电动叉车</a><br/>  
+            <a href="javascript:void(0)" value='站驾前移式电车'>站驾前移式电车</a><br/>  
+            <a href="javascript:void(0)" value='other'>其它</a>
+          </div>
+       </div>
+
+       <div class="htij">
+        <div class="hbit1">叉车吨位（kg）</div>
+        <div class="htiaoj2" value='dunwei' > 
+            <a href="javascript:void(0)" value=''>不限</a> 
+<!--             <foreach item='dunwei' name='dunwei'>
+              <a href="javascript:void(0)" value='{$dunwei}'>1000</a> 
+            </foreach> -->
+            <a href="javascript:void(0)" value='1'>1000</a> 
+            <a href="javascript:void(0)" value='1.3'>1300</a> 
+            <a href="javascript:void(0)" value='1.4'>1400</a> 
+            <a href="javascript:void(0)" value='1.5'>1500</a> 
+            <a href="javascript:void(0)" value='1.6'>1600</a> 
+            <a href="javascript:void(0)" value='1.8'>1800</a> 
+            <a href="javascript:void(0)" value='2'>2000</a> 
+            <a href="javascript:void(0)" value='2.5'>2500</a> 
+            <a href="javascript:void(0)" value='3'>3000</a> 
+            <a href="javascript:void(0)" value='3.5'>3500</a> 
+            <a href="javascript:void(0)" value='4'>4000</a> 
+            <a href="javascript:void(0)" value='4.5'>4500</a> 
+            <a href="javascript:void(0)" value='5'>5000</a> 
+            <a href="javascript:void(0)" value='5.5'>5500</a> 
+            <a href="javascript:void(0)" value='other'>其它</a>
+        </div>
+       </div>
+       <div class="htij">
+        <div class="hbit1">门架类型</div>
+        <div class="htiaoj2" value='menjia' > 
+            <a href="javascript:void(0)" value=''>不限</a><br/> 
+            <a href="javascript:void(0)" value='二节门架'>二节门架</a><br/> 
+            <a href="javascript:void(0)" value='自由提升门架'>自由提升门架
+            <a href="javascript:void(0)" value='other'>其它</a>
+        </div>
+       </div>
+       <div class="htij">
+        <div class="hbit1">门架提升高度（mm）</div>
+        <div class="htiaoj2" value='mj_height' >
+            <a href="javascript:void(0)" value=''>不限</a> 
+<!--             <a href="javascript:void(0)" value='2500'>2500</a> 
+            <a href="javascript:void(0)" value='2700'>2700</a> 
+            <a href="javascript:void(0)" value='3300'>3300</a> --> 
+            <a href="javascript:void(0)" value='3000'>3000</a> 
+            <a href="javascript:void(0)" value='3500'>3500</a> 
+            <a href="javascript:void(0)" value='3700'>3700</a> 
+            <a href="javascript:void(0)" value='4000'>4000</a> 
+            <a href="javascript:void(0)" value='4300'>4300</a> 
+            <a href="javascript:void(0)" value='4500'>4500</a> 
+            <a href="javascript:void(0)" value='4700'>4700</a> 
+            <a href="javascript:void(0)" value='5000'>5000</a> 
+            <a href="javascript:void(0)" value='5500'>5500</a> 
+            <a href="javascript:void(0)" value='other'>其它</a>
+        </div>
+       </div>
+       <div class="htij">
+        <div class="hbit1">备用电池</div>
+        <div class="htiaoj2" value='bydc' >
+            <a href="javascript:void(0)" value='0'>无</a> 
+            <a href="javascript:void(0)" value='1'>1组 </a>
+            <a href="javascript:void(0)" value='2'>2组</a>
+            <!-- <a href="javascript:void(0)" value='other'>其他</a> -->
+        </div>
+       </div> 
+       <div class="htij">
+        <div class="hbit1">属具</div>
+        <div class="htiaoj2" value='shuju' >
+            <a href="javascript:void(0)" value=''>不限</a> 
+            <a href="javascript:void(0)" value='侧移器'>侧移器</a> 
+            <a href="javascript:void(0)" value='旋转器'>旋转器</a> 
+            <a href="javascript:void(0)" value='纸夹'>纸夹</a> &nbsp; 
+            <a href="javascript:void(0)" value='other'>其他</a>
+        </div>
+       </div>
+       <div class="htij">
+        <div class="hbit1">更多要求</div>
+        <div class="htiaoj2" value='is_yt' >
+            <a href="javascript:void(0)" value='2'>普通</a> 
+            <a href="javascript:void(0)" value='0'>冷库</a>
+            <a href="javascript:void(0)" value='1'>防爆</a> 
+        </div>
+       </div>
+     </div>
+     <div class="haiche">
+      <ul class="hailist">
+      </ul>
+     </div>
+     <div class="clear"></div>
+   </div>
+ </div>
+
+ <div class="hxiaz">
+   <div class="xiaz1">
+     <div class="xiatit">叉车租赁</div>
+     <ul class="xiazwe">
+       <li><a href="{:U('News/download')}">客户交易细则</a></li>
+       <li><a href="{:U('News/download')}">车主交易细则</a></li>
+       <li><a href="{:U('News/download')}">临时租交易细则</a></li>
+       <li> <a href="{:U('News/download')}">运输协议</a></li>
+       <li><a href="{:U('News/download')}">租车流程</a></li>
+     </ul>
+   </div>
+   <div class="xiaz2">
+    <div class="xiatit2">公司资料</div>
+    <ul class="xiazwe2">
+       <li><a href="{:U('News/download')}">营业执照</a></li>       
+     </ul>
+   </div>
+   <div class="xiaz3"><a href="{:U('News/download')}"><img src="/Public/hyw/images/btn1.png" width="127" height="36" /></a></div>
+   <div class="clear"></div>
+ </div>
+ <div class="haicha">
+   <div class="htltle1"><img src="/Public/hyw/images/h-titl2.gif" width="1187" height="63" /></div>
+    <script> 
+	<!-- 
+	/*tab切换脚本*/ 
+	function setTab(name,cursel,n){ 
+	/*参数意义:name为标签id标识,即不带数字的,cursel为标签数字,n为一共有几个标签*/
+		for(i=1;i<=n;i++){ 
+			var menu=document.getElementById(name+i); /*循环取得所有标签*/
+			var con=document.getElementById("tab_"+name+"_"+i); /*循环取得所有的内容块*/
+			menu.className=i==cursel?"current":""; /*判断自身的数字是否等于current*/
+			con.style.display=i==cursel?"block":"none"; /*如果是则显示出当前标签所应的内容块,否则隐藏*/
+		} 
+	} 
+	//--> 
+	</script>
+   <div class="hpinp">
+   <a href="#" id="one1" onmouseover="setTab('one',1,6)" class="current" >三菱&力至优</a> 
+   <a href="#" id="one2" onmouseover="setTab('one',2,6)">丰田</a> 
+   <a href="#" id="one3" onmouseover="setTab('one',3,6)">林德</a> 
+   <a href="#" id="one4" onmouseover="setTab('one',4,6)">合力</a> 
+   <a href="#" id="one5" onmouseover="setTab('one',5,6)">杭叉</a> 
+   <a href="#" id="one6" onmouseover="setTab('one',6,6)">其它</a> 
+   <!-- <a href="#" id="one7" onmouseover="setTab('one',7,7)">其它</a> -->
+   </div>
+   <div class="zzsc" id="tab_one_1">
+	<ul> 
+        <foreach item='goods1' name='goods1'>
+         <li class="last2">
+        	<a href="{:U('Goods/carDataInfo',['goods_id'=>$goods1['goods_id']])}">
+              <img src="{$goods1.zm_pic}" width='291' height='239'/>
+          </a>
+          <span>{$goods1.pinpai}{$goods1.cart_type}</span>
+        	<div class="shubt">           
+            <p><a href="{:U('Goods/carDataInfo',['goods_id'=>$goods1['goods_id']])}">
+            {$goods1.pinpai}{$goods1.cart_type}</a></p></div>    
+        </li>
+        </foreach>
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_2" style="display:none;">
+	<ul>
+    	  <foreach item='goods2' name='goods2'>
+          <li>
+            <a href="{:U('Goods/carDataInfo',['goods_id'=>$goods2['goods_id']])}"><img src="{$goods2.zm_pic}" width='291' height='239' /></a>
+            <span>{$goods2.pinpai}{$goods2.cart_type}</span>
+            <div class="shubt"><p><a href="{:U('Goods/carDataInfo',['goods_id'=>$goods2['goods_id']])}">{$goods2.pinpai}{$goods2.cart_type}</a></p></div> 
+          </li>
+        </foreach>
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_3" style="display:none;">
+	<ul>
+        <foreach item='goods3' name='goods3'>
+          <li>
+            <a href="{:U('Goods/carDataInfo',['goods_id'=>$goods3['goods_id']])}"><img src="{$goods3.zm_pic}" width='291' height='239' /></a>
+            <span>{$goods3.pinpai}{$goods3.cart_type}</span>
+            <div class="shubt"><p><a href="{:U('Goods/carDataInfo',['goods_id'=>$goods3['goods_id']])}">{$goods3.pinpai}{$goods3.cart_type}</a></p></div> 
+          </li>
+        </foreach>    	   
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_4" style="display:none;">
+	<ul>
+        <foreach item='goods4' name='goods4'>
+          <li>
+            <a href="{:U('Goods/carDataInfo',['goods_id'=>$goods4['goods_id']])}"><img src="{$goods4.zm_pic}" width='291' height='239' /></a>
+            <span>{$goods4.pinpai}{$goods4.cart_type}</span>
+            <div class="shubt"><p><a href="{:U('Goods/carDataInfo',['goods_id'=>$goods4['goods_id']])}">{$goods4.pinpai}{$goods4.cart_type}</a></p></div> 
+          </li>
+        </foreach>    	
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_5" style="display:none;">
+	<ul>
+        <foreach item='goods5' name='goods5'>
+          <li>
+            <a href="{:U('Goods/carDataInfo',['goods_id'=>$goods5['goods_id']])}"><img src="{$goods5.zm_pic}" width='291' height='239' /></a>
+            <span>{$goods5.pinpai}{$goods5.cart_type}</span>
+            <div class="shubt"><p><a href="{:U('Goods/carDataInfo',['goods_id'=>$goods5['goods_id']])}">{$goods5.pinpai}{$goods5.cart_type}</a></p></div> 
+          </li>
+        </foreach>
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_6" style="display:none;">
+	<ul>
+        <foreach item='goods7' name='goods7'>
+          <li>
+            <a href="{:U('Goods/carDataInfo',['goods_id'=>$goods7['goods_id']])}"><img src="{$goods7.zm_pic}" width='291' height='239' /></a>
+            <span>{$goods7.pinpai}{$goods7.cart_type}</span>
+            <div class="shubt"><p><a href="{:U('Goods/carDataInfo',['goods_id'=>$goods7['goods_id']])}">{$goods7.pinpai}{$goods7.cart_type}</a></p></div> 
+          </li>
+        </foreach>
+	</ul>
+</div>
+<!-- <div class="zzsc" id="tab_one_7" style="display:none;">
+  <ul>
+        <foreach item='goods7' name='goods7'>
+          <li>
+            <a href="{:U('Goods/carDataInfo',['goods_id'=>$goods7['goods_id']])}"><img src="{$goods7.zm_pic}" width='291' height='239' /></a>
+            <span>{$goods7.pinpai}{$goods7.cart_type}</span>
+            <div class="shubt"><p><a href="{:U('Goods/carDataInfo',['goods_id'=>$goods7['goods_id']])}">{$goods7.pinpai}{$goods7.cart_type}</a></p></div> 
+          </li>
+        </foreach>
+  </ul>
+</div> -->
+   <script src="js/jquery.min.js"></script>
+<script>
+$(function(){
+	$('.zzsc li').hover(function(){
+		$('.shubt',this).stop().animate({
+			height:'241px'
+		});
+	},function(){
+		$('.shubt',this).stop().animate({
+			height:'0'
+		});
+	});
+});
+</script>
+   </div>
+   
+    <div class="haicha">
+   <div class="htltle2"><img src="/Public/hyw/images/h-titl3.gif" width="1187" height="63" /></div>
+   <div class="hnews">
+    <div class="hnews1">
+     <div class="hnewtu"><a href="{:U('Home/News/articleList/cat_id/5')}"><img src="/Public/hyw/images/tu6.jpg" width="379" height="213" /></a><span><a href="{:U('News/articleList/cat_id/5')}">公告动态</a></span></div>
+     <ul class="hxin">
+      <foreach item='dynamic' name='New.dynamic'>
+        <li>
+          <span>{$dynamic.add_time|date='Y-m-d',###}</span> 
+          <a href="{:U('News/articleInfo',array('article_id'=>$dynamic['article_id']))}">{$dynamic.title}</a>
+        </li>
+      </foreach>
+     </ul>
+    </div>
+    <div class="hnews1">
+     <div class="hnewtu"><a href="{:U('Home/News/articleList/cat_id/90')}"><img src="/Public/hyw/images/tu5.jpg" width="379" height="213" /></a><span><a href="{:U('News/articleList/cat_id/90')}">行业新闻</a></span></div>
+     <ul class="hxin">
+      <foreach item='company' name='New.company'>
+        <li>
+          <span>{$company.add_time|date='Y-m-d',###}</span> 
+          <a href="{:U('News/articleInfo',array('article_id'=>$company['article_id']))}">{$company.title}</a>
+        </li>
+      </foreach>
+     </ul>
+    </div>
+    <div class="hnews2">
+     <div class="hnewtu"><a href="{:U('Home/News/articleList/cat_id/89')}"><img src="/Public/hyw/images/tu7.jpg" width="379" height="213" /></a><span><a href="{:U('News/articleList/cat_id/89')}">公司新闻</a></span></div>
+     <ul class="hxin">
+      <foreach item='industry' name='New.industry'>
+        <li>
+          <span>{$industry.add_time|date='Y-m-d',###}</span> 
+          <a href="{:U('News/articleInfo',array('article_id'=>$industry['article_id']))}">{$industry.title}</a>
+        </li>
+      </foreach>
+     </ul>
+    </div>
+    <div class="clear"></div>
+   </div>
+   </div>
+   <div class="youqi">
+    <div class="htitl3"><a href="#" class="current">友情链接</a> 
+    <!-- <a href="link.html">热门城市</a> -->
+    </div>
+    <div class="ylist">
+      <foreach item='link' name='link'>
+        <a href="{$link.link_url}" <if condition='$link.target eq 1'>target='_block'</if>>{$link.link_name}</a> |   
+      </foreach>   
+    </div>
+   </div>
+ </div>
+<!--------底部开始-------------->
+<include file="Public/footer" />
+<!--------底部结束-------------->
+
+<form id='goodsList' action="" method='post'>
+  <input type="hidden" value='' name='pinpai' />
+  <input type="hidden" value='' name='cart_type' />
+  <input type="hidden" value='' name='dunwei' />
+  <input type="hidden" value='' name='menjia' />
+  <input type="hidden" value='' name='mj_height' />
+  <input type="hidden" value='' name='bydc' />
+  <input type="hidden" value='' name='shuju' />
+  <input type="hidden" value='' name='is_yt' />
+</form>
+<div class="scroll" id="scroll" style="display:none;">
+		回到顶部
+</div>
+    <script type="text/javascript">
+	$(function(){
+		showScroll();
+		function showScroll(){
+			$(window).scroll( function() { 
+				var scrollValue=$(window).scrollTop();
+				scrollValue > 100 ? $('div[class=scroll]').fadeIn():$('div[class=scroll]').fadeOut();
+			} );	
+			$('#scroll').click(function(){
+				$("html,body").animate({scrollTop:0},200);	
+			});	
+		}
+	})
+	</script>
+  <script>
+ajaxgoods();
+$('.htiaoj2 a').click(function(){
+    var wheres = $(this).attr('value');
+    $(this).siblings().css({'background-color':'#39abfb'});
+    $(this).css({'background-color':'#f6b662'});
+    var parents = $(this).parent().attr('value');
+    $('input[name="'+parents+'"]').val(wheres);
+    ajaxgoods();
+});
+function ajaxgoods()
+{
+    $.ajax({ 
+        type:'post',
+        url: "{:U('Index/ajaxGoods')}", 
+        data: $('#goodsList').serialize(), 
+        success: function(data){
+          $('.hailist').html('');
+          $('.hailist').append(data);
+        }
+    });
+}
+</script> 
+</body>
+</html>

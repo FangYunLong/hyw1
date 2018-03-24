@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+  
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+<div class="neiCent2">
+  <div class="mayLeft">  
+    <!--------左边导航开始-------------->
+    <include file="Public/userLeft" />
+    <!--------左边导航结束-------------->
+  </div>
+
+  <div class="mayRight">
+  <script type="text/javascript">
+$(function (){
+  $("input.mh_date").manhuaDate({                
+    Event : "click",//可选               
+    Left : 0,//弹出时间停靠的左边位置
+    Top : -16,//弹出时间停靠的顶部边位置
+    fuhao : "-",//日期连接符默认为-
+    isTime : false,//是否开启时间值默认为false
+    beginY : 2017,//年份的开始默认为1949
+    endY :2020//年份的结束默认为2049
+  });
+  
+});
+</script>
+    <div class="rigbiaot">订单中心 >我的分销 &gt; 确认提现信息</div>
+    <div class="mayxiax">
+      <div class="tibz">
+       <div class="tixix">
+        <div class="tiname">银行卡信息:</div>
+        <div class="tiname2">{$bank.cardholder}<br/>【{$bank.bankname}】(**** **** **** {$bank.bank_account|substr='-4,4'})</div>
+        <div class="clear"></div>
+       </div>
+       <div class="tixix">
+        <div class="tiname">提现金额:</div>
+        <div class="tiname2"><span>{$amount}<span> 元 </div>
+        <div class="clear"></div>
+       </div>
+      </div>
+      <div class="quetx">
+       <a href="javascript:window.history.go(-1);">返回修改</a>
+       <a onclick='extractMoneyes({$bank.id},{$amount})' href="javascript:void(0)"><img src="/Public/hyw/images/btn9.gif" width="104" height="31" /></a>
+       <span class='errortx' style='line-height:35px;margin-left:15px'></span>
+      </div>
+    </div>
+  </div>    
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束--------------> 
+</body>
+<script>
+  $('.btntix').click(function(){
+    $('.nexts').click();
+  });
+  $('.choose').on('click',function(){
+    $('.chooseParent').html('');
+    $('.chooseParent').append($(this).parent().html());
+    $('.view').css({'display':'none'});
+    $('.chooseParent').children('input').attr('checked',true);
+    $('.chooseParent').children('label').removeClass('choose');
+  });
+function submits()
+{
+    if($('.view').css('display') == 'block'){
+      $('.view').css({'display':'none'})
+    }else{
+      $('.view').css({'display':'block'})
+    }
+}
+
+function extractMoneyes(id,amount)
+{
+  $.post(
+    '{:U("User/extractMoney")}',
+    {id:id,amount:amount},
+    function(data){
+      if(data['status']==-1){
+        $('.errortx').html(data['msg']);
+      }
+      if(data['status']==1){
+        var str = '<div class="txcg">恭喜，我们已将您的提现信息提交，处理需1-2个工作日，请耐心等待！</div><div class="txgc2"><a href="{:U(\'User/reward\')}" class="yoaq1">继续提现</a><a href=""{:U(\'Index/index\')}"" class="yoaq2">返回首页</a></div>';        
+        $('.mayxiax').html('');
+        $('.mayxiax').append(str);
+      }
+    },
+    'json'
+  );
+}
+</script>
+</html>

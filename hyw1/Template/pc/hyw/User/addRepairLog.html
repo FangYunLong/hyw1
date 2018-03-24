@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.7.3.min.js"></script>
+<script type="text/javascript" src="/Public/hyw/js/manhuaDate2.1.0.js"></script>
+</head>
+<style>
+  .fileImgs1{float:left;margin-left:10px;}
+
+</style>
+
+<body>
+<script type="text/javascript">
+  $(function() {    
+
+    //建立一個可存取到該file的url
+    function getObjectURL(file) {
+      var url = null;
+      if (window.createObjectURL != undefined) { // basic
+        url = window.createObjectURL(file);
+      } else if (window.URL != undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file);
+      } else if (window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+      }
+      return url;
+    }
+
+    var cdimg  = $('.fileImgs1').children('img');
+    var cdfile = $('.fileImgs1').children('input[type="file"]');
+    cdfile.css({'width':cdimg.css('width'),'height':cdimg.css('height')});
+    cdfile.css({'opacity':0,'position':'absolute','z-index':10});
+    cdfile.change(function() {
+    if (this.files && this.files[0]) {
+      var objUrl = getObjectURL(this.files[0]);
+      if (objUrl) {
+        $(this).siblings('img').attr("src", objUrl);
+      } else {
+        //IE下，使用滤镜
+        this.select();
+        var imgSrc = document.selection.createRange().text;
+        var localImagId = document.getElementById("sss");
+        //图片异常的捕捉，防止用户修改后缀来伪造图片
+        try {
+          preload.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = data;
+        } catch (e) {
+          this._error("filter error");
+          return;
+        }
+        this.img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src=\"" + data + "\")";
+      }
+    }
+  });
+
+  })
+</script>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+<div class="neiCent2">
+<div class="gudCent2">
+  <div class="gudtime2"><h2>维修记录</h2></div>
+   <div class="weiCen">
+    <div class="mayxiax">
+    <form id='addRepairLog' action="" method="post">
+       <div class="tiajwx">
+         <div class="tiajwx2">
+          <div class="chebh">
+            <span>叉车编号：</span>
+            <!-- <input name="" type="text" class="weixk"/> -->
+            <select name="cid" onchange='set_shuju_sn()' class='shcxix' style='width:262px;border:1px solid #eee'>
+              <option value="">请选择车编</option>
+              <foreach item='carInfo' name='carInfo'>
+                <option value="{$carInfo.cid}" shuju_sn='{$carInfo.shuju_sn}'>{$carInfo.car_sn}</option>
+              </foreach>
+            </select>
+          </div>
+          <div class="chebh">
+            <span>属具编号：</span>
+            <input name="shuju_sn" value='' placeholder='选择车编后自动选择对应属具编号' disabled='true' type="text" class="weixk"/>
+          </div>          
+          <div class="clear"></div>
+         </div>  
+         <div class="tiajwx2">
+          <div class="chebh"><span>维修时间：</span>
+            <input name="repair_time" type="text" class="weixk"/></div>
+          <div class="chebh"><span>维修时长：</span>
+            <input name="repair_time_long" type="text" class="weixk"/></div>          
+          <div class="clear"></div>
+         </div>
+         <div class="tiajwx2">
+          <div class="chebh"><span>仪表时间：</span>
+            <input name="instrument_time" type="text" class="weixk"/></div>
+          <div class="chebh"><span>维修人员：</span>
+            <input name="repair_man" type="text" class="weixk"/></div>          
+          <div class="clear"></div>
+         </div> 
+         <div class="weigu">
+      <div class="weigu1">故障描述：</div>
+      <div class="weigu2"><textarea name="describe" cols="" rows="" class="weiCent"></textarea></div>
+      <div class="clear"></div>
+     </div>
+     <div class="weigu">
+      <div class="weigu1">维修内容：</div>
+      <div class="weigu2"><textarea name="content" cols="" rows="" class="weiCent"></textarea></div>
+      <div class="clear"></div>
+     </div>
+     <div class="weigu">
+      <div class="weigu1">维修图片：</div>
+      <div class="weigu2">
+        <div class="miankun2" style='width:700px;'>
+              <div class='fileImgs1'>
+                <input type="file"  name="img1" />
+              <img class="acc_imgin"  style='width:145px;height:125px;' src="/Public/hyw/images/zhc-dit.gif"/>
+              </div>
+              <div class='fileImgs1'>
+                <input type="file"  name="img2"/>
+              <img class="acc_imgin"  style='width:145px;height:125px;' src="/Public/hyw/images/zhc-dit.gif"/>
+              </div>
+              <div class='fileImgs1'>
+                <input type="file"  name="img3" />
+                <img class="acc_imgin"  style='width:145px;height:125px;' src="/Public/hyw/images/zhc-dit.gif"/>
+              </div>
+              <div  class='fileImgs1' style=''>
+                <input type="file"  name="img4" />
+                <img class="acc_imgin" style='width:145px;height:125px;' src="/Public/hyw/images/zhc-dit.gif" />
+              </div>
+              <input type="hidden" name='order_id' value='{$order_id}' />
+        </div>
+      </div>
+      <div class="clear"></div>
+     </div>
+      <div class="weiti">
+          <input type="button" class="weitiBtn" onclick='addRepair()' value="提 交" />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class='msg_error' style='color:red'></span>
+      </div>      
+    </div>
+    </form>
+    </div>
+   </div>
+  </div>
+</div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束--------------> 
+</body>
+
+<script>
+  set_shuju_sn();
+
+  function set_shuju_sn()
+  {
+    var shuju_sn = $('.shcxix').find('option:selected').attr('shuju_sn');
+    if(shuju_sn == ''){
+      return false;
+    }
+    $('input[name="shuju_sn"]').val(shuju_sn);
+  }
+
+  function addRepair()
+  {
+    $('.msg_error').html('上传图片中，请稍等···');
+    addRepairLog();
+  }
+
+  var log_status = 0;
+  //ajax添加维修记录
+  function addRepairLog()
+  {
+    if(log_status == 1){
+      return false;
+    }else{
+      log_status = 1;
+    }
+
+    var formData = new FormData($( "#addRepairLog" )[0]);  
+    $.ajax({  
+        url: '{:U("User/addRepairLog")}' ,  
+        type: 'POST',  
+        data: formData,  
+        async: false,  
+        cache: false,
+        dataType : 'json',//以json数据类型传参数  
+        contentType: false,  
+        processData: false,  
+        success: function (data) {  
+          if(data['status'] == -1){
+            $('.msg_error').html(data['msg']);
+          }else{
+              window.location.href='/index.php/Home/User/allRepairLog/order_id/'+$('input[name="order_id"]').val();
+          }
+        },  
+        error: function (data) {  
+        }  
+    });
+  }
+</script>
+</html>

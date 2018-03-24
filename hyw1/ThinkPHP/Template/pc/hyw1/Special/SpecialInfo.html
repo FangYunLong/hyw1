@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/jquery.spinner.css" rel="stylesheet" type="text/css" />
+
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script type="text/javascript" src="zuli/js/jquery-1.7.2.min.js"></script>
+</head>
+
+
+<body>
+<!-- <div class="noguj">
+    <div class="readTips">    
+      <div class="reading" >请阅读《好运旺租叉车交易细则》</div>      
+      <div class="carsure2">确定</div>
+      <div class="clear"></div>
+    </div>
+  </div> -->
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="#">首页</a>  ><a href="#">叉车租赁</a>> <a href="#">年月租</a></div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+  </div>
+  <div class="neiBanner"><img src="/Public/hyw/images/neibn6.jpg" width="1198" height="296" /></div>
+  <div class="neiNav">
+    <ul class="navlist">
+     <li><a href="{:U('Special/index')}" class="current">特价车</a></li> 
+     <!-- <li><a href="gyshop.html" >工业品</a></li>         -->
+    </ul>
+   </div>
+</div>
+<div class="neiCent2">
+<div class="canshu">
+  <div class="xiqtu">
+    <div class="ban" id="demo1">
+	<div class="ban2" id="ban_pic1">
+		<div class="prev1" id="prev1"><img src="/Public/hyw/images/index_tab_l.png" width="28" height="51"  alt=""></div>
+    <div class="next1" id="next1"><img src="/Public/hyw/images/index_tab_r.png" width="28" height="51"  alt=""></div>    
+		<ul>
+			<li><a href="javascript:;"><img width='500' height='400' src="{$goodsInfo.zm_pic}"  alt=""></a></li>
+			<li><a href="javascript:;"><img width='500' height='400' src="{$goodsInfo.cm_pic}"  alt=""></a></li>
+			<li><a href="javascript:;"><img width='500' height='400' src="{$goodsInfo.czt_pic}"  alt=""></a></li>
+			<li><a href="javascript:;"><img width='500' height='400' src="{$goodsInfo.nb_pic}"  alt=""></a></li>
+		</ul>
+	</div>
+	<div class="min_pic">
+		<div class="prev_btn1" id="prev_btn1"><img src="/Public/hyw/images/arrow3.png"   alt=""></div>
+		<div class="num clearfix" id="ban_num1">
+			<ul>
+      <li><a href="javascript:;"><img width="92" height='79' src="{$goodsInfo.zm_pic}"  alt=""></a></li>
+      <li><a href="javascript:;"><img width="92" height='79' src="{$goodsInfo.cm_pic}"  alt=""></a></li>
+      <li><a href="javascript:;"><img width="92" height='79' src="{$goodsInfo.czt_pic}"  alt=""></a></li>
+      <li><a href="javascript:;"><img width="92" height='79' src="{$goodsInfo.nb_pic}"  alt=""></a></li>
+			</ul>
+		</div>
+		<div class="next_btn1" id="next_btn1"><img src="/Public/hyw/images/arrow4.png" alt=""></div>
+	</div>
+</div>
+<script src="/Public/hyw/js/pic_tab.js"></script>
+<script type="text/javascript">
+jq('#demo1').banqh({
+	box:"#demo1",//总框架
+	pic:"#ban_pic1",//大图框架
+	pnum:"#ban_num1",//小图框架
+	prev_btn:"#prev_btn1",//小图左箭头
+	next_btn:"#next_btn1",//小图右箭头	
+	prev:"#prev1",//大图左箭头
+	next:"#next1",//大图右箭头
+	pop_div:"#demo2",//弹出框框架	
+	autoplay:true,//是否自动播放
+	interTime:5000,//图片自动切换间隔
+	delayTime:400,//切换一张图片时间
+	pop_delayTime:400,//弹出框切换一张图片时间
+	order:0,//当前显示的图片（从0开始）
+	picdire:true,//大图滚动方向（true为水平方向滚动）
+	mindire:true,//小图滚动方向（true为水平方向滚动）
+	min_picnum:4,//小图显示数量
+	pop_up:true//大图是否有弹出框
+})
+</script>
+  </div>
+  <div class="xiwe">
+   <div class="xiwetit">{$goodsInfo.goods_name}</div>
+   <div class="xjies">特价：	<span class="jiage">￥{$goodsInfo.special_price}</span></div>
+   <div class="xjies">品牌：	{$goodsInfo.pinpai}</div>
+   <div class="xjies">车类型：	{$goodsInfo.cart_type}</div>
+   <!-- <div class="xjies">型号：	{$goodsInfo.chexing}</div> -->
+   <div class="xjies">吨位：	{$goodsInfo['dunwei']}吨</div>
+   <div class="xjies">门架类型：	{$goodsInfo.menjia}</div>
+   <div class="xjies">门架提升高度：	{$goodsInfo.mj_height}mm</div>
+   <div class="xjies">电池使用时长：{$goodsInfo.dcsj}小时</div>
+   <div class="xjies">属具：{$goodsInfo.shuju}</div>
+   <div class="xjies">
+      <div class="yeaSe1"> 
+         <input class="magic-radio" type="radio" name="radio" id="r1" value="option2" disabled <if condition="$goodsInfo.is_yt eq 2">checked</if>>
+         <label for="r1" class="zhiwenz"> 普通</label>  
+       </div>    
+      <div class="yeaSe1"> 
+         <input class="magic-radio" type="radio" name="radio" id="r1" value="option2" disabled <if condition="$goodsInfo.is_yt eq 0">checked</if>>
+         <label for="r1" class="zhiwenz"> 冷库</label>  
+      </div>
+      <div class="yeaSe1"> 
+         <input class="magic-radio" type="radio" name="radio" id="r2" value="option2" disabled <if condition="$goodsInfo.is_yt eq 1">checked</if>>
+         <label for="r2" class="zhiwenz"> 防爆</label>  
+      </div>
+      <div class="clear"></div>
+   </div>
+   <div class="xjies" style='width:606px'>车况：
+    
+    {$goodsInfo.description}
+    <div class="clear"></div>
+    </div> 
+    
+   <div class="zuResult">
+     <div class="xianfu">在线支付，立减2%</div>
+     <div class="xianxia jcpgBtn2">去支付</div>
+     <div class="xiantony">
+     <input class="magic-checkbox2" type="checkbox" checked name="layout" id="c1"><label for="c1" class="fuxjs2" >我已阅读并同意《<a href="#">特价车交易细则</a>》</label>
+     </div>
+   </div>  
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="xingxi">
+ <div class="xingtit"><div class="xiangtit">叉车详情</div></div>
+   <div class="shouce">
+    <div class="keinforma">
+      <p class="danxiang">
+      已用时长：{$goodsInfo.use_hours}小时<br/>                            
+出厂年份：{$goodsInfo.factorytime}年<br/>            
+所在地：{$goodsInfo.address}</p>
+<!-- <p class="danxiang">（保证叉车功能正常）</p> -->
+<p class="danxiang"><img src="/Public/hyw/images/pic23.jpg" width="1158" height="446" /></p>
+    </div>
+   </div>
+  <div class="fanhui"><a href="{:U('Special/index')}">返回 >></a></div>
+  
+</div>
+
+
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束-------------->
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r3.gif" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</body>
+<script>
+    $('.magic-checkbox2').change(function(){
+      var val = $('.magic-checkbox2').attr('checked');
+      if(val==undefined){
+        $('.jcpgBtn2').attr("disabled",true);
+        $('.jcpgBtn2').css({background:'#ccc'});
+      }else{
+        $('.jcpgBtn2').attr("disabled",false);
+        $('.jcpgBtn2').css({background:'#039cf4'});
+      }
+    })  
+    
+    $('.jcpgBtn2').click(function(){
+      var val = $('.magic-checkbox2').attr('checked');
+      if(val==undefined){
+        return false;
+      }else{
+        window.location.href="{:U('Pay/settlement',array('goods_id'=>$goodsInfo['goods_id']))}";
+      }
+    })
+</script>
+</html>

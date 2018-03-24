@@ -1,0 +1,104 @@
+<tr>
+    <th colspan='3' class='text-center'>
+        车主信息
+    </th>
+</tr>
+<tr>
+    <th width='25%'>车龄</th>
+    <th width='25%'>货期</th>
+    <th width='25%'>可出租数量</th>
+</tr>
+<tr>
+    <td width='35px' ondblclick="ajax_data(this)"><span name='old'>{$OrderInfo.cart_age}</span></td>
+    <td ondblclick="ajax_data(this)"><span>{$OrderInfo.huoqi}</span></td>
+    <td ondblclick="ajax_data(this)"><span>{$OrderInfo.paly_num}</span></td>
+</tr>
+<tr>
+    <th width='25%'>已用小时数</th>
+    <th width='25%'>电池使用时间</th>
+    <th width='25%'>最低裸租价</th>
+</tr>
+<tr>
+    <td>{$OrderInfo.use_hours}小时</td>
+    <td>{$OrderInfo.dcsj}小时</td>
+    <td>{$OrderInfo.zdlzj}</td>
+</tr>
+
+<tr>
+    <th width='25%'>叉车图片</th>
+    <td colspan='2'>
+        <a href="{:U('Order/carimg',['id'=>$OrderInfo['id']])}" target='_blank'>
+            <if condition='$OrderInfo.zm_pic neq NULL'>
+                <img width="30px" height='30px' src="{$OrderInfo.zm_pic}" alt="">
+            </if>
+            <if condition='$OrderInfo.cm_pic neq NULL'>
+                <img width="30px" height='30px' src="{$OrderInfo.cm_pic}" alt="">
+            </if>
+            <if condition='$OrderInfo.czt_pic neq NULL'>
+                <img width="30px" height='30px' src="{$OrderInfo.czt_pic}" alt="">
+            </if>
+            <if condition='$OrderInfo.nb_pic neq NULL'>
+                <img width="30px" height='30px' src="{$OrderInfo.nb_pic}" alt="">
+            </if>   
+        </a>                     
+    </td>
+</tr>
+<tr>
+    <th>联系方式</th>
+    <td colspan='2'>{$OrderInfo.mobile}</td>
+</tr>
+<tr>
+    <th width='25%'  colspan='3'>差异性描述</th>
+</tr>
+<tr>
+    <td colspan='3' height='40%' >{$OrderInfo.description}</td>
+</tr>
+<div class='carimgs'>
+    
+</div>
+<style>
+    .carimgs{
+        width:30%;
+        height:30%;
+        position:fixed;left:0;top:0;
+        /*opacity:0.3; filter: alpha(opacity=30);*/
+        background-color:#000; 
+        background: rgba(0, 0, 0, 0.5);
+        display:none;                                
+    }
+    .carimgsd{
+        width:850px;
+        height:550px;
+        background-color:#fff;
+        border:1px sole #000;
+        position:fixed;left:10%;top:0;
+        opacity:1; filter: alpha(opacity=100);
+        padding-left:30px;
+        padding-right:30px;
+        padding-top:30px;
+
+    }    
+</style>
+<script>
+var string;
+var obj1;
+// function ajax_data(obj)
+// {
+//     string = $(obj).children('span').text();
+//     obj1 = $(obj);
+//     var name = $(obj).children('span').attr('name');
+//     var input = "<input  onblur='ajax_data2(this)' name='"+name+"' type='text' style='width:99%;height:99%;border:0px'>";
+//     // $(obj).children('span').text()
+//     console.log($(obj).children('span').text());
+//     $(obj).children('span').html('');
+//     $(obj).children('span').append(input);
+//     console.log(name);
+// }
+
+// function ajax_data2(obj)
+// {
+//     $(obj1).children('span').html('');
+//     $(obj1).children('span').append(333);
+//     alert(666);
+// }
+</script>

@@ -1,0 +1,554 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<script type="text/javascript" src="/Public/hyw/js/pptBox.js"></script>
+
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script src="/Public/hyw/js/script.js"></script>
+
+
+<div class="noguj">
+    <div class="readTips">    
+      <div class="reading" >请阅读《好运旺租叉车服务条款》</div>      
+      <div class="carsure2">确定</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+<div class="top">
+ <div class="toplink">
+   <div class="toplink2">
+    <div class="tophun"> 您好，欢迎登录东莞市粤力叉车租赁公司官网!</div>
+    <div class="topdeng">
+      <?php  $user = session('user'); if(!$user){ ?>
+      <a href="<?php echo U('Login/login');?>" class="huiy1">会员登录</a> 
+      <a href="<?php echo U('Login/regist');?>" class="huiy2">免费注册</a>
+      <?php }else{ ?>
+      <a href=""><?php echo $user['mobile'];?></a>
+      <a href="<?php echo U('Login/logout');?>">退出登录</a>
+      <?php } ?>  
+    </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+ <div class="logoTel">
+  <div class="logo"><img src="/Public/hyw/images/logo.gif" width="409" height="59" /></div>
+  <div class="tel"><img src="/Public/hyw/images/tel.gif" width="279" height="59" /></div>
+  <div class="clear"></div>
+ </div>
+ <div class="menu">
+   <div class="caid">
+    <ul class="menuLink">
+     <li><a href="<?php echo U('Index/index');?>" class="current">首页</a></li>
+     <li><a href="zuli/lease.html">叉车租赁</a>
+      <ul>
+        <li><a href="">年月租</a></li>
+        <li><a href="#">临时租</a></li>
+        <li><a href="#">快捷租车</a></li>
+      </ul>
+     </li>
+     <li><a href="mallshop.html">好运商城</a>
+        <ul>
+        <li><a href="#">特价车</a></li>
+        <li><a href="#">工业品</a></li>       
+      </ul>
+     </li>
+     <li> <a href="<?php echo U('News/index');?>">资讯中心</a>
+       <ul>
+        <li><a href="#">叉车租赁问答</a></li>
+        <li><a href="#">叉车保养知识</a></li>
+        <li><a href="#">叉车故障排除</a></li>
+        <li><a href="#">行业新闻</a></li>
+        <li><a href="#">公司新闻</a></li>
+        <li><a href="#">叉车百科</a></li>
+        <li><a href="#">叉车证</a></li>
+        <li><a href="#">叉车上牌</a></li>
+        <li><a href="#">下载专区</a></li>
+      </ul>
+     </li>
+     <li><a href="car.html">服务网络</a></li>     
+     <li><a href="join.html">加盟合作</a></li>
+     <li class="last"><a href="about/about1.html">关于我们</a>
+      <ul>
+        <li><a href="#">好运旺简介</a></li>
+        <li><a href="#">联系方式</a></li>       
+        <li><a href="#">荣誉资质</a></li>        
+        <li><a href="#">成功案例</a></li>
+        <li><a href="#">发展历程</a></li>
+        <li><a href="#">招贤纳士</a></li>
+      </ul>
+     </li> 
+    </ul>
+   </div>
+ </div>
+<!--------头部结束-------------->
+
+ <div class="banner">
+  <div class="fouse">
+    <div id="xxx"  >
+     <script>
+     var box =new PPTBox();
+     box.width = 854; //宽度
+     box.height = 469;//高度
+     box.autoplayer = 3;//自动播放间隔时间
+     // box.add({"url":"图片地址","title":"悬浮标题","href":"链接地址"})
+     <?php foreach($banner as $k => $v){ ?>
+        box.add({"url":"<?php echo $v['ad_code'];?>","href":"","title":""})
+     <?php }?>
+     // box.add({"url":"{$banner[1]['ad_code']}","href":"#","title":"悬浮提示标题3"}) 
+     // box.add({"url":"{$banner[2]['ad_code']}","href":"#","title":"悬浮提示标题4"})  
+     box.show();
+    </script>
+</div>
+  </div>
+  <div class="htub">
+   <div class="zutub1">
+     <a href="<?php echo U('Goods/goodsList');?>">年月租</a>       
+     <span>年月租车，价格更低</span>
+   </div>
+   <div class="zutub2">
+     <a href="<?php echo U('Goods/goodsTemp');?>">临时租</a>       
+     <span>临时租车，随时随地</span>
+   </div>
+   <div class="zutub3">
+     <a href="<?php echo U('Driver/index');?>">招司机</a>       
+     <span>在线求职，更便捷</span>
+   </div>
+   <div class="zutub4">
+     <a href="<?php echo U('Special/index');?>">特价车</a>       
+     <span>无限低价，惊喜到爆</span>
+   </div>
+   <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+ </div>  
+ </div>
+ <div class="hCent">
+   <div class="hsousuo">
+  <div class="guanjic">
+    <form id="form1" name="form1" method="post" action="">
+    <div class="keyword">
+      <div class="keyword2"><input name="" type="text"  class="kye" value="请输入关键字" onfocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字';this.style.color='#999'}"/></div>
+      <div class="sobtn"><input name="" type="button" class="sobtn2"/></div>
+      <div class="clear"></div>
+    </div>   
+    </form>
+     <div class="kwez">热门关键字：杭州、合力、台励福，杭州用HC，合力为HELI等</div>
+  </div>
+  <div class="tel2"><img src="/Public/hyw/images/tel2.gif" width="261" height="86" /></div>
+  <div class="clear"></div>
+  </div>
+ <div class="haicha">
+   <div class="htltle1"><a href="haicar.html"><img src="/Public/hyw/images/h-titl1.gif" width="1187" height="63" /></a></div>
+   <div class="haichac">
+     <div class="haic">
+       <div class="htij">
+          <div class="hbit1">叉车品牌</div>
+          <div class="htiaoj2 where1" value='pinpai'>
+            <a href="javascript:void(0)" value=''>不限</a>
+            <a href="javascript:void(0)" value='三菱'>三菱</a>
+            <a href="javascript:void(0)" name='wtest' value='丰田'>丰田</a> 
+            <a href="javascript:void(0)" value='力至优'>力至优</a> 
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="javascript:void(0)" value='林德'>林德</a> 
+            <a href="javascript:void(0)" value='合力'>合力</a> 
+            <a href="javascript:void(0)" value='杭叉'>杭叉</a> 
+            <a href="javascript:void(0)" value='other'>其它</a>
+          </div>
+       </div>
+       <div class="htij">
+          <div class="hbit1">车 型</div>
+          <div class="htiaoj2 where1" value='cart_type'>
+            <a href="javascript:void(0)" value=''>不限</a> 
+            <a href="javascript:void(0)" value='平衡重式柴油叉车'>平衡重式柴油叉车</a> <br/>
+            <a href="javascript:void(0)" value='平衡重液化汽油叉车'>平衡重液化汽油叉车</a> <br/>
+            <a href="javascript:void(0)" value='平衡重式电动叉车'>平衡重式电动叉车</a> <br/>
+            <a href="javascript:void(0)" value='座驾前移式电动叉车'>座驾前移式电动叉车</a><br/> 
+            <a href="javascript:void(0)" value='前移式电动叉车'>前移式电动叉车</a><br/>  
+            <a href="javascript:void(0)" value='other'>其它</a>
+          </div>
+       </div>
+
+       <div class="htij">
+        <div class="hbit1">叉车吨位（kg）</div>
+        <div class="htiaoj2" value='dunwei' > 
+            <a href="javascript:void(0)" value=''>不限</a> 
+<!--             <?php if(is_array($dunwei)): foreach($dunwei as $key=>$dunwei): ?><a href="javascript:void(0)" value='<?php echo ($dunwei); ?>'>1000</a><?php endforeach; endif; ?> -->
+            <a href="javascript:void(0)" value='1'>1000</a> 
+            <a href="javascript:void(0)" value='1.3'>1300</a> 
+            <a href="javascript:void(0)" value='1.4'>1400</a> 
+            <a href="javascript:void(0)" value='1.5'>1500</a> 
+            <a href="javascript:void(0)" value='1.6'>1600</a> 
+            <a href="javascript:void(0)" value='1.8'>1800</a> 
+            <a href="javascript:void(0)" value='2'>2000</a> 
+            <a href="javascript:void(0)" value='2.5'>2500</a> 
+            <a href="javascript:void(0)" value='3'>3000</a> 
+            <a href="javascript:void(0)" value='3.5'>3500</a> 
+            <a href="javascript:void(0)" value='4'>4000</a> 
+            <a href="javascript:void(0)" value='4.5'>4500</a> 
+            <a href="javascript:void(0)" value='5'>5000</a> 
+            <a href="javascript:void(0)" value='5.5'>5500</a> 
+            <a href="javascript:void(0)" value='other'>其它</a>
+        </div>
+       </div>
+       <div class="htij">
+        <div class="hbit1">门架类型</div>
+        <div class="htiaoj2" value='menjia' > 
+            <a href="javascript:void(0)" value=''>不限</a><br/> 
+            <a href="javascript:void(0)" value='二节标准门架'>二节标准门架</a><br/> 
+            <a href="javascript:void(0)" value='二节全自由提升型门架'>二节全自由提升型门架</a><br/>  <a href="javascript:void(0)" value='三节全自由提升型门架'>三节全自由提升型门架</a><br/> 
+            <a href="javascript:void(0)" value='other'>其它</a>
+        </div>
+       </div>
+       <div class="htij">
+        <div class="hbit1">门架提升高度（mm）</div>
+        <div class="htiaoj2" value='mj_height' >
+            <a href="javascript:void(0)" value=''>不限</a> 
+            <a href="javascript:void(0)" value='2500'>2500</a> 
+            <a href="javascript:void(0)" value='2700'>2700</a> 
+            <a href="javascript:void(0)" value='3000'>3000</a> 
+            <a href="javascript:void(0)" value='3300'>3300</a> 
+            <a href="javascript:void(0)" value='3500'>3500</a> 
+            <a href="javascript:void(0)" value='3700'>3700</a> 
+            <a href="javascript:void(0)" value='4000'>4000</a> 
+            <a href="javascript:void(0)" value='4300'>4300</a> 
+            <a href="javascript:void(0)" value='4500'>4500</a> 
+            <a href="javascript:void(0)" value='4700'>4700</a> 
+            <a href="javascript:void(0)" value='5000'>5000</a> 
+            <a href="javascript:void(0)" value='5500'>5500</a> 
+            <a href="javascript:void(0)" value='other'>其它</a>
+        </div>
+       </div>
+       <div class="htij">
+        <div class="hbit1">备用电池</div>
+        <div class="htiaoj2" value='bydc' >
+            <a href="javascript:void(0)" value=''>不限</a> 
+            <a href="javascript:void(0)" value='1'>1组 </a>
+            <a href="javascript:void(0)" value='2'>2组</a>
+            <!-- <a href="javascript:void(0)" value='other'>其他</a> -->
+        </div>
+       </div>
+       <div class="htij">
+        <div class="hbit1">属具</div>
+        <div class="htiaoj2" value='shuju' >
+            <a href="javascript:void(0)" value=''>不限</a> 
+            <a href="javascript:void(0)" value='侧移器'>侧移器</a> 
+            <a href="javascript:void(0)" value='旋转器'>旋转器</a> 
+            <a href="javascript:void(0)" value='纸夹'>纸夹</a> &nbsp; 
+            <a href="javascript:void(0)" value='other'>其他</a>
+        </div>
+       </div>
+       <div class="htij">
+        <div class="hbit1">更多要求</div>
+        <div class="htiaoj2" value='is_yt' >
+            <a href="javascript:void(0)" value=''>不限</a> 
+            <a href="javascript:void(0)" value='0'>冷库</a>
+            <a href="javascript:void(0)" value='1'>防爆</a> 
+        </div>
+       </div>
+     </div>
+     <div class="haiche">
+      <ul class="hailist">
+      </ul>
+     </div>
+     <div class="clear"></div>
+   </div>
+ </div>
+
+ <div class="hxiaz">
+   <div class="xiaz1">
+     <div class="xiatit">叉车租赁</div>
+     <ul class="xiazwe">
+       <li><a href="#">客户交易细则</a></li>
+       <li><a href="#">车主交易细则</a></li>
+       <li><a href="#">临时租交易细则</a></li>
+       <li> <a href="#">运输协议</a></li>
+       <li><a href="#">租车流程</a></li>
+     </ul>
+   </div>
+   <div class="xiaz2">
+    <div class="xiatit2">公司资料</div>
+    <ul class="xiazwe2">
+       <li><a href="#">营业执照</a></li>       
+     </ul>
+   </div>
+   <div class="xiaz3"><a href="#"><img src="/Public/hyw/images/btn1.png" width="127" height="36" /></a></div>
+   <div class="clear"></div>
+ </div>
+ <div class="haicha">
+   <div class="htltle1"><a href="canshu.html"><img src="/Public/hyw/images/h-titl2.gif" width="1187" height="63" /></a></div>
+    <script> 
+	<!-- 
+	/*tab切换脚本*/ 
+	function setTab(name,cursel,n){ 
+	/*参数意义:name为标签id标识,即不带数字的,cursel为标签数字,n为一共有几个标签*/
+		for(i=1;i<=n;i++){ 
+			var menu=document.getElementById(name+i); /*循环取得所有标签*/
+			var con=document.getElementById("tab_"+name+"_"+i); /*循环取得所有的内容块*/
+			menu.className=i==cursel?"current":""; /*判断自身的数字是否等于current*/
+			con.style.display=i==cursel?"block":"none"; /*如果是则显示出当前标签所应的内容块,否则隐藏*/
+		} 
+	} 
+	//--> 
+	</script>
+   <div class="hpinp">
+   <a href="#" id="one1" onmouseover="setTab('one',1,6)"  class="current" >三菱</a> 
+   <a href="#" id="one2" onmouseover="setTab('one',2,6)" >丰田</a> 
+   <a href="#" id="one3" onmouseover="setTab('one',3,6)" >林德</a> 
+   <a href="#" id="one4" onmouseover="setTab('one',4,6)" >合力</a> 
+   <a href="#" id="one5" onmouseover="setTab('one',5,6)" >杭叉</a> 
+   <a href="#" id="one6" onmouseover="setTab('one',6,6)" >力至优</a> 
+   <a href="#" id="one7" onmouseover="setTab('one',7,6)" >其它</a>
+   </div>
+   <div class="zzsc" id="tab_one_1">
+	<ul> 
+        <?php if(is_array($goods1)): foreach($goods1 as $key=>$goods1): ?><li class="last2">
+        	<a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods1['goods_id']]);?>">
+              <img src="<?php echo ($goods1["zm_pic"]); ?>" width='210' height='290'/>
+          </a>
+          <span><?php echo ($goods1["pinpai"]); echo ($goods1["cart_type"]); ?></span>
+        	<div class="shubt">           
+            <p><a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods1['goods_id']]);?>">
+            <?php echo ($goods1["pinpai"]); echo ($goods1["cart_type"]); ?></a></p></div>    
+        </li><?php endforeach; endif; ?>
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_2" style="display:none;">
+	<ul>
+    	  <?php if(is_array($goods2)): foreach($goods2 as $key=>$goods2): ?><li>
+            <a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods2['goods_id']]);?>"><img src="<?php echo ($goods2["zm_pic"]); ?>" width='210' height='290' /></a>
+            <span><?php echo ($goods2["pinpai"]); echo ($goods2["cart_type"]); ?></span>
+            <div class="shubt"><p><a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods2['goods_id']]);?>"><?php echo ($goods2["pinpai"]); echo ($goods2["cart_type"]); ?></a></p></div> 
+          </li><?php endforeach; endif; ?>
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_3" style="display:none;">
+	<ul>
+        <?php if(is_array($goods3)): foreach($goods3 as $key=>$goods3): ?><li>
+            <a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods3['goods_id']]);?>"><img src="<?php echo ($goods3["zm_pic"]); ?>" width='210' height='290' /></a>
+            <span><?php echo ($goods3["pinpai"]); echo ($goods3["cart_type"]); ?></span>
+            <div class="shubt"><p><a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods3['goods_id']]);?>"><?php echo ($goods3["pinpai"]); echo ($goods3["cart_type"]); ?></a></p></div> 
+          </li><?php endforeach; endif; ?>    	   
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_4" style="display:none;">
+	<ul>
+        <?php if(is_array($goods4)): foreach($goods4 as $key=>$goods4): ?><li>
+            <a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods4['goods_id']]);?>"><img src="<?php echo ($goods4["zm_pic"]); ?>" width='210' height='290' /></a>
+            <span><?php echo ($goods4["pinpai"]); echo ($goods4["cart_type"]); ?></span>
+            <div class="shubt"><p><a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods4['goods_id']]);?>"><?php echo ($goods4["pinpai"]); echo ($goods4["cart_type"]); ?></a></p></div> 
+          </li><?php endforeach; endif; ?>    	
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_5" style="display:none;">
+	<ul>
+        <?php if(is_array($goods5)): foreach($goods5 as $key=>$goods5): ?><li>
+            <a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods5['goods_id']]);?>"><img src="<?php echo ($goods5["zm_pic"]); ?>" width='210' height='290' /></a>
+            <span><?php echo ($goods5["pinpai"]); echo ($goods5["cart_type"]); ?></span>
+            <div class="shubt"><p><a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods5['goods_id']]);?>"><?php echo ($goods5["pinpai"]); echo ($goods5["cart_type"]); ?></a></p></div> 
+          </li><?php endforeach; endif; ?>
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_6" style="display:none;">
+	<ul>
+        <?php if(is_array($goods6)): foreach($goods6 as $key=>$goods6): ?><li>
+            <a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods6['goods_id']]);?>"><img src="<?php echo ($goods6["zm_pic"]); ?>" width='210' height='290' /></a>
+            <span><?php echo ($goods6["pinpai"]); echo ($goods6["cart_type"]); ?></span>
+            <div class="shubt"><p><a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods6['goods_id']]);?>"><?php echo ($goods6["pinpai"]); echo ($goods6["cart_type"]); ?></a></p></div> 
+          </li><?php endforeach; endif; ?>
+	</ul>
+</div>
+<div class="zzsc" id="tab_one_7" style="display:none;">
+  <ul>
+        <?php if(is_array($goods7)): foreach($goods7 as $key=>$goods7): ?><li>
+            <a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods7['goods_id']]);?>"><img src="<?php echo ($goods7["zm_pic"]); ?>" width='210' height='290' /></a>
+            <span><?php echo ($goods7["pinpai"]); echo ($goods7["cart_type"]); ?></span>
+            <div class="shubt"><p><a href="<?php echo U('Goods/GoodsInfo',['goods_id'=>$goods7['goods_id']]);?>"><?php echo ($goods7["pinpai"]); echo ($goods7["cart_type"]); ?></a></p></div> 
+          </li><?php endforeach; endif; ?>
+  </ul>
+</div>
+   <script src="js/jquery.min.js"></script>
+<script>
+$(function(){
+	$('.zzsc li').hover(function(){
+		$('.shubt',this).stop().animate({
+			height:'241px'
+		});
+	},function(){
+		$('.shubt',this).stop().animate({
+			height:'0'
+		});
+	});
+});
+</script>
+   </div>
+   
+    <div class="haicha">
+   <div class="htltle2"><img src="/Public/hyw/images/h-titl3.gif" width="1187" height="63" /></div>
+   <div class="hnews">
+    <div class="hnews1">
+     <div class="hnewtu"><a href="#"><img src="/Public/hyw/images/tu6.jpg" width="379" height="213" /></a><span><a href="#">公告动态</a></span></div>
+     <ul class="hxin">
+      <li><span>2016-12-01</span> <a href="#">三菱叉车2016华南区经销商培训会</a></li>
+      <li><span>2016-12-01</span> <a href="#">好运旺组织户外烧烤活动</a></li>
+      <li><span>2016-12-01</span> <a href="#">三菱叉车2016华南区经销商培训会</a></li>
+     </ul>
+    </div>
+    <div class="hnews1">
+     <div class="hnewtu"><a href="#"><img src="/Public/hyw/images/tu5.jpg" width="379" height="213" /></a><span><a href="#">公告动态</a></span></div>
+     <ul class="hxin">
+      <li><span>2016-12-01</span> <a href="#">三菱叉车2016华南区经销商培训会</a></li>
+      <li><span>2016-12-01</span> <a href="#">好运旺组织户外烧烤活动</a></li>
+      <li><span>2016-12-01</span> <a href="#">三菱叉车2016华南区经销商培训会</a></li>
+     </ul>
+    </div>
+    <div class="hnews2">
+     <div class="hnewtu"><a href="#"><img src="/Public/hyw/images/tu7.jpg" width="379" height="213" /></a><span><a href="#">公告动态</a></span></div>
+     <ul class="hxin">
+      <li><span>2016-12-01</span> <a href="#">三菱叉车2016华南区经销商培训会</a></li>
+      <li><span>2016-12-01</span> <a href="#">好运旺组织户外烧烤活动</a></li>
+      <li><span>2016-12-01</span> <a href="#">三菱叉车2016华南区经销商培训会</a></li>
+     </ul>
+    </div>
+    <div class="clear"></div>
+   </div>
+   </div>
+   <div class="youqi">
+    <div class="htitl3"><a href="#" class="current">热门城市</a> <a href="link.html">友情链接</a></div>
+    <div class="ylist">
+    <a href="#">天津叉车出租</a> |   <a href="#">上海叉车出租</a> |   <a href="#">山东叉车出租</a> |   <a href="#">广东叉车出租</a> |   <a href="#">浙江叉车出租</a> |   <a href="#">江苏叉车出租</a> |   <a href="#">福建叉车出租</a> |   <a href="#">重庆叉车出租</a> |   <a href="#">天津叉车出租</a> |   <a href="#">上海叉车出租</a> <a href="#">山东叉车出租</a> |    <a href="#">广东叉车出租</a> |   <a href="#">浙江叉车出租</a> |   <a href="#">江苏叉车出租</a> |   <a href="#">福建叉车出租</a> |   <a href="#">重庆叉车出租</a></div>
+   </div>
+ </div>
+<!--------底部开始-------------->
+
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script src="/Public/hyw/js/script.js"></script>
+
+<div class="foot">
+  <div class="foot2">
+  <div class="footlogo">
+   <div class="logo2"><img src="/Public/hyw/images/logo2.gif" width="389" height="65" /></div>
+   <div class="footliax">
+    <p class="tongy">全国统一热线：</p>
+    <p> 400 1648 168； 0769-23102690；  15812814965      </p>
+    <p>地址：广州市天河区建中路勤天大厦</p>
+    </div>
+    <div class="erwm">
+     <div class="erwm1"><img src="/Public/hyw/images/erwm1.gif" width="86" height="85" /><span>app 二维码</span></div>
+     <div class="erwm1"><img src="/Public/hyw/images/erwm1.gif" width="86" height="85" /><span>微信公众号</span></div>
+     <div clsas="clear"></div>
+    </div>
+  </div>
+  <div class="footmenu">
+   <div class="fmen1">
+    <div class="fmen1tit">叉车租赁  </div>
+    <ul class="fmenu1">
+     <li>年月租</li>
+     <li><a href="#">临时租</a></li>
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">好运商城 </div>
+    <ul class="fmenu1">
+     <li><a href="#">特价叉车</a></li>
+     <li>其他</li>
+    </ul>
+   </div>
+   <div class="fmen1">
+      <div class="fmen1tit">最新资讯 </div>
+        <ul class="fmenu1">
+           <li><a href="#">市场动态</a></li>
+           <li><a href="#">租赁问答</a></li>
+        </ul>
+      </div>
+      <div class="fmen1">
+        <div class="fmen1tit">加盟合作 </div>
+        <ul class="fmenu1">
+          <li><a href="#">加盟合作</a></li>   
+        </ul>
+      </div>
+      <div class="fmen1">
+        <div class="fmen1tit">联系我们 </div>
+          <ul class="fmenu1">
+             <li><a href="#">联系方式</a></li>
+             <li><a href="#">公司简介</a></li>
+             <li><a href="#">下载专区</a></li>
+          </ul>
+        </div>
+   <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  </div>
+  <div class="copyright">
+   <div class="coyr2">      
+      Copyright © 2014 好运旺租叉车电商平台 东莞市粤力叉车租赁有限公司 All Rights Reserved<br/>备案号：粤ICP备13001988号  技术支持：
+      <a href="#">云鸿科技111</a> 
+      <a href="#">app开发</a>
+    </div>
+  </div>
+<!--------底部结束-------------->
+
+<form id='goodsList' action="" method='post'>
+  <input type="hidden" value='' name='pinpai' />
+  <input type="hidden" value='' name='cart_type' />
+  <input type="hidden" value='' name='dunwei' />
+  <input type="hidden" value='' name='menjia' />
+  <input type="hidden" value='' name='mj_height' />
+  <input type="hidden" value='' name='bydc' />
+  <input type="hidden" value='' name='shuju' />
+  <input type="hidden" value='' name='is_yt' />
+</form>
+<div class="scroll" id="scroll" style="display:none;">
+		回到顶部
+</div>
+    <script type="text/javascript">
+	$(function(){
+		showScroll();
+		function showScroll(){
+			$(window).scroll( function() { 
+				var scrollValue=$(window).scrollTop();
+				scrollValue > 100 ? $('div[class=scroll]').fadeIn():$('div[class=scroll]').fadeOut();
+			} );	
+			$('#scroll').click(function(){
+				$("html,body").animate({scrollTop:0},200);	
+			});	
+		}
+	})
+	</script>
+  <script>
+ajaxgoods();
+$('.htiaoj2 a').click(function(){
+    var wheres = $(this).attr('value');
+    $(this).siblings().css({'background-color':'#39abfb'});
+    $(this).css({'background-color':'#f6b662'});
+    var parents = $(this).parent().attr('value');
+    $('input[name="'+parents+'"]').val(wheres);
+    ajaxgoods();
+});
+function ajaxgoods()
+{
+    $.ajax({ 
+        type:'post',
+        url: "<?php echo U('Index/ajaxGoods');?>", 
+        data: $('#goodsList').serialize(), 
+        success: function(data){
+          $('.hailist').html('');
+          $('.hailist').append(data);
+        }
+    });
+}
+</script> 
+</body>
+</html>

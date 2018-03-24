@@ -1,0 +1,194 @@
+<include file="Public/min-header" />
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content ">
+        <!-- Main content -->
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回管理员列表"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 添加代理商</h3>
+                </div>
+                <div class="panel-body ">   
+                    <!--表单数据-->
+                    <form method="post" id="suppliersHandle" action="{:U('Shareholder/setJoin')}">
+                        <!--通用信息-->
+                    <div class="tab-content col-md-10">                 	  
+                        <div class="tab-pane active" id="tab_tongyong">                           
+                            <table class="table table-bordered">
+                                <tbody>
+<!--                                 <tr>
+                                    <td>代理人：</td>
+                                    <td>
+                                        <select name='user_id' class="form-control" id="user_id" required>
+                                            <option value="0">选择代理人</option>
+                                            <foreach item='agent' name='agent'>
+                                                <option value="{$agent.user_id}" <if condition="$agent['user_id'] eq $info['user_id']">selected</if>>{$agent.mobile}  
+                                                ({$level_id[$agent[level_id]]})
+                                                </option>
+                                            </foreach>
+                                        </select>
+                                    </td>
+                                </tr> -->                                 
+                                <tr>
+                                    <td class="col-sm-2">公司名：</td>
+                                    <td class="col-sm-8">
+                                        <input type="text" class="form-control" name="company" required value="{$info.company}" >
+                                    </td>
+                                </tr>  
+                                <tr>
+                                    <td>联系人：</td>
+                                    <td>
+                               			<input type="text" class="form-control" name="username" value="{$info.username}" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>联系方式：</td>
+                                    <td >
+                                        <input type="text" class="form-control" name="mobile" value="{$info.mobile}" >
+                                    </td>
+                                </tr>  
+                                <tr>
+                                    <td>E-mail：</td>
+                                    <td>
+                                        <input type="text" class="form-control" name="email" value="{$info.email}" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>传真：</td>
+                                    <td>
+                                        <input type="text" class="form-control" name="fax" value="{$info.fax}" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>网址：</td>
+                                    <td>
+                                        <input type="text" class="form-control" name="weburl" value="{$info.weburl}" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>联系地址：</td>
+                                    <td>
+                                        <div class='col-xs-2'>
+                                        <select name='province' class="form-control" onchange="get_city(this)" id="province"   name="province">
+                                            <option value="0">选择省份</option>
+                                            <foreach item='province' name='province'>
+                                                <option <if condition="$province['id'] eq $info['province']">selected</if> value="{$province.id}">{$province.name}</option>
+                                            </foreach>
+                                        </select>
+                                        </div>
+                                        <div class='col-xs-2'>
+                                        <select name='city' class="form-control" onchange="get_area(this)" id="city" name="city">
+                                            <option value="0">选择城市</option>
+                                            <foreach item='city' name='city'>
+                                                <option <if condition="$city['id'] eq $info['city']">selected</if> value="{$city.id}">{$city.name}</option>
+                                            </foreach>
+                                        </select>
+                                        </div>
+                                        <div class='col-xs-2'>
+                                        <select name='district' class="form-control" id="district">
+                                            <option value="0">选择区县</option>
+                                            <foreach item='district' name='district'>
+                                                <option <if condition="$district['id'] eq $info['district']">selected</if> value="{$district.id}">{$district.name}</option>
+                                            </foreach>
+                                        </select>
+                                        </div>
+                                        <div class='col-xs-6'>
+                                            <input required placeholder="详细地址" name='address' value="{$info.address}" class="form-control" type="text" />
+                                        </div>
+                                    </td>
+                                </tr>
+                               
+                                </tbody> 
+                                <tfoot>
+                                	<tr>
+                                	<td>
+                                		<input type="hidden" name="join_id" value="{$info.join_id}">
+                                	</td>
+                                	<td class="text-right"><input class="btn btn-primary" type="button" onclick="adsubmit()" value="保存"></td></tr>
+                                </tfoot>                               
+                                </table>
+                        </div>                           
+                    </div>              
+			    	</form><!--表单数据-->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+function adsubmit(){
+	if($('input[name=suppliers_name]').val() == ''){
+		layer.msg('供应商名称不能为空！', {icon: 2,time: 1000});   //alert('少年，用户名不能为空！');
+		return false;
+	}
+	if($('input[name=suppliers_desc]').val() == ''){
+		layer.msg('供应商描述不能为空！', {icon: 2,time: 1000});//alert('少年，邮箱不能为空！');
+		return false;
+	}
+    if($('input[name=suppliers_contacts]').val() == ''){
+        layer.msg('供应商联系人不能为空！', {icon: 2,time: 1000});//alert('少年，邮箱不能为空！');
+        return false;
+    }
+    if($('input[name=suppliers_phone]').val() == ''){
+        layer.msg('供应商电话不能为空！', {icon: 2,time: 1000});//alert('少年，邮箱不能为空！');
+        return false;
+    }
+	$('#suppliersHandle').submit();
+}
+// get_city1();
+
+function get_city1(obj)
+{
+    $.post(
+        '{:U("Home/News/get_city")}',
+        function(data){
+            var str = '<option value="0">选择省份</option>';
+            $.each(data['list'],function(key,val){
+                str += '<option value="'+val['id']+'">'+val['name']+'</option>';
+            });
+            $('#province').html('');
+            $('#province').append(str);
+        },
+        'json'
+    )
+}
+
+function get_city(obj)
+{
+    $.post(
+        '{:U("Home/News/get_city")}',
+        {id:$(obj).val()},
+        function(data){
+            var str = '<option value="0">选择城市</option>';
+            $.each(data['list'],function(key,val){
+                str += '<option value="'+val['id']+'">'+val['name']+'</option>';
+            });
+            $('#city').html('');
+            $('#city').append(str);
+        },
+        'json'
+    )
+}
+
+function get_area(obj)
+{
+    $.post(
+        '{:U("Home/News/get_city")}',
+        {id:$(obj).val()},
+        function(data){
+            var str = '<option value="0">选择区域</option>';
+            $.each(data['list'],function(key,val){
+                str += '<option value="'+val['id']+'">'+val['name']+'</option>';
+            });
+            $('#district').html('');
+            $('#district').append(str);
+        },
+        'json'
+    )
+}
+</script>
+</body>
+</html>

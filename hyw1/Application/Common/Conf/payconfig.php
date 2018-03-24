@@ -1,0 +1,17 @@
+<?php
+	
+//接口名称
+$interfaceName = 'PayOrder';
+//版本名称
+$version = 'B2C1.0';
+//商户代码
+$merchantId = 'M100001761';
+//支付请求完成后，客户将跳转到该链接
+$returnURL = 'http://hyw.web66.cn:8092/index.php/Home/Pay/returnURL';
+//支付完成后,后台回调地址
+$notifyURL = 'http://hyw.web66.cn:8092/index.php/Api/Pay/notifyURL';
+$curType = 'CNY';
+//密钥
+$key = '123123';
+//发起支付请求的url
+$url = 'http://60.12.221.84:28080/pay/preprocess.do';

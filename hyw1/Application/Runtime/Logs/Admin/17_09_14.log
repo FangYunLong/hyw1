@@ -1,0 +1,810 @@
+[ 2017-09-14T14:28:52+08:00 ] 14.222.182.234 /index.php/Admin/Goods/addEditGoods
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] mkdir(): File exists D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 657 行.
+NOTIC: [2] mkdir(): File exists D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 657 行.
+NOTIC: [2] mkdir(): File exists D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 657 行.
+NOTIC: [2] mkdir(): File exists D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 657 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046800s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046800s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:28:54+08:00 ] 14.222.182.234 /index.php/Admin/Goods/addEditGoods/id/257
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: URL_home D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 140 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Undefined variable: info D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 525 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 776 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 778 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 782 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 784 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.078000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.078000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:29:30+08:00 ] 14.222.182.234 /index.php/Admin/Goods/addEditGoods
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [8] Undefined variable: LevelCat D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 782 行.
+NOTIC: [8] Undefined variable: dunwei D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 784 行.
+NOTIC: [8] Undefined variable: cart_type D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 785 行.
+NOTIC: [8] Undefined variable: menjia D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 786 行.
+NOTIC: [8] Undefined variable: mj_height D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 787 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.015600s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: URL_home D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 140 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Undefined variable: info D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 525 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 776 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 778 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 782 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 784 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.093600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:30:41+08:00 ] 14.222.182.234 /index.php/Admin/Goods/getCat
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [8] Undefined index: getCat D:\www\hyw1\Application\Admin\Common\function.php 第 210 行.
+
+[ 2017-09-14T14:30:48+08:00 ] 14.222.182.234 /index.php/Admin/Goods/getCat
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [8] Undefined index: getCat D:\www\hyw1\Application\Admin\Common\function.php 第 210 行.
+
+[ 2017-09-14T14:30:53+08:00 ] 14.222.182.234 /index.php/Admin/Goods/getCat
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [8] Undefined index: getCat D:\www\hyw1\Application\Admin\Common\function.php 第 210 行.
+
+[ 2017-09-14T14:30:55+08:00 ] 14.222.182.234 /index.php/Admin/Goods/getCat
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [8] Undefined index: getCat D:\www\hyw1\Application\Admin\Common\function.php 第 210 行.
+
+[ 2017-09-14T14:32:02+08:00 ] 14.222.182.234 /index.php/Admin/Goods/addEditGoods
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [2] mkdir(): File exists D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 657 行.
+NOTIC: [2] mkdir(): File exists D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 657 行.
+NOTIC: [2] mkdir(): File exists D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 657 行.
+NOTIC: [2] mkdir(): File exists D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 657 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:32:05+08:00 ] 14.222.182.234 /index.php/Admin/Goods/addEditGoods
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [8] Undefined variable: LevelCat D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 782 行.
+NOTIC: [8] Undefined variable: dunwei D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 784 行.
+NOTIC: [8] Undefined variable: cart_type D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 785 行.
+NOTIC: [8] Undefined variable: menjia D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 786 行.
+NOTIC: [8] Undefined variable: mj_height D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 787 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.015600s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: URL_home D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 140 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Undefined variable: info D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 525 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 776 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 778 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 782 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 784 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.093600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:32:29+08:00 ] 14.222.182.234 /index.php/Admin/Goods/goodsList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [8] Uninitialized string offset: 1 D:\www\hyw1\Application\Common\Common\function.php 第 633 行.
+NOTIC: [8] Uninitialized string offset: 1 D:\www\hyw1\Application\Common\Common\function.php 第 633 行.
+NOTIC: [8] Uninitialized string offset: 1 D:\www\hyw1\Application\Common\Common\function.php 第 633 行.
+NOTIC: [8] Uninitialized string offset: 1 D:\www\hyw1\Application\Common\Common\function.php 第 633 行.
+NOTIC: [8] Uninitialized string offset: 1 D:\www\hyw1\Application\Common\Common\function.php 第 633 行.
+NOTIC: [8] Uninitialized string offset: 1 D:\www\hyw1\Application\Common\Common\function.php 第 633 行.
+NOTIC: [8] Uninitialized string offset: 1 D:\www\hyw1\Application\Common\Common\function.php 第 633 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.093600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:32:30+08:00 ] 14.222.182.234 /index.php?m=Admin&c=goods&a=ajaxGoodsList&p=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [8] Undefined index: ajaxGoodsList D:\www\hyw1\Application\Admin\Common\function.php 第 210 行.
+NOTIC: [8] Undefined variable: condition D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 582 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 582 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+NOTIC: [8] Use of undefined constant dunwei - assumed 'dunwei' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 47 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Admin\904a25b5eb876e612ef13e8d5a7b0bef.php 第 55 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015600s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015600s ]
+
+[ 2017-09-14T14:32:34+08:00 ] 14.222.182.234 /index.php/Admin/Goods/addEditGoods/id/267
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: URL_home D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 140 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Undefined variable: info D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 525 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 776 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 778 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 782 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 784 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062400s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062400s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.015600s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:40:10+08:00 ] 14.222.182.234 /index.php/Admin/Goods/addEditGoods
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [8] Undefined variable: res D:\www\hyw1\Application\Admin\Controller\GoodsController.class.php 第 662 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:40:13+08:00 ] 14.222.182.234 /index.php/Admin/Goods/addEditGoods/id/267
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: URL_home D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 140 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 210 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 220 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 230 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 240 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Use of undefined constant money - assumed 'money' D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 250 行.
+NOTIC: [8] Undefined variable: info D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 525 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 776 行.
+NOTIC: [8] Undefined variable: level_cat D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 778 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 782 行.
+NOTIC: [8] Undefined variable: level_cat2 D:\www\hyw1\Application\Runtime\Cache\Admin\c5b83c1ac2aaddb7d217c711b27315d2.php 第 784 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062400s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062400s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.015600s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

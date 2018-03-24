@@ -1,0 +1,252 @@
+[ 2017-05-24T18:29:43+08:00 ] 127.0.0.1 /index.php/Admin/Order/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000627s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004964s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010048s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015179s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008200s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+NOTIC: [8] Use of undefined constant user_id - assumed 'user_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\18bc66a7b6334412ab8e61a2539ecfbd.php 第 191 行.
+NOTIC: [8] Undefined index: user_id F:\Project\haoyunwang\Application\Runtime\Cache\Admin\18bc66a7b6334412ab8e61a2539ecfbd.php 第 191 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031792s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031879s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003030s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.002919s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006054s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002774s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002825s ]
+
+[ 2017-05-24T18:29:44+08:00 ] 127.0.0.1 /index.php/Admin/order/ajaxindex/p/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000693s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003295s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.031400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.034867s ]
+NOTIC: [8] Undefined index: ajaxindex F:\Project\haoyunwang\Application\Admin\Common\function.php 第 129 行.
+NOTIC: [2] urlencode() expects parameter 1 to be string, array given F:\Project\haoyunwang\Application\Admin\Controller\OrderController.class.php 第 107 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007213s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007334s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000077s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+NOTIC: [8] Use of undefined constant order_status - assumed 'order_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Undefined index: is_cod F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 51 行.
+NOTIC: [8] Use of undefined constant pay_status - assumed 'pay_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 52 行.
+NOTIC: [8] Use of undefined constant shipping_status - assumed 'shipping_status' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 53 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 63 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 64 行.
+NOTIC: [8] Use of undefined constant goods_id - assumed 'goods_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\8eed6bb92403d43d1e94abecb9ebb26a.php 第 65 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032923s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032989s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003435s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003635s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007202s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003155s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003230s ]
+
+[ 2017-05-24T18:30:05+08:00 ] 127.0.0.1 /index.php/Admin/Driver/driverList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000779s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003060s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.013400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016612s ]
+NOTIC: [8] Undefined index: admin/driver F:\Project\haoyunwang\Application\Admin\Common\function.php 第 128 行.
+NOTIC: [8] Undefined index: admin/driver F:\Project\haoyunwang\Application\Admin\Common\function.php 第 129 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007977s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008062s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000110s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000193s ]
+NOTIC: [8] Undefined variable: timegap F:\Project\haoyunwang\Application\Runtime\Cache\Admin\64c38b0927e6b51b754ec981a1358d7a.php 第 157 行.
+NOTIC: [8] Undefined variable: order_status F:\Project\haoyunwang\Application\Runtime\Cache\Admin\64c38b0927e6b51b754ec981a1358d7a.php 第 186 行.
+NOTIC: [8] Use of undefined constant user_id - assumed 'user_id' F:\Project\haoyunwang\Application\Runtime\Cache\Admin\64c38b0927e6b51b754ec981a1358d7a.php 第 190 行.
+NOTIC: [8] Undefined index: user_id F:\Project\haoyunwang\Application\Runtime\Cache\Admin\64c38b0927e6b51b754ec981a1358d7a.php 第 190 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030845s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030938s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002989s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.004619s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007753s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002957s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003031s ]
+
+[ 2017-05-24T18:30:06+08:00 ] 127.0.0.1 /index.php/Admin/driver/ajaxindex/p/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000652s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006845s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.014299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.021756s ]
+NOTIC: [8] Undefined index: admin/driver F:\Project\haoyunwang\Application\Admin\Common\function.php 第 128 行.
+NOTIC: [8] Undefined index: admin/driver F:\Project\haoyunwang\Application\Admin\Common\function.php 第 129 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008147s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008237s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000118s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026896s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026981s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002852s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003122s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006050s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002940s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003002s ]
+

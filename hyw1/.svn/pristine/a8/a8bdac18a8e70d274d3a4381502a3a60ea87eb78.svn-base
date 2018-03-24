@@ -1,0 +1,256 @@
+<?php
+/**
+ * tpshop
+ * ============================================================================
+ * * 版权所有 2015-2027 深圳搜豹网络科技有限公司，并保留所有权利。
+ * 网站地址: http://www.tp-shop.cn
+ * ----------------------------------------------------------------------------
+ * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和使用 .
+ * 不允许对程序代码以任何形式任何目的的再发布。
+ * ============================================================================
+ * 2015-11-21
+ */
+namespace Home\Controller;
+use Home\Logic\UsersLogic;
+use Think\Page;
+use Think\Verify;
+
+class UserController extends BaseController {
+
+    //个人中心
+    public function userInfo()
+    {   
+        $this->assign('User',$this->user);
+        $this->assign('sex',C('sex'));
+        $this->display();
+    }
+
+    //修改个人信息页面
+    public function editInfo()
+    {
+        $this->assign('User',$this->user);
+        $this->assign('sex',C('sex'));        
+        $this->display();
+    }  
+
+    //提交修改个人信息
+    public function editAction()
+    {
+        $data = I('post.');
+        unset($data['__hash__']);
+
+        if($_FILES){
+            $path1 = './Public/Upload/userpic/';
+            $file = fileUploadNews($path1,$_FILES);
+
+            if(!$file){
+                echo '图片格式错误！';exit;
+            }
+            $data['head_pic']  = 'http://hyw.web66.cn:8092/Public/Upload/userpic/'.$file['touxiang'];
+            $data['cart_path']  = 'http://hyw.web66.cn:8092/Public/Upload/userpic/'.$file['file'];
+
+        }
+        $user = session('user');
+        $data['user_id'] = $user['user_id'];
+        $res = M('Users')->save($data);
+
+        if($res){
+            echo '修改成功';
+            header('location:'.U('User/userInfo'));
+        }else{
+            echo '修改失败';
+            header('location:'.U('User/editInfo'));
+        }
+    }  
+
+    //订单中心-租车订单
+    public function userOrder()
+    {
+        $Order = $this->userOrderList('',1,2);
+        $Temp  = $this->userTempList('',1,2);
+        // $Order = false;
+        // $Temp = false;
+        // dump($Order);
+        $this->assign('order',$Order['data']);
+        $this->assign('temp',$Temp['data']);
+        $this->display();
+    }
+
+    //订单中心-租车订单-已完成与未完成订单
+    public function userOrderStatus()
+    {
+        $OrderYes = $this->userOrderList(5,1,2);
+        $OrderNo  = $this->userOrderList(3,1,2);
+        // dump($OrderYes);
+        // dump($OrderNo);
+        $this->assign('OrderYes',$OrderYes['data']);
+        $this->assign('OrderNo',$OrderNo['data']);        
+        $this->display();
+    }
+
+    //订单中心-租车订单-已完成与未完成订单-列表
+    public function userOrderStatusList()
+    {
+        $orderStatus = I('get.order_status',3); 
+        $page        = I('get.page',1);
+        $OrderList   = $this->userOrderList($orderStatus,$page,6);
+        // dump($OrderList);
+        $this->assign('OrderList',$OrderList['data']);
+        $this->assign('page',$OrderList);
+        $this->assign('orderStatus',$orderStatus);
+        $this->display();
+    }
+
+    //订单中心-租车订单-订单详情
+    public function userOrderInfo()
+    {
+        $user_id  = $this->user['user_id'];
+        $order_id = I('get.order_id');
+
+        $Order = M('Order')->alias('o')
+                           ->field('o.order_id,o.order_status,o.order_sn,o.add_time,g.pinpai,g.cart_type,g.dunwei,g.menjia,g.mj_height,g.factorytime,g.use_hours,g.is_status,g.bydc,g.shuju,g.is_yt,o.tenancy,o.yhours,o.mprice,o.number,o.use_user,o.mobile,o.address,o.invoice_title,g.zm_pic,g.cm_pic,g.czt_pic,g.nb_pic,start_time,end_time')
+                           ->join('tp_goods as g on o.goods_id=g.goods_id')
+                           ->where(['o.user_id'=>$user_id,'o.order_id'=>$order_id])
+                           ->find();
+        $Order = M('Order')->find($order_id);
+        $Goods = M('Goods')->find($Order['goods_id']);
+        // if(!$Order){
+        //     header('location:'.U('User/userOrder'));exit;
+        // }
+dump($Order);
+dump($Order['goods_id']);
+dump($Goods);
+        $this->assign('OrderInfo',$Order);
+        $this->display();
+    }
+
+    //订单中心-年月租-租车订单
+    public function userOrderList($order_status='',$page=1,$rows=6)
+    {
+        $user_id = $this->user['user_id'];
+        
+        $data['order_status'] = $order_status;
+        $data['user_id']      = $user_id;
+        $where  = ' 1=1 ';
+        $where .= " AND o.user_id = {$user_id} ";
+
+        if(!empty($order_status)){
+            if($order_status!=5){
+                $where .= ' AND order_status != 5 ';
+            }else{
+                $where .= ' AND order_status = 5 ';
+            }
+        }
+
+        $data  = array_filter($data);
+
+        $count = M('Order')->alias('o')->where($where)
+                           ->count();
+        if($count < 1){
+            return false;            
+        }
+
+        $pages = ceil($count / $rows);
+        $page < 1 ? $page = 1 : null ;
+        $page > $pages ? $page = $pages : null ;
+        $num     = ($page-1)*$rows;
+
+        $sql = "SELECT o.order_id,o.order_sn,o.order_status,o.goods_id,o.add_time,g.pinpai,g.cart_type,g.dunwei,g.zm_pic
+                FROM tp_order AS o LEFT JOIN tp_goods AS g ON o.goods_id=g.goods_id
+                WHERE {$where} ORDER BY o.add_time DESC LIMIT {$num},{$rows} ";
+        $res = M('')->query($sql);        
+
+        if($res){
+            return [
+                'page'  => $page,
+                'pages' => $pages,
+                'rows'  => $rows,
+                'data'  => $res
+            ];
+        }else{
+            return false;          
+        }
+    }    
+
+    //订单中心-临时租-租车订单
+    public function userTempStatus()
+    {
+        $TempYes = $this->userTempList(3,1,2);
+        $TempNo  = $this->userTempList(2,1,2);
+        $this->assign('TempYes',$TempYes['data']);
+        $this->assign('TempNo',$TempNo['data']);
+        $this->display();
+    }
+
+    //订单中心-租车订单-已完成与未完成订单-列表
+    public function userTempStatusList()
+    {
+        $status = I('get.status',2); 
+        $page        = I('get.page',1);
+        $TempList   = $this->userTempList($status,$page,6);
+        // dump($TempList);
+        $this->assign('TempList',$TempList['data']);
+        $this->assign('page',$TempList);
+        $this->assign('status',$status);
+        $this->display();
+    }    
+
+    //订单中心-临时租-租车订单
+    public function userTempList($status='',$page=1,$rows=6)
+    {
+        $user_id = $this->user['user_id'];
+        $data['status']  = $status;
+        $data['user_id'] = $user_id;
+
+        if(!empty($status)&&$status!=3){
+            $data['status'] = array('neq',3);
+        }
+
+        $data  = array_filter($data);
+
+        $count = M('Temporary')->where($data)
+                               ->count();
+        if($count < 1){
+            return false;            
+        }
+
+        $page < 1 ? $page = 1 : null ;
+        $pages     = ceil($count / $rows);
+        $page > $pages ? $page = $pages : null ;
+        $num     = ($page-1)*$rows;
+
+        $Temporary = M('Temporary')->field('temp_id,user_id,temp_sn,status,mobile,username,dunwei,driver_id,address,add_time,push_time')
+                                   ->where($data)
+                                   ->limit($num,$rows)
+                                   ->order('add_time DESC')
+                                   ->select();
+        
+        foreach($Temporary as $k => $v){
+            if($v['driver_id']){
+                $Users = M('Users')->where(['user_id'=>$v['driver_id']])->find();
+                $Temporary[$k]['nickname']  = $Users['nickname'];
+                $Temporary[$k]['carmobile'] = $Users['mobile'];
+            }else{
+                $Temporary[$k]['nickname']  = '';
+                $Temporary[$k]['carmobile'] = '';
+            }
+        }
+
+        if($Temporary){
+            return [
+                'page'  => $page,
+                'pages' => $pages,
+                'rows'  => $rows,
+                'data'  => $Temporary
+            ];
+        }else{
+            return false;            
+        }
+    }    
+
+    //订单中心-抢单订单
+    public function carOrder()
+    {
+        $this->display();
+    }    
+}

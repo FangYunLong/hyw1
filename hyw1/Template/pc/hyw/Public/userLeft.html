@@ -1,0 +1,73 @@
+<ul class="leftNav">
+	<li><a href="{:U('User/userInfo')}" <if condition="$action eq 'userInfo'"> class='current'</if>>个人资料</a></li>
+    <if condition="$users.level_id eq 4">
+    	<li><a href="{:U('User/shareHolders')}" class="inactive " <if condition="$action eq 'userInfo'"> class='current'</if>>股东中心</a></li>
+    </if>
+    <if condition="$users.level_id eq 3">
+    <li>
+    	<a href="{:U('User/JoiningTrader')}" class="inactive " <if condition="$action eq 'userInfo'"> class='current'</if>>加盟商中心
+    	</a>
+    </li>        
+    </if>	
+	<if condition="$users.level_id lt 3">
+	<li>
+		<a style="cursor:pointer" class="inactive"> 订单中心</a>
+		<ul style="display: none">
+    		<if condition="$users.level_id lt 3">
+			<li>
+				<a href="{:U('User/userOrder')}" class="inactive active">租车订单</a>	
+			</li> 
+			</if>
+			<if condition="$users.level_id eq 2">
+			<li>
+				<a href="{:U('User/carOrder')}" class="inactive active">抢单订单</a>
+			</li>
+			</if>
+    		<if condition="$users.level_id lt 3">
+			<li><a href="{:U('User/distribution')}">我的分销</a></li> 
+			</if>
+		</ul>
+	</li>
+	</if>
+    <if condition="$users.level_id lt 3">
+	<li><a href="{:U('User/allMsg')}" class="inactive" <if condition="$action eq 'userInfo'"> class='current'</if>>我的消息</a></li>
+    <li><a href="{:U('User/resume')}" class="inactive" <if condition="$action eq 'userInfo'"> class='current'</if>>我的求职</a></li>
+    <li><a href="{:U('User/specialList')}" class="inactive " <if condition="$action eq 'userInfo'"> class='current'</if>>我的特价车</a></li>
+    <li><a style="cursor:pointer" class="inactive">我的报表</a>
+    <ul style="display: none">
+		<li><a href="{:U('User/userCarInfo')}" class="inactive active">租车情况</a></li>
+    	<if condition="$users.level_id eq 2">
+		<li><a href="{:U('User/carInfo')}" class="inactive active">出租情况</a></li>
+		</if>
+    </ul>    
+	</if>
+</ul>
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+	$('.inactive').click(function(){
+		if($(this).siblings('ul').css('display')=='none'){
+			$(this).parent('li').siblings('li').removeClass('inactives');
+			$(this).addClass('inactives');
+			$(this).siblings('ul').slideDown(100).children('li');
+			if($(this).parents('li').siblings('li').children('ul').css('display')=='block'){
+				$(this).parents('li').siblings('li').children('ul').parent('li').children('a').removeClass('inactives');
+				$(this).parents('li').siblings('li').children('ul').slideUp(100);
+
+			}
+		}else{
+			//控制自身变成+号
+			$(this).removeClass('inactives');
+			//控制自身菜单下子菜单隐藏
+			$(this).siblings('ul').slideUp(100);
+			//控制自身子菜单变成+号
+			$(this).siblings('ul').children('li').children('ul').parent('li').children('a').addClass('inactives');
+			//控制自身菜单下子菜单隐藏
+			$(this).siblings('ul').children('li').children('ul').slideUp(100);
+
+			//控制同级菜单只保持一个是展开的（-号显示）
+			$(this).siblings('ul').children('li').children('a').removeClass('inactives');
+		}
+	})
+});
+</script>

@@ -1,0 +1,649 @@
+<?php
+/**
+ *Author:Lonelytears
+*: 2016-12-15
+ */
+namespace Api\Controller;
+
+
+
+class RobController extends BaseController {
+    public static $i=0;
+    public static $j=0;
+
+    /**
+     * 车主抢单栏目
+     *token //测试通过
+    */
+    public function lanmu()
+    {
+        $token = I('post.token');
+        $user_id = S($token);
+        if (empty($user_id)) {
+            exit(json_encode(array('starus'=>-1,'msg'=>'您还没登陆，请先登录')));
+        }
+        $level_id = M('Users')->where(array('user_id'=>$user_id))->getField('level_id');
+
+        if($level_id==1) {
+            exit(json_encode(array('status'=>1,'msg'=>'此号码已经注册为客户')));
+        } else {
+            exit(json_encode(array('status'=>2,'msg'=>'车主')));
+        }
+    }
+
+    /**
+     *车主抢单--年月租抢单列表
+     *post请求、token（验证车主身份）
+    */
+   public function lorderInfo()
+    {
+        $token = I('post.token');
+        $page = isset($_POST['page']) ? I('post.page') : 1;//当前页
+        $rows = isset($_POST['rows']) ? I('post.rows') : 8;//每一页显示记录数
+        $user_id = S($token);
+        if(!$user_id){
+            exit(json_encode(['status'=>-2,'msg'=>'缺少token']));
+        }
+        //$user_id = I('post.user_id');
+        //判断是否车主
+        $user = M('Users')->where(array('user_id' => $user_id))->find();
+        $level_id = $user['level_id'];
+
+        $data['pinpai'] = I('post.pinpai');
+        $data['dunwei'] = I('post.dunwei');
+        $data['cart_type'] = I('post.cart_type');
+
+        $data = array_filter($data);
+
+        if($data['pinpai'] == 'other'){
+            $pinpai = implode(',',C('pinpai'));
+            $data['pinpai'] = ['not in',$pinpai];
+        }
+
+        if($data['cart_type'] == 'other'){
+            $cart_type = implode(',',C('cart_type'));
+            $data['cart_type'] = ['not in',$cart_type];
+        }
+
+        if(!empty($data['dunwei'])&&$data['dunwei']!='other'){
+            $data['dunwei'] = (float)$data['dunwei'];
+        }
+
+        if($data['dunwei'] == 'other'){
+            $dunwei = implode(',',C('dunwei'));
+            $data['dunwei'] = ['not in',$dunwei];
+        }          
+        $data['_logic']='AND';
+        $data['is_type'] = 0;     //年月租订单
+        $data['order_status'] = 0;//抢单状态
+        $data['is_completed'] = 0;//抢单未完成
+
+        $basic  = tpCache('basic');
+
+        $order_s = $basic['hot_keywords']*60*60;   
+
+        if ($level_id == 2) {
+            //根据品牌、吨位、车类型筛选
+            //联表查询--
+            $count = M('Order')->alias('o')->join('tp_goods as g on o.goods_id=g.goods_id')
+                               ->where($data)
+                               ->where("UNIX_TIMESTAMP(NOW())  - UNIX_TIMESTAMP(o.add_time) < {$order_s}")
+                               ->count();
+            if($count < 1){
+                exit(json_encode(['status'=>2,'msg'=>'没有数据！','result'=>[]]));
+            }
+            $res   = M('Order')->alias('o')->join('tp_goods as g on o.goods_id=g.goods_id')
+                               ->field('o.order_id,o.goods_id,o.address,pinpai,dunwei,chezhong')
+                               ->where($data)
+                               ->where("UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(o.add_time) < {$order_s}")
+                               ->page($page,$rows)
+                               ->order('o.add_time ASC')
+                               ->select();
+            $pages = ceil($count/$rows);//总页数
+            $arr['pages'] = $pages;
+            $arr['rows']  = $rows;
+            $a = $res;
+            exit(json_encode(array('status' => 1, 'msg' => '年月租抢单列表', 'result' => $arr,'list'=>$a)));
+        }else {
+            exit(json_encode(array('status' => -1, 'msg' => '您不是车主，不能访问！')));
+        }
+    }
+    /**
+     * 车主抢单--车主下单-6-2A3
+     *
+     * token\zm_pic\cm_pic\czt_pic\nb_pic(四张图片，按顺序)\zdlzj(最低裸租价)
+     */
+    public function getOrder1()
+    {
+        $token = I('post.token');
+        $user_id = S($token);
+        $data = I('post.');
+        $data['user_id']=$user_id;
+
+        //假如一下子提交4张图片，那么该怎么处理
+        //上传图片
+        if($_FILES['thumb']['size']>0) {
+            //定义上传路径
+            $path="./Public/Upload/cart/";
+            $uploadinfo=$this->fileUploadNews($path,$_FILES);
+            //dump($uploadinfo);
+            $data['zm_pic']='http://hyw.web66.cn:8092/Public/Upload/cart/'. $uploadinfo['zm_pic'];
+            $data['cm_pic']='http://hyw.web66.cn:8092/Public/Upload/cart/'. $uploadinfo['cm_pic'];
+            $data['czt_pic']='http://hyw.web66.cn:8092/Public/Upload/cart/'. $uploadinfo['czt_pic'];
+            $data['nb_pic']='http://hyw.web66.cn:8092/Public/Upload/cart/'. $uploadinfo['nb_pic'];
+
+            /*//缩略图
+            $image = new \Think\Image();
+            //拼接保存路径及名字
+            $img=$uploadinfo['thumb']['savepath'].$uploadinfo['thumb']['savename'];
+            $sm_path=$path.$uploadinfo['thumb']['savepath'].'sm_'.$uploadinfo['thumb']['savename'];
+            $image->open('./Public/Upload/knowledge/'.$img);// 按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.jpg
+            $image->thumb(150, 150)->save($sm_path);
+
+            //拼变量
+            $data['small']=$uploadinfo['thumb']['savepath'].'sm_'.$uploadinfo['thumb']['savename'];*/
+        }
+
+        $res = M('Goods')->add($data);
+        if ($res) {
+            exit(json_encode(array('status'=>1,'msg'=>'车主下单叉车信息提交成功')));
+        }else {
+            exit(json_encode(array('status'=>-1,'msg'=>'车主下单叉车信息提交失败')));
+        }
+
+    }
+    /**
+     * 车主抢单--抢单详情回显
+     * order_id
+     * 返回值：详情列表
+     */
+    public function orderInfo(){
+        $order_id = I('post.order_id');
+        $token = I('post.token');
+        $user_id = S($token);
+        if(!$user_id){
+            exit(json_encode(['status'=>-2,'msg'=>'缺少token']));
+        }
+        // $order_id = '806';
+        $res = M('Order')->field('order_sn,goods_id,tenancy,yhours')->where(array('order_id'=>$order_id))->find();
+        $goods_id = $res['goods_id'];
+        $good = M('Goods')->field('pinpai,dunwei,cart_type,menjia,mj_height,bydc,shuju,is_yt')->where(array('goods_id'=>$goods_id))->find();
+        $good['order_sn']=$res['order_sn'];
+        $good['tenancy']=$res['tenancy'];
+        $good['yhours']=$res['yhours'];
+        exit(json_encode(array('status'=>1,'msg'=>'车主抢单详情','result'=>$good)));
+    }
+
+    //年月租-车主抢单
+    public function getOrder()
+    {
+        $token    = I('post.token');
+        $user_id  = S($token);
+        $order_id = I('post.order_id');
+        $OrderInfoData = I('post.');
+
+        if(!$user_id){
+            exit(json_encode(['status'=>-2,'msg'=>'缺少token']));
+        }
+
+        $level_id = M('Users')->where(['user_id'=>$user_id])->getField('level_id');
+        if($level_id!=2){
+            exit(json_encode(['status'=>-1,'msg'=>'您不是车主，不能抢单！']));
+        }
+
+        $OrderInfo = M('OrderInfo')->where(['order_id'=>$order_id,'user_id'=>$user_id])->getField('id');
+        $Order     = M('Order')->find($order_id);
+        
+        if($OrderInfo){
+            exit(json_encode(['status'=>-1,'msg'=>'您已抢单成功，请勿重复操作！']));
+        }
+        
+        if($Order['user_id'] == $user_id){
+            exit(json_encode(['status'=>-1,'msg'=>'不能抢自己发布的订单！']));
+        }
+
+        $basic  = tpCache('basic');
+
+        $time_s = time() - strtotime($Order['add_time']);//订单已过多长时间
+
+        $order_s = $basic['hot_keywords']*60*60;//网站设置的过期时间
+
+        if($time_s > $order_s){
+            exit(json_encode(['status'=>-1,'msg'=>'该订单已过期！']));
+        }
+
+        if(!$Order['order_sn']){
+            exit(json_encode(['status'=>-1,'msg'=>'该订单数据异常！']));
+        }
+
+        //先查询订单是否结束
+        if($Order['grab_number']>=1||$Order['order_status']!=0||$Order['is_completed']!=0){
+            // $OrderInfoData['status'] = 0;
+            // M('OrderInfo')->add($OrderInfoData);
+            exit(json_encode(['status'=>-1,'msg'=>'抱歉你手速慢了，订单已被抢！']));
+        }
+
+        $path = './Public/file/'.$Order['order_sn'].'.lock';
+
+        $fp = fopen($path,'a+');
+     
+        //启用文件锁，防止高并发
+        if(flock($fp,LOCK_EX))
+        {
+            $OrderAgain = M('Order')->find($order_id);
+
+            //再次查询抢单是否结束
+            if($OrderAgain['grab_number']>=1||$OrderAgain['order_status']!=0||$OrderAgain['is_completed']!=0){
+                $OrderInfoData['status'] = 0;
+            }else{
+                $OrderInfoData['status'] = 1;
+                $OrderData['order_id']    = $OrderAgain['order_id'];
+                $OrderData['grab_number'] = $OrderAgain['grab_number'] + 1;
+                if($OrderData['grab_number']>=1){
+                    $OrderData['order_status'] = 3;
+                    $OrderData['is_completed'] = 1;
+                }            
+                $OrderData['grab_userid'] = $OrderAgain['grab_userid'] .','. $user_id;
+                M('Order')->save($OrderData);
+            }
+
+            flock($fp,LOCK_UN);
+        }
+     
+        fclose($fp);           
+
+
+        if($OrderInfoData['status']){
+            //定义上传路径
+            $path="./Public/Upload/cart/";
+            $uploadinfo=$this->fileUploadNews($path,$_FILES);
+            //dump($uploadinfo);
+            $uploadinfo['zm_pic'] ?$OrderInfoData['zm_pic']  = 'http://hyw.web66.cn:8092/Public/Upload/cart/'. $uploadinfo['zm_pic']:'';
+            $uploadinfo['cm_pic'] ?$OrderInfoData['cm_pic']  = 'http://hyw.web66.cn:8092/Public/Upload/cart/'. $uploadinfo['cm_pic']:'';
+            $uploadinfo['czt_pic']?$OrderInfoData['czt_pic'] = 'http://hyw.web66.cn:8092/Public/Upload/cart/'. $uploadinfo['czt_pic']:'';
+            $uploadinfo['nb_pic'] ?$OrderInfoData['nb_pic']  = 'http://hyw.web66.cn:8092/Public/Upload/cart/'. $uploadinfo['nb_pic']:'';
+            $OrderInfoData['user_id'] = $user_id;
+            $OrderInfoData['add_time'] = time();            
+            M('OrderInfo')->add($OrderInfoData);
+            exit(json_encode(['status'=>1,'msg'=>'恭喜，抢单成功！']));
+        }else{
+            if(file_exists($path)){
+                unlink($path);
+            }
+            exit(json_encode(['status'=>-1,'msg'=>'抱歉你手速慢了，订单已被抢！']));
+        }
+    }
+
+    /**
+     * 车主抢单--抢单提交
+     * order_id、token
+     * 返回值
+    */
+    public function pushlorder()
+    {
+        $token = I('post.token');
+        $user_id = S($token);
+        //$user_id = I('post.user_id');
+        $order_id = I('post.order_id');
+        $data[] = $user_id;
+        $data[] = $order_id;
+        self::$j = self::$j+1;
+        $memcache = new \Think\Cache\Driver\Memcache();//实例化
+        //
+        $memcache->set("order".self::$j,$data,30,0);//写入队列  30秒有效时间
+        //怎么确定哪一个是第一个进来的？==》取第一个，入库后$i归零，
+        $arr = $memcache->get("order1");//读取队列
+        $order['driver_id'] = $arr[0];//抢单司机
+        $order['order_id'] = $arr[1];
+        $order['is_play'] = 1;
+        $order['push_time'] = date('Y-m-d H:i:s',time());
+        if ($user_id != $order['driver_id']) {
+            exit(json_encode(array('status'=>-1,'msg'=>'抱歉你手速慢了，订单已被抢')));
+        }
+        //入库前检查这个单是否已经被抢
+        $arr = M('Order')->where(array('order_id'=>$order['order_id']))->find();
+        if ($arr['driver_id'] != 0) {
+            if ($user_id==$arr['driver_id']) {
+                exit(json_encode(array('status'=>1,'msg'=>'你已经抢单成功，无需重复抢单')));
+            }
+            exit(json_encode(array('status'=>-1,'msg'=>'抱歉你手速慢了，订单已被抢')));
+        }
+        $order['is_completed'] = 1;
+        $res = M('Order')->where(array('order_id'=>$order['order_id']))->save($order);
+        self::$j =0;
+        if ($res) {
+            //订单信息回显
+            // $result = M('Temporary')->alias('tb1')->join('tp_users tb2 on tb1.user_id=tb2.user_id')->field('tb1.mobile,tb1.nickname,tb2.dunwei,tb2.address')->where(array('temp_id'=>$order['temp_id']))->find();
+           /* $result = M('Temporary')->field('mobile,username,dunwei,address')->where(array('temp_id'=>$order['temp_id']))->find();*/
+            //dump($result);die;
+            exit(json_encode(array('status'=>1,'msg'=>'立即抢单成功')));
+        } else {
+            exit(json_encode(array('status'=>-1,'msg'=>'立即抢单失败')));
+        }
+    }
+
+
+    //*********     临时租     ***************//
+    /**
+     * 车主抢单--临时租车主抢单列表
+     * post请求
+     * 返回值：成功==temp_id(临时租订单id)，dunwei（吨位）、limit（距离当前位置多少米）
+    */
+    public function tempList()
+    {
+		$token=I('post.token');
+		$user_id = S($token);
+        if(!$user_id){
+            exit(json_encode(['status'=>-2,'msg'=>'缺少token']));
+        }
+
+        $lat = I('post.lat');//纬度
+        $lng = I('post.lng');//经度
+
+        $basic  = tpCache('basic');
+
+        $temp_s = $basic['hot_keywords1']*60*60; 
+
+        $Temp = M('Temporary')->where(['status'=>1])
+                              ->where("UNIX_TIMESTAMP(NOW())  - UNIX_TIMESTAMP(add_time) < {$temp_s}")
+                              ->select();
+        //先求距离，大于10公里的则不显示
+        foreach ($Temp as $k => $v) {
+            $limit = $this->getDistance($v['lat'],$v['lng'],$lat,$lng);//求得距离
+            if ($limit<20000) {
+                //处理用户id集
+                $Temps[$k] = $v;
+                $Temps[$k]['limit'] = $limit;
+            }
+        }
+
+        sort($Temps);
+
+        if (empty($Temps)) {
+            exit(json_encode(array('status'=>2,'msg'=>'没有数据！')));
+        }
+
+        if ($Temps) {
+            exit(json_encode(['status'=>1,'msg'=>'临时租抢单列表成功','result'=>$Temps]));
+        } else {
+            exit(json_encode(['status'=>2,'msg'=>'临时租抢单列表没数据']));
+        }
+    }
+    /**
+     * 根据两点经纬度计算距离
+     *
+    */
+    public function getDistance($lat1, $lng1, $lat2, $lng2)
+    {
+         $earthRadius = 6367000; //approximate radius of earth in meters
+         $lat1 = ($lat1 * pi() ) / 180;
+         $lng1 = ($lng1 * pi() ) / 180;
+         $lat2 = ($lat2 * pi() ) / 180;
+         $lng2 = ($lng2 * pi() ) / 180;
+         $calcLongitude = $lng2 - $lng1;
+         $calcLatitude = $lat2 - $lat1;
+         $stepOne = pow(sin($calcLatitude / 2), 2) + cos($lat1) * cos($lat2) * pow(sin($calcLongitude / 2), 2);
+         $stepTwo = 2 * asin(min(1, sqrt($stepOne)));
+         $calculatedDistance = $earthRadius * $stepTwo;
+         return round($calculatedDistance);
+	 }
+	 /**
+      * 临时租--车主抢单详情
+      * temp_id(订单id)、limit（距离米）
+      * post
+      * 返回值：limit、temp_id、address（地址）
+	 */
+	 public function tempInfo()
+     {
+         $temp_id = I('post.temp_id');
+         $limit = I('post.limit');
+         $order = D('Temporary')->field('temp_id,temp_sn,dunwei,address')->where(array('temp_id'=>$temp_id))->find();
+         $order['limit'] = $limit;
+         exit(json_encode(array('status'=>1,'msg'=>'临时租车主抢单详情','result'=>$order)));
+     }
+
+    //临时租-车主抢单-立即抢单
+    public function pushOrder()
+    {
+        $token    = I('post.token');
+        $user_id  = S($token);
+        $temp_id  = I('post.temp_id');
+        // dump(I('post.'));exit;
+        // $user_id  = 2612;
+        if(!$user_id){
+            exit(json_encode(['status'=>-2,'msg'=>'缺少token']));
+        }
+
+        $level_id = M('Users')->where(['user_id'=>$user_id])->getField('level_id');
+        if($level_id!=2){
+            exit(json_encode(['status'=>-1,'msg'=>'您不是车主，不能抢单！']));
+        }
+
+        $TempInfo = M('TempInfo')->where(['temp_id'=>$temp_id,'user_id'=>$user_id])->getField('id');
+        
+        if($TempInfo){
+            exit(json_encode(['status'=>-1,'msg'=>'您已抢单成功，请勿重复操作！']));
+        }
+        $Temp = M('Temporary')->find($temp_id);
+
+        if($Temp['user_id']==$user_id){
+            exit(json_encode(['status'=>-1,'msg'=>'无法抢自己发布的订单！']));
+        }
+
+        //先查询订单是否结束
+        if($Temp['status']!=1){
+            exit(json_encode(['status'=>-3,'msg'=>'抱歉你手速慢了，订单已被抢！']));
+        }
+
+        if(!$Temp['temp_sn']){
+            exit(json_encode(['status'=>-1,'msg'=>'数据异常！']));
+        }
+
+        $basic  = tpCache('basic');
+
+        $time_s = time() - strtotime($Temp['add_time']);
+
+        $Temp_s = $basic['hot_keywords1']*60*60;
+
+        if($time_s > $Temp_s){
+            exit(json_encode(['status'=>-1,'msg'=>'该订单已过期！']));
+        }
+
+        $path = './Public/file/'.$Temp['temp_sn'].'.lock';
+
+        $fp = fopen($path,'a+');
+     
+        //启用文件锁，防止高并发
+        if(flock($fp,LOCK_EX))
+        {
+            $TempAgain = M('Temporary')->find($temp_id);
+
+            //再次查询抢单是否结束
+            if($TempAgain['status']==1){
+                $TempInfoData['status'] = 3;
+                $TempData['status']     = 3;
+                $TempData['temp_id']    = $temp_id;
+                $TempData['driver_id']  = $user_id;
+                $TempData['push_time']  = date('Y-m-d H:i:s',time());
+                $rest = M('Temporary')->save($TempData);
+            }else{
+                $TempInfoData['status'] = false;
+            }
+            flock($fp,LOCK_UN);
+        }
+        
+        fclose($fp);
+
+        if(file_exists($path)){
+            unlink($path);
+        }
+
+        if($rest){
+            //记录抢单车主的信息
+            $TempInfoData['user_id']  = $user_id;
+            $TempInfoData['temp_id']  = $temp_id;
+            $TempInfoData['add_time'] = time();            
+            M('TempInfo')->add($TempInfoData);
+            $type    = ['type'=>9,'temp_id'=>$temp_id,'status'=>$Temp['status']];
+            $content = '您有临时租订单已被车主接单，点击查看详情！';
+            $content1 = $Temp['temp_sn'].'临时租订单已有车主接单！';
+            $res = Jpush($Temp['user_id'],$type,$content,$content1,true);
+        }
+
+        if($TempInfoData['status']){
+            exit(json_encode(['status'=>1,'msg'=>'恭喜，抢单成功！']));
+        }else{
+            exit(json_encode(['status'=>-3,'msg'=>'抱歉你手速慢了，订单已被抢！']));
+        }
+    }     
+
+
+    /**
+     * 车主抢单--临时租--立即抢单
+     * temp_id（）、token
+     */
+    public function pushOrder1()
+    {
+        $token = I('post.token');
+        $user_id = S($token);
+        //$user_id = I('post.user_id');
+        $temp_id = I('post.temp_id');
+        $data[] = $user_id;
+        $data[] = $temp_id;
+        self::$i = self::$i+1;
+        $memcache = new \Think\Cache\Driver\Memcache();//实例化
+        //
+        $memcache->set("order".self::$i,$data,30,0);//写入队列   30秒有效时间
+        //怎么确定哪一个是第一个进来的？==》取第一个，入库后$i归零，
+        $arr = $memcache->get("order1");//读取队列
+        $order['driver_id'] = $arr[0];//抢单司机
+        $order['temp_id'] = $arr[1];
+        $order['is_play'] = 1;
+        $order['push_time'] = date('Y-m-d H:i:s',time());
+        if ($user_id != $order['driver_id']) {
+            exit(json_encode(array('status'=>-1,'msg'=>'抱歉你手速慢了，订单已被抢')));
+        }
+        //入库前检查这个单是否已经被抢
+        $arr = M('Temporary')->where(array('temp_id'=>$order['temp_id']))->find();
+        if ($arr['driver_id'] != 0) {
+            if ($user_id==$arr['driver_id']) {
+                exit(json_encode(array('status'=>1,'msg'=>'你已经抢单成功，无需重复抢单')));
+            }
+            exit(json_encode(array('status'=>-1,'msg'=>'抱歉你手速慢了，订单已被抢')));
+        }
+        $res = M('Temporary')->where(array('temp_id'=>$order['temp_id']))->save($order);
+        self::$i =0;
+        if ($res) {
+            //订单信息回显
+            // $result = M('Temporary')->alias('tb1')->join('tp_users tb2 on tb1.user_id=tb2.user_id')->field('tb1.mobile,tb1.nickname,tb2.dunwei,tb2.address')->where(array('temp_id'=>$order['temp_id']))->find();
+            $result = M('Temporary')->field('mobile,username,dunwei,address')->where(array('temp_id'=>$order['temp_id']))->find();
+            //dump($result);die;
+            exit(json_encode(array('status'=>1,'msg'=>'立即抢单成功','result'=>$result)));
+        } else {
+            exit(json_encode(array('status'=>-1,'msg'=>'立即抢单失败')));
+        }
+
+    }
+
+    //临时租过期时间
+    public function orderOverTemp()
+    {
+        $token = I('post.token');
+
+        $user_id = S($token);
+
+        $temp_id = I('post.temp_id');
+
+        if(!$user_id){
+            exit(json_encode(['status'=>-2,'msg'=>'缺少token']));
+        }
+
+        if(!$temp_id){
+            exit(json_encode(['status'=>-1,'msg'=>'订单异常！']));
+        }
+
+        $Temporary = M('Temporary')->field('temp_sn,status,add_time')->find($temp_id);
+
+        $basic  = tpCache('basic');
+
+        $time_s = time() - strtotime($Temporary['add_time']);
+
+        $Temp_s = $basic['hot_keywords1']*60*60;
+
+        if($time_s > $Temp_s){
+            exit(json_encode(['status'=>2,'msg'=>'订单已失效','time_s'=>'']));
+        }else{
+            exit(json_encode(['status'=>1,'msg'=>'成功','time_s'=>$time_s,'temp_s'=>$Temp_s,'data'=>$Temporary]));
+        }
+    }
+
+    //*********  end   临时租  ***************//
+
+    //年月租过期时间
+    public function orderOver()
+    {
+        $token = I('post.token');
+
+        $user_id = S($token);
+
+        $order_id = I('post.order_id');
+
+        if(!$user_id){
+            exit(json_encode(['status'=>-2,'msg'=>'缺少token']));
+        }
+
+        if(!$order_id){
+            exit(json_encode(['status'=>-1,'msg'=>'订单异常！']));
+        }
+
+        $Order = M('Order')->field('order_sn,order_status,add_time')->find($order_id);
+
+        $basic  = tpCache('basic');
+
+        $time_s = time() - strtotime($Order['add_time']);
+
+        $order_s = $basic['hot_keywords']*60*60;
+
+        if($time_s > $order_s){
+            exit(json_encode(['status'=>1,'msg'=>'订单已失效','time_s'=>$time_s,'order_s'=>$order_s,'data'=>$Order]));
+        }else{
+            exit(json_encode(['status'=>1,'msg'=>'成功','time_s'=>$time_s,'order_s'=>$order_s,'data'=>$Order]));
+        }
+    }
+
+
+ /**
+     * 用户经纬度
+     * token\lat(纬度)\lon(经度)
+     */
+    public function  latlon()
+    {
+        $token = I('post.token');
+        $user_id = S($token);
+        //将经纬度地址信息存入到地址表里
+        $ad = M('Address1')->where(array('user_id'=>$user_id))->find();
+        $address['lat'] = I('post.lat');//纬度
+        $address['lon'] = I('post.lon');//经度
+        $address['lasttime'] = date('Y-m-d H:i:s',time());//时间
+        $address['user_id'] = $user_id;//用户id
+        if ($ad) {
+            //若果存在地址信息，则执行更新操作
+            $res = M('Address1')->where(array('user_id'=>$user_id))->save($address);
+            if ($res) {
+                exit(json_encode(array('status'=>1,'msg'=>'地址更新成功')));
+            }else{
+                exit(json_encode(array('status'=>-1,'msg'=>'地址更新失败')));
+            }
+        }else {
+            $res = M('Address1')->where(array('user_id'=>$user_id))->add($address);
+            if ($res) {
+                exit(json_encode(array('status'=>1,'msg'=>'地址添加成功')));
+            }else{
+                exit(json_encode(array('status'=>-1,'msg'=>'地址添加失败')));
+            }
+        }
+    }
+
+
+
+}

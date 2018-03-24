@@ -1,0 +1,131 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content">
+        <!-- Main content -->
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="panel panel-default">           
+                <div class="panel-body ">   
+                   	<ul class="nav nav-tabs">
+                        <foreach name="group_list" item="vo" key="k">
+                     		<li <if condition="$k eq 'smtp'">class="active"</if>><a href="javascript:void(0)" data-url="{:U('System/index',array('inc_type'=>$k))}" data-toggle="tab" onclick="goset(this)">{$vo}</a></li>
+                     	</foreach>                        
+                    </ul>
+                    <!--表单数据-->
+                        <!--通用信息-->
+                    <div class="tab-content" style="padding:20px 0px;">                 	  
+                        <div class="tab-pane active" id="tab_smtp">                           
+                            <table class="table table-bordered tab1">
+                                <tr>
+                                   <th colspan='3'>
+                                    <form action="" id='addBank'>
+                                        银行卡号: 
+                                        <input class='' type="text" name='bank_account'>
+                                        持卡人  : 
+                                        <input class='' type="text" name='cardholder'>
+                                        <button class='btn btn-primary' type='button' onclick='addBanks()' >添加</button>
+                                    </form>
+                                    </th>
+                               </tr>
+                                <tr>
+                                    <th>银行账号</th>
+                                    <th>持卡人</th>
+                                    <th>操作</th>
+                                </tr>
+
+                               <foreach item='BankAccount' name='BankAccount'>
+                               <tr delid="butt{$BankAccount.id}">
+                                   <td>{$BankAccount.bank_account}</td>
+                                   <td>{$BankAccount.cardholder}</td>
+                                   <td>
+                                        <button class="btn btn-primary" type="button" onclick="del({$BankAccount.id})">删除</button>
+                                    </td>
+                               </tr>    
+                               </foreach>                          
+                            </table>
+                        </div>                           
+                    </div>              
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+var flag = true;
+function adsubmit(){
+	check_form();
+	if(flag){
+		$('#handlepost').submit();
+	}
+}
+
+function check_form(){
+	if($('input[name="smtp_server"]').val() == ''){
+		alert('请填写邮件发送服务器地址');
+		flag = false;
+		return;
+	}
+	if($('input[name="smtp_user"]').val() == '' || !checkEmail($('input[name="smtp_user"]').val())){
+		alert('请填写正确的邮箱账号');
+		flag = false;
+		return;
+	}
+	if($('input[name="smtp_pwd"]').val() == ''){
+		alert('请填写发送邮箱密码');
+		flag = false;
+		return;
+	}
+}
+
+$(document).ready(function(){
+	get_province();
+});
+
+function goset(obj){
+	window.location.href = $(obj).attr('data-url');
+}
+
+function del(id){   
+    $.post(
+        "{:U('System/delBank')}",
+        {id:id},
+        function(data){
+            if(data==1){
+                layer.msg('删除成功！', {icon: 1});
+                $('tr[delid="butt'+id+'"]').remove();
+            }else{
+                layer.msg('删除失败', {icon: 2,time: 2000});
+            }
+        },
+        'json'
+    )
+}
+
+    function addBanks(){
+    		$.ajax({
+    			type : "post",
+    			data : $('#addBank').serialize(),
+    			dataType : 'json',
+    			url : "{:U('System/addBank')}",
+    			success : function(res){
+    				if(res['status']==1){
+    					layer.msg('添加成功', {icon: 1});
+                        var tr;
+                        tr = '<tr delid="butt'+res['id']+'"><td>'+$('input[name="bank_account"]').val()+'</td><td>'+$('input[name="cardholder"]').val()+'</td><td><button class="btn btn-primary" type="button" onclick="del('+res['id']+')">删除</button></td></tr>';
+                        $('.tab1').append(tr);
+                        $('input[name="bank_account"]').val('');
+                        $('input[name="cardholder"]').val('') ;
+    				}else{
+    					layer.msg('添加失败', {icon: 2,time: 2000});
+    				}
+    			}
+    		})
+    }
+
+
+</script>
+</body>
+</html>

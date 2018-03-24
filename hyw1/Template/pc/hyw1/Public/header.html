@@ -1,0 +1,127 @@
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<!-- <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script src="/Public/hyw/js/script.js"></script>
+<script src="/Public/js/vue.js"></script>
+
+<div class="noguj">
+    <div class="readTips">    
+      <div class="reading" >请阅读《好运旺租叉车服务条款》</div>      
+      <div class="carsure2">确定</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+<div class="top">
+ <div class="toplink">
+   <div class="toplink2">
+    <div class="tophun ">
+     您好，欢迎登录东莞市粤力叉车租赁公司官网!</div>
+    <div class="topdeng">
+      <?php 
+        $user = session('user');
+        if(!$user){ 
+      ?>
+      <a href="{:U('Login/login')}" class="huiy1">会员登录</a> 
+      <a href="{:U('Login/regist')}" class="huiy2">免费注册</a>
+      <?php }else{ ?>
+      <a href="{:U('User/userInfo')}"><?php echo $user['mobile'];?></a>
+      <a href="{:U('Login/logout')}">退出登录</a>
+      <?php } ?>  
+      <a onclick="this.style.behavior='url(#default#homepage)';this.setHomepage('http://www.hyw.com/index.php/Home/Index/index.html')"  href="http://www.hyw.com/index.php/Home/Index/index.html">设为首页 |</a>   
+      <a href="#">在线商城 |</a>  
+      <a href="/index.php/Home/News/about/cat_id/96.html">联系我们</a>
+    </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+ <div class="logoTel">
+  <div class="logo"><img src="/Public/hyw/images/logo.gif" width="409" height="59" /></div>
+  <div class="tel"><img src="/Public/hyw/images/tel.gif" width="279" height="59" /></div>
+  <div class="clear"></div>
+ </div>
+ <div class="menu">
+   <div class="caid">
+    <ul class="menuLink">
+     <li><a href="{:U('Index/index')}" class="current">首页</a></li>
+     <li><a href="{:U('Goods/goodsList')}">叉车租赁</a>
+       <ul>
+            <li><a href="{:U('Goods/goodsList')}">年月租</a></li>
+            <li><a href="{:U('Goods/goodsTemp')}">临时租</a></li>
+       </ul>
+     </li>
+     <li><a href="{:U('Special/index')}">好运商城</a>
+        <ul>
+            <li><a href="{:U('Special/index')}">特价车</a></li>
+            <!-- <li><a href="{:U('MallShop/Industry')}">工业品</a></li> -->
+        </ul>
+     </li>
+     <li> <a href="{:U('News/news')}">资讯中心</a>
+       <ul>
+            <foreach item='art_cat' name='art_cat'>
+              <li><a href="{:U('News/articleList',array('cat_id'=>$art_cat['cat_id']))}">{$art_cat.cat_name}</a></li>
+            </foreach>
+            <li><a href="{:U('News/news1')}">叉车租赁问答</a></li>
+            <li><a href="{:U('News/download')}">下载专区</a></li>
+       </ul>
+     </li>
+     <li><a href="{:U('service/service')}">服务网络</a></li>
+     <li><a href="{:U('service/join')}">加盟合作</a></li>
+     <li class="last"><a href="{:U('About/about1')}">关于我们</a>
+       <ul>
+          <foreach item='about_cat' name='about_cat'>
+            <li><a href="{:U('News/about',array('cat_id'=>$about_cat['cat_id']))}">{$about_cat.cat_name}</a></li>
+          </foreach>
+       </ul>
+     </li> 
+    </ul>
+   </div>
+ </div>
+<script type="text/javascript">  
+// var vue_msge = new Vue({
+//   el:'.vue_msg',
+//   data:{
+//     vue_msg:[]
+//   },
+//   created:function(){
+//         var url="{:U('Home/User/vue_data')}";
+//         $.getJSON(url,function(items){
+//           console.log( typeof items );
+//             this.vue_msg = items;
+//         }.bind(this));
+//   }         
+// })
+
+function flag(){
+ var userAgentInfo = navigator.userAgent;
+ var Agents = ["Android", "iPhone",
+             "SymbianOS", "Windows Phone",
+             "iPad", "iPod"];
+ var flag = true;
+ for (var v = 0; v < Agents.length; v++) {
+     if (userAgentInfo.indexOf(Agents[v]) > 0) {
+         flag = false;
+         break;
+     }
+ }
+ return flag;
+}
+
+//判断是否是微信端
+function isWeiXin(){ 
+  var ua = navigator.userAgent.toLowerCase(); 
+  if(ua.indexOf('micromessenger') != -1) { 
+     return true; 
+  } else { 
+     return false; 
+  } 
+}
+
+if(flag()==false){
+  $('body').css({'width':'1200px'});
+}
+
+if(isWeiXin()){
+  $('body').css({'width':'1200px'});
+}
+</script>

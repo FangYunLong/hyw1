@@ -1,0 +1,105 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+	<section class="content">
+       <div class="row">
+       		<div class="col-xs-12">
+	       		<div class="box">
+
+	             <!-- /.box-header -->
+	             <div class="box-body">	             
+	           		<div class="row">
+	            	<div class="col-sm-12">
+		              <table id="list-table" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+		                 <thead>
+		                   <tr role="row">
+			                   <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 294px;">年月租</th>
+			                   <th class="sorting" tabindex="0" aria-controls="example1"  aria-label="Engine version: activate to sort column ascending">角色</th>
+			                   <th class="sorting" tabindex="0" aria-controls="example1"  aria-label="CSS grade: activate to sort column ascending">公式</th>
+		                   </tr>
+		                 </thead>
+						<tbody>
+						  	<tr role="row" align="center">
+		                     <td>年月租</td>
+		                     <td>
+								 <label>
+									 <input type="radio" name="level_id1" value="1" checked >客户
+								 </label>
+							 </td>
+		                     <td>
+								 <input type="text" name="method" value="">
+								 <input type="button" value="提交" onclick="priceMethod(this)">
+				     		</td>
+		                    </tr>
+							<tr role="row" align="center">
+								<td>年月租</td>
+								<td>
+									<label>
+										<input type="radio" id="driver" name="level_id" value="2" checked >车主
+									</label>
+								</td>
+								<td>
+									<input type="text" name="method" value="">
+									<input type="button" value="提交" onclick="priceMethod(this)">
+								</td>
+							</tr>
+		                   </tbody>
+		                 <tfoot>
+		                 
+		                 </tfoot>
+		               </table>
+	               </div>
+	          </div>
+					 <script>
+						 function priceMethod(obj) {
+
+							 var level_id = $('#driver').val();
+							 var priceMethod = $('#method').val();
+							 alert(level_id);
+							 //alert(obj);
+						 }
+					 </script>
+	          </div><!-- /.box-body -->
+	        </div><!-- /.box -->
+       	</div>
+       </div>
+   </section>
+</div>
+<script>
+function delfun(obj){
+	if(confirm('确认删除')){		
+		$.ajax({
+			type : 'post',
+			url : $(obj).attr('data-url'),
+			data : {act:'del',msg_id:$(obj).attr('data-id')},
+			dataType : 'json',
+			success : function(data){
+				if(data){
+					$(obj).parent().parent().remove();
+				}else{
+					layer.alert('删除失败', {icon: 2});  //alert('删除失败');
+				}
+			}
+		})
+	}
+	return false;
+}
+ 
+    /*
+     * 清除文章静态页面缓存
+     */
+    function ClearAritcleHtml(article_id)
+    {
+    	$.ajax({
+                    type:'GET',
+                    url:"{:U('Admin/System/ClearAritcleHtml')}",
+                    data:{article_id:article_id},
+                    dataType:'json',
+                    success:function(data){
+                            layer.alert(data.msg, {icon: 2});								 
+                    }
+		});
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<?php
+namespace Admin\Controller;
+use Think\AjaxPage;
+
+class DriverController extends BaseController{
+   
+    public function driverList()
+    {
+    	$this->display('index');
+    }
+
+    /*
+     *Ajax首页
+     */
+    public function ajaxindex(){
+
+        $count = M('Resume')->where(['is_hidden'=>0])->count();
+        $Page  = new AjaxPage($count,20);
+        $show = $Page->show();
+        //获取求职列表
+    	$diverList = M('Resume')->where(['is_hidden'=>0])->limit($Page->firstRow,$Page->listRows)->select();
+        $this->assign('page',$show);// 赋值分页输出
+        // dump($diverList);exit;
+        $this->assign('diverList',$diverList);
+        $this->display();
+    }
+
+     /*
+      * 司机求职详情
+      */
+    public function driver_info($user_id)
+    {
+
+        $Users = M('Resume')->where(array('user_id'=>$user_id))->find();
+        $this->assign('users', $Users);
+        $this->display();
+    }
+
+    /*
+     * 司机求职删除
+     */
+    public function driver_del()
+    {
+        $user_id =$_GET['id'];
+        dump($user_id);die;
+        M('Resume')->where(array('user_id'=>$user_id))->delete();
+        $return_arr = array('status' => 1,'msg' => '操作成功','data'  =>'',);
+        //$return_arr = array('status' => -1,'msg' => '删除失败','data'  =>'',);
+        $this->ajaxReturn(json_encode($return_arr));
+    }
+
+
+
+
+
+
+
+
+}

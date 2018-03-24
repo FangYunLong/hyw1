@@ -1,0 +1,424 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <nav class="navbar navbar-default">
+                        <div class="collapse navbar-collapse">
+                            <div class="navbar-form pull-right margin">
+                                <!--<div><label>订单查看</label></div>-->
+
+                                <!-- <if condition="$order['order_status'] lt 2">
+                                   <a href="{:U('Admin/order/edit_order',array('order_id'=>$order['order_id']))}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑">修改订单</a>
+                                </if>
+                                <if condition="($split eq 1) and ($order['order_status'] lt 2)">
+                                   <a href="{:U('Admin/order/split_order',array('order_id'=>$order['order_id']))}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑">拆分订单</a>
+                                </if>
+                                <a href="{:U('Order/order_print',array('order_id'=>$order['order_id']))}" target="_blank" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="打印订单">
+                                   <i class="fa fa-print"></i>打印订单
+                                </a> -->
+								<a class="btn btn-default" type="button" onclick="window.location.reload();">刷新</a>
+                                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!--新订单列表 基本信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">客户信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class='text-center'>订单 ID</td>
+                                    <td class='text-center'>订单号</td>
+                                    <td class='text-center'>客户姓名</td>
+                                    <td class='text-center'>电话</td>
+                                    <td class='text-center'>所需吨位</td>
+                                    <td class='text-center'>用车地址</td>
+                                    <!-- <td>应付</td> -->
+                                    <td class='text-center'>订单状态</td>
+                                    <td class='text-center'>下单时间</td>
+                                    <!--<td class='text-center'>支付时间</td>-->
+                                    <!-- <td class='text-center'>支付方式</td> -->
+                                </tr>
+                                <tr>
+                                    <td class='text-center'>{$order.temp_id}</td>
+                                    <td class='text-center'>{$order.temp_sn}</td>
+                                    <td class='text-center'>{$order.username|default='无'}</td>
+                                    <!-- <td><a href="#">{$order.email}</a></td> -->
+                                    <td class='text-center'>{$order.mobile}</td>
+									<td class='text-center'>{$order.dunwei}</td>
+									<td class='text-center'>{$order.address}</td>
+                                    <td id="order-status"  class='text-center'>
+                                        {$temp_status[$order[status]-1]}
+                                    </td>
+                                    <td class='text-center'>{$order.add_time}</td>
+
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">车主信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">车主id</td>
+                                    <td class="text-center">车主名称</td>
+                                    <td class="text-center">联系方式</td>
+                                    <td class="text-center">抢单时间</td>
+                                    <td class="text-center">状态</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class='text-center'>{$OrderInfo['user_id']? $Driver['user_id'] :""}</td>
+                                        <td class='text-center'>{$OrderInfo['nickname'] ? $Driver['nickname'] : ""}</td>
+                                        <td class='text-center'>{$OrderInfo['mobile'] ? $Driver['mobile'] : ""}</td>
+                                        <td class='text-center'> {$OrderInfo['add_time'] ? $OrderInfo['add_time']|date='Y-m-d H:i:s',### : ""}</td>
+                                        <td class='text-center'>
+											<neq name="OrderInfo.status" value="3">
+												 <a name='lookinfo' href="javescript:void(0)" ></a>
+											<!--	 <a name='lookinfo' href="javescript:void(0)" onclick="carinfo({$OrderInfo['id']},{$OrderInfo['order_id']},{$OrderInfo['status']})">订单无效</a>-->
+												<else/>
+												<if condition="$OrderInfo['status'] eq 3">
+											<!--		<a name="del" href="javescript:void(0)" onclick='matching({$OrderInfo.id},{$OrderInfo.order_id})'>抢单成功</a>-->
+													<a name="del" href="javescript:void(0)" >抢单成功</a>
+												</if>
+											</neq>
+                                         <!--   <a name='lookinfo' href="javescript:void(0)" onclick="carinfo({$OrderInfo['id']},{$OrderInfo['order_id']},{$OrderInfo['status']})">查看详情</a>
+                                            <if condition="$OrderInfo['status'] eq 1">
+                                                <a name="del" href="javescript:void(0)" onclick='matching({$OrderInfo.id},{$OrderInfo.order_id})'>匹配该单</a>
+                                            </if>	-->					
+                                        </td>
+                                    </tr>
+                                </foreach>
+								
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .carinfopar{
+                        width:100%;
+                        height:100%;
+                        position:fixed;left:0;top:0;
+                        /*opacity:0.3; filter: alpha(opacity=30);*/
+                        background-color:#000;
+                        background: rgba(0, 0, 0, 0.5);
+                        display:none;
+                    }
+                    .carinfo{
+                        width:850px;
+                        height:550px;
+                        background-color:#fff;
+                        border:1px sole #000;
+                        position:fixed;left:10%;top:0;
+                        opacity:1; filter: alpha(opacity=100);
+                        padding-left:30px;
+                        padding-right:30px;
+                        padding-top:30px;
+
+                    }
+                    .div123{
+                        width:100%;
+                        height:40px;
+                        size:24px;
+                        line-height:40px;
+                        top:10px;
+                        background-color:#f5f5f5;float:left;
+                    }
+                    .carleft{
+
+                        float:left;
+                        width:48%;
+                        border:1px solid #000;
+                        height:90%;
+                    }
+                    .carright{
+                        margin-left:20px;
+                        width:48%;
+                        height:90%;
+                        float:right;
+                        border:1px solid #000;
+                    }
+                </style>
+                <script>
+                    $('a[name="lookinfo"]').click(function(){
+                        $('.carinfopar').css({display:'block'});
+                    })
+                </script>
+                <div class='carinfopar'>
+                    <div class='carinfo'>
+                        <div class='carleft'>
+                            <table class='table table-bordered'>
+                                <tr>
+                                    <th colspan='3' class='text-center'>
+                                        客户需求
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>品牌</th>
+                                    <th width='30%'>吨位</th>
+                                    <th width='30%'>门架提升高度</th>
+
+                                </tr>
+                                <tr>
+                                    <td>{$Goods.pinpai}</td>
+                                    <td>{$Goods.dunwei}吨</td>
+                                    <td>{$Goods.mj_height}mm</td>
+
+                                </tr>
+                                <tr>
+                                    <th width='30%'>备用电池</th>
+                                    <th width='30%'>属具</th>
+                                    <th width='30%'>冷库/防爆</th>
+
+                                </tr>
+                                <tr>
+                                    <td>{$Goods.bydc}组</td>
+                                    <td>{$Goods.shuju}</td>
+                                    <td>{$is_yt[$Goods[is_yt]]}</td>
+
+                                </tr>
+                                <tr>
+                                    <th width='30%'>租期</th>
+                                    <th>租用数量</th>
+                                    <th width='30%'>年使用小时数</th>
+
+                                </tr>
+                                <tr>
+                                    <td>{$order.tenancy}个月</td>
+                                    <td>{$order.number}</td>
+                                    <td>{$order.yhours}小时</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>车类型</th>
+                                    <td colspan='2'>{$Goods.cart_type}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>门架</th>
+                                    <td colspan='2'>{$Goods.menjia}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>收车人</th>
+                                    <td colspan='2'>{$order.use_user}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>联系电话</th>
+                                    <td colspan='2'>{$order.mobile}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class='carright'>
+                            <table  class='table table-bordered carinfos'>
+                                <!-- <tr>
+                                    <th colspan='2' class='text-center'>
+                                        车主信息
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>车龄</th>
+                                    <td>{$OrderInfo.cart_age}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>已用小时数</th>
+                                    <td>{$OrderInfo.use_hours}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>货期</th>
+                                    <td>{$OrderInfo.huoqi}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>电池使用时间</th>
+                                    <td>{$OrderInfo.dcsj}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>可出租数量</th>
+                                    <td>{$OrderInfo.paly_num}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>最低裸租价</th>
+                                    <td>{$OrderInfo.cart_age}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>差异性描述</th>
+                                    <td>{$OrderInfo.description}</td>
+                                </tr>
+                                <tr>
+                                    <th width='30%'>图片</th>
+                                    <td><img src="{$OrderInfo.zm_pic}" alt=""></td>
+                                </tr>  -->
+                            </table>
+                        </div>
+                        <div class='text-right pipeidan'>
+                            <a class="btn btn-primary margin" href="javascript:void(0)">匹配该单</a>
+                            <a class="btn btn-primary margin" href="javascript:void(0)" onclick='fanhui()'>返回列表</a>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function carinfo(id,orderid,status){
+                        // $.post(
+                        // "{:U('Order/carinfo')}",
+                        // { id: id },
+                        // function(data){
+                        //     alert(111);
+                        //     console.log(111)
+                        //     console.dir(data);
+                        //     $(".carinfos").html('');
+                        //     $(".carinfos").append(data);
+                        // },
+                        //  "json");
+                        var str;
+                        var status;
+                        if(status!=1){
+                            str = '<label style="color:red">该单已匹配成功！<label><a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        }else{
+                            str = '<a onclick="matching('+id+','+orderid+')" class="btn btn-primary margin" href="javascript:void(0)">匹配该单</a><a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        }
+                        $('.pipeidan').html('');
+                        $('.pipeidan').append(str);
+                        $.ajax({
+                            type : "POST",
+                            url:"{:U('Order/carinfo')}",
+                            data : "id="+id,
+                            success: function(data){
+                                $(".carinfos").html('');
+                                $(".carinfos").append(data);
+                            }
+                        });
+                    }
+                </script>
+                <!--新订单列表 操作信息-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">操作管理</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <!-- <tr>
+                                <div class="row">
+                                    <td class="text-right col-sm-2"><p class="margin">操作备注：</p></td>
+                                    <td colspan="3">
+                                        <form id="order-action">
+                                            <textarea name="note" placeholder="请输入操作备注" rows="3" class="form-control"></textarea>
+                                        </form>
+                                    </td>
+                                </div>
+                            </tr> -->
+                            <tr>
+                                <td colspan="3" class='text-center' align='center'>
+                                    <if condition='$order.order_status eq 3'>
+                                        <a class="btn btn-primary margin" href="javascript:void(0)" onclick="match_order({$order.order_id})">匹配完成</a>
+                                    </if>
+                                    <a class="btn btn-primary margin" href="javascript:history.go(-1)">返回列表</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+<script>
+
+    function fanhui(){
+        $('.carinfopar').css({'display':'none'});
+    }
+
+    function match_order(order_id){
+        $.post(
+                "{:U('Order/matchOrder')}",
+                { order_id: order_id },
+                function(data){
+                    alert(data['msg']);
+                    if(data['status']==1){
+                        $('#order-status').text('待支付');
+                    }
+                },
+                "json");
+    }
+
+    function matching(carid,orderid)
+    {
+        $.post(
+                "{:U('Order/matching')}",
+                { id: carid, order_id: orderid },
+                function(data){
+                    if(data==1){
+                        var str;
+                        str = '<label style="color:red">该单已匹配成功！<label><a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        $('.pipeidan').html('');
+                        $('.pipeidan').append(str);
+                        $('a[name="del"]').remove();
+                        $('.carinfopar').css({'display':'none'});
+                        alert('匹配成功！');
+                    }else{
+                        alert('匹配失败！');
+                    }
+
+                },
+                "json");
+    }
+
+    function pay_cancel(obj){
+        var url =  $(obj).attr('data-url')+'/'+Math.random();
+        layer.open({
+            type: 2,
+            title: '退款操作',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['45%', '50%'],
+            content: url,
+        });
+    }
+    //取消付款
+    function pay_callback(s){
+        if(s==1){
+            layer.msg('操作成功', {icon: 1});
+            layer.closeAll('iframe');
+            location.href =	location.href;
+        }else{
+            layer.msg('操作失败', {icon: 3});
+            layer.closeAll('iframe');
+            location.href =	location.href;
+        }
+    }
+
+    // 弹出退换货商品
+    function selectGoods2(order_id){
+        var url = "/index.php?m=Admin&c=Order&a=get_order_goods&order_id="+order_id;
+        layer.open({
+            type: 2,
+            title: '选择商品',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['60%', '60%'],
+            content: url,
+        });
+    }
+    // 申请退换货
+    function call_back(order_id,goods_id)
+    {
+        var url = "/index.php?m=Admin&c=Order&a=add_return_goods&order_id="+order_id+"&goods_id="+goods_id;
+        location.href = url;
+    }
+</script>
+</html>

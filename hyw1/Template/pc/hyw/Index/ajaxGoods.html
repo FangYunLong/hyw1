@@ -1,0 +1,14 @@
+
+<foreach item='goodsList' name='goodsList'>
+<li>
+	<a href="{:U('Goods/GoodsInfo',['goods_id'=>$goodsList['goods_id']])}">
+		<img src="{$goodsList.zm_pic}" onload="javascript:DrawImage1(this,294,212)" width="294" height="212" />
+	</a>
+	<span>
+		<a target='_block' href="{:U('Goods/GoodsInfo',['goods_id'=>$goodsList['goods_id']])}">
+			{$goodsList.goods_name}
+		</a>
+	</span>
+    <!-- <div class="yearJia"><if condition="$users['level_id'] eq 2">{$goodsList.car_bzzj}666<else/>{$goodsList.user_bzzj}777</if>元/月</div> -->
+</li>
+</foreach>

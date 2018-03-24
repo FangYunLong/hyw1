@@ -1,0 +1,181 @@
+<?php
+/**
+ * tpshop
+ * ============================================================================
+ * * 版权所有 2015-2027 深圳搜豹网络科技有限公司，并保留所有权利。
+ * 网站地址: http://www.tp-shop.cn
+ * ----------------------------------------------------------------------------
+ * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和使用 .
+ * 不允许对程序代码以任何形式任何目的的再发布。
+ * ============================================================================
+ * $Author: IT宇宙人 2015-08-10 $
+ */ 
+namespace Home\Controller;
+use Home\Logic\CartLogic;
+use Home\Logic\GoodsLogic;
+use Think\AjaxPage;
+use Think\Page;
+use Think\Verify;
+class GoodsController extends BaseController {
+    
+    //叉车列表
+    public function goodsList()
+    {      
+        $this->display();
+    }
+
+    //获取年月租叉车数据
+    public function ajaxGoods($where='')
+    {
+        $where = ' 1 = 1 '; // 搜索条件
+        I('intro')    && $where = "$where and ".I('intro')." = 1" ;
+        $brand_name =I('brand_id');
+        $cat_type =I('cat_type');
+        $tonnage =I('tonnage');
+        $cat_kind =I('cat_kind');
+        $is_special =I('is_special');
+        I('brand_id') && $where = "$where and (pinpai like '%$brand_name%') ";
+        I('cat_type') && $where = "$where and (cart_type like '%$cat_type%') ";
+        I('cat_kind') && $where = "$where and (chezhong like '%$cat_kind%') ";
+        (I('tonnage') !== '') && $where = "$where and dunwei = ".I('tonnage') ;
+        (I('is_special') !== '') && $where = "$where and is_special = $is_special";
+        (I('is_on_sale') !== '') && $where = "$where and is_on_sale = ".I('is_on_sale') ;
+        $cat_id = I('cat_id');
+        // 关键词搜索
+        $key_word = I('key_word') ? trim(I('key_word')) : '';
+        if($key_word)
+        {
+            $where = "$where and (goods_name like '%$key_word%' or goods_sn like '%$key_word%' or pinpai like '%$key_word%')" ;
+        }
+
+        if($cat_id > 0)
+        {
+            $grandson_ids = getCatGrandson($cat_id);
+            $where .= " and cat_id in(".  implode(',', $grandson_ids).") "; // 初始化搜索条件
+        }
+
+
+        $model = M('Goods');
+        $count = $model->where($where)->count();
+        $Page  = new AjaxPage($count,10);
+        /**  搜索条件下 分页赋值
+        foreach($condition as $key=>$val) {
+        $Page->parameter[$key]   =   urlencode($val);
+        }
+         */
+        $show = $Page->show();
+        $order_str = "`{$_POST['orderby1']}` {$_POST['orderby2']}";
+        $goodsList = $model->where($where)->order($order_str)->limit($Page->firstRow.','.$Page->listRows)->select();
+
+        $catList = D('goods_category')->select();
+        $catList = convert_arr_key($catList, 'id');
+        $this->assign('catList',$catList);
+        $this->assign('goodsList',$goodsList);
+        $this->assign('page',$show);// 赋值分页输出
+        $this->display();
+    }
+
+    //年月租-租车详情
+    public function goodsInfo()
+    {   
+        $goods_id  = I('goods_id');
+        $goodsInfo = M('Goods')->find($goods_id);
+        $is_yt = C('is_yt');
+        $this->assign('is_yt',$is_yt);
+        $this->assign('goodsInfo',$goodsInfo);
+        $this->display();
+    }
+
+    //年月租-计算租金
+    public function goodsRent()
+    {   
+        $goods_id  = I('goods_id');
+        $tenancy   = I('tenancy');
+        $yhours    = I('yhours');
+        $orderInfo = I('post.');
+        $user      = session('user');
+
+        if(!$goods_id){
+            header("location:".U('Goods/goodsList'));
+        }
+
+        $goodsInfo = M('Goods')->find($goods_id);
+
+        if(!$user['level_id']){
+            $user['level_id'] = 1;
+        }
+
+        // if($goodsInfo['is_on_sale']!=1){
+        //     exit('<script>alert("该车已出租")</script>');
+        // }
+
+        // $rent = rentCount($user['level_id'],$goods_id,$data['tenancy'],$data['yhours']);
+
+        $rent = rentCount($user['level_id'],$goods_id,$tenancy,$yhours);
+
+        $orderInfo['rent'] = $rent;
+        $orderInfo['level_id'] = $user['level_id'];
+
+        $is_yt = C('is_yt');
+        $this->assign('is_yt',$is_yt);
+        $this->assign('orderInfo',$orderInfo);
+        $this->assign('goodsInfo',$goodsInfo);
+        $this->display();
+    }
+
+    //临时租
+    public function goodsTemp()
+    {
+        $dunwei = C('dunwei');
+        $this->assign('dunwei',$dunwei);
+        $this->display();
+    }   
+
+    /**
+     * 临时租--订单提交处理
+     * token
+     * dunwei
+     * username、mobile、address
+     */
+    public function addOrder()
+    {
+        $user = session('user');
+        $user_id = $user['user_id'];
+        $data = I('post.');
+
+        if (empty($user_id)) {
+            exit(json_encode(array('status'=>-2,'msg'=>'请先登录！')));
+        }
+
+        if(!$data['address']){
+            exit(json_encode(array('status'=>-1,'msg'=>'请填写用车地点！')));
+        }
+
+        if(!$data['username']){
+            exit(json_encode(array('status'=>-1,'msg'=>'请填写联系人！')));
+        }
+
+        if(!$data['mobile']){
+            exit(json_encode(array('status'=>-1,'msg'=>'请填写联系方式！')));
+        }
+
+        //调用百度地图api，根据地址获得经纬度
+        $content = file_get_contents('http://api.map.baidu.com/geocoder/v2/?address='.$data['address'].'&output=json&ak=4pB7ZEGWIgyhP26ykh6BrOynGv1YpZSl');//调用百度api
+        $json = json_decode($content); 
+
+        if($json->{'result'}){
+            $data['lat'] = $json->{'result'}->{'location'}->{'lat'};
+            $data['lng'] = $json->{'result'}->{'location'}->{'lng'};
+        }else{
+            exit(json_encode(array('status'=>-1,'msg'=>'用车地点不存在！')));
+        }   
+        $data['user_id']  = $user_id;
+        $data['add_time'] = date('Y-m-d H:i:s',time());
+        $data['temp_sn']  = 'hywd'.date('YmdHis',time()).mt_rand(1000,9999);
+        $res = M('Temporary')->add($data);
+        if ($res)
+            exit(json_encode(array('status'=>1,'msg'=>'临时租提交订成功','temp_id'=>$res)));
+        exit(json_encode(array('status'=>-1,'msg'=>'临时租提交订失败')));
+    }   
+
+}

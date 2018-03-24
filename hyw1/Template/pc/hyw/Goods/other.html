@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/pptBox.js"></script>
+<style>
+.contrast ul li{ float:left; width:275px; height:278px; text-align:center; margin:0px 10px 60px 10px; }
+.contrast ul li a{ display:block;border:#fff 1px solid;padding-bottom:10px; border:#aaa 1px solid;}
+.contrast ul li:hover a{ border:#ccc 1px solid;}
+.contrast ul li img{ margin-bottom:10px;}
+</style>
+
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="#">首页</a>  ><a href="#">叉车租赁</a>> <a href="#">年月租</a></div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+</div>
+<div class="neiCent2">
+
+	<div class="contrast">
+
+  </div>
+<div class="duipin">
+    <div class="duibi"><h2>对比其他品牌</h2></div>
+  <div class="dpinp">
+    <a href="{:U('Goods/other',array('pinpai'=>1))}">三菱力至优</a>
+    <a href="{:U('Goods/other',array('pinpai'=>2))}">丰田</a>
+    <a href="{:U('Goods/other',array('pinpai'=>3))}">林德</a>
+    <a href="{:U('Goods/other',array('pinpai'=>4))}">合力</a>
+    <a href="{:U('Goods/other',array('pinpai'=>5))}">杭叉</a> 
+    <a href="{:U('Goods/other',array('pinpai'=>6))}">其它</a>
+  </div>
+  </div>
+</div>
+<form id='goodsList' action="" method='post'>
+  <input type="hidden" value='{$pinpai}' name='pinpai' />
+  <input type="hidden" value='1' name='page' />
+</form>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束--------------> 
+</body>
+<script>
+ajaxgoods();
+$('.shopBtm').click(function(){
+    $('input[name="page"]').val('1');
+    ajaxgoods();
+});
+
+function ajaxgoods()
+{
+    $.ajax({ 
+        type:'post',
+        url: "{:U('Goods/ajaxOtherList')}", 
+        data: $('#goodsList').serialize(), 
+        success: function(data){
+          $('.contrast').html('');
+          $('.contrast').append(data);
+        }
+    });
+} 
+
+function pageclick(value)
+{
+    $('input[name="page"]').val(value);
+    ajaxgoods();  
+}
+</script>
+</html>

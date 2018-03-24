@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="../css/base.css" rel="stylesheet" type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+	$('.inactive').click(function(){
+		if($(this).siblings('ul').css('display')=='none'){
+			$(this).parent('li').siblings('li').removeClass('inactives');
+			$(this).addClass('inactives');
+			$(this).siblings('ul').slideDown(100).children('li');
+			if($(this).parents('li').siblings('li').children('ul').css('display')=='block'){
+				$(this).parents('li').siblings('li').children('ul').parent('li').children('a').removeClass('inactives');
+				$(this).parents('li').siblings('li').children('ul').slideUp(100);
+
+			}
+		}else{
+			//控制自身变成+号
+			$(this).removeClass('inactives');
+			//控制自身菜单下子菜单隐藏
+			$(this).siblings('ul').slideUp(100);
+			//控制自身子菜单变成+号
+			$(this).siblings('ul').children('li').children('ul').parent('li').children('a').addClass('inactives');
+			//控制自身菜单下子菜单隐藏
+			$(this).siblings('ul').children('li').children('ul').slideUp(100);
+
+			//控制同级菜单只保持一个是展开的（-号显示）
+			$(this).siblings('ul').children('li').children('a').removeClass('inactives');
+		}
+	})
+});
+</script>
+</head>
+
+
+<body>
+<div class="top">
+ <div class="toplink">
+   <div class="toplink2">
+    <div class="tophun"> 您好，欢迎登录东莞市粤力叉车租赁公司官网!</div>
+   <div class="topdeng"><a href="#" class="huiy1">会员登录</a> <a href="#" class="huiy2">免费注册</a> <a href="#">设为首页 |</a>   <a href="#">在线商城 |</a>  <a href="#">联系我们</a></div>
+   <div class="clear"></div>
+   </div>
+ </div>
+ <div class="logoTel">
+  <div class="logo"><img src="../images/logo.gif" width="409" height="59" /></div>
+  <div class="tel"><img src="../images/tel.gif" width="279" height="59" /></div>
+  <div class="clear"></div>
+ </div>
+ <div class="menu">
+   <div class="caid">
+    <ul class="menuLink">
+     <li><a href="index.html" class="current">首页</a></li>
+     <li><a href="zuli/lease.html">叉车租赁</a>
+      <ul>
+        <li><a href="#">年月租</a></li>
+        <li><a href="#">临时租</a></li>
+        <li><a href="#">快捷租车</a></li>
+      </ul>
+     </li>
+     <li><a href="mallshop.html">好运商城</a>
+        <ul>
+        <li><a href="#">特价车</a></li>
+        <li><a href="#">工业品</a></li>       
+      </ul>
+     </li>
+     <li> <a href="news.html">资讯中心</a>
+       <ul>
+        <li><a href="#">叉车租赁问答</a></li>
+        <li><a href="#">叉车保养知识</a></li>
+        <li><a href="#">叉车故障排除</a></li>
+        <li><a href="#">行业新闻</a></li>
+        <li><a href="#">公司新闻</a></li>
+        <li><a href="#">叉车百科</a></li>
+        <li><a href="#">叉车证</a></li>
+        <li><a href="#">叉车上牌</a></li>
+        <li><a href="#">下载专区</a></li>
+      </ul>
+     </li>
+     <li><a href="car.html">服务网络</a></li>     
+     <li><a href="join.html">加盟合作</a></li>
+     <li class="last"><a href="about/about1.html">关于我们</a>
+      <ul>
+        <li><a href="#">好运旺简介</a></li>
+        <li><a href="#">联系方式</a></li>       
+        <li><a href="#">荣誉资质</a></li>        
+        <li><a href="#">成功案例</a></li>
+        <li><a href="#">发展历程</a></li>
+        <li><a href="#">招贤纳士</a></li>
+      </ul>
+     </li> 
+    </ul>
+   </div>
+ </div>
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="#">首页</a>  >车主个人中心</div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+</div>
+<div class="neiCent2">
+  <div class="mayLeft">  
+   <ul class="leftNav">
+		<li><a href="Myself-chezhu.html">个人资料</a></li>
+		<li><a href="#" class="inactive current"> 订单中心</a>
+			<ul style="display: none">
+				<li><a href="Myself-order(chezhu).html" class="inactive active">我的订单</a>	</li> 
+				<li ><a href="Myself-sales.html" class="current">我的分销</a></li> 
+			</ul>
+		</li>
+		<li><a href="Myself-xiaoxi.html" class="inactive">我的消息</a></li>
+        <li><a href="Myself-qiuz.html" class="inactive">我的求职</a></li>
+        <li><a href="Myself-teji.html" class="inactive ">我的特价车</a></li>
+        <li><a href="#" class="inactive">我的报表</a>
+          <ul style="display: none">
+			<li><a href="Myself-baob(chezhu).html" class="inactive active">租车情况</a></li>
+			<li><a href="Myself-baob2(chezhu).html" class="inactive active">出租情况</a></li>					
+		 </ul>
+			</ul>
+  </div>
+  <div class="mayRight">
+  <script type="text/javascript">
+$(function (){
+	$("input.mh_date").manhuaDate({					       
+		Event : "click",//可选				       
+		Left : 0,//弹出时间停靠的左边位置
+		Top : -16,//弹出时间停靠的顶部边位置
+		fuhao : "-",//日期连接符默认为-
+		isTime : false,//是否开启时间值默认为false
+		beginY : 2017,//年份的开始默认为1949
+		endY :2020//年份的结束默认为2049
+	});
+	
+});
+</script>
+    <div class="rigbiaot">订单中心 >我的分销</div>
+    <div class="mayxiax">
+    <div class="dindt2">
+      <div class="tixi1">
+       <div class="tibt1">提现奖励到银行卡</div>
+       <div class="tibt2">奖励余额：<span>2360</span> 元</div>
+        <div class="tibt3"><a href="Myself-sales-提取4.html">添加银行卡</a></div>
+       <div class="clear"></div>
+      </div>
+      <div class="tixian">
+       <div class="xuanwen">选择银行卡：</div>
+      <div class="xuanka">
+      <div class="tejiwz">
+        <div class="yeaSe3 chooseParent"> 
+         <input class="magic-radio" type="radio" name="radio" id="r1" value="option2" checked>
+         <label for="r1" onclick='submits()' class="zhiwenz"> 中国邮政储蓄... 尾号：111</label>	
+        </div>     
+      </div>
+      </div>
+
+      <div class='view' style='z-index:100;position:relative;display:none'>
+        <div class="xuanka" style='border-top:0px;'>
+          <div class="tejiwz">
+            <div class="yeaSe3"> 
+              <input class="magic-radio" type="radio" name="radio" id="r1" value="option2" >
+              <label for="r1" onclick='submits()' class="zhiwenz submit choose"> 中国邮政储蓄... 尾号：111</label>  
+            </div>     
+          </div>
+        </div> 
+        <div class="xuanka" style='border-top:0px;'>
+          <div class="tejiwz">
+            <div class="yeaSe3"> 
+              <input class="magic-radio" type="radio" name="radio" id="r1" value="option2" >
+              <label for="r1" onclick='submits()' class="zhiwenz submit choose"> 中国邮政储蓄... 尾号：222</label>  
+            </div>     
+          </div>
+        </div>  
+        <div class="xuanka" style='border-top:0px;'>
+          <div class="tejiwz">
+            <div class="yeaSe3"> 
+              <input class="magic-radio" type="radio" name="radio" id="r1" value="option2" >
+              <label for="r1" onclick='submits()' class="zhiwenz  choose"> 中国邮政储蓄... 尾号：333</label>  
+            </div>     
+          </div>
+        </div>        
+      </div>
+       <div class="clear"></div>
+      </div>
+<script>
+  $('.submit').on('click',function(){
+
+  })
+  $('.choose').on('click',function(){
+    $('.chooseParent').html('');
+    $('.chooseParent').append($(this).parent().html());
+    $('.view').css({'display':'none'});
+    $('.chooseParent').children('input').attr('checked',true);
+    $('.chooseParent').children('label').removeClass('choose');
+  })
+function submits()
+{
+    if($('.view').css('display') == 'block'){
+      $('.view').css({'display':'none'})
+    }else{
+      $('.view').css({'display':'block'})
+    }
+}
+</script>
+      <div class="tixian">
+       <div class="xuanwen">提现金额：</div>
+       <div class="xuanka2">
+        <input name="" type="text" class="xshutk" /><span>元</span>
+       </div>
+       <div class="clear"></div>
+      </div>
+      <div class="tiannu">
+        <a href="Myself-sales-提取2.html" class="btntix">下一步</a> </div>
+    </div>
+    </div> 
+    
+    
+  </div>    
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<div class="foot">
+  <div class="foot2">
+  <div class="footlogo">
+   <div class="logo2"><img src="../images/logo2.gif" width="389" height="65" /></div>
+   <div class="footliax">
+    <p class="tongy">全国统一热线：</p>
+    <p> 400 1648 168； 0769-23102690；  15812814965      </p>
+    <p>地址：广州市天河区建中路勤天大厦</p>
+    </div>
+    <div class="erwm">
+     <div class="erwm1"><img src="../images/erwm1.gif" width="86" height="85" /><span>app 二维码</span></div>
+     <div class="erwm1"><img src="../images/erwm1.gif" width="86" height="85" /><span>微信公众号</span></div>
+     <div clsas="clear"></div>
+    </div>
+  </div>
+  <div class="footmenu">
+   <div class="fmen1">
+    <div class="fmen1tit">叉车租赁  </div>
+    <ul class="fmenu1">
+     <li>年月租</li>
+     <li><a href="#">临时租</a></li>
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">好运商城 </div>
+    <ul class="fmenu1">
+     <li><a href="#">特价叉车</a></li>
+     <li>其他</li>
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">最新资讯 </div>
+    <ul class="fmenu1">
+     <li><a href="#">市场动态</a></li>
+     <li><a href="#">租赁问答</a></li>
+     
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">加盟合作 </div>
+    <ul class="fmenu1">
+     <li><a href="#">加盟合作</a></li>   
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">联系我们 </div>
+    <ul class="fmenu1">
+     <li><a href="#">联系方式</a></li>
+     <li><a href="#">公司简介</a></li>
+     <li><a href="#">下载专区</a></li>
+    </ul>
+   </div> 
+   <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  </div>
+  <div class="copyright">
+   <div class="coyr2">      Copyright © 2014 好运旺租叉车电商平台 东莞市粤力叉车租赁有限公司 All Rights Reserved<br/>   
+备案号：粤ICP备13001988号  技术支持：<a href="#">云鸿科技</a> <a href="#">app开发</a></div>
+  </div>
+</div> 
+</body>
+</html>

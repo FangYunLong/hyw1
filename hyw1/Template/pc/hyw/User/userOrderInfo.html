@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+
+<div class="neiCent2">
+  <div class="mayLeft">  
+    <!--------左边导航开始-------------->
+    <include file="Public/userLeft" />
+    <!--------左边导航结束-------------->
+  </div>
+  <div class="mayRight">
+    <div class="rigbiaot">订单中心 &gt; <a href="{:U('User/userOrder')}">租车订单</a> &gt; <a href="{:U('User/userOrderStatus')}">年月租订单</a> &gt; <a href="{:U('User/userOrderStatusList',array('order_status'=>$orderStatus))}"><if condition="$orderStatus eq 5">已<else/>未</if>完成订单</a></div>
+    <div class="mayxiax">
+    <div class="dindt">
+      <div class="<if condition='$OrderInfo.order_status eq 5'>gou2<else/>gou1</if>">{$user_order_tips[$OrderInfo['order_status']]}
+
+      </div>
+      <if condition='$OrderInfo.order_status eq 4'>
+      <div class="gzhu"><a target='_block' href="{:U('GoodsPrivate/matchCar',array('order_id'=>$OrderInfo['order_id']))}">支付押金</a></div>
+      <!-- <div class="gzhu"><a target='_block' href="{:U('Pay/settlement',array('order_id'=>$OrderInfo['order_id']))}">支付押金</a></div> -->
+      </if>
+      <if condition='$OrderInfo.order_status eq 5'>
+      <div class="gzhu"><a target='_block' href="{:U('Pay/settlement',array('order_id'=>$OrderInfo['order_id']))}">支付租金</a></div>
+      </if>
+      <div class="clear"></div>
+    </div>
+    <div class="danhao">
+     <p>订单编号：<span>{$OrderInfo.order_sn}</span></p>
+     <p>下单时间：{$OrderInfo.add_time}</p>
+    </div>
+     <div class="tejctu">
+       <div class="xiqtu">
+    <div class="ban" id="demo1">
+	<div class="ban2" id="ban_pic1">
+		<div class="prev1" id="prev1"><img src="/Public/hyw/images/index_tab_l.png" width="28" height="51"  alt=""></div>
+		<div class="next1" id="next1"><img src="/Public/hyw/images/index_tab_r.png" width="28" height="51"  alt=""></div>
+		<ul>
+			<li><a href="javascript:;"><img width='495' height='396' src="{$OrderInfo.zm_pic}"  alt=""></a></li>
+			<li><a href="javascript:;"><img width='495' height='396' src="{$OrderInfo.cm_pic}"  alt=""></a></li>
+			<li><a href="javascript:;"><img width='495' height='396' src="{$OrderInfo.czt_pic}"  alt=""></a></li>
+			<li><a href="javascript:;"><img width='495' height='396' src="{$OrderInfo.nb_pic}"  alt=""></a></li>
+		</ul>
+	</div>
+	<div class="min_pic">
+		<div class="prev_btn1" id="prev_btn1"><img src="/Public/hyw/images/arrow3.png"   alt=""></div>
+		<div class="num clearfix" id="ban_num1">
+			<ul>
+      <li><a href="javascript:;"><img width='93' height='80' src="{$OrderInfo.zm_pic}"  alt=""></a></li>
+      <li><a href="javascript:;"><img width='93' height='80' src="{$OrderInfo.cm_pic}"  alt=""></a></li>
+      <li><a href="javascript:;"><img width='93' height='80' src="{$OrderInfo.czt_pic}"  alt=""></a></li>
+      <li><a href="javascript:;"><img width='93' height='80' src="{$OrderInfo.nb_pic}"  alt=""></a></li>
+			</ul>
+		</div>
+		<div class="next_btn1" id="next_btn1"><img src="/Public/hyw/images/arrow4.png" alt=""></div>
+	</div>
+</div>
+<script src="/Public/hyw/js/pic_tab.js"></script>
+<script type="text/javascript">
+
+
+jq('#demo1').banqh({
+	box:"#demo1",//总框架
+	pic:"#ban_pic1",//大图框架
+	pnum:"#ban_num1",//小图框架
+	prev_btn:"#prev_btn1",//小图左箭头
+	next_btn:"#next_btn1",//小图右箭头	
+	prev:"#prev1",//大图左箭头
+	next:"#next1",//大图右箭头
+	pop_div:"#demo2",//弹出框框架	
+	autoplay:true,//是否自动播放
+	interTime:5000,//图片自动切换间隔
+	delayTime:400,//切换一张图片时间
+	pop_delayTime:400,//弹出框切换一张图片时间
+	order:0,//当前显示的图片（从0开始）
+	picdire:true,//大图滚动方向（true为水平方向滚动）
+	mindire:true,//小图滚动方向（true为水平方向滚动）
+	min_picnum:4,//小图显示数量
+	pop_up:true//大图是否有弹出框
+})
+</script>
+  </div>
+   <div class="tejwen">
+     <div class="tejibti">{$OrderInfo.goods_name}</div>
+     <div class="tejiwz">品牌：{$OrderInfo.pinpai}</div>     
+     <div class="tejiwz">车类型：{$OrderInfo.cart_type}</div>
+     <div class="tejiwz">吨位：{$OrderInfo.dunwei}吨</div>
+     <div class="tejiwz">门架类型：{$OrderInfo.menjia}</div>
+     <div class="tejiwz">门架提升高度：{$OrderInfo.mj_height}mm</div>
+     <div class="tejiwz">年份：{$OrderInfo.factorytime}年</div>
+     <div class="tejiwz">使用时间：{$OrderInfo.use_hours}小时</div>     
+     <div class="tejiwz">状况：{$is_status[$OrderInfo['is_status']]}</div>
+     <if condition="$OrderInfo[chexing] eq 0">
+     <div class="tejiwz">备用电池：{$OrderInfo.bydc}组</div>
+     </if>
+     </if>
+     <div class="tejiwz">属具：{$OrderInfo.shuju|default='无'}</div>
+     <div class="tejiwz">普通/冷库/防爆：{$is_yt[$OrderInfo['is_yt']]}</div>
+   </div>
+  <div class="clear"></div>     </div>
+  <div class="tejiaxian">
+       <div class="xiangbit">详情</div>
+       <div class="zuResult2">
+     <div class="month"><span>月租金:</span>{$OrderInfo.mprice}元/月</div>
+     <div class="zushuom" style="font-size:16px;">（<if condition="$users['level_id'] eq 2">此价格不包含服务费，包含属具<else/>此价格包含服务费和属具</if>）</div>
+   </div>
+       <div class="xiate">租期：{$OrderInfo.tenancy}个月</div>
+       <div class="xiate">年使用小时数：{$OrderInfo.yhours}小时</div>
+       <div class="xiate">数量：{$OrderInfo.number}台</div>
+       <div class="xiate">收车人：{$OrderInfo.use_user}</div>
+       <div class="xiate">电 话：{$OrderInfo.mobile}</div>
+       <div class="xiate">收车地址：{$OrderInfo.address}</div>
+       <!-- <div class="xiate">发票抬头：{$OrderInfo.invoice_title}</div>        -->
+       <div class="fanhui2"><a href="javascript:history.go(-1)">返回</a></div>
+     </div>     
+  </div>  
+    </div>    
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束--------------> 
+</body>
+</html>

@@ -1,0 +1,120 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+		<section class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <!-- <h3 class="box-title">增加分类</h3> -->
+			                <div class="pull-right">
+			                	<a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+			                </div>
+                        </div>
+ 
+                        <!-- /.box-header -->
+                        <form action="{:U('Goods/editCarCate')}" method="post" class="form-horizontal" id="category_form">
+                        <div class="box-body">
+                                                         
+                                <!-- <div class="form-group">
+                                    <label class="control-label col-sm-2">品牌</label>
+                                    <div class="col-sm-3">
+                                        <select name="pinpai" onchange='getCat()' id="pinpai" class="small form-control">
+                                            <foreach name="pinpai" item="v" >
+                                                <option value="{$v[id]}" <if condition="$v[id] eq $parent[parent_id]">selected</if>>{$v[name]}({$v[money]})</option>
+                                            </foreach>
+                                        </select>
+                                    </div>    
+                                                                    
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">车类型</label>
+                                    <div class="col-sm-3">
+                                        <select name="parent_id" id='cart_type' class="small form-control">
+                                            <foreach name="cart_type" item="v" >
+                                                <option value="{$v[id]}" <if condition="$v[id] eq $parent[id]">selected</if>>{$v[name]}({$v[money]})</option>
+                                            </foreach>
+                                        </select>
+                                    </div>                                    
+                                </div> -->
+                                <!-- <div class="form-group">
+                                    <label class="control-label col-sm-2">吨位(kg)</label>
+                                    <div class="col-sm-3">
+                                        <select name="name" id="name" class="small form-control">
+                                            <foreach name="dunwei" item="v" >
+                                                <option value="{$v[name]}" <if condition="$v[name] eq $catInfo[name]">selected</if>>{$v[name]*1000}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>                                    
+                                </div> -->
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">门架类型</label>
+                                    <div class="col-sm-3">
+                                        <select name="name" id="name" class="small form-control">
+                                            <foreach name="menjia" item="v" >
+                                                <option value="{$v[name]}" <if condition="$v[name] eq $catInfo[name]">selected</if>>{$v[name]}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>                                    
+                                </div>                                
+                                <div class="form-group">
+                                     <label class="col-sm-2 control-label">标准价格</label>
+                                     <div class="col-sm-3">
+                                        <input type="text" placeholder="0.00"  onKeyUp="amount_verify(this)" class="form-control large" name="money" value="{$catInfo.money}">
+                                        <span class="help-inline" style="color:#F00; display:none;" id="err_money"></span>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="level" value='4'>
+                                <input type="hidden" name="parent_id" value='{$parent_id}'>
+                        </div>
+                        <div class="box-footer">                        	
+                            <input type="hidden" name="id" value="{$catInfo.id}">
+                        	<button type="reset" class="btn btn-primary pull-left"><i class="icon-ok"></i>重填  </button>
+                            <button type="submit" class="btn btn-primary pull-right"><i class="icon-ok"></i>提交  </button>
+                        </div> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+</div>
+<script>  
+    
+/** 以下是编辑时默认选中某个商品分类*/
+$(document).ready(function(){
+	<if condition="$level_cat['2'] gt 0">	
+		 // 如果当前是二级分类就让一级父id默认选中
+		 $("#parent_id_1").val('{$level_cat[1]}'); 
+		 get_category('{$level_cat[1]}','parent_id_2','0');		 
+	</if>	 
+	<if condition="$level_cat['3'] gt 0">
+		 // 如果当前是三级分类就一级和二级父id默认 都选中
+		 $("#parent_id_1").val('{$level_cat[1]}');		 	
+		 get_category('{$level_cat[1]}','parent_id_2','{$level_cat[2]}');	
+	</if>	
+});
+
+function getCat()
+{
+  var parent_id = $('select[name="pinpai"]').val();
+  $.ajax({
+      type : "POST",
+      url:"/index.php/Admin/Goods/getCat",//+tab,
+      data:{parent_id:parent_id},
+      dataType:'json',
+      success: function(data_list){
+        var str;
+        console.log(data_list.list);
+        $.each(data_list.list,function(key,val){
+          str += '<option value="'+val.id+'">'+val.name+'('+val.money+')</option>';
+        })
+        $('#cart_type').html('');
+        $('#cart_type').append(str);
+        ajaxLevel3();
+      }
+  });      
+}
+</script>
+   
+</body>
+</html>

@@ -1,0 +1,90 @@
+[ 2017-05-23T19:31:26+08:00 ] 127.0.0.1 /index.php?m=Home&c=api&a=get_category&parent_id=854
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003004s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.014032s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.017192s ]
+NOTIC: [8] Undefined variable: html F:\Project\haoyunwang\Application\Home\Controller\ApiController.class.php 第 65 行.
+
+[ 2017-05-23T19:47:20+08:00 ] 127.0.0.1 /index.php?m=Home&c=api&a=get_category&parent_id=846
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000617s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003493s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009936s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013570s ]
+NOTIC: [8] Undefined variable: html F:\Project\haoyunwang\Application\Home\Controller\ApiController.class.php 第 65 行.
+
+[ 2017-05-23T19:47:21+08:00 ] 127.0.0.1 /index.php?m=Home&c=api&a=get_category&parent_id=847
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003535s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.017103s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020851s ]
+NOTIC: [8] Undefined variable: html F:\Project\haoyunwang\Application\Home\Controller\ApiController.class.php 第 65 行.
+
+[ 2017-05-23T19:47:24+08:00 ] 127.0.0.1 /index.php?m=Home&c=api&a=get_category&parent_id=846
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000730s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002965s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.012550s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015674s ]
+NOTIC: [8] Undefined variable: html F:\Project\haoyunwang\Application\Home\Controller\ApiController.class.php 第 65 行.
+
+[ 2017-05-23T19:47:27+08:00 ] 127.0.0.1 /index.php?m=Home&c=api&a=get_category&parent_id=849
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000094s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000721s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003168s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014672s ]
+NOTIC: [8] Undefined variable: html F:\Project\haoyunwang\Application\Home\Controller\ApiController.class.php 第 65 行.
+
+[ 2017-05-23T19:47:34+08:00 ] 127.0.0.1 /index.php?m=Home&c=api&a=get_category&parent_id=846
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001851s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005034s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016219s ]
+NOTIC: [8] Undefined variable: html F:\Project\haoyunwang\Application\Home\Controller\ApiController.class.php 第 65 行.
+
+[ 2017-05-23T19:47:37+08:00 ] 127.0.0.1 /index.php?m=Home&c=api&a=get_category&parent_id=847
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000733s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004144s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.021680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.026129s ]
+NOTIC: [8] Undefined variable: html F:\Project\haoyunwang\Application\Home\Controller\ApiController.class.php 第 65 行.
+
+[ 2017-05-23T19:47:40+08:00 ] 127.0.0.1 /index.php?m=Home&c=api&a=get_category&parent_id=0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000610s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002975s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.008874s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011999s ]
+NOTIC: [8] Undefined variable: html F:\Project\haoyunwang\Application\Home\Controller\ApiController.class.php 第 65 行.
+
+[ 2017-05-23T19:47:44+08:00 ] 127.0.0.1 /index.php?m=Home&c=api&a=get_category&parent_id=846
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000913s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002933s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.019288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.022368s ]
+NOTIC: [8] Undefined variable: html F:\Project\haoyunwang\Application\Home\Controller\ApiController.class.php 第 65 行.
+

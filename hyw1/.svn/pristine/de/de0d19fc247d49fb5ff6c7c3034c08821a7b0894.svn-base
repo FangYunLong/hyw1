@@ -1,0 +1,390 @@
+<?php
+/**
+ *Author:Lonelytears
+ * Date: 2016-12-27
+ */
+namespace Api\Controller;
+// require_once(APP_PATH."/Api/Common/PHPpay/shanpayconfig.php");
+// require_once(APP_PATH."/Api/Common/PHPpay/lib/shanpayfunction.php");
+
+
+
+class PayController extends BaseController {    
+
+    public function index()
+    {
+        $this->display();
+    }
+
+    /**
+     * 发送支付请求
+     *  
+     */
+    public function shanPay()
+    {
+        header("Content-Type: text/html; charset=UTF-8");
+        include APP_PATH.'/Api/Common/PHPpay/shanpayconfig.php';
+        include APP_PATH.'/Api/Common/PHPpay/lib/shanpayfunction.php';
+
+        /**************************请求参数**************************/
+        $order_id = $_POST['order_id'];
+
+        $Order = M('Order')->field('order_sn,total_amount,order_type')->where(['order_id'=>$order_id])->select()[0];
+        $order_type = ['其他','临时租','年月租','特价车'];
+
+        //商户订单号
+        $out_order_no = $Order['order_sn'];//商户网站订单系统中唯一订单号，必填
+        
+        //订单名称
+        $subject      = '好运旺' . $order_type[$Order['order_type']] . '订单';//必填
+
+        //付款金额
+        $total_fee    = $Order['total_amount'];//必填 ‘ 
+
+        //订单描述
+        $body         = '好运旺叉车租赁';
+        
+        //服务器异步通知页面路径
+        $notify_url   = $shan_config['notify_url'];
+
+        //页面跳转同步通知页面路径
+        $return_url   = $shan_config['return_url'];
+
+        /************************************************************/
+
+        //构造要请求的参数数组，无需改动
+        $parameter = array(
+            "partner"       => $shan_config['partner'],
+            "user_seller"   => $shan_config['user_seller'],
+            "out_order_no"  => $out_order_no,
+            "subject"       => $subject,
+            "total_fee"     => $total_fee,
+            "body"          => $body,
+            "notify_url"    => $notify_url,
+            "return_url"    => $return_url
+        );
+        // dump($parameter);exit;
+
+        //建立请求
+        $html_text = buildRequestFormShan($parameter,$shan_config['key']);
+        // echo htmlspecialchars($html_text);
+        echo $html_text;
+    }
+
+    /**
+     * 功能：服务器同步通知页面
+     */
+    public function returnUrl1()
+    {
+        header("Content-Type: text/html; charset=UTF-8");
+        include APP_PATH.'/Api/Common/PHPpay/shanpayconfig.php';
+        include APP_PATH.'/Api/Common/PHPpay/lib/shanpayfunction.php';
+
+        //计算得出通知验证结果
+        $shanNotify = md5VerifyShan($_REQUEST['out_order_no'],$_REQUEST['total_fee'],$_REQUEST['trade_status'],$_REQUEST['sign'],$shan_config['key'],$shan_config['partner']);
+        if($shanNotify) {//验证成功
+            if($_REQUEST['trade_status']=='TRADE_SUCCESS'){
+                    /*
+                    加入您的入库及判断代码;
+                    判断返回金额与实金额是否想同;
+                    判断订单当前状态;
+                    完成以上才视为支付成功
+                    */
+                    //商户订单号
+                    $order_sn  = $_REQUEST['out_order_no'];
+                    //云通付交易号
+                    $trade_no  = $_REQUEST['trade_no'];
+                    //价格
+                    $price     = $_REQUEST['total_fee'];
+
+                    $data['pay_time']   = time();//支付时间
+
+                    $data['pay_code']   = $trade_no;//交易号
+
+                    $data['pay_status'] = 1;//修改支付状态为已支付
+
+                    $res = M('Order')->where(['order_sn'=>$order_sn])->save($data);
+
+                    if(!$res){
+                        $content = "\r\n".date('Y-m-d H:i:s',time())."  ".$order_sn." 更新订单支付状态失败";
+                    }
+                }else{
+                    $content = "\r\n".date('Y-m-d H:i:s',time())."  ".$order_sn." 支付失败";
+                }
+            }
+        else {
+            //验证失败
+            $content = "\r\n".date('Y-m-d H:i:s',time())."  ".$_REQUEST['out_order_no']." 验证失败";
+        }    
+        //写错误日志
+        writeLog(APP_PATH.'/Api/Common/PHPpay/','logs.log',$content);                    
+    }
+
+    /* *
+     * 功能：服务器异步通知页面
+     */
+    public function notifyUrl1()
+    {
+        header("Content-Type: text/html; charset=UTF-8");
+        include APP_PATH.'/Api/Common/PHPpay/shanpayconfig.php';
+        include APP_PATH.'/Api/Common/PHPpay/lib/shanpayfunction.php';
+
+        //计算得出通知验证结果
+        $shanNotify = md5VerifyShan($_REQUEST['out_order_no'],$_REQUEST['total_fee'],$_REQUEST['trade_status'],$_REQUEST['sign'],$shan_config['key'],$shan_config['partner']);
+        if($shanNotify) {//验证成功
+            if($_REQUEST['trade_status']=='TRADE_SUCCESS'){
+                    /*
+                    加入您的入库及判断代码;
+                    判断返回金额与实金额是否想同;
+                    判断订单当前状态;
+                    完成以上才视为支付成功
+                    */
+                    //商户订单号
+                    $out_trade_no = $_REQUEST['out_order_no'];
+                    //云通付交易号
+                    $trade_no = $_REQUEST['trade_no'];
+                    //价格
+                    $price=$_REQUEST['total_fee'];
+                    // var_dump($_REQUEST);
+                }
+                echo 'success';
+
+        }else {
+           //验证失败
+            echo "fail";//请不要修改或删除
+        }        
+    }
+
+
+    /*************************甬易支付**************************/
+
+    //年月租支付接口
+    public function yongyiPay()
+    {
+        $token    = I('post.token');
+        $user_id  = S($token);
+        $order_id = I('post.order_id');
+
+        if(!$user_id){
+            json_App(['status'=>-2,'msg'=>'缺少token']);
+        }
+
+        if(!$order_id){
+            json_App(['status'=>-1,'msg'=>'参数错误！']);
+        }
+
+        $Order = M('Order')->find($order_id);
+
+        if(!$Order){
+            json_App(['status'=>-1,'msg'=>'参数错误！']);
+        }
+
+        if($Order['order_status']!=4){
+            json_App(['status'=>-1,'msg'=>'订单状态有误或已支付！']);
+        }
+
+        // $res = yongyipays($user_id,$Order['order_id'],$Order['yajin'],1,'deposit',true);echo $res;exit;
+        $res = yongyipays($user_id,$Order['order_id'],$Order['yajin'],1,'deposit');
+        // $res = yongyipays();
+        // dump($res);
+        
+        if($res){
+            exit(json_encode(['status'=>1,'msg'=>'成功','url'=>$res['url'],'data'=>$res['data']]));
+            // exit(json_encode(['status'=>1,'msg'=>'成功','url'=>$res]));
+        }else{
+            exit(json_encode(['status'=>-1,'msg'=>'失败']));
+        }
+    }
+
+    //特价车支付
+    public function specialPay()
+    {
+        $token    = I('post.token');
+        $user_id  = S($token);
+        $goods_id = I('post.goods_id');
+        $goods_id = 24;
+        $user_id  = 2617;
+
+        if(!$user_id){
+            json_App(['status'=>-2,'msg'=>'缺少token']);
+        }   
+
+        if(!$goods_id){
+            json_App(['status'=>-1,'msg'=>'参数错误！']);
+        }
+
+        $Goods = M('Goods')->find($goods_id);
+
+        if(!$Goods){
+            json_App(['status'=>-1,'msg'=>'参数错误！']);
+        }
+
+        if($Goods['is_special'] != 1){
+            json_App(['status'=>-1,'msg'=>'不是特价车！']);
+        }
+
+        if($Goods['is_on_sale'] != 1){
+            json_App(['status'=>-1,'msg'=>'抱歉，该车已下架！']);
+        }
+
+        if($Goods['user_id'] == $user_id){
+            json_App(['status'=>-1,'msg'=>'无法购买自己的特价车！']);
+        }
+
+        $spData['buy_user_id']  = $user_id;
+        $spData['user_id']      = $Goods['user_id'];
+        $spData['goods_id']     = $goods_id;
+        $spData['price']        = $Goods['special_price'];
+        $spData['pay_price']    = $Goods['special_price']*0.98;
+        $spData['add_time']     = time();
+        $spRes = M('Special')->add($spData);
+
+        if(!$spRes){
+            json_App(['status'=>-1,'msg'=>'抱歉，支付失败！']);
+        }
+        $res = yongyipays($user_id,$spRes,$Goods['special_price']*0.98,3,'',true);echo $res;exit;
+        $res = yongyipays($user_id,$spRes,$Goods['special_price']*0.98,3,'');
+
+        if($res){
+            exit(json_encode(['status'=>1,'msg'=>'成功','url'=>$res['url'],'data'=>$res['data']]));
+        }else{
+            exit(json_encode(['status'=>-1,'msg'=>'失败']));
+        }
+    }
+
+    //租金支付
+    public function rentPay()
+    {
+        $token    = I('post.token');
+        $user_id  = S($token);
+        $order_id = I('post.order_id');
+
+        if(!$user_id){
+            json_App(['status'=>-2,'msg'=>'缺少token']);
+        }
+
+        if(!$order_id){
+            json_App(['status'=>-1,'msg'=>'参数错误！']);
+        }
+
+        $Order = M('Order')->find($order_id);
+
+        if(!$Order){
+            json_App(['status'=>-1,'msg'=>'参数错误！']);
+        }
+
+        // $res = yongyipays($user_id,$Order['order_id'],$Order['yajin'],1,'deposit',true);echo $res;exit;
+        $res = yongyipays($user_id,$Order['order_id'],$Order['mprice']*0.95,2,'deposit');
+        
+        if($res){
+            exit(json_encode(['status'=>1,'msg'=>'成功','url'=>$res['url'],'data'=>$res['data']]));
+        }else{
+            exit(json_encode(['status'=>-1,'msg'=>'失败']));
+        }
+    }
+
+    public function notifyURL()
+    {
+        require_once APP_PATH . 'Common/Conf/payconfig.php';
+        header("Content-type:text/html; Charset=utf-8");    
+        $data = I('post.');
+        $xml = base64_decode($data['tranData']);
+        $payInfo = simplexml_load_string($xml);    
+        $merSignMsg = HmacMd5($xml,$key);  
+        if($merSignMsg!=$data['signData']){
+            exit(json_encode(['status'=>-1,'msg'=>'非法访问！']));
+        }
+// dump($payInfo);exit;
+        if($payInfo->tranStat!=1){
+            exit(json_encode(['status'=>-1,'msg'=>'支付失败！']));
+        }
+        $Pay = M('Pay')->where(['pay_sn'=>"$payInfo->orderNo"])->find();
+
+        $Users = M('Users')->find($Pay['user_id']);
+        // $OrderInfo = M('OrderInfo')->where(['order_id'=>$Order['order_id'],'status'=>4])->select();
+
+        if(!$Pay){
+            echo 'no order';
+            exit;
+        }
+
+        if(!$Users){
+            echo 'no user';
+            exit;
+        }
+
+        $payData['pay_status'] = 2;
+        $payData['add_time']  = strtotime($payInfo->tranTime);
+        $payData['yongyi_sn'] = (string)$payInfo->tranSerialNo; 
+        M('Pay')->where(['pay_sn'=>"{$payInfo->orderNo}"])->save($payData);
+
+        // $type = substr($payInfo->orderNo,0,3);
+        // $type = substr($payInfo->orderNo,0,4);
+        switch($Pay['pay_type']){
+            //年月租押金支付，修改订单状态
+            // case 'hywy':
+            case 1:
+                $orderData['order_status'] = 5; 
+                $orderData['pay_status']   = 1; 
+                $orderData['is_playmoney'] = 1; 
+                $orderData['order_id']     = $Pay['order_id']; 
+                $orderData['playmoney_time'] = strtotime($payInfo->tranTime); 
+                $res = M('Order')->save($orderData);
+                
+                if($res){
+                    //修改匹配成功的车主的抢单状态
+                    $orderInfoData['status'] = 5;
+                    $res2 = M('OrderInfo')->where(['order_id'=>$Pay['order_id'],'status'=>4])->save($orderInfoData);
+                    if(!$res2){
+                        echo 'no car zhu'; 
+                        exit; 
+                    }
+                }
+            break;
+            //年月租租金支付
+            case 2:
+
+            break;            
+            //特价车支付，修改订单状态
+            case 3:
+            $Special = M('Special')->find($Pay['order_id']);
+            $goodsData['goods_id'] = $Special['goods_id'];
+            $goodsData['is_on_sale'] = 0;
+            $spData['sp_id'] = $Pay['order_id'];
+            $spData['pay_status'] = 1;
+            $spData['sp_status'] = 1;
+            $spData['pay_add_time'] = strtotime($payInfo->tranTime);
+            M('Goods')->save($goodsData);
+            M('Special')->save($spData);
+            break;
+        }
+
+        if(!$Users['mobile2']){
+            echo 'no user.mobile2';
+            exit;
+        } 
+
+        $Users2 = M('Users')->where(['mobile'=>$Users['mobile2']])->find();
+        if(!$Users2){
+            echo 'no user2';
+            exit;
+        }
+
+        if($Pay['pay_type']!=1){
+            //计入分销列表
+            $rebateLogData['user_id']        = $Users2['user_id'];
+            $rebateLogData['buy_user_id']    = $Users['user_id'];
+            $rebateLogData['namenick']       = $Users['namenick'];
+            $rebateLogData['order_sn']       = $payInfo->orderNo;
+            $rebateLogData['goods_price']    = $payInfo->orderAmt;
+            $rebateLogData['money']          = sprintf('%.2f',$payInfo->orderAmt*0.02);
+            $rebateLogData['create_time']    = time();
+            M('RebateLog')->add($rebateLogData);
+        }
+    }
+
+    public function returnURL()
+    {
+        json_App(['status'=>1,'msg'=>'支付成功！']);
+    }    
+}

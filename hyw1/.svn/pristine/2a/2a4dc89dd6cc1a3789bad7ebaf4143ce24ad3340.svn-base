@@ -1,0 +1,204 @@
+<?php
+/**
+ * tpshop
+ * ============================================================================
+ * * 版权所有 2015-2027 深圳搜豹网络科技有限公司，并保留所有权利。
+ * 网站地址: http://www.tp-shop.cn
+ * ----------------------------------------------------------------------------
+ * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和使用 .
+ * 不允许对程序代码以任何形式任何目的的再发布。
+ * ============================================================================
+ * $Author: IT宇宙人 2015-08-10 $
+ */ 
+namespace Home\Controller;
+use Home\Logic\CartLogic;
+use Home\Logic\GoodsLogic;
+use Think\AjaxPage;
+use Think\Page;
+use Think\Verify;
+class NewsController extends BaseController {
+    public function index(){      
+        $this->display();
+    }
+
+    /**
+     *  市场动态
+     */
+    public function news(){
+       // $news = M("Article")->where("cat_id = 89")->select();
+        $count = M('Article')->where(" 1=1 and cat_id = 89 or cat_id =90 or cat_id = 97 or cat_id =98")->count();
+        $where = "1=1 and cat_id = 89 or cat_id =90 or cat_id = 97 or cat_id =98"; //or cat_id =90 or cat_id = 97 or cat_id =98
+        $Page  = new AjaxPage($count,10);
+        $show = $Page->show();
+        $news = M('Article')->alias('a')
+                    //->join('tp_article_cat as b on a.cat_id = b.cat_id')
+                    //->field("a.*,b.cat_name")
+                    ->where($where)
+                    ->limit($Page->firstRow.','.$Page->listRows)
+                    ->order('add_time DESC')
+                    ->select();
+        //$this->assign('orderList',$orderList);
+        $this->assign('page',$show);// 赋值分页输出
+        $this->assign('news',$news);
+        $this->display();
+    }
+
+    /**
+     *  租赁问答
+     */
+    public function news1(){
+        $QA_info = M("Article")->where("cat_id = 86")->select();
+        //dump($QA_info);
+        $this->assign('QA_info',$QA_info);
+        $this->display();
+    }
+    /**
+     *  叉车保养知识
+     */
+    public function news2(){
+        $upkeepInfo = M("Article")->where("cat_id = 87")->select();
+        $this->assign('upkeepInfo',$upkeepInfo);
+        $this->display();
+    }
+
+    /**
+     *  叉车故障排除
+     */
+    public function news3(){
+        $fault_exclude = M("Article")->where("cat_id = 88")->select();
+        $this->assign('fault_exclude',$fault_exclude);
+        $this->display();
+    }
+
+    /**
+     *  行业新闻
+     */
+    public function trade_news(){
+        $tradeInfo = M("Article")->where("cat_id = 89")->select();
+        $this->assign('trade',$tradeInfo);
+        $this->display();
+    }
+
+    /**
+     *  公司新闻
+     */
+    public function company_news(){
+        $companyInfo = M("Article")->where("cat_id = 90")->select();
+        $this->assign('company',$companyInfo);
+        $this->display();
+    }
+
+    /**
+     *  叉车百科
+     */
+    public function car_ency(){
+        $Article =M('Article');
+        $car_ency = M("Article")->where("cat_id = 91")->order('article_id asc')->limit('1')->select();
+        $article_id = $car_ency[0]['article_id'];
+        //上一篇文章
+        $front=$Article->where("article_id>".$article_id)->order('article_id asc')->limit('1')->find();
+        $fid= !$front ? '没有了': $front['article_id'];
+        $this->assign('front',$front);
+        $this->assign('fid',$fid);
+        //下一篇文章
+        $after=$Article->where("article_id<".$article_id)->order('article_id desc')->limit('1')->find();
+        $aid= !$after ? '没有了': $after['article_id'];
+        $this->assign('after',$after);
+        $this->assign('aid',$aid);
+
+        $this->assign('carEncy',$car_ency);
+        $this->display();
+    }
+
+    /**
+     *  叉车证
+     */
+    public function car_card(){
+        $car_card = M("Article")->where("cat_id = 92")->select();
+        $article_id = $car_card[0]['article_id'];
+        //上一篇文章
+        $Article =M("Article");
+        $front=$Article->where("article_id>".$article_id)->order('article_id asc')->limit('1')->find();
+        $fid= !$front ? '没有了': $front['article_id'];
+        $this->assign('front',$front);
+        $this->assign('fid',$fid);
+        //下一篇文章
+        $after=$Article->where("article_id<".$article_id)->order('article_id desc')->limit('1')->find();
+        $aid= !$after ? '没有了': $after['article_id'];
+        $this->assign('after',$after);
+        $this->assign('aid',$aid);
+        $this->assign('car_card',$car_card);
+        $this->display();
+    }
+
+    /**
+     *  叉车上牌
+     */
+    public function car_brand(){
+        $car_brand = M("Article")->where("cat_id = 93")->select();
+        $article_id = $car_brand[0]['article_id'];
+        //上一篇文章
+        $Article =M("Article");
+        $front=$Article->where("article_id>".$article_id)->order('article_id asc')->limit('1')->find();
+        $fid= !$front ? '没有了': $front['article_id'];
+        $this->assign('front',$front);
+        $this->assign('fid',$fid);
+        //下一篇文章
+        $after=$Article->where("article_id<".$article_id)->order('article_id desc')->limit('1')->find();
+        $aid= !$after ? '没有了': $after['article_id'];
+        $this->assign('after',$after);
+        $this->assign('aid',$aid);
+        $this->assign('car_brand',$car_brand);
+        $this->display();
+    }
+
+    /**
+     *  下载专区
+     */
+    public function download(){
+        $count = M('Article')->where(" 1=1 and cat_id = 94")->count();
+        $Page  = new AjaxPage($count,10);
+        $show = $Page->show();
+        $download = M("Article")
+            ->where("cat_id = 94")
+            ->limit($Page->firstRow.','.$Page->listRows)
+            ->order("add_time desc")
+            ->select();
+        $this->assign('download',$download);
+        $this->assign('page',$show);
+        $this->display();
+    }
+
+
+   /**
+    *  文章详情页
+    */ 
+    public function article_Info($article_id){
+        $Article = M("Article");
+        $articleInfo = M("Article")->alias('a')
+            ->join('tp_article_cat as b on a.cat_id = b.cat_id')
+            ->field('a.*,b.cat_name')
+            ->where("article_id = $article_id")
+            ->select();
+        $data['click'] = mt_rand(1000,1300);
+        $r = D('article')->add($data);
+        //上一篇文章
+        $front=$Article->where("article_id>".$article_id)->order('article_id asc')->limit('1')->find();
+        $fid= !$front ? '没有了': $front['article_id'];
+        $this->assign('front',$front);
+        $this->assign('fid',$fid);
+        //下一篇文章
+        $after=$Article->where("article_id<".$article_id)->order('article_id desc')->limit('1')->find();
+        $aid= !$after ? '没有了': $after['article_id'];
+        $this->assign('aid',$aid);
+        //dump($after);
+        $this->assign('after',$after);
+
+        $this->assign('articleInfo',$articleInfo);
+        $this->display();
+    }
+
+
+
+    
+}

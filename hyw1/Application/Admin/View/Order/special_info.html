@@ -1,0 +1,332 @@
+<include file="Public/min-header"/>
+<link rel="stylesheet" href="__PUBLIC__/Reboxlightbox/css/jquery-rebox.css">
+<script src="__PUBLIC__/Reboxlightbox/js/jquery.min.js"></script>
+<script src="__PUBLIC__/Reboxlightbox/js/jquery-rebox.js"></script>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <nav class="navbar navbar-default">
+                        <div class="collapse navbar-collapse">
+                            <div class="navbar-form pull-right margin">
+                                <!--<div><label>订单查看</label></div>-->
+
+                                <!-- <if condition="$order['order_status'] lt 2">
+                                   <a href="{:U('Admin/order/edit_order',array('order_id'=>$order['order_id']))}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑">修改订单</a>
+                                </if>
+                                <if condition="($split eq 1) and ($order['order_status'] lt 2)">
+                                   <a href="{:U('Admin/order/split_order',array('order_id'=>$order['order_id']))}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑">拆分订单</a>
+                                </if>
+                                <a href="{:U('Order/order_print',array('order_id'=>$order['order_id']))}" target="_blank" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="打印订单">
+                                   <i class="fa fa-print"></i>打印订单
+                                </a> -->
+                                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!--新订单列表 基本信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">基本信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class='text-center'>订单 ID</td>
+                                    <td class='text-center'>订单号</td>
+                                    <td class='text-center'>购买者手机</td>
+                                    <td class='text-center'>商品价格</td>
+                                    <td class='text-center'>实际支付金额</td>
+                                    <td class='text-center'>出售者手机</td>
+                                    <td class='text-center'>购买时间</td>
+                                    <td class='text-center'>支付状态</td>
+                                    <td class='text-center'>支付时间</td>
+                                    <!--<td class='text-center'>支付时间</td>-->
+                                    <!-- <td class='text-center'>支付方式</td> -->
+                                </tr>
+                                <tr>
+                                    <td class='text-center'>{$order.sp_id}</td>
+                                    <td class='text-center'>{$order.sp_sn|default="暂无"}</td>
+                                    <td class='text-center'>{$BuyUsers.mobile|default='无'}</td>
+                                    <td class='text-center'>{$order.price}</td>
+                                    <td class='text-center'>{$order.pay_price}</td>
+                                    <td class='text-center'>{$Users.mobile}</td>
+                                    <td class='text-center'>{$order.add_time|date='Y-m-d H:i:s',###}</td>
+                                    <!--<td class='text-center'>{$order.add_time | date='Y-m-d H:i:s',###}</td>-->
+                                    <td id="order-status"  class='text-center'>
+                                        {$pay_status[$order[pay_status]]}
+                                    </td>
+									<neq  name="order.pay_time" value="0">
+                                    <td class='text-center'>{$order.pay_time|default='未支付'}</td>
+                                    <!--<td class='text-center'>{$order.pay_add_time|date='Y-m-d H:i:s',###}</td>-->
+									<else/>
+									<td class='text-center'>{$order.pay_time|date='Y-m-d H:i:s',###}</td>
+									</neq>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--新订单列表 商品信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">车辆信息 </h3>
+                        </div>
+                        <div class="panel-body" >
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr style="">
+                                    <th class='text-center'>年份</th>
+                                    <th class='text-center'>已用时长</th>
+                                    <th class='text-center'>品牌</th>
+                                    <th class='text-center'>车类型</th>
+                                    <th class='text-center'>吨位</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='text-center' style="color:red" >{$Goods.factorytime|default="不详"}年</td>
+                                    <td class='text-center' style="color:red" >{$Goods.use_hours}小时</td>
+                                    <td class='text-center'>{$Goods.pinpai}</td>
+                                    <td class='text-center'>{$Goods.cart_type}</td>
+                                    <td class='text-center'>{$Goods.dunwei}吨</td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                    <th class='text-center'>备份电池</th>
+                                    <th class='text-center'>属具</th>
+                                    <th class='text-center'>普通/冷库/防爆</th>
+                                    <th class='text-center'>门架类型</th>
+                                    <th class='text-center'>门架提升高度</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='text-center'>{$Goods.bydc}组</td>
+                                    <td class='text-center'>{$Goods.shuju|default='无'}</td>
+                                    <td class='text-center'>{$is_yt[$Goods[is_yt]]}</td>
+                                    <td class='text-center'>{$Goods.menjia}</td>
+                                    <td class='text-center'>{$Goods.mj_height}mm</td>
+                                </tr>
+                                <tr>
+                                    <th class='text-center' colspan='2'>电池使用时长</th>
+                                    <th class='text-center' colspan='2'>所在地</th>
+                                    <th class='text-center'>联系人</th>
+                                </tr>  
+                                <tr>
+                                    <td class='text-center'  colspan='2'>{$Goods.dcsj}</td>
+                                    <td class='text-center' colspan='2'>{$Goods.address}</td>
+                                    <td class='text-center'>{$BuyUsers.nickname}</td>
+                                </tr>                                               
+                                <tr>
+                                    <th colspan='5' style='text-align:center'>车况描述</th>
+                                </tr>
+                                <tr>
+                                    <td colspan='5'  style='text-align:center'>
+                                        {$Goods.description}
+                                    </td>
+                                </tr>                   
+                                <tr>
+                                    <th  class='text-center'>图片展示</th>
+                                    <td class='text-center gallery2' colspan='4'>
+                                        <a href="{$Goods.zm_pic}">
+                                            <img width='200' height='150' src="{$Goods.zm_pic}" alt="">
+                                        </a>
+                                        <a href="{$Goods.cm_pic}">
+                                            <img width='200' height='150' src="{$Goods.cm_pic}" alt="">
+                                        </a>
+                                        <a href="{$Goods.czt_pic}">
+                                            <img width='200' height='150' src="{$Goods.czt_pic}" alt="">
+                                        </a>
+                                        <a href="{$Goods.nb_pic}">
+                                            <img width='200' height='150' src="{$Goods.nb_pic}" alt="">
+                                        </a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .carinfopar{
+                        width:100%;
+                        height:100%;
+                        position:fixed;left:0;top:0;
+                        /*opacity:0.3; filter: alpha(opacity=30);*/
+                        background-color:#000;
+                        background: rgba(0, 0, 0, 0.5);
+                        display:none;
+                    }
+                    .carinfo{
+                        width:850px;
+                        height:550px;
+                        background-color:#fff;
+                        border:1px sole #000;
+                        position:fixed;left:10%;top:0;
+                        opacity:1; filter: alpha(opacity=100);
+                        padding-left:30px;
+                        padding-right:30px;
+                        padding-top:30px;
+
+                    }
+                    .div123{
+                        width:100%;
+                        height:40px;
+                        size:24px;
+                        line-height:40px;
+                        top:10px;
+                        background-color:#f5f5f5;float:left;
+                    }
+                    .carleft{
+
+                        float:left;
+                        width:48%;
+                        border:1px solid #000;
+                        height:90%;
+                    }
+                    .carright{
+                        margin-left:20px;
+                        width:48%;
+                        height:90%;
+                        float:right;
+                        border:1px solid #000;
+                    }
+                </style>
+                <script>
+                    $('a[name="lookinfo"]').click(function(){
+                        $('.carinfopar').css({display:'block'});
+                    })
+                </script>
+
+                <!--新订单列表 操作信息-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">操作管理</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <!-- <tr>
+                                <div class="row">
+                                    <td class="text-right col-sm-2"><p class="margin">操作备注：</p></td>
+                                    <td colspan="3">
+                                        <form id="order-action">
+                                            <textarea name="note" placeholder="请输入操作备注" rows="3" class="form-control"></textarea>
+                                        </form>
+                                    </td>
+                                </div>
+                            </tr> -->
+                            <tr>
+                                <td colspan="3" class='text-center' align='center'>
+                                    <if condition='$order.order_status eq 3'>
+                                        <a class="btn btn-primary margin" href="javascript:void(0)" onclick="match_order({$order.order_id})">匹配完成</a>
+                                    </if>
+                                    <a class="btn btn-primary margin" href="javascript:history.go(-1)">返回列表</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+<script>
+$('.gallery2').rebox({ selector: 'a' });
+</script>
+<script>
+
+    function fanhui(){
+        $('.carinfopar').css({'display':'none'});
+    }
+
+    function match_order(order_id){
+        $.post(
+                "{:U('Order/matchOrder')}",
+                { order_id: order_id },
+                function(data){
+                    alert(data['msg']);
+                    if(data['status']==1){
+                        $('#order-status').text('待支付');
+                    }
+                },
+                "json");
+    }
+
+    function matching(carid,orderid)
+    {
+        $.post(
+                "{:U('Order/matching')}",
+                { id: carid, order_id: orderid },
+                function(data){
+                    if(data==1){
+                        var str;
+                        str = '<label style="color:red">该单已匹配成功！<label><a class="btn btn-primary margin" href="javascript:void(0)" onclick="fanhui()">返回列表</a>';
+                        $('.pipeidan').html('');
+                        $('.pipeidan').append(str);
+                        $('a[name="del"]').remove();
+                        $('.carinfopar').css({'display':'none'});
+                        alert('匹配成功！');
+                    }else{
+                        alert('匹配失败！');
+                    }
+
+                },
+                "json");
+    }
+
+    function pay_cancel(obj){
+        var url =  $(obj).attr('data-url')+'/'+Math.random();
+        layer.open({
+            type: 2,
+            title: '退款操作',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['45%', '50%'],
+            content: url,
+        });
+    }
+    //取消付款
+    function pay_callback(s){
+        if(s==1){
+            layer.msg('操作成功', {icon: 1});
+            layer.closeAll('iframe');
+            location.href =	location.href;
+        }else{
+            layer.msg('操作失败', {icon: 3});
+            layer.closeAll('iframe');
+            location.href =	location.href;
+        }
+    }
+
+    // 弹出退换货商品
+    function selectGoods2(order_id){
+        var url = "/index.php?m=Admin&c=Order&a=get_order_goods&order_id="+order_id;
+        layer.open({
+            type: 2,
+            title: '选择商品',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['60%', '60%'],
+            content: url,
+        });
+    }
+    // 申请退换货
+    function call_back(order_id,goods_id)
+    {
+        var url = "/index.php?m=Admin&c=Order&a=add_return_goods&order_id="+order_id+"&goods_id="+goods_id;
+        location.href = url;
+    }
+</script>
+</html>

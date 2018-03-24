@@ -1,0 +1,985 @@
+<?php
+/**
+ * tpshop
+ * ============================================================================
+ * 版权所有 2015-2027 深圳搜豹网络科技有限公司，并保留所有权利。
+ * 网站地址: http://www.tp-shop.cn
+ * ----------------------------------------------------------------------------
+ * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和使用 .
+ * 不允许对程序代码以任何形式任何目的的再发布。
+ * ============================================================================
+ * Author: 当燃      
+ * Date: 2015-12-21
+ */
+
+namespace Admin\Controller;
+use Admin\Logic\GoodsLogic;
+use Admin\Logic\OrderLogic;
+use Think\AjaxPage;
+class ReportController extends BaseController{
+	public $begin;
+	public $end;
+	public  $order_status;
+	public  $pay_status;
+	public  $shipping_status;
+	//public  $temp_status;
+	/*
+     * 初始化操作
+     */
+	public function _initialize(){
+        parent::_initialize();
+		$timegap = I('timegap');
+		if($timegap){
+			$gap = explode(' - ', $timegap);
+			$begin = $gap[0];
+			$end = $gap[1];
+		}else{
+			$lastweek = date('Y-m-d',strtotime("-1 month"));//30天前
+			$begin = I('begin',$lastweek);
+			$end =  I('end',date('Y-m-d'));
+		}
+		$this->begin = strtotime($begin);
+		$this->end = strtotime($end)+86399;
+		$this->assign('timegap',date('Y-m-d',$this->begin).' - '.date('Y-m-d',$this->end));
+
+		C('TOKEN_ON',false); // 关闭表单令牌验证
+		$this->order_status = C('ORDER_STATUS');
+		$this->pay_status = C('PAY_STATUS');
+		$this->shipping_status = C('SHIPPING_STATUS');
+		$this->temp_status = C('temp_status');
+
+		// 订单 支付 发货状态
+		$this->assign('order_status',$this->order_status);
+		$this->assign('pay_status',$this->pay_status);
+		$this->assign('shipping_status',$this->shipping_status);
+		$this->assign('temp_status',$this->temp_status);
+	}
+
+//	//销售概况
+//	public function indexs(){
+//		$now = strtotime(date('Y-m-d'));
+//		$today['today_amount'] = M('order')->where("add_time>$now AND (pay_status=1 or pay_code='cod') and order_status in(1,2,4)")->sum('order_amount');//今日销售总额
+//		$today['today_order'] = M('order')->where("add_time>$now and (pay_status=1 or pay_code='cod')")->count();//今日订单数
+//		$today['cancel_order'] = M('order')->where("add_time>$now AND order_status=3")->count();//今日取消订单
+//		$today['sign'] = round($today['today_amount']/$today['today_order'],2);
+//		$this->assign('today',$today);
+//		$sql = "SELECT COUNT(*) as tnum,sum(order_amount) as amount, FROM_UNIXTIME(add_time,'%Y-%m-%d') as gap from  __PREFIX__order ";
+//		$sql .= " where add_time>$this->begin and add_time<$this->end AND (pay_status=1 or pay_code='cod') and order_status in(1,2,4) group by gap ";
+//		$res = M()->query($sql);//订单数,交易额
+//
+//		foreach ($res as $val){
+//			$arr[$val['gap']] = $val['tnum'];
+//			$brr[$val['gap']] = $val['amount'];
+//			$tnum += $val['tnum'];
+//			$tamount += $val['amount'];
+//		}
+//
+//		for($i=$this->begin;$i<=$this->end;$i=$i+24*3600){
+//			$tmp_num = empty($arr[date('Y-m-d',$i)]) ? 0 : $arr[date('Y-m-d',$i)];
+//			$tmp_amount = empty($brr[date('Y-m-d',$i)]) ? 0 : $brr[date('Y-m-d',$i)];
+//			$tmp_sign = empty($tmp_num) ? 0 : round($tmp_amount/$tmp_num,2);
+//			$order_arr[] = $tmp_num;
+//			$amount_arr[] = $tmp_amount;
+//			$sign_arr[] = $tmp_sign;
+//			$date = date('Y-m-d',$i);
+//			$list[] = array('day'=>$date,'order_num'=>$tmp_num,'amount'=>$tmp_amount,'sign'=>$tmp_sign,'end'=>date('Y-m-d',$i+24*60*60));
+//			$day[] = $date;
+//		}
+//
+//		$this->assign('list',$list);
+//		$result = array('order'=>$order_arr,'amount'=>$amount_arr,'sign'=>$sign_arr,'time'=>$day);
+//		$this->assign('result',json_encode($result));
+//		$this->display();
+//	}
+//
+//	//销售排行
+//	public function saleTop(){
+//		$sql = "select goods_name,goods_sn,sum(goods_num) as sale_num,sum(goods_num*goods_price) as sale_amount from __PREFIX__order_goods ";
+//		$sql .=" where is_send = 1 group by goods_id order by sale_amount DESC limit 100";
+//		$res = M()->cache(true,3600)->query($sql);
+//		$this->assign('list',$res);
+//		$this->display();
+//	}
+//
+//	//会员排行
+//	public function userTop(){
+//		$p = I('p',1);
+//		$start = ($p-1)*20;
+//		$mobile = I('mobile');
+//		$email = I('email');
+//		if($mobile){
+//			$where =  "and b.mobile='$mobile'";
+//		}
+//		if($email){
+//			$where = "and b.email='$email'";
+//		}
+//		$sql = "select count(a.order_id) as order_num,sum(a.order_amount) as amount,a.user_id,b.mobile,b.email from __PREFIX__order as a left join __PREFIX__users as b ";
+//		$sql .= " on a.user_id = b.user_id where a.add_time>$this->begin and a.add_time<$this->end and a.pay_status=1 $where group by user_id order by amount DESC limit $start,20";
+//		$res = M()->cache(true)->query($sql);
+//		$this->assign('list',$res);
+//		if(empty($where)){
+//			$count = M('order')->where("add_time>$this->begin and add_time<$this->end and pay_status=1")->group('user_id')->count();
+//			$Page = new \Think\Page($count,20);
+//			$show = $Page->show();
+//			$this->assign('page',$show);
+//		}
+//		$this->display();
+//	}
+//
+//	//销售明细
+//	public function saleList(){
+//		$p = I('p',1);
+//		$start = ($p-1)*20;
+//		$cat_id = I('cat_id',0);
+//		$brand_id = I('brand_id',0);
+//		$where = "where b.add_time>$this->begin and b.add_time<$this->end ";
+//		if($cat_id>0){
+//			$where .= " and g.cat_id=$cat_id";
+//			$this->assign('cat_id',$cat_id);
+//		}
+//		if($brand_id>0){
+//			$where .= " and g.brand_id=$brand_id";
+//			$this->assign('brand_id',$brand_id);
+//		}
+//		$sql = "select a.*,b.order_sn,b.shipping_name,b.pay_name,b.add_time from __PREFIX__order_goods as a left join __PREFIX__order as b on a.order_id=b.order_id ";
+//		$sql .= " left join __PREFIX__goods as g on a.goods_id = g.goods_id $where ";
+//		$sql .= "  order by add_time desc limit $start,20";
+//		$res = M()->query($sql);
+//		$this->assign('list',$res);
+//
+//		$sql2 = "select count(*) as tnum from __PREFIX__order_goods as a left join __PREFIX__order as b on a.order_id=b.order_id ";
+//		$sql2 .= " left join __PREFIX__goods as g on a.goods_id = g.goods_id $where";
+//		$total = M()->query($sql2);
+//		$count =  $total[0]['tnum'];
+//		$Page = new \Think\Page($count,20);
+//		$show = $Page->show();
+//		$this->assign('page',$show);
+//
+//		$GoodsLogic = new GoodsLogic();
+//		$brandList = $GoodsLogic->getSortBrands();
+//		$categoryList = $GoodsLogic->getSortCategory();
+//		$this->assign('categoryList',$categoryList);
+//		$this->assign('brandList',$brandList);
+//		$this->display();
+//	}
+//
+//	//会员统计表
+//	public function user(){
+//		$today = strtotime(date('Y-m-d'));
+//		$month = strtotime(date('Y-m-01'));
+//		$user['today'] = D('users')->where("reg_time>$today")->count();//今日新增会员
+//		$user['month'] = D('users')->where("reg_time>$month")->count();//本月新增会员
+//		$user['total'] = D('users')->count();//会员总数
+//		$user['user_money'] = D('users')->sum('user_money');//会员余额总额
+//		$res = M('order')->cache(true)->distinct(true)->field('user_id')->select();
+//		$user['hasorder'] = count($res);
+//		$this->assign('user',$user);
+//		$sql = "SELECT COUNT(*) as num,FROM_UNIXTIME(reg_time,'%Y-%m-%d') as gap from __PREFIX__users where reg_time>$this->begin and reg_time<$this->end group by gap";
+//		$new = M()->query($sql);//新增会员趋势
+//		foreach ($new as $val){
+//			$arr[$val['gap']] = $val['num'];
+//		}
+//
+//		for($i=$this->begin;$i<=$this->end;$i=$i+24*3600){
+//			$brr[] = empty($arr[date('Y-m-d',$i)]) ? 0 : $arr[date('Y-m-d',$i)];
+//			$day[] = date('Y-m-d',$i);
+//		}
+//		$result = array('data'=>$brr,'time'=>$day);
+//		$this->assign('result',json_encode($result));
+//		$this->display();
+//	}
+//
+//	//财务统计
+//	public function finance(){
+//		$sql = "SELECT sum(b.goods_num*b.member_goods_price) as goods_amount,sum(a.shipping_price) as shipping_amount,sum(b.goods_num*b.cost_price) as cost_price,";
+//		$sql .= "sum(a.coupon_price) as coupon_amount,FROM_UNIXTIME(a.add_time,'%Y-%m-%d') as gap from  __PREFIX__order a left join __PREFIX__order_goods b on a.order_id=b.order_id ";
+//		$sql .= " where a.add_time>$this->begin and a.add_time<$this->end AND a.pay_status=1 and a.shipping_status=1 and b.is_send=1 group by gap order by a.add_time";
+//		$res = M()->cache(true)->query($sql);//物流费,交易额,成本价
+//
+//		foreach ($res as $val){
+//			$arr[$val['gap']] = $val['goods_amount'];
+//			$brr[$val['gap']] = $val['cost_price'];
+//			$crr[$val['gap']] = $val['shipping_amount'];
+//			$drr[$val['gap']] = $val['coupon_amount'];
+//		}
+//
+//		for($i=$this->begin;$i<=$this->end;$i=$i+24*3600){
+//			$date = $day[] = date('Y-m-d',$i);
+//			$tmp_goods_amount = empty($arr[$date]) ? 0 : $arr[$date];
+//			$tmp_cost_amount = empty($brr[$date]) ? 0 : $brr[$date];
+//			$tmp_shipping_amount = empty($crr[$date]) ? 0 : $crr[$date];
+//			$tmp_coupon_amount = empty($drr[$date]) ? 0 : $drr[$date];
+//
+//			$goods_arr[] = $tmp_goods_amount;
+//			$cost_arr[] = $tmp_cost_amount;
+//			$shipping_arr[] = $tmp_shipping_amount;
+//			$coupon_arr[] = $tmp_coupon_amount;
+//			$list[] = array('day'=>$date,'goods_amount'=>$tmp_goods_amount,'cost_amount'=>$tmp_cost_amount,
+//					'shipping_amount'=>$tmp_shipping_amount,'coupon_amount'=>$tmp_coupon_amount,'end'=>date('Y-m-d',$i+24*60*60));
+//		}
+//		$this->assign('list',$list);
+//		$result = array('goods_arr'=>$goods_arr,'cost_arr'=>$cost_arr,'shipping_arr'=>$shipping_arr,'coupon_arr'=>$coupon_arr,'time'=>$day);
+//		$this->assign('result',json_encode($result));
+//		$this->display();
+//	}
+//
+//
+//	//订单统计
+//	public function order_stat(){
+//		$now = strtotime(date('Y-m-d'));
+//		/*$today['today_amount'] = M('order')->where("add_time>$now AND (pay_status=1 or pay_code='cod') and order_status in(1,2,4)")->sum('order_amount');//今日销售总额
+//		$today['today_order'] = M('order')->where("add_time>$now and (pay_status=1 or pay_code='cod')")->count();//今日订单数
+//		$today['cancel_order'] = M('order')->where("add_time>$now AND order_status=3")->count();//今日取消订单
+//		$today['sign'] = round($today['today_amount']/$today['today_order'],2);*/
+//
+//		$today['today_amount'] = M('Temporary')->where("UNIX_TIMESTAMP(add_time)>$now AND (status=3)")->count();//临时租的今日订单
+//		$today['today_order'] = M('Order')->where("UNIX_TIMESTAMP(add_time)>$now AND (order_status=5)")->count();//年月租的今日订单
+//		$today['cancel_order'] = M('special')->where("add_time>$now AND (pay_status=1)")->count();//特价车的今日订单
+//		$this->assign('today',$today);
+//		$sql = "SELECT COUNT(*) as tnum,sum(order_amount) as amount, FROM_UNIXTIME(add_time,'%Y-%m-%d') as gap from  __PREFIX__order ";
+//		$sql .= " where add_time>$this->begin and add_time<$this->end AND (pay_status=1 or pay_code='cod') and order_status in(1,2,4) group by gap ";
+//		$res = M()->query($sql);//订单数,交易额
+//
+//		//$resut = ailist()->dskl();
+//
+//		//dump($res);die;
+//		foreach ($res as $val){
+//			$arr[$val['gap']] = $val['tnum'];
+//			$brr[$val['gap']] = $val['amount'];
+//			$tnum += $val['tnum'];
+//			$tamount += $val['amount'];
+//		}
+//
+//		for($i=$this->begin;$i<=$this->end;$i=$i+24*3600){
+//			$tmp_num = empty($arr[date('Y-m-d',$i)]) ? 0 : $arr[date('Y-m-d',$i)];
+//			$tmp_amount = empty($brr[date('Y-m-d',$i)]) ? 0 : $brr[date('Y-m-d',$i)];
+//			$tmp_sign = empty($tmp_num) ? 0 : round($tmp_amount/$tmp_num,2);
+//			$order_arr[] = $tmp_num;
+//			$amount_arr[] = $tmp_amount;
+//			$sign_arr[] = $tmp_sign;
+//			$date = date('Y-m-d',$i);
+//			$list[] = array('day'=>$date,'order_num'=>$tmp_num,'amount'=>$tmp_amount,'sign'=>$tmp_sign,'end'=>date('Y-m-d',$i+24*60*60));
+//			$day[] = $date;
+//		}
+//		//dump($list);die;
+//		/*	$order_arr = $today['today_amount'];
+//            $amount_arr = $today['today_amount'];
+//            $sign_arr = $today['today_amount'];
+//            $day = $now;
+//            $list = 12;*/
+//		$this->assign('list',$list);
+//		$result = array('order'=>$order_arr,'amount'=>$amount_arr,'sign'=>$sign_arr,'time'=>$day);
+//		$this->assign('result',json_encode($result));
+//		$this->display();
+//	}
+//
+//
+
+
+/***********************************************************************订单统计*************************************************************************/
+
+	/*
+	  * 年月租出租订单统计
+	  */
+	public function index()
+	{
+		$begin = date('Y/m/d',(time()-30*60*60*24));//30天前
+		$end = date('Y/m/d',strtotime('+1 days'));
+		//dump($begin.'-'.$end);die;
+		//获取所有省份和地区
+		$count1 = M('order')->where("order_status=2")->count(); //未完成订单数量
+		$count2 = M('order')->where("order_status=5")->count(); //已完成订单数量
+		$count_sum =$count1 + $count2; //订单总数量
+		$this->assign('count_sum',$count_sum);
+		$this->assign('count1',$count1);
+		$this->assign('count2',$count2);
+		$this->assign('count_sum',$count_sum);
+		$this->assign('timegap',$begin.'-'.$end);
+		$this->display();
+	}
+	/*
+	 *  ajaxindex年月租出租订单统计
+	 */
+	public function ajaxindex(){
+		$orderLogic = new OrderLogic();
+		$timegap = I('timegap');
+		if($timegap){
+			$gap = explode('-', $timegap);
+			$begin = $gap[0];
+			// $begin = strtotime($gap[0]);
+			// $end = strtotime($gap[1]);
+			$end = $gap[1];
+		}
+		// 搜索条件
+		$condition = array();
+		//条件1：订单状态
+		$condition['order_status'] = I('order_status');
+		//条件2：下单日期
+		if($begin && $end){
+			$condition['add_time'] = array('between',"$begin,$end");
+		}
+		//条件3：订单所属城市
+		I('city') ? $condition['city'] = trim(I('city')) : false;
+
+		$sort_order = I('order_by','DESC').' '.I('sort');
+
+		//获取总记录数
+		if($condition['order_status'] == ''){
+			$count = M('order')->where("order_status=2 or order_status=5")->count();
+		}else{
+			$count = M('order')->where($condition)->count();
+		}
+
+		$Page  = new AjaxPage($count,20);
+		//  搜索条件下 分页赋值
+		foreach($condition as $key=>$val) {
+			$Page->parameter[$key]   =  urlencode($val);
+		}
+		$show = $Page->show();
+		//dump($condition);die;
+		//获取符合条件的订单列表
+		if($condition['order_status'] == ''){
+			$condition['order_status'] = array('in',array(2,5));
+			$orderList = M('order')->where($condition)->order('add_time DESC')->limit($Page->firstRow,$Page->listRows)->select();
+		}else{
+			$orderList =  M('order')->where($condition)->order('add_time DESC')->limit($Page->firstRow,$Page->listRows)->select();
+		}
+
+		$this->assign('orderList',$orderList);
+		$this->assign('page',$show);// 赋值分页输出
+		$this->display();
+	}
+
+	/*
+	 *临时租订单统计
+	 */
+	public function temporary_order(){
+		$begin = date('Y/m/d',(time()-30*60*60*24));//30天前
+		$end = date('Y/m/d',strtotime('+1 days'));
+
+		$count1 = M('Temporary')->where("status=4")->count(); //未完成订单数量
+		$count2 = M('Temporary')->where("status=3")->count(); //已完成订单数量
+		$count_sum =$count1 + $count2; //订单总数量
+		$this->assign('count_sum',$count_sum);
+		$this->assign('count1',$count1);
+		$this->assign('count2',$count2);
+		$this->assign('timegap',$begin.'-'.$end);
+		$this->display();
+	}
+
+	/*
+     *Ajax临时租订单统计
+     */
+	public function ajax_temporary_order(){
+
+		$timegap = I('timegap');
+		if($timegap){
+			$gap = explode('-', $timegap);
+			$begin = $gap[0];
+			$end = $gap[1];
+			// $begin = strtotime($gap[0]);
+			// $end = strtotime($gap[1]);
+		}
+		// 搜索条件
+		$condition = array();
+		// I('consignee') ? $condition['consignee'] = trim(I('consignee')) : false;
+		if($begin && $end){
+			$condition['add_time'] = array('between',"$begin,$end");
+		}
+		I('temp_sn') ? $condition['temp_sn'] = trim(I('temp_sn')) : false;
+		I('mobile') ? $condition['mobile'] = trim(I('mobile')) : false;
+		I('username') ? $condition['username'] = trim(I('username')) : false;
+		I('temp_status') != '' ? $condition['status'] = I('temp_status') : false;
+		if($condition['status']==''){
+			$count = M('Temporary')->where("status=3 or status=4")->count();
+		}else{
+			$count = M('Temporary')->where($condition)->count();
+		}
+
+		$Page  = new AjaxPage($count,20);
+		//  搜索条件下 分页赋值
+		foreach($condition as $key=>$val) {
+			$Page->parameter[$key]   =  urlencode($val);
+		}
+		$show = $Page->show();
+		//获取订单列表
+		if($condition['status'] == ''){
+			$condition['status'] = array('in',array(3,4));
+			$orderList = M('Temporary')->where($condition)
+								       ->order('add_time DESC')
+								       ->limit($Page->firstRow,$Page->listRows)
+								       ->select();
+		}else{
+			$orderList = M('Temporary')->where($condition)
+								       ->order('add_time DESC')
+								       ->limit($Page->firstRow,$Page->listRows)
+								       ->select();
+		}
+		$this->assign('orderList',$orderList);
+		$this->assign('page',$show);// 赋值分页输出
+		$this->display();
+	}
+
+
+	/*
+	 *特价车订单统计
+	 */
+	public function special_order(){
+		$begin = date('Y/m/d',(time()-30*60*60*24));//30天前
+		$end = date('Y/m/d',strtotime('+1 days'));
+		$count1 = M('Special')->where("sp_status=0")->count(); //未完成订单数量
+		$count2 = M('Special')->where("sp_status=1")->count(); //已完成订单数量
+		$count_sum =$count1 + $count2; //订单总数量
+		$this->assign('count_sum',$count_sum);
+		$this->assign('count1',$count1);
+		$this->assign('count2',$count2);
+		$this->assign('timegap',$begin.'-'.$end);
+		$this->display();
+	}
+
+	/*
+	 *Ajax特价车订单统计
+	 */
+	public function ajax_special_order(){
+
+		$timegap = I('timegap');
+		if($timegap){
+			$gap = explode('-', $timegap);
+//			$begin = $gap[0];
+//			$end = $gap[1];
+			$begin = strtotime($gap[0]);
+			$end = strtotime($gap[1]);
+		}
+		// 搜索条件
+		$condition = array();
+
+		if($begin && $end){
+			$condition['add_time'] = array('between',"$begin,$end");
+		}
+		I('mobile2') ? $condition['u2.mobile'] = trim(I('mobile2')) : false;
+		I('mobile') ? $condition['u.mobile'] = trim(I('mobile')) : false;
+		$count = M('special')->alias('sp')
+							 ->join('tp_users as u on sp.user_id=u.user_id')
+							 ->field('sp.*,u.mobile,u2.mobile as mobile2')
+							 ->join('tp_users as u2 on sp.buy_user_id=u2.user_id')
+							 ->order('sp.add_time DESC')
+							 ->where($condition)
+							 ->count();
+		$Page  = new AjaxPage($count,20);
+		//  搜索条件下 分页赋值
+		foreach($condition as $key=>$val) {
+			$Page->parameter[$key]   =  urlencode($val);
+		}
+		$show = $Page->show();
+		//获取订单列表
+		$orderList = M('special')->alias('sp')
+								 ->join('tp_users as u on sp.user_id=u.user_id')
+								 ->field('sp.*,u.mobile,u2.mobile as mobile2')
+								 ->join('tp_users as u2 on sp.buy_user_id=u2.user_id')
+								 ->order('sp.add_time DESC')
+								 ->where($condition)
+								 ->limit($Page->firstRow,$Page->listRows)
+								 ->select();
+		 //dump($orderList);exit;
+		$this->assign('orderList',$orderList);
+		$this->assign('page',$show);// 赋值分页输出
+		$this->display();
+	}
+	/******************************************************************订单统计结束****************************************************************/
+
+
+
+	/****************************************************************租车记录统计***************************************************************/
+
+	//租车记录统计表
+
+	/*
+	 * 临时租出租记录表
+	 */
+	public function temporary_record(){
+		$begin = date('Y/m/d',(time()-30*60*60*24));//30天前
+		$end = date('Y/m/d',strtotime('+1 days'));
+
+		$count1 = M('Temporary')->where("status=4")->count(); //未完成订单数量
+		$count2 = M('Temporary')->where("status=3")->count(); //已完成订单数量
+		$count_sum =$count1 + $count2; //订单总数量
+		$this->assign('count_sum',$count_sum);
+		$this->assign('count1',$count1);
+		$this->assign('count2',$count2);
+		$this->assign('timegap',$begin.'-'.$end);
+		$this->display();
+	}
+
+	/*
+   	 *	Ajax临时租出租记录表
+   	 */
+	public function ajax_temporary_record(){
+
+		$timegap = I('timegap');
+		if($timegap){
+			$gap = explode('-', $timegap);
+			$begin = $gap[0];
+			$end = $gap[1];
+		}
+		// 搜索条件
+		$condition = array();
+		if($begin && $end){
+			$condition['add_time'] = array('between',"$begin,$end");
+		}
+		$address = I('address') ? $address= trim(I('address')) : false;
+		$condition['address'] =array('like',"%$address%");
+		 $condition['status'] = 3;
+		 $condition['is_play'] =1;
+		$count = M('Temporary')->where($condition)->count();
+		$Page  = new AjaxPage($count,20);
+		//  搜索条件下 分页赋值
+		foreach($condition as $key=>$val) {
+			$Page->parameter[$key]   =  urlencode($val);
+		}
+		$show = $Page->show();
+		//dump($condition);die;
+		//dump($condition);die;
+		//获取订单列表
+		// $orderList = $orderLogic->getOrderList($condition,$sort_order,$Page->firstRow,$Page->listRows);
+		$orderList = M('Temporary')->where($condition)->order('add_time DESC')->limit($Page->firstRow,$Page->listRows)->select();
+		$sum = M('Temporary')->where("is_play = 1 and status=3")->count();
+		//dump($sum);die;
+		$this->assign('orderList',$orderList);
+		$this->assign('sum',$sum);
+		$this->assign('page',$show);// 赋值分页输出
+		$this->display();
+	}
+
+	/*
+	 * 临时租出租订单详情
+	 * @param int $id 订单id
+	 */
+	public function temporary_info($order_id){
+		//$order_id =$_GET['id'];
+		$order = M('Temporary')->where(array('temp_id'=>$order_id))->find();
+		$Users = M('Users')->find($order['user_id']);   //用户信息
+		$Goods = M('Goods')->find($order['goods_id']);  //车辆信息
+
+
+		$this->assign('order',$order);
+		$OrderInfo = M('OrderInfo')
+				->alias('oi')
+				->join('tp_users as u on oi.user_id = u.user_id')
+				->where(['order_id'=>$order_id])
+				->select();
+		//dump($order);dump($Users);dump($Goods);dump($OrderInfo);die;
+		$this->is_yt = C('is_yt');
+		$this->assign('is_yt',$this->is_yt);
+		$this->assign('OrderInfo',$OrderInfo);
+		$this->assign('Goods',$Goods);
+		$this->assign('Users',$Users);
+		$this->display();
+	}
+
+
+
+	/*
+	 *叉车出租记录表
+	 */
+	public function car_rental_record(){
+		$begin = date('Y/m/d',(time()-30*60*60*24));//30天前
+		$end = date('Y/m/d',strtotime('+1 days'));
+
+		$count1 = M('Temporary')->where("status=4")->count(); //未完成订单数量
+		$count2 = M('Temporary')->where("status=3")->count(); //已完成订单数量
+		$count_sum =$count1 + $count2; //订单总数量
+		$this->assign('count_sum',$count_sum);
+		$this->assign('count1',$count1);
+		$this->assign('count2',$count2);
+		$this->assign('timegap',$begin.'-'.$end);
+		$this->display();
+	}
+
+	/*
+	 *  ajax_special_record叉车出租记录表
+	 */
+	public function ajax_order_record(){
+		$timegap = I('timegap');
+		if($timegap){
+			$gap = explode('-', $timegap);
+			$begin = $gap[0];
+			// $begin = strtotime($gap[0]);
+			// $end = strtotime($gap[1]);
+			$end = $gap[1];
+		}
+		// 搜索条件
+		$condition = array();
+		//条件1：下单日期
+//		if($begin && $end){
+//			$condition['add_time'] = array('between',"$begin,$end");
+//		}
+		//条件2：订单所属地址
+		$address = I('address') ? $address= trim(I('address')) : false;
+		$condition['address'] =$address ? array('like', "%$address%") : false ;
+		$condition['is_playmoney'] = 1;
+		//获取总记录数
+		$count = M('order')->where($condition)->count();
+		//dump($condition);die;
+		$Page  = new AjaxPage($count,10);
+		foreach($condition as $key=>$val) {
+			$Page->parameter[$key]   =  urlencode($val);
+		}
+		$show = $Page->show();
+		//dump($condition);die;
+		//获取符合条件的订单列表
+
+//		$orderList = M('special')->alias('sp')
+//				->join('tp_users as u on sp.user_id=u.user_id')
+//				->field('sp.*,u.mobile,u2.mobile as mobile2')
+//				->join('tp_users as u2 on sp.buy_user_id=u2.user_id')
+//				->order('sp.add_time DESC')
+//				->where($condition)
+//				// ->fetchSql()
+//				->limit($Page->firstRow,$Page->listRows)
+//				->select();
+
+//		$orderList =M('Order')->alias('a')
+//							  //->join('tp_users as u on a.user_id=u.user_id')
+//							  ->field('a.*,g.*')
+//							  ->join('tp_goods as g on a.goods_id=g.goods_id')
+//							  ->where($condition)
+//							  ->order('a.add_time DESC')
+//							  ->limit($Page->firstRow,$Page->listRows)
+//							  ->fetchSql()
+//							  ->select();
+//		//echo M()->_sql();die;
+//		echo ($orderList);die;
+		$orderList = M('Order')->alias('a')
+				//->join('tp_goods as g on a.goods_id=g.goods_id')
+				//->field('a.*,g.*')
+				->where($condition)
+				->order('add_time DESC')
+				->limit($Page->firstRow,$Page->listRows)
+				->select();
+		//select sum(成绩) as 总分,count(*) from Student
+		$sum =  M('Order')->where("is_playmoney = 1")->sum('number');
+		$sum_money =  M('Order')->where("is_playmoney = 1")->sum('mprice');
+		$this->assign('orderList',$orderList);
+		$this->assign('sum',$sum);
+		$this->assign('sum_money',$sum_money);
+		$this->assign('page',$show);// 赋值分页输出
+		$this->display();
+	}
+
+	/**
+	 * 叉车记录表详情
+	 * @param int $id 订单id
+	 */
+	public function order_info($order_id){
+		$orderLogic = new OrderLogic();
+		$order = $orderLogic->getOrderInfo($order_id);      //订单信息
+		$orderGoods = $orderLogic->getOrderGoods($order_id);
+		$Users = M('Users')->find($order['user_id']);
+		$Goods = M('Goods')->find($order['goods_id']);   //车辆信息
+		$button = $orderLogic->getOrderButton($order);
+		// 获取操作记录
+		$action_log = M('order_action')->where(array('order_id'=>$order_id))->order('log_time desc')->select();
+		//dump($order);die;
+		$this->assign('order',$order);
+		$this->assign('action_log',$action_log);
+		$this->assign('orderGoods',$orderGoods);
+		$split = count($orderGoods) >1 ? 1 : 0;
+		foreach ($orderGoods as $val){
+			if($val['goods_num']>1){
+				$split = 1;
+			}
+		}
+		$OrderInfo = M('OrderInfo')
+				->alias('oi')
+				->join('tp_users as u on oi.user_id = u.user_id')
+				->where(['order_id'=>$order_id])
+				->select();
+
+		$this->is_yt = C('is_yt');
+		$this->assign('is_yt',$this->is_yt);
+		$this->assign('OrderInfo',$OrderInfo);
+		$this->assign('Goods',$Goods);
+		$this->assign('Users',$Users);
+		$this->assign('split',$split);
+		$this->assign('button',$button);
+		$this->display();
+	}
+
+	/**
+	 * 叉车车辆信息
+	 * @param int $id 订单id
+	 */
+	public function cat_info($order_id){
+		$orderLogic = new OrderLogic();
+		$order = $orderLogic->getOrderInfo($order_id);      //订单信息
+		$Goods = M('Goods')->find($order['goods_id']);   //车辆信息
+		dump($Goods);
+		$this->assign('Goods',$Goods);
+		$this->display();
+	}
+
+	/*************************************************************叉车记录统计结束*****************************************************************/
+
+
+
+
+	/*************************************************************车辆统计******************************************************************/
+
+
+	//车辆统计表
+	public function car_stat(){
+		$today = strtotime(date('Y-m-d'));
+		//dump($today);die;
+		$month = strtotime(date('Y-m-01'));
+		$user['today'] = D('Goods')->where("add_time>$today")->count();//今日新增车辆
+		$user['month'] = D('Goods')->where("add_time>$month")->count();//本月新增车辆
+		$user['total'] = D('Goods')->count();//会员总数
+		$user['user_money'] = D('Goods')->sum('shop_price');//会员余额总额
+		$res = M('Goods')->cache(true)->distinct(true)->field('user_id')->select();
+		$user['hasorder'] = count($res);
+		//dump($res);die;
+		$this->assign('user',$user);
+		$sql = "SELECT COUNT(*) as num,FROM_UNIXTIME(add_time,'%Y-%m-%d') as gap from __PREFIX__goods where add_time>$this->begin and add_time<$this->end group by gap";
+		$new = M()->query($sql);//新增车辆趋势
+		//dump($new);die;
+		foreach ($new as $val){
+			$arr[$val['gap']] = $val['num'];
+		}
+
+		for($i=$this->begin;$i<=$this->end;$i=$i+24*3600){
+			$brr[] = empty($arr[date('Y-m-d',$i)]) ? 0 : $arr[date('Y-m-d',$i)];
+			$day[] = date('Y-m-d',$i);
+		}
+		$result = array('data'=>$brr,'time'=>$day);
+		$this->assign('result',json_encode($result));
+		$this->display();
+	}
+
+	/*******************************************************************车辆统计结束*****************************************************************/
+
+
+
+
+	/****************************************************************报表导出****************************************************************/
+
+	//年月租订单导出表格
+	public function export_order()
+	{
+		//搜索条件
+		$where = 'where 1=1 ';
+		$consignee = I('consignee');
+		if($consignee){
+			$where .= " AND consignee like '%$consignee%' ";
+		}
+		$order_sn =  I('order_sn');
+		if($order_sn){
+			$where .= " AND order_sn = '$order_sn' ";
+		}
+		if(I('order_status')!=''){
+			$condition ['order_status']= I('order_status');
+		}else{
+			$condition['order_status'] = array('in',array(2,5));
+		}
+
+		if(I('mobile')){
+			$where .= " AND mobile = ".I('mobile');
+		}
+
+		$timegap = I('timegap');
+		if($timegap){
+			$gap = explode('-', $timegap);
+//			$begin = strtotime($gap[0]);
+//			$end = strtotime($gap[1]);
+			//$where .= " AND add_time>$begin AND add_time<$end ";
+			$begin = $gap[0];
+			$end =$gap[1];
+		}
+		if($begin && $end){
+			$condition['add_time'] = array('between',"$begin,$end");
+		}
+//		$sql = "select *,FROM_UNIXTIME(add_time,'%Y-%m-%d') as create_time from __PREFIX__order $where order by order_id";
+//		$orderList = D()->query($sql);
+		$orderList = M('order')->where($condition)->order('add_time DESC')->select();
+		$strTable ='<table width="500" border="1">';
+		$strTable .= '<tr>';
+		$strTable .= '<td style="text-align:center;font-size:12px;width:60px;height: 30px;">订单id</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="200px">订单编号</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="130px">收货人</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="150px">手机号</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="120px">租金</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="120px">押金</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="120px">订单状态</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="150px">下单时间</td>';
+		$strTable .= '</tr>';
+		if(is_array($orderList)){
+			$region	= M('region')->getField('id,name');
+			foreach($orderList as $k=>$val){
+				$strTable .= '<tr>';
+				$strTable .= '<td style="text-align:center;font-size:12px;">&nbsp;'.$val['order_id'].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['order_sn'].' </td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['use_user'].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['mobile'].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['mprice'].'元'.'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['yajin'].'元'.'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$this->order_status[$val['order_status']].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['add_time'].'</td>';
+				$orderGoods = D('order_goods')->where('order_id='.$val['order_id'])->select();
+				$strGoods="";
+				foreach($orderGoods as $goods){
+					$strGoods .= "商品编号：".$goods['goods_sn']." 商品名称：".$goods['goods_name'];
+					if ($goods['spec_key_name'] != '') $strGoods .= " 规格：".$goods['spec_key_name'];
+					$strGoods .= "<br />";
+				}
+				unset($orderGoods);
+				//$strTable .= '<td style="text-align:left;font-size:12px;">'.$strGoods.' </td>';
+				$strTable .= '</tr>';
+			}
+		}
+		$strTable .='</table>';
+		unset($orderList);
+		downloadExcel($strTable,'年月租订单统计表');
+		exit();
+	}
+
+	//临时租订单导出表格
+	public function export_temporary()
+	{
+		//搜索条件
+//		$where = 'where 1=1 ';
+//		$consignee = I('consignee');
+//		if($consignee){
+//			$where .= " AND consignee like '%$consignee%' ";
+//		}
+//		$order_sn =  I('order_sn');
+//		if($order_sn){
+//			$where .= " AND order_sn = '$order_sn' ";
+//		}
+		I('temp_sn') ? $condition['temp_sn'] = trim(I('temp_sn')) : false;      //订单号
+		I('mobile') ? $condition['mobile'] = trim(I('mobile')) : false;         //手机号
+		I('username') ? $condition['username'] = trim(I('username')) : false;   //收货人
+		if(I('temp_status')!=''){
+			$condition ['status']= I('temp_status');
+		}else{
+			$condition['status'] = array('in',array(3,4));
+		}
+
+
+		$timegap = I('timegap');
+		if($timegap){
+			$gap = explode('-', $timegap);
+//			$begin = strtotime($gap[0]);
+//			$end = strtotime($gap[1]);
+			//$where .= " AND add_time>$begin AND add_time<$end ";
+			$begin = $gap[0];
+			$end =$gap[1];
+		}
+		if($begin && $end){
+			$condition['add_time'] = array('between',"$begin,$end");
+		}
+//		$sql = "select *,FROM_UNIXTIME(add_time,'%Y-%m-%d') as create_time from __PREFIX__order $where order by order_id";
+//		$orderList = D()->query($sql);
+		$orderList = M('Temporary')->where($condition)->order('add_time DESC')->select();
+
+		$strTable ='<table width="500" border="1">';
+		$strTable .= '<tr>';
+		$strTable .= '<td style="text-align:center;font-size:12px;width:60px;height: 30px;">订单id</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="200px">订单编号</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="130px">收货人</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="150px">手机号</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="120px">吨位</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="120px">位置</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="120px">订单状态</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="150px">下单时间</td>';
+		$strTable .= '</tr>';
+		if(is_array($orderList)){
+			$region	= M('region')->getField('id,name');
+			foreach($orderList as $k=>$val){
+				$strTable .= '<tr>';
+				$strTable .= '<td style="text-align:center;font-size:12px;">&nbsp;'.$val['temp_id'].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['temp_sn'].' </td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['username'].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['mobile'].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['dunwei'].'吨'.'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['address'].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$this->temp_status[$val['status']-1].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['add_time'].'</td>';
+				//$orderGoods = D('order_goods')->where('order_id='.$val['order_id'])->select();
+				$strGoods="";
+//				foreach($orderGoods as $goods){
+//					$strGoods .= "商品编号：".$goods['goods_sn']." 商品名称：".$goods['goods_name'];
+//					if ($goods['spec_key_name'] != '') $strGoods .= " 规格：".$goods['spec_key_name'];
+//					$strGoods .= "<br />";
+//				}
+				unset($orderGoods);
+				//$strTable .= '<td style="text-align:left;font-size:12px;">'.$strGoods.' </td>';
+				$strTable .= '</tr>';
+			}
+		}
+		$strTable .='</table>';
+		unset($orderList);
+		downloadExcel($strTable,'临时租订单统计表');
+		exit();
+	}
+
+	//特价车订单导出表格
+	public function export_special()
+	{
+		//搜索条件
+		I('mobile2') ? $condition['u2.mobile'] = trim(I('mobile2')) : false;  //购买者手机
+		I('mobile') ? $condition['u.mobile'] = trim(I('mobile')) : false;     //出售者手机
+
+		$timegap = I('timegap');
+		if($timegap){
+			$gap = explode('-', $timegap);
+			$begin = strtotime($gap[0]);
+			$end = strtotime($gap[1]);
+			//$where .= " AND add_time>$begin AND add_time<$end ";
+//			$begin = $gap[0];
+//			$end =$gap[1];
+		}
+		if($begin && $end){
+			$condition['add_time'] = array('between',"$begin,$end");
+		}
+		$orderList = M('Special')->alias('sp')
+				->join('tp_users as u on sp.user_id=u.user_id')
+				->field('sp.*,u.mobile,u2.mobile as mobile2')
+				->join('tp_users as u2 on sp.buy_user_id=u2.user_id')
+				->order('sp.add_time DESC')
+				->where($condition)
+				->select();
+		$strTable ='<table width="500" border="1">';
+		$strTable .= '<tr>';
+		$strTable .= '<td style="text-align:center;font-size:12px;width:60px;height: 30px;">订单id</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="200px">出售者手机</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="130px">购买者手机</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="150px">商品金额</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="120px">实际付款金额</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="120px">应付款金额</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="120px">支付状态</td>';
+		$strTable .= '<td style="text-align:center;font-size:12px;" width="150px">下单时间</td>';
+		$strTable .= '</tr>';
+		if(is_array($orderList)){
+			$region	= M('region')->getField('id,name');
+			foreach($orderList as $k=>$val){
+				$strTable .= '<tr>';
+				$strTable .= '<td style="text-align:center;font-size:12px;">&nbsp;'.$val['sp_id'].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['mobile'].' </td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['mobile2'].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['price'].'元'.'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['pay_price'].'元'.'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.sprintf('%.2f',$val['pay_price'] * 0.95).'元'.'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$this->pay_status[$val['pay_status']].'</td>';
+				$strTable .= '<td style="text-align:left;font-size:12px;">'.$val['add_time'].'</td>';
+				$strTable .= '</tr>';
+			}
+		}
+		$strTable .='</table>';
+		unset($orderList);
+		downloadExcel($strTable,'特价车订单统计表');
+		exit();
+	}
+
+	/*****************************************************************报表导出结束**********************************************************&***/
+
+	
+}

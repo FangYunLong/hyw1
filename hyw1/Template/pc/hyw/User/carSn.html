@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.7.3.min.js"></script>
+<script type="text/javascript" src="/Public/hyw/js/manhuaDate2.1.0.js"></script>
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+<div class="neiCent2">
+  <div class="mayLeft">  
+    <!--------左边导航开始-------------->
+    <include file="Public/userLeft" />
+    <!--------左边导航结束-------------->
+  </div>
+  <div class="mayRight">
+    <div class="rigbiaot">我的报表 >  <a href='{:U("User/carInfo")}'>出租情况</a> > 车辆状况</div>
+    <div class="mayxiax">
+     <div class="report">
+      <div class="cheb1">订单编号：{$OrderInfo.order_sn}</div>
+      <div class="cheb1">出租数量：{$OrderInfo.paly_num}台</div>
+      <div class="cheb1">抢单时间：{$OrderInfo.add_time|date='Y-m-d',###}</div>
+      <div class="cheb1">开始时间：<input onchange='editCarSn({$OrderInfo.order_id},$(this).val())' type='text' value='{$OrderInfo.start_time|date="Y-m-d",###}' name='start_time'></div>
+      <div class="cheb1">结束时间：<input onchange='editCarSn({$OrderInfo.order_id},"",$(this).val())' type='text' value='{$OrderInfo.end_time|date="Y-m-d",###}' name='end_time'></div>
+     </div>
+     <div class="chetj">
+      <div class='chebian'>
+       <div class="chebt">添加车编号</div>
+       <foreach item='CarInfo' name='CarInfo'>
+       <div class="chebhm">叉车编号：{$CarInfo.car_sn}          属具编号：{$CarInfo.shuju_sn}<a style='float:right;cursor:pointer' onclick='delCarSn({$CarInfo.cid},this)'>删除</a></div>
+       </foreach>
+<!--        <div class="chebhm">02 : 叉车编号：12456          属具编号：987654</div>
+       <div class="chebhm">03 : 叉车编号：12456          属具编号：987654</div>
+       <div class="chebhm">04 : 叉车编号：12456          属具编号：987654</div> -->
+      </div>
+        <div class="tianbtn">
+        <form id='carInfo' action="" method="post">
+        <input name="car_sn" placeholder='此处输入叉车编号(10000-99999)' type="text" class="tjcb1"/>
+        <input name="shuju_sn" placeholder='此处输入属具编号(10000-99999)' type="text" class="tjcb1"/>
+        <input name="order_id" value='{$OrderInfo.order_id}' type="hidden"/>
+        <input name="" onclick='addCarSn()' type="button" class="tjcb2"/>
+        </form>
+        </div>
+     </div>
+    
+    </div>  
+    </div>    
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束--------------> 
+</body>
+<script>
+function addCarSn()
+{
+  var car_sn = $('input[name="car_sn"]').val();
+  var shuju_sn = $('input[name="shuju_sn"]').val();
+
+  if(car_sn == ''){
+    alert('请填写叉车编号！');return false;
+  }
+
+  if(shuju_sn == ''){
+    alert('请填写属具编号！');return false;
+  }
+
+  //ajax提交表单数数据    
+  $.ajax({
+          type : "POST",//POST传输
+          url  : "{:U('User/addCarSn')}",
+          data : $('#carInfo').serialize(),// 你的表单id
+          dataType : 'json',//以json数据类型传参数
+          success: function(date){
+            if(date.status == 1){
+              var str = '<div class="chebhm">叉车编号：'+car_sn+'          属具编号：'+shuju_sn+'<a style="float:right;cursor:pointer" onclick="delCarSn('+date.id+',this)">删除</a></div>';
+              $('.chebian').append(str);
+            }
+            alert(date.msg);
+          }                
+   });
+}
+
+//删除车编
+function delCarSn(cid,obj)
+{
+  //ajax提交表单数数据    
+  $.ajax({
+      type : "POST",//POST传输
+      url  : "{:U('User/delCarSn')}",
+      data : {cid:cid},// 你的表单id
+      dataType: "json",
+      success: function(date){
+        if(date.status == 1){
+          $(obj).parents('div .chebhm').remove();
+        }else{
+          alert(date.msg);
+        }
+      }                
+   });
+}
+
+//删除车编
+function editCarSn(order_id,start_time,end_time)
+{
+  //ajax提交表单数数据    
+  $.ajax({
+      type : "POST",//POST传输
+      url  : "{:U('User/editCarSn')}",
+      data : {order_id:order_id,start_time:start_time,end_time:end_time},
+      dataType: "json",
+      success: function(date){
+          alert(date.msg);
+      }                
+   });
+}
+</script>
+</html>

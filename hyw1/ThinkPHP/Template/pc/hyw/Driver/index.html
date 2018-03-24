@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery1.8.3.min.js"></script>
+<script type="text/javascript" src="zuli/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+    /*弹框JS内容*/
+    jQuery(document).ready(function($){   
+		
+		//打开窗口
+        $('.zhopBtn').on('click', function(event){
+            event.preventDefault();
+            $('.zhaJob').addClass('is-visible3');
+            //$(".dialog-addquxiao").hide()
+        });
+        //关闭窗口
+        $('.zhaJob').on('click', function(event){
+            if( $(event.target).is('.chacha') || $(event.target).is('.zhaJob') ) {
+                event.preventDefault();
+                $(this).removeClass('is-visible3');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function(event){
+            if(event.which=='27'){
+                $('.zhaJob').removeClass('is-visible3');
+            }
+        });
+    });
+</script>
+
+</head>
+<body>
+<!-- <div style=''>
+    <div class="jopTips">    
+      <div class="chacha"><a href=""><img src="/Public/hyw/images/chch.png" width="41" height="41" /></a></div>  
+      <div class="gzjob">
+       <div class="gzjobwn">
+        <p>姓名：      某某某</p>
+        <p>性别 ：     男</p>
+        <p>年龄：     24</p>
+        <p>学历：      大专</p>
+        <p>联系电话：      12345678901</p>
+        <p>联系地址 ：     广东省广州市天河区勤天大厦8号</p>
+        <p>经验：2年工作经验</div>
+        <div class="gzjobwn">
+        <p>叉车证书：</p>
+        <p><img src="/Public/hyw/images/getu1.png" width="219" height="144" /></p>
+        </div>
+      </div>
+    </div>
+</div> -->
+<style>
+  .box2{
+    width:720px;
+    height:550px;
+    background:#fff;
+    position:fixed;left:25%;top:10%;
+    z-index:999;
+  }
+  .daohang{
+    width: 100%;
+    height: 7.4%;
+    text-align: right;
+    cursor: pointer;    
+  }
+  .siji-content{
+    width:86%;
+    height:83.37%;
+    padding-left:100px;
+    padding-top:30px;
+    font-size:16px;
+  }
+  .siji-content p{
+    line-height:30px;
+  }
+  .box1{
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;left:0;top:0;
+    background-color:#000;
+    background: rgba(0, 0, 0, 0.5);  
+    z-index:99999;  
+  }
+</style>
+<div class='box1'>
+  <div class='box2'>
+    <div class='daohang'>
+      <a href="javascript:void(0)" onclick='$(".box1").css({"display":"none"})'><img src="/Public/hyw/images/chch.png" width="41" height="41" /></a>
+    </div>
+    <div class='siji-content'>
+          <p>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  名：  <span class='user_name'>某某某</span></p>
+          <p>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  别：  <span class='sex'>某某某</span></p>
+          <p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  龄：  <span class='age'>某某某</span>岁</p>
+          <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  历：  <span class='xueli'>某某某</span></p>
+          <p>经&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  验：  <span class='jingyan'>某某某</span>年</p>
+          <p>联系电话：  <span class='mobile'>某某某</span></p>
+          <p>联系地址：  <span class='address'>某某某</span></p>
+          <p>叉车证书：</p>
+          <p><img  class='thumb' src="/Public/hyw/images/getu1.png" width="219" height="144" /></p>    
+    </div>
+  </div>
+</div>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="#">首页</a>  >招聘司机</div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+    <div class="neiBanner"><img src="/Public/hyw/images/neibn11.jpg" width="1198" height="296" /></div>
+    <div class="neiNav">
+    <ul class="navlist">
+     <li><a class="current">招聘司机</a></li>     
+    </ul>
+   </div>
+</div>
+<div class="neiCent2">
+  <div class="jobSerch">
+   <form action="{:U('Driver/index')}" method="post">
+    <div class="jobser1">默认</div>
+    <div class="jobser2">
+    <select name="age" class="jobnin">
+      <option value=''>年龄</option>
+      <option value='18-24' <if condition="$where['age'] eq '18-24'">selected</if>>18-24</option>
+      <option value='25-35' <if condition="$where['age'] eq '25-35'">selected</if>>25-35</option>
+      <option value='36-45' <if condition="$where['age'] eq '36-45'">selected</if>>36-40</option>
+      <option value='other' <if condition="$where['age'] eq 'other'">selected</if>>45以上</option>
+    </select></div>
+    <div class="jobser2">
+    <select name="jingyan" class="jobnin">
+      <option value=''>经验</option>
+      <option value='1' <if condition="$where['jingyan'] eq '1'">selected</if>>1年经验</option>
+      <option value='2' <if condition="$where['jingyan'] eq '2'">selected</if>>2年经验</option>
+      <option value='3' <if condition="$where['jingyan'] eq '3'">selected</if>>3年经验</option>
+      <option value='4' <if condition="$where['jingyan'] eq '4'">selected</if>>4年经验</option>
+      <option value='5+' <if condition="$where['jingyan'] eq '5+'">selected</if>>5年以上</option>
+      <option value='10+' <if condition="$where['jingyan'] eq '10+'">selected</if>>10年以上</option>
+    </select></div>
+    <div class="jobser2">
+      <select name="xueli" class="jobnin">
+      <option value=''>学历</option>
+      <option value='小学' <if condition="$where['xueli'] eq '小学'">selected</if>>小学</option>
+      <option value='初中' <if condition="$where['xueli'] eq '初中'">selected</if>>初中</option>
+      <option value='中专' <if condition="$where['xueli'] eq '中专'">selected</if>>中专</option>
+      <option value='高中' <if condition="$where['xueli'] eq '高中'">selected</if>>高中</option>
+      <option value='大专' <if condition="$where['xueli'] eq '大专'">selected</if>>大专</option>
+      <option value='本科' <if condition="$where['xueli'] eq '本科'">selected</if>>本科</option>
+      <option value='硕士' <if condition="$where['xueli'] eq '硕士'">selected</if>>硕士</option>
+      <option value='博士' <if condition="$where['xueli'] eq '博士'">selected</if>>博士</option>
+      </select>
+    </div>
+    <div class="jobser2">
+    <select name="province" class="jobnin">
+      <option value=''>所在省</option>
+      <foreach item='province' name='province'>
+      <option  where='{$where.province}' value='{$province.id}' <if condition="$province['id'] eq $where['province']">selected</if> >{$province.name}</option>
+      </foreach>
+    </select>
+    </div>
+    <div class="jobser2">
+    <select name="city" class="jobnin">
+      <option>所在市</option>
+      <foreach item='city' name='city'>
+      <option value='{$city.id}'>{$city.name}</option>
+      </foreach>      
+    </select>
+    </div>    
+    <div class="jobser3"><a href="{:U('User/resume')}">发布简历</a></div>
+    <div class="clear"></div>
+    <input name='' type='submit' style='display:none'>
+    <input name='page' type='hidden' value='{$list.page}'>
+   </form>
+  </div>
+    <div class="zhapi">
+  <foreach item='result' name='list["result"]' key="key">
+     <div class='<if condition="$key%2 eq 0">zhapi2<else/>zhapi3</if>'>
+      <div class="zhaomi">{$result.user_name}</div>
+      <div class="zhaomi">{$result.age}岁</div>
+      <div class="zhaomi">{$jingyan[$result['jingyan']]}</div>
+      <div class="zhaomi">{$result.xueli}</div>
+      <div class="zhaomi">{$result.province}</div>
+      <div class="zhaomi">{$result.city}</div>
+      <!-- <div class="zhaomi3" title="{$result.address}">{$result.province}{$result.city}</div> -->
+      <div class="zhaomi">{$result.mobile}</div>
+      <div class="zhaomi" style='float:right'><a onclick='box1({$result.user_id})' href="javascript:void(0)">查看详情</a></div>
+      <div class="clear"></div>
+     </div>
+  </foreach>
+  </div>
+  <div class="page">
+    <a href="javascript:void(0)" class="page2">下一页</a>
+    <a style="color:#fff;background-color:#039cf4">{$page.page}</a>    
+    <a href="javascript:void(0)" class="page1">上一页</a>
+    <span>第{$list.page|default='0'}页</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span>共{$list.pages|default='0'}页</span>
+  </div>
+</div>
+<!--------底部开始-------------->
+<include file="Public/footer" />
+<!--------底部结束-------------->
+ </div> 
+</body>
+<script>
+
+  function box1(user_id){
+    $.ajax({
+            type : "POST",//POST传输
+            url  : "{:U('Driver/driverDetailedInfo')}",
+            data : {user_id:user_id},// 你的表单id
+            dataType : 'json',//以json数据类型传参数
+            success: function(date){
+              $('.user_name').text(date.result.user_name);
+              $('.sex').text(date.result.sex);
+              $('.age').text(date.result.age);
+              $('.jingyan').text(date.result.jingyan);
+              $('.xueli').text(date.result.xueli);
+              $('.mobile').text(date.result.mobile);
+              $('.address').text(date.result.province+date.result.city);
+              $('.thumb').attr({'src':date.result.thumb});
+              $('.box1').css({'display':'block'});
+            }                
+       
+     });    
+  }
+
+  $('select').change(function(){
+    $('input[type="submit"]').click()
+  })
+  $('.page1').click(function(){
+    $('input[name="page"]').val(<?= $list['page']-1;?>);
+    $('input[type="submit"]').click()
+  })
+  $('.page2').click(function(){
+    $('input[name="page"]').val(<?= $list['page']+1;?>);
+    $('input[type="submit"]').click()
+  })  
+</script>
+</html>

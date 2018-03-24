@@ -1,0 +1,85 @@
+<?php if (!defined('THINK_PATH')) exit();?>
+                    <form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" style="font-size:12px;">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_id');">订单id</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_sn');">出售者手机号</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('mobile');">购买者手机号</a>
+                                    </td>                                    
+                                    <td class="text-center">
+                                        <a href="">商品金额</a>
+                                    </td>      
+                                    <td class="text-center">
+                                        <a href="">实际支付金额</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="">实际应付金额</a>
+                                    </td>                                    
+                                    <td class="text-center">支付状态</td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('add_time');">下单时间</a>
+                                    </td>
+                                    <td class="text-center">操作</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php if(is_array($orderList)): $i = 0; $__LIST__ = $orderList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><tr>
+                                        <td class="text-center"><?php echo ($list["sp_id"]); ?></td>
+                                        <td class="text-center"><?php echo ($list["mobile"]); ?></td>
+                                        <td class="text-center"><?php echo ($list["mobile2"]); ?></td>
+                                        <td class="text-center"><?php echo ($list["price"]); ?>元</td>
+                                        <td class="text-center"><?php echo ($list["pay_price"]); ?>元</td>
+                                        <td class="text-center">
+                                            <?= sprintf('%.2f',$list['price'] * 0.95);?>元
+                                        </td>
+                                        <td class="text-center"><?php echo ($pay_status[$list[pay_status]]); ?></td>
+                                        <td class="text-center"><?php echo (date('Y-m-d H:i:s',$list["add_time"])); ?></td>
+                                       <!-- <td class="text-center">
+                                        </td>-->
+                                        <td class="text-right">
+                                            <!-- <a  target="_blank" href="<?php echo U('Home/Goods/goodsInfo',array('id'=>$list['goods_id']));?>" class="btn btn-info" title="查看详情"><i class="fa fa-eye"></i></a>-->
+                                            <a href="<?php echo U('Admin/order/special_info',array('order_id'=>$list['sp_id']));?>" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="查看详情"><i class="fa fa-eye"></i></a>
+                                            <a href="javascript:void(0);" onclick="del('<?php echo ($list[sp_id]); ?>')" class="btn btn-danger" title="删除"><i class="fa fa-trash-o"></i></a>
+                                            <!--<a href="javascript:void(0);" onclick="ClearGoodsHtml('<?php echo ($list[goods_id]); ?>')" class="btn btn-default" title="清除静态缓存页面"><i class="fa fa-fw fa-refresh"></i></a>
+                                            <a href="javascript:void(0);" onclick="ClearGoodsThumb('<?php echo ($list[goods_id]); ?>')" class="btn btn-default" title="清除缩略图缓存"><i class="glyphicon glyphicon-picture"></i></a>-->
+                                        </td>
+                                    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-sm-6 text-left"></div>
+                        <div class="col-sm-6 text-right"><?php echo ($page); ?></div>
+                    </div>
+<script>
+    $(".pagination  a").click(function(){
+        var page = $(this).data('p');
+        ajax_get_table('search-form2',page);
+    });
+
+    // 删除操作
+    function del(id)
+    {
+        if(!confirm('确定要删除吗?'))
+            return false;
+        $.ajax({
+            url:"/index.php?m=Admin&c=Order&a=del_special&id="+id,
+            success: function(v){
+                var v =  eval('('+v+')');
+                if(v.hasOwnProperty('status') && (v.status == 1))
+                    ajax_get_table('search-form2',cur_page);
+                else
+                    layer.msg(v.msg, {icon: 2,time: 1000}); //alert(v.msg);
+            }
+        });
+        return false;
+    }
+</script>

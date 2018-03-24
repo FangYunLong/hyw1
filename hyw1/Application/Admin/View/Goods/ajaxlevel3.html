@@ -1,0 +1,189 @@
+﻿<form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <td style="width: 160px;border:1px solid #175A82" class="text-left">
+                    <a href="javascript:sort('goods_name');">吨位(kg)</a>
+                </td>
+                <td class="text-left" style='border:1px solid #175A82'>
+                    <a href="javascript:sort('pinpai');">门架</a>
+                </td>
+                <td style="width:100px;border:1px solid #175A82" class="text-left">
+                    <a href="javascript:sort('cart_type');">轮胎价</a>
+                </td>                                             
+                <td style="width:100px;border:1px solid #175A82" class="text-left">
+                    <a href="javascript:sort('cart_type');">电池价</a>
+                </td>
+            </tr>
+            </thead>
+<style type="text/css">
+	span{color:#999999;font-size:12px;margin-right:10px;}
+	p{padding-left:10px;padding-right:10px;margin-top:5px;}
+</style>
+            <tbody class='tables1'>
+            <volist name="goodsList" id="list">
+                <tr>
+                    <td style='vertical-align: middle;border:1px solid #175A82'>
+                    	{$list[name]*1000}
+                    	<span>({$list.money}元)</span><br>
+                    	<a href="{:U('Admin/Goods/edit_menjia',array('parent_id'=>$list['id']))}" class="btn btn-primary" title="增加门架"><i class="fa fa-plus"></i></a>
+                    	<a href="{:U('Admin/Goods/edit_dunwei',array('id'=>$list['id']))}" class="btn btn-primary" title="编辑吨位"><i class="fa fa-pencil"></i></a>
+                        <a href="javascript:void(0);" onclick="delCat({$list[id]},this)" class="btn btn-danger" title="删除删除"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                    <td style='vertical-align: middle;border:1px solid #175A82'>
+                        <table width='100%'>
+                        	<foreach item='level4' key='key' name='list[level4]'>
+                            <tr class='menjia' <if condition='$key gt 0'>style='border-top:1px solid #175A82'</if>>
+                                <td width='50%' style='border-right:1px solid #175A82'>{$level4.name}<span>({$level4.money}元)</span><span class='pull-right'>
+                                    		<a href="{:U('Admin/Goods/edit_mj_height',array('parent_id'=>$level4['id']))}">增加高度</a>
+                                    		<a href="{:U('Admin/Goods/edit_menjia',array('id'=>$level4['id']))}">修改</a>
+                                    		<a href="javascript:void(0)" onclick='delCat3({$level4[id]},this)'>删除</a>
+                                    	</span></td>
+                                <td width='50%'>
+                                	<foreach item='level5' name='level4[level5]'>
+                                    <p>{$level5.name}<span>({$level5.money}元)</span><span class='pull-right'>
+                                    		<a href="{:U('Admin/Goods/edit_mj_height',array('id'=>$level5['id']))}">修改</a>
+                                    		<a href="javascript:void(0)" onclick='delCat2({$level5[id]},this)'>删除</a>
+                                    	</span></p>
+                                    </foreach>
+                                </td>
+                            </tr>
+                            </foreach>
+                            <!-- <tr style='border-bottom:1px solid #175A82'>
+                                <td style='border-right:1px solid #175A82'>三节门架<span>(1000.00元)</span></td>
+                                <td>
+                                    <p>2000<span>(1000.00元)</span><span class='pull-right'>
+                                    		<a href="">修改</a>
+                                    		<a href="">删除</a>
+                                    	</span></p>
+                                    <p>3000<span>(1000.00元)</span><span class='pull-right'>
+                                    		<a href="">修改</a>
+                                    		<a href="">删除</a>
+                                    	</span></p>
+                                </td>
+                            </tr>
+                            <tr style='border-bottom:1px solid #175A82'>
+                                <td style='border-right:1px solid #175A82'>自由门架<span>(1000.00元)</span></td>
+                                <td>
+                                    <p>2000<span>(1000.00元)</span><span class='pull-right'>
+                                    		<a href="">修改</a>
+                                    		<a href="">删除</a>
+                                    	</span>
+                                    </p>
+                                    <p>3000<span>(1000.00元)</span><span class='pull-right'>
+                                    		<a href="">修改</a>
+                                    		<a href="">删除</a>
+                                    	</span></p>
+                                    <p>4000<span>(1000.00元)</span><span class='pull-right'>
+                                    		<a href="">修改</a>
+                                    		<a href="">删除</a>
+                                    	</span></p>
+                                </td>
+                            </tr> -->
+                        </table>
+                    </td>
+                    <td style='vertical-align: middle;border:1px solid #175A82'>{$list.tire_fee}元</td>
+                    <td style='vertical-align: middle;border:1px solid #175A82'>{$list.battery_fee}元</td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</form>
+<div class="row">
+    <div class="col-sm-3 text-left"></div>
+    <div class="col-sm-9 text-right">{$page}</div>
+</div>
+<script>
+    // 点击分页触发的事件
+    $(".pagination  a").click(function(){
+        cur_page = $(this).data('p');
+        ajax_get_table('search-form2',cur_page);
+    });
+	
+    /*
+     * 清除静态页面缓存
+     */
+    function ClearGoodsHtml(goods_id)
+    {
+    	$.ajax({
+				type:'GET',
+				url:"{:U('Admin/System/ClearGoodsHtml')}",
+				data:{goods_id:goods_id},
+				dataType:'json',
+				success:function(data){
+					layer.alert(data.msg, {icon: 2});								 
+				}
+		});
+    }
+    /*
+     * 清除商品缩列图缓存
+     */
+    function ClearGoodsThumb(goods_id)
+    {
+    	$.ajax({
+				type:'GET',
+				url:"{:U('Admin/System/ClearGoodsThumb')}",
+				data:{goods_id:goods_id},
+				dataType:'json',
+				success:function(data){
+					layer.alert(data.msg, {icon: 2});								 
+				}
+		});
+    }		
+
+    function delCat(id,obj)
+    {
+        $.ajax({
+                type:'POST',
+                url:"{:U('Admin/Goods/delCat')}",
+                data:{id:id},
+                dataType:'json',
+                success:function(data){
+                    if(data.status == 1){
+                        $(obj).parents('tr').remove();
+                        layer.alert(data.msg, {icon: 1});                                
+                    }else{
+                        layer.alert(data.msg, {icon: 2});                                
+                    }
+                }
+        });        
+    }
+
+    function delCat2(id,obj)
+    {
+        $.ajax({
+                type:'POST',
+                url:"{:U('Admin/Goods/delCat')}",
+                data:{id:id},
+                dataType:'json',
+                success:function(data){
+                    if(data.status == 1){
+                        $(obj).parents('p').remove();
+                        layer.alert(data.msg, {icon: 1});                                
+                    }else{
+                        layer.alert(data.msg, {icon: 2});                                
+                    }
+                }
+        });        
+    }
+
+    function delCat3(id,obj)
+    {
+        $.ajax({
+                type:'POST',
+                url:"{:U('Admin/Goods/delCat')}",
+                data:{id:id},
+                dataType:'json',
+                success:function(data){
+                    if(data.status == 1){
+                        $(obj).parents('.menjia').remove();
+                        layer.alert(data.msg, {icon: 1});                                
+                    }else{
+                        layer.alert(data.msg, {icon: 2});                                
+                    }
+                }
+        });        
+    }    
+</script>

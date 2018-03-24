@@ -1,0 +1,219 @@
+[ 2017-09-14T14:11:15+08:00 ] 116.22.45.129 /index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+NOTIC: [2] rmdir(./Application/Runtime/Cache): Permission denied D:\www\hyw1\Application\Common\Common\function.php 第 384 行.
+NOTIC: [2] rmdir(./Application/Runtime/Html): Permission denied D:\www\hyw1\Application\Common\Common\function.php 第 384 行.
+NOTIC: [2] rmdir(./Application/Runtime/Logs): Permission denied D:\www\hyw1\Application\Common\Common\function.php 第 384 行.
+NOTIC: [2] rmdir(./Application/Runtime/Temp): Permission denied D:\www\hyw1\Application\Common\Common\function.php 第 384 行.
+NOTIC: [8] Undefined index: start_time D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 29 行.
+NOTIC: [8] Undefined index: start_time D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 29 行.
+NOTIC: [8] Undefined index: start_time D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 29 行.
+NOTIC: [8] Undefined index: start_time D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 29 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.015600s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'zm_pic' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'zm_pic' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'zm_pic' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'zm_pic' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'zm_pic' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 562 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 563 行.
+NOTIC: [2] Illegal string offset 'goods_id' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'pinpai' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [2] Illegal string offset 'cart_type' D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\www\hyw1\Application\Runtime\Cache\Home\d9190988ce698a8bea2a8addcf32cad2.php 第 564 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.109200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.109200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:11:17+08:00 ] 116.22.45.129 /index.php/Home/Index/js/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:js
+
+[ 2017-09-14T14:11:17+08:00 ] 116.22.45.129 /index.php/Home/Public/search.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.015600s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T14:11:18+08:00 ] 116.22.45.129 /index.php/Home/Index/ajaxGoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: shuju D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 136 行.
+NOTIC: [8] Undefined index: bydc D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 137 行.
+NOTIC: [8] Undefined index: is_yt D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 138 行.
+NOTIC: [8] Undefined index: pinpai D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 139 行.
+NOTIC: [8] Undefined index: cart_type D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 140 行.
+NOTIC: [8] Undefined index: dunwei D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 141 行.
+NOTIC: [8] Undefined index: menjia D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 142 行.
+NOTIC: [8] Undefined index: mj_height D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 143 行.
+NOTIC: [8] Undefined index: pinpai D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 70 行.
+NOTIC: [8] Undefined index: pinpai D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 75 行.
+NOTIC: [8] Undefined index: cart_type D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 78 行.
+NOTIC: [8] Undefined index: cart_type D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 83 行.
+NOTIC: [8] Undefined index: dunwei D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 90 行.
+NOTIC: [8] Undefined index: dunwei D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 95 行.
+NOTIC: [8] Undefined index: menjia D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 98 行.
+NOTIC: [8] Undefined index: menjia D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 103 行.
+NOTIC: [8] Undefined index: mj_height D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 106 行.
+NOTIC: [8] Undefined index: mj_height D:\www\hyw1\Application\Home\Controller\IndexController.class.php 第 111 行.
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: car_bzzj D:\www\hyw1\Application\Runtime\Cache\Home\e9daab9648020cad09e7f8a461710fca.php 第 11 行.
+NOTIC: [8] Undefined index: car_bzzj D:\www\hyw1\Application\Runtime\Cache\Home\e9daab9648020cad09e7f8a461710fca.php 第 11 行.
+NOTIC: [8] Undefined index: car_bzzj D:\www\hyw1\Application\Runtime\Cache\Home\e9daab9648020cad09e7f8a461710fca.php 第 11 行.
+NOTIC: [8] Undefined index: car_bzzj D:\www\hyw1\Application\Runtime\Cache\Home\e9daab9648020cad09e7f8a461710fca.php 第 11 行.
+NOTIC: [8] Undefined index: car_bzzj D:\www\hyw1\Application\Runtime\Cache\Home\e9daab9648020cad09e7f8a461710fca.php 第 11 行.
+NOTIC: [8] Undefined index: car_bzzj D:\www\hyw1\Application\Runtime\Cache\Home\e9daab9648020cad09e7f8a461710fca.php 第 11 行.
+NOTIC: [8] Undefined index: car_bzzj D:\www\hyw1\Application\Runtime\Cache\Home\e9daab9648020cad09e7f8a461710fca.php 第 11 行.
+NOTIC: [8] Undefined index: car_bzzj D:\www\hyw1\Application\Runtime\Cache\Home\e9daab9648020cad09e7f8a461710fca.php 第 11 行.
+NOTIC: [8] Undefined index: car_bzzj D:\www\hyw1\Application\Runtime\Cache\Home\e9daab9648020cad09e7f8a461710fca.php 第 11 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015600s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015600s ]
+
+[ 2017-09-14T14:53:09+08:00 ] 106.11.156.7 /index.php/Home/News/download/page/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.000000s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062400s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062400s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-14T17:11:16+08:00 ] 106.11.158.148 /index.php/Home/News/article_Info/article_id/1261.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.031200s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.124800s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.124800s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015600s ]
+

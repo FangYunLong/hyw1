@@ -1,0 +1,232 @@
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<!-- <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script src="/Public/hyw/js/script.js"></script>
+<script src="/Public/js/vue.js"></script>
+
+<div class="noguj">
+    <div class="readTips">    
+      <div class="reading" >请阅读《好运旺租叉车服务条款》</div>      
+      <div class="carsure2">确定</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+<div class="top">
+ <div class="toplink">
+   <div class="toplink2">
+    <div class="tophun ">
+     欢迎 &nbsp;&nbsp;&nbsp;东莞市粤力叉车租赁有限公司</div>
+    <div class="topdeng">
+      <?php 
+        $user = session('user');
+        if(!$user){ 
+      ?>
+      <a href="{:U('Login/login')}" class="huiy1">会员登录</a> 
+      <a href="{:U('Login/regist')}" class="huiy2">免费注册</a>
+      <?php }else{ ?>
+      <a href="{:U('User/userInfo')}" style='color:red'>个人中心</a>
+      <a href="{:U('Login/logout')}">退出登录</a>
+      <?php } ?>  
+      <a  href="javascript:void(0)" onclick="SetHome(this,'http://hyw.web66.cn:8092')">设为首页 |</a>   
+      <a href="javascript:void(0)" onclick='AddFavorite("好运旺租叉车",location.href)'>添加收藏 |</a>  
+      <a href="/index.php/Home/News/about/cat_id/96.html">联系我们</a>
+    </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+ <div class="logoTel" style='margin-top:29px;'>
+  <div class="logo"><a href="http://hyw.web66.cn:8092/"><img src="/Public/hyw/images/logo.gif" width="409" height="59" /></a></div>
+  <div class="tel"><img src="/Public/hyw/images/tel.gif" width="279" height="59" /></div>
+  <div class="clear"></div>
+ </div>
+ <div class="menu"  style='margin-top:25px;'>
+   <div class="caid">
+    <ul class="menuLink">
+     <li><a href="{:U('Index/index')}" class="current">首页</a></li>
+     <li><a href="{:U('Goods/goodsList')}">叉车租赁</a>
+       <ul>
+            <li><a href="{:U('Goods/goodsList')}">年月租</a></li>
+            <li><a href="{:U('Goods/goodsTemp')}">临时租</a></li>
+       </ul>
+     </li>
+     <li><a href="{:U('Special/index')}">好运商城</a>
+        <ul>
+            <li><a href="{:U('Special/index')}">特价车</a></li>
+            <!-- <li><a href="{:U('MallShop/Industry')}">工业品</a></li> -->
+        </ul>
+     </li>
+     <li> <a href="{:U('News/news')}">资讯中心</a>
+       <ul>
+            <foreach item='art_cat' name='art_cat'>
+              <li><a href="{:U('News/articleList',array('cat_id'=>$art_cat['cat_id']))}">{$art_cat.cat_name}</a></li>
+            </foreach>
+            <li><a href="{:U('News/news1')}">租赁问答</a></li>
+       </ul>
+     </li>
+     <li><a href="{:U('service/service')}">服务网络</a></li>
+     <li><a href="{:U('service/join')}">加盟合作</a></li>
+     <li class="last"><a href="{:U('About/about1')}">关于我们</a>
+       <ul>
+          <foreach item='about_cat' name='about_cat'>
+            <li><a href="{:U('News/about',array('cat_id'=>$about_cat['cat_id']))}">{$about_cat.cat_name}</a></li>
+          </foreach>
+          <li><a href="{:U('News/download')}">下载专区</a></li>
+       </ul>
+     </li> 
+    </ul>
+   </div>
+ </div>
+<script type="text/javascript">  
+// var vue_msge = new Vue({
+//   el:'.vue_msg',
+//   data:{
+//     vue_msg:[]
+//   },
+//   created:function(){
+//         var url="{:U('Home/User/vue_data')}";
+//         $.getJSON(url,function(items){
+//           console.log( typeof items );
+//             this.vue_msg = items;
+//         }.bind(this));
+//   }         
+// })
+
+function addFavorite2() {
+  var url = window.location;
+  var title = document.title;
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.indexOf("360se") > -1) {
+  alert("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+  }
+  else if (ua.indexOf("msie 8") > -1) {
+  window.external.AddToFavoritesBar(url, title); //IE8
+  }
+  else if (document.all) {
+  try{
+  window.external.addFavorite(url, title);
+  }catch(e){
+  alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+  }
+  }
+  else if (window.sidebar) {
+  window.sidebar.addPanel(title, url, "");
+  }
+  else {
+  alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+  }
+}
+
+function addfavorite()
+{
+  if (document.all)
+  {
+   window.external.addFavorite('http://www.jb51.net','脚本之家');
+  }
+  else if (window.sidebar)
+  {
+   window.sidebar.addPanel('脚本之家', 'http://www.jb51.net', "");
+  }
+} 
+
+function flag(){
+ var userAgentInfo = navigator.userAgent;
+ var Agents = ["Android", "iPhone",
+             "SymbianOS", "Windows Phone",
+             "iPad", "iPod"];
+ var flag = true;
+ for (var v = 0; v < Agents.length; v++) {
+     if (userAgentInfo.indexOf(Agents[v]) > 0) {
+         flag = false;
+         break;
+     }
+ }
+ return flag;
+}
+
+//判断是否是微信端
+function isWeiXin(){ 
+  var ua = navigator.userAgent.toLowerCase(); 
+  if(ua.indexOf('micromessenger') != -1) { 
+     return true; 
+  } else { 
+     return false; 
+  } 
+}
+
+if(flag()==false){
+  $('body').css({'width':'1200px'});
+}
+
+if(isWeiXin()){
+  $('body').css({'width':'1200px'});
+}
+</script>
+<script type="text/javascript"> 
+// 设置为主页 
+function SetHome(obj,vrl){ 
+try{ 
+obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl); 
+} 
+catch(e){ 
+if(window.netscape) { 
+try { 
+netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+} 
+catch (e) { 
+alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。"); 
+} 
+var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch); 
+prefs.setCharPref('browser.startup.homepage',vrl); 
+}else{ 
+alert("您的浏览器不支持，请按照下面步骤操作：\n 1.打开浏览器设置。\n 2.点击设置网页。\n 3.输入："+vrl+"点击确定。"); 
+} 
+} 
+} 
+
+</script>
+<script  type="text/javascript">
+//设为首页
+function SetHome1(obj,url){
+    try{
+        obj.style.behavior='url(#default#homepage)';
+        obj.setHomePage(url);
+    }catch(e){
+        if(window.netscape){
+            try{
+                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+            }catch(e){
+                alert("抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车然后将[signed.applets.codebase_principal_support]设置为'true'");
+            }
+        }else{
+            alert("抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【"+url+"】设置为首页。");
+        }
+    }
+}
+//收藏本站
+function AddFavorite(title, url) {
+    try {
+        window.external.addFavorite(url, title);
+    }
+    catch (e) {
+        try {
+            window.sidebar.addPanel(title, url, "");
+        }
+        catch (e) {
+            alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
+        }
+    }
+}
+//保存到桌面
+function toDesktop(sUrl,sName){
+try {
+    var WshShell = new ActiveXObject("WScript.Shell");
+    var oUrlLink =          WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop")     + "\\" + sName + ".url");
+    oUrlLink.TargetPath = sUrl;
+    oUrlLink.Save();
+    }  
+catch(e)  {  
+          alert("当前IE安全级别不允许操作！");  
+}
+}    
+</script>

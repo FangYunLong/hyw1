@@ -1,0 +1,159 @@
+<?php
+/**
+ * 验证码发送
+ * @param $mobile 手机号码
+ * @param $content 发送内容
+ * @param $type 验证码类型
+ */
+function send_sms($mobile,$content,$type=''){
+
+}
+
+/**
+ * 文件上传
+*/
+function fileUpload($path){
+    $upload = new \Think\Upload();// 实例化上传类
+    $upload->maxSize   =     3145728 ;// 设置附件上传大小
+    $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+   // $upload->savePath  =      './Public/Uploads/'; // 设置附件上传目录
+   // $upload->rootPath  =      './Public/Uploads/Cart/'; // 设置附件上传目录
+    $upload->rootPath  =      $path;; // 设置附件上传目录
+    // 上传文件
+    $info   =   $upload->upload();
+    if(!$info) {
+        // 上传错误提示错误信息
+        $this->error($upload->getError());
+    }else{
+        // 上传成功
+        //$this->success('上传成功！');
+        return array('status'=>1);
+    }
+}
+
+
+
+/**
+ * 返回接口数据
+ *@param $success 是否正确
+ *@param $code 状态码
+ *@param $data 参数数组
+ *
+ */
+function api_show($success='false',$code='00000',$data=array()){
+    $data['success']=$success;
+    $data['code']=$code;
+    echo json_encode($data,true);
+    exit;
+}
+
+/**
+ * 数字签名
+ *@param  $params 用户名
+ *@param  $token  用户token
+ *@param  $secret 签名密钥
+ */
+function getSignature($params, $token,$secret='lonelytears'){
+    $str = '';  //待签名字符串
+    //
+    $str .= $params;
+    $str .= $token;
+    //将签名密钥拼接到签名字符串最后面
+    $str .= $secret;
+    //通过md5算法为签名字符串生成一个md5签名，该签名就是我们要追加的sign参数值
+    return md5($str);
+}
+
+/**
+ * 面包屑导航  用于前台用户中心
+ * 根据当前的控制器名称 和 action 方法
+ */
+function navigate_user()
+{    
+    $navigate = include APP_PATH.'Common/Conf/navigate.php';    
+    $location = strtolower('Home/'.CONTROLLER_NAME);
+    $arr = array(
+        '首页'=>'/',
+        $navigate[$location]['name']=>U('/Home/'.CONTROLLER_NAME),
+        $navigate[$location]['action'][ACTION_NAME]=>'javascript:void();',
+    );
+    return $arr;
+}
+
+/**
+ *  面包屑导航  用于前台商品
+ * @param type $id 商品id  或者是 商品分类id
+ * @param type $type 默认0是传递商品分类id  id 也可以传递 商品id type则为1
+ */
+function navigate_goods($id,$type = 0)
+{
+    $cat_id = $id; //
+    // 如果传递过来的是
+    if($type == 1){
+        $cat_id = M('goods')->where("goods_id = $id")->getField('cat_id');
+    }
+    $categoryList = M('GoodsCategory')->getField("id,name,parent_id");
+
+    // 第一个先装起来
+    $arr[$cat_id] = $categoryList[$cat_id]['name'];
+    while (true)
+    {
+        $cat_id = $categoryList[$cat_id]['parent_id'];
+        if($cat_id > 0)
+            $arr[$cat_id] = $categoryList[$cat_id]['name'];
+        else
+            break;
+    }
+    $arr = array_reverse($arr,true);
+    return $arr;
+}
+
+/**
+ * 发送模板短信
+ * @param to 手机号码集合,用英文逗号分开
+ * @param datas 内容数据 格式为数组 例如：array('Marry','Alon')，如不需替换请填 null
+ * @param $tempId 模板Id,测试应用和未上线应用使用测试模板请填写1，正式应用上线后填写已申请审核通过的模板ID
+ */
+function sendTemplateSMS($to,$datas,$tempId)
+{
+    require_once VENDOR_PATH . 'SMS/CCPRestSmsSDK.php';
+
+    // 初始化REST SDK
+    //global $accountSid,$accountToken,$appId,$serverIP,$serverPort,$softVersion;
+
+    extract(C('SMS'));
+
+    $rest = new REST($serverIP,$serverPort,$softVersion);
+    $rest->setAccount($accountSid,$accountToken);
+    $rest->setAppId($appId);
+
+    // 发送模板短信
+    $result = $rest->sendTemplateSMS($to,$datas,$tempId);
+    if($result == NULL ) {
+        return NULL;
+    }
+    if($result->statusCode!=0) {
+        return $result->statusMsg;
+    }else{
+        return true;
+    }
+    // 发送模板短信
+    /*  echo "Sending TemplateSMS to $to <br/>";
+     $result = $rest->sendTemplateSMS($to,$datas,$tempId);
+     if($result == NULL ) {
+         echo "result error!";
+         break;
+     }
+     if($result->statusCode!=0) {
+         echo "error code :" . $result->statusCode . "<br>";
+         echo "error msg :" . $result->statusMsg . "<br>";
+         //TODO 添加错误处理逻辑
+     }else{
+         echo "Sendind TemplateSMS success!<br/>";
+         // 获取返回信息
+         $smsmessage = $result->TemplateSMS;
+         echo "dateCreated:".$smsmessage->dateCreated."<br/>";
+         echo "smsMessageSid:".$smsmessage->smsMessageSid."<br/>";
+         //TODO 添加成功处理逻辑
+     } */
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+	$('.inactive').click(function(){
+		if($(this).siblings('ul').css('display')=='none'){
+			$(this).parent('li').siblings('li').removeClass('inactives');
+			$(this).addClass('inactives');
+			$(this).siblings('ul').slideDown(100).children('li');
+			if($(this).parents('li').siblings('li').children('ul').css('display')=='block'){
+				$(this).parents('li').siblings('li').children('ul').parent('li').children('a').removeClass('inactives');
+				$(this).parents('li').siblings('li').children('ul').slideUp(100);
+
+			}
+		}else{
+			//控制自身变成+号
+			$(this).removeClass('inactives');
+			//控制自身菜单下子菜单隐藏
+			$(this).siblings('ul').slideUp(100);
+			//控制自身子菜单变成+号
+			$(this).siblings('ul').children('li').children('ul').parent('li').children('a').addClass('inactives');
+			//控制自身菜单下子菜单隐藏
+			$(this).siblings('ul').children('li').children('ul').slideUp(100);
+
+			//控制同级菜单只保持一个是展开的（-号显示）
+			$(this).siblings('ul').children('li').children('a').removeClass('inactives');
+		}
+	})
+});
+</script>
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="#">首页</a>  >客户个人中心</div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+</div>
+<div class="neiCent2">
+  <div class="mayLeft">  
+   <ul class="leftNav">
+		<li><a href="Myself-chezhu.html" class='current'>个人资料</a></li>
+		<li><a style="cursor:pointer" class="inactive"> 订单中心</a>
+			<ul style="display: none">
+				<li><a href="Myself-order(chezhu).html" class="inactive active">我的订单</a>	</li> 
+				<li ><a href="Myself-sales.html">我的分销</a></li> 
+			</ul>
+		</li>
+		<li><a href="Myself-xiaoxi.html" class="inactive">我的消息</a></li>
+        <li><a href="Myself-qiuz.html" class="inactive">我的求职</a></li>
+        <li><a href="Myself-teji.html" class="inactive ">我的特价车</a></li>
+        <li><a href="#" class="inactive">我的报表</a>
+          <ul style="display: none">
+			<li><a href="Myself-baob(chezhu).html" class="inactive active">租车情况</a></li>
+			<li><a href="Myself-baob2(chezhu).html" class="inactive active">出租情况</a></li>					
+		 </ul>
+			</ul>
+  </div>
+  <div class="mayRight">
+    <div class="rigbiaot">个人资料</div>
+    <div class="toux">
+     <div class="touname">当前头像：</div>
+     <div class="toupic">
+       <div class="toupic2"><img src="{$User.head_pic|default='/Public/hyw/images/toux.png'}" width="87" height="87" /></div>      
+     </div>
+     <div class="clear"></div>
+    </div>
+    <div class="gerenzl">
+      <div class="geremi"><span>姓名：</span><h2>{$User.nickname|default='无'}</h2></div>
+      <div class="geremi"><span>性别：</span><h2>{$sex[$User['sex']]}</h2></div>
+      <div class="geremi"><span>手机号：</span><h2>{$User.mobile}<h2></div>
+      <div class="geremi"><span>收车地址：</span><h2>{$User.address|default='无'}<h2></div>
+      <if condition="$User.level_id eq 2">
+      <div class="geremi"><span>公司名称：</span><h2>{$User.gongsi|default='无'}<h2></div>
+      <div class="geremi"><span>营业执照：</span><h2><img src="{$User.cart_path}|default='/Public/hyw/images/getu1.png'" width="219" height="144" /><h2></div>
+      </if>      
+      <div class="xiugai">
+      <a href="{:U('User/editInfo')}">修改</a> </div>
+  </div>
+    </div>
+    
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束-------------->
+</body>
+</html>

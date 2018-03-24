@@ -1,0 +1,110 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+    <include file="Public/breadcrumb"/>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <nav class="navbar navbar-default">
+                        <div class="collapse navbar-collapse">
+                            <div class="navbar-form pull-right margin">
+                                <a class="btn btn-default" type="button" onclick="window.location.reload();">刷新</a>
+                                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回"><i class="fa fa-reply"></i></a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!--新订单列表 基本信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">客户信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tbody>
+                                 <tr>
+                                    <td class='text-center'>订单 ID</td>
+                                    <td class='text-center'>订单号</td>
+                                    <td class='text-center'>客户姓名</td>
+                                    <td class='text-center'>电话</td>
+                                    <td class='text-center'>所需吨位</td>
+                                    <td class='text-center'>用车地址</td>
+                                    <td class='text-center'>订单状态</td>
+                                    <td class='text-center'>下单时间</td>
+                                </tr>
+                               <tr>
+                                    <td class='text-center'>{$order.temp_id}</td>
+                                    <td class='text-center'>{$order.temp_sn}</td>
+                                    <td class='text-center'>{$order.username|default='无'}</td>
+                                    <td class='text-center'>{$order.mobile}</td>
+									<td class='text-center'>{$order.dunwei}</td>
+									<td class='text-center'>{$order.address}</td>
+                                    <td id="order-status"  class='text-center'>{$temp_status[$order[status]-1]}</td>
+                                    <td class='text-center'>{$order.add_time}</td>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--新订单列表 车主信息-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">车主信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">车主id</td>
+                                    <td class="text-center">车主名称</td>
+                                    <td class="text-center">联系方式</td>
+                                    <td class="text-center">抢单时间</td>
+                                    <td class="text-center">状态</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class='text-center'>{$OrderInfo['user_id']}</td>
+                                        <td class='text-center'>{$OrderInfo['nickname']}</td>
+                                        <td class='text-center'>{$OrderInfo['mobile']}</td>
+                                        <td class='text-center'> {$OrderInfo['add_time']|date="Y-m-d Y-i:s",###}</td>
+                                         <td class='text-center'>
+                                            <neq name="OrderInfo.status" value="3">
+                                                 <a name='lookinfo' href="javescript:void(0)" ></a>
+                                            <!--     <a name='lookinfo' href="javescript:void(0)" onclick="carinfo({$OrderInfo['id']},{$OrderInfo['order_id']},{$OrderInfo['status']})">订单无效</a>-->
+                                                <else/>
+                                                <if condition="$OrderInfo['status'] eq 3">
+                                                    <a name="del" href="javescript:void(0)" >抢单成功</a>
+                                                </if>
+                                            </neq>              
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--新订单列表 操作信息-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">操作管理</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <td colspan="3" class='text-center' align='center'>
+                                    <a class="btn btn-primary margin" href="javascript:history.go(-1)">返回列表</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

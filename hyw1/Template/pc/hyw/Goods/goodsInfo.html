@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script src="/Public/hyw/js/jquery-1.8.3.min.js"></script>
+<script src="/Public/hyw/js/vue.js"></script>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+</head>
+
+
+<body>
+<div class="noguj">
+    <div class="readTips">    
+      <div class="reading2">您没有登录登陆之后即可查看租金！</div>      
+      <div class="carsure3"><a href="/Public/hyw/login/login.html">登陆</a></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="{:U('Index/index')}">首页</a>  ><a href="{:U('Goods/goodsList')}">叉车租赁</a>> <a href="{:U('Goods/goodsList')}">年月租</a></div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+    <!--   <div class="neiBanner"><img src="/Public/hyw/images/neibn6.jpg" width="1198" height="296" /></div>-->
+    <div class="neiBanner"><a href="{$ad.ad_link}"><img src="{$ad.ad_code}" width="1198" height="296" /></a></div>
+   <div class="neiNav">
+    <ul class="navlist">
+     <li><a href="{:U('Goods/goodsList')}" class="current">年月租</a></li>
+     <li><a href="{:U('Goods/goodsTemp')}" >临时租</a></li>    
+    </ul>
+   </div>
+</div>
+<div class="neiCent2">
+<div class="canshu">
+  <div class="xiqtu">
+    <div class="ban" id="demo1">
+	<div class="ban2" id="ban_pic1">
+		<div class="prev1" id="prev1"><img src="/Public/hyw/images/index_tab_l.png" width="28" height="51"  alt=""></div>
+		<div class="next1" id="next1"><img src="/Public/hyw/images/index_tab_r.png" width="28" height="51"  alt=""></div>
+		<ul>
+        <li><a href="javascript:;"><img width='500' height='400' src="{$goodsInfo.zm_pic}"  alt=""></a></li>
+        <li><a href="javascript:;"><img width='500' height='400' src="{$goodsInfo.cm_pic}"  alt=""></a></li>
+        <li><a href="javascript:;"><img width='500' height='400' src="{$goodsInfo.czt_pic}"  alt=""></a></li>
+        <li><a href="javascript:;"><img width='500' height='400' src="{$goodsInfo.nb_pic}"  alt=""></a></li>
+		</ul>
+	</div>
+	<div class="min_pic">
+		<div class="prev_btn1" id="prev_btn1"><img src="/Public/hyw/images/arrow3.png"   alt=""></div>
+		<div class="num clearfix" id="ban_num1">
+			<ul>
+        <li><a href="javascript:;"><img width="92" height='79' src="{$goodsInfo.zm_pic}"  alt=""></a></li>
+        <li><a href="javascript:;"><img width="92" height='79' src="{$goodsInfo.cm_pic}"  alt=""></a></li>
+        <li><a href="javascript:;"><img width="92" height='79' src="{$goodsInfo.czt_pic}"  alt=""></a></li>
+        <li><a href="javascript:;"><img width="92" height='79' src="{$goodsInfo.nb_pic}"  alt=""></a></li>
+			</ul>
+		</div>
+		<div class="next_btn1" id="next_btn1"><img src="/Public/hyw/images/arrow4.png" alt=""></div>
+	</div>
+</div>
+<script src="/Public/hyw/js/pic_tab.js"></script>
+<script type="text/javascript">
+jq('#demo1').banqh({
+	box:"#demo1",//总框架
+	pic:"#ban_pic1",//大图框架
+	pnum:"#ban_num1",//小图框架
+	prev_btn:"#prev_btn1",//小图左箭头
+	next_btn:"#next_btn1",//小图右箭头	
+	prev:"#prev1",//大图左箭头
+	next:"#next1",//大图右箭头
+	pop_div:"#demo2",//弹出框框架	
+	autoplay:true,//是否自动播放
+	interTime:5000,//图片自动切换间隔
+	delayTime:400,//切换一张图片时间
+	pop_delayTime:400,//弹出框切换一张图片时间
+	order:0,//当前显示的图片（从0开始）
+	picdire:true,//大图滚动方向（true为水平方向滚动）
+	mindire:true,//小图滚动方向（true为水平方向滚动）
+	min_picnum:4,//小图显示数量
+	pop_up:true//大图是否有弹出框
+})
+</script>
+  </div>
+  <div class="xiwe">
+   <div class="xiwetit">{$goodsInfo.goods_name}</div>
+   <div class="xjies">品牌：{$goodsInfo.pinpai}</div>
+   <div class="xjies">车类型：{$goodsInfo.cart_type}</div>
+   <!-- <div class="xjies">型号：{$goodsInfo.chexing}</div> -->
+   <div class="xjies">吨位：{$goodsInfo['dunwei']}吨 </div>
+   <div class="xjies">门架类型：{$goodsInfo.menjia}</div>
+   <div class="xjies">门架提升高度：{$goodsInfo.mj_height}mm</div>
+   <div class="xjies">
+    <div class="xjyear1">年份：{$goodsInfo.factorytime|default='2017'}年</div>
+    <div class="xjyear2">已使用时间：{$goodsInfo.use_hours}小时<span class="biaozhu">( 以实际匹配到的车为准)</span></div>
+    <div class="clear"></div>
+   </div>
+   <div class="xjies">
+    <div class="xjyear1">状况：{$goodsInfo.description}</div>
+    <if condition="$goodsInfo[chexing] neq 'FD/G'">
+    <div class="xjyear2">备用电池：
+      <select name="bydc" id="" style='margin-top:6px'>
+        <option value="0"  <if condition="$bydc eq 0">selected</if>>无</option>
+        <option value="1" <if condition="$bydc eq 1">selected</if>>1组</option>
+        <option value="2" <if condition="$bydc eq 2">selected</if>>2组</option>
+      </select>  
+    </div>
+    </if>
+    <div class="clear"></div>
+   </div>
+   <style>
+  .yeaSe1{
+  width:150px;
+  }
+   </style>
+   <div class="xjies">
+    <div class="xjies">
+      <div class="yeaSe1"> 
+         <input class="magic-radio" type="radio" name="is_yt" id="r1" value="2" <if condition="$is_yt eq 2">checked</if>>
+         <label for="r1" class="zhiwenz"> 普通</label>  
+       </div>    
+      <div class="yeaSe1"> 
+         <input class="magic-radio" type="radio" name="is_yt" id="r2" value="0" <if condition="$is_yt eq 0">checked</if>>
+         <label for="r2" class="zhiwenz"> 冷库</label>  
+      </div>
+      <div class="yeaSe1"> 
+         <input class="magic-radio" type="radio" name="is_yt" id="r3" value="1" <if condition="$is_yt eq 1">checked</if>>
+         <label for="r3" class="zhiwenz"> 防爆</label>  
+      </div>
+      属具:
+    <select name="shuju" id="" style='margin-top:6px'>
+      <option value="无"  <if condition="$shuju eq '无'">selected</if>>无</option>
+      <option value="侧移器" <if condition="$shuju eq '侧移器'">selected</if>>侧移器</option>
+      <option value="旋转器" <if condition="$shuju eq '旋转器'">selected</if>>旋转器</option>
+      <option value="纸夹" <if condition="$shuju eq '纸夹'">selected</if>>纸夹</option>
+      <option value="其他" <if condition="$shuju eq '其他'">selected</if>>其他</option>
+    </select>
+    <script>
+    $('select[name="shuju"]').change(function(){
+      var shuju = $(this).val();
+      $.post(
+        '{:U("Goods/setShuJu")}',
+        {shuju:shuju},
+        'json'
+      );
+    });
+    $('input[name="is_yt"]').change(function(){
+      var is_yt = $(this).val();
+      $.post(
+        '{:U("Goods/setShuJu")}',
+        {is_yt:is_yt},
+        'json'
+      );
+    }); 
+    $('select[name="bydc"]').change(function(){
+      var bydc = $(this).val();
+      $.post(
+        '{:U("Goods/setShuJu")}',
+        {bydc:bydc},
+        'json'
+      );
+    });       
+    </script>
+      <div class="clear"></div>
+   </div>
+    <!-- <div class="xjyear2">属具：{$goodsInfo.shuju}</div> -->
+    <div class="clear"></div>
+   </div>   
+
+   <form action="{:U('GoodsPrivate/goodsRent')}" method="post" id='vs-data'>
+    <div class="xjies">租金计算请输入：</div>
+    <div class="xjies">
+      <span class="rentCa">租期：</span>
+      <div class="rentCa2">
+        <input name="tenancy" type="text" class="rentCa3"/>个月
+        <span>（租期越长租金越低）</span>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="xjies">
+     <span class="rentCa">日使用小时数：</span>
+      <div class="rentCa2">
+        <input name="day_time" v-model='day_time' type="number" class="rentCa3"/>
+        小时
+        </div>
+      <div class="clear"></div>
+    </div>
+    <div class="xjies">
+     <span class="rentCa">年使用小时数：</span>
+      <div class="rentCa2">
+        <span class='yhours'>{{hell}}</span>
+        <input name="yhours" type="hidden"/>
+        小时
+        </div>
+      <div class="clear"></div>
+    </div>
+    <input name="goods_id" type="hidden" value='{$goodsInfo.goods_id}'/>
+    <input class='submits' type="submit" style='display:none' value='提交' />
+    <div class="zijBtn"><a href="javascript:void(0)">计算租金</a></div>
+   </form>
+<script>
+new Vue({
+  el: '#vs-data',
+  data: {
+    day_time: 0
+  },
+  computed:{
+    hell:function(){
+      return Number(this.day_time) * 300
+    }
+  }
+});
+  // $('input[name="day_time"]').change(function(){
+
+  //     var day_time = $('input[name="day_time"]').val();
+  //     if(day_time < 0){
+  //       $('input[name="day_time"]').val(0);
+  //     }
+  //     $('.yhours').html('');
+  //     $('.yhours').html(day_time * 300);
+  //     $('input[name="yhours"]').val(day_time * 300);  
+  // });
+
+  $('.zijBtn').click(function(){
+    if($('input[name="tenancy"]').val() == ''){
+      alert('租期不能为空');return false;
+    }
+    if($('input[name="day_time"]').val() <= 0){
+      alert('日使用小时数必须大于0');return false;
+    }
+    var day_time = $('input[name="day_time"]').val();
+    $('input[name="yhours"]').val(day_time * 300);    
+    $('.submits').click();
+  })
+
+</script>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="xingxi">
+ <div class="xingtit">叉车描述：</div>
+ <div class="xiangwen">
+    {$goodsInfo.goods_describe|htmlspecialchars_decode}
+ </div>
+  <div class="fanhui"><a href="{:U('Goods/goodsList')}">返回 >></a></div>
+</div>
+
+
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束-------------->
+</div> 
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r3.gif" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+</body>
+</html>

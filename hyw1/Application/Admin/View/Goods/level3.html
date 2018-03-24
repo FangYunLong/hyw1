@@ -1,0 +1,135 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+ <include file="Public/breadcrumb"/>
+ <style>#search-form > .form-group{margin-left: 10px;}</style>
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-list"></i> 吨位管理</h3>
+        </div>
+        <div class="panel-body">
+          <div class="navbar navbar-default">
+              <form action="" id="search-form2" class="navbar-form form-inline" method="post" onsubmit="return false">
+                <div class="form-group">
+                  <label class="control-label">品牌：</label>
+                  <select onchange='getCat()' name="pinpai" id="pinpai" class="form-control">
+                    <foreach name="brandList" item="v" key="k" >
+                       <option value="{$v['id']}">{$v['name']}</option>
+                    </foreach>
+                  </select>
+                  <label class="control-label">车类型：</label>
+                  <select onchange='ajaxLevel3()' name="cart_type" id="cart_type" class="form-control">
+                    <foreach name="cartList" item="v" key="k" >
+                       <option value="{$v['id']}">{$v['name']}</option>
+                    </foreach>
+                  </select>
+                </div>              
+                <!--排序规则-->
+                <input type="hidden" name="orderby1" value="goods_id" />
+                <input type="hidden" name="orderby2" value="desc" />
+                <button type="button" onclick='edit_dunwei()' class="btn btn-primary pull-right"><i class="fa fa-plus"></i>添加吨位</button>
+              </form>
+          </div>
+          <div id="ajax_return"> </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row --> 
+  </section>
+  <!-- /.content --> 
+</div>
+<!-- /.content-wrapper --> 
+<script>
+    $(document).ready(function(){
+    // ajax 加载商品列表
+        ajax_get_table('search-form2',1);
+
+    });
+
+    // ajax 抓取页面 form 为表单id  page 为当前第几页
+    function ajax_get_table(form,page){
+      var parent_id = $('select[name="cart_type"]').val();
+      cur_page = page; //当前页面 保存为全局变量
+      $.ajax({
+          type : "POST",
+          url:"/index.php?m=Admin&c=goods&a=ajaxLevel3&p="+page,//+tab,
+          data : {parent_id:parent_id},// 你的formid
+          success: function(data){
+              $("#ajax_return").html('');
+              $("#ajax_return").append(data);
+          }
+      });
+    }
+    
+    function getCat()
+    {
+      var parent_id = $('select[name="pinpai"]').val();
+      $.ajax({
+          type : "POST",
+          url:"/index.php/Admin/Goods/getCat",//+tab,
+          data:{parent_id:parent_id},
+          dataType:'json',
+          success: function(data_list){
+            var str;
+            console.log(data_list.list);
+            $.each(data_list.list,function(key,val){
+              str += '<option value="'+val.id+'">'+val.name+'('+val.money+')</option>';
+            })
+            $('#cart_type').html('');
+            $('#cart_type').append(str);
+            ajaxLevel3();
+          }
+      });      
+    }
+
+    function ajaxLevel3()
+    {
+      var parent_id = $('select[name="cart_type"]').val();
+      $.ajax({
+          type : "POST",
+          url:"/index.php/Admin/Goods/ajaxLevel3",//+tab,
+          data : {parent_id:parent_id},// 你的formid
+          success: function(data){
+              $("#ajax_return").html('');
+              $("#ajax_return").append(data);
+          }
+      });      
+    }
+
+    function edit_dunwei()
+    {
+      var url = '/index.php/Admin/Goods/edit_dunwei';
+      window.location.href=url;
+    }
+
+        // 点击排序
+        function sort(field)
+        {
+           $("input[name='orderby1']").val(field);
+           var v = $("input[name='orderby2']").val() == 'desc' ? 'asc' : 'desc';             
+           $("input[name='orderby2']").val(v);
+           ajax_get_table('search-form2',cur_page);
+        }
+        
+        // 删除操作
+        function del(id)
+        {
+          if(!confirm('确定要删除吗?'))
+              return false;
+          $.ajax({
+            url:"/index.php?m=Admin&c=goods&a=delGoods&id="+id,
+            success: function(v){ 
+              var v =  eval('('+v+')');                                 
+              if(v.hasOwnProperty('status') && (v.status == 1))
+                ajax_get_table('search-form2',cur_page);
+              else
+                layer.msg(v.msg, {icon: 2,time: 1000});
+            }
+          }); 
+          return false;
+        }
+</script> 
+</body>
+</html>

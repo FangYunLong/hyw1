@@ -1,0 +1,852 @@
+[ 2017-06-01T17:15:23+08:00 ] 127.0.0.1 /index.php/Home/News/news1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002967s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004773s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.072841s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.077801s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008908s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.009202s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000178s ]
+NOTIC: [8] Undefined variable: vo F:\Project\haoyunwang\Application\Runtime\Cache\Home\e1df0f29ab5a830f67a66b7c27939632.php 第 122 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.197511s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.197615s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004408s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.005662s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010205s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003152s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003223s ]
+
+[ 2017-06-01T17:15:28+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007893s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.087446s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.095525s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:17:31+08:00 ] 127.0.0.1 /index.php/Home/News/news1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000751s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003024s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.010661s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013844s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.010781s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.010924s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+NOTIC: [8] Undefined variable: vo F:\Project\haoyunwang\Application\Runtime\Cache\Home\e1df0f29ab5a830f67a66b7c27939632.php 第 122 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040251s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040331s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.007983s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003860s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011999s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003087s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003168s ]
+
+[ 2017-06-01T17:17:34+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000651s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004243s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.061397s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.066598s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:18:44+08:00 ] 127.0.0.1 /index.php/Home/News/news2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000995s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003874s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015805s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.019841s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007713s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007824s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000132s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000212s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043620s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043707s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003099s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.004135s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007346s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005491s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005571s ]
+
+[ 2017-06-01T17:18:48+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004842s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.021186s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.026193s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:22:10+08:00 ] 127.0.0.1 /index.php/Home/News/news2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000904s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003341s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.014366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.017899s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007633s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007753s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000184s ]
+NOTIC: [8] Undefined variable: QA_info F:\Project\haoyunwang\Application\Runtime\Cache\Home\f7e22f047729bb36bf988e95ba070e83.php 第 121 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037302s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037388s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.005282s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003362s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008778s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003422s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003501s ]
+
+[ 2017-06-01T17:22:16+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000672s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009651s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.018493s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.028306s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:22:53+08:00 ] 127.0.0.1 /index.php/Home/News/news2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000747s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008550s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.028150s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.038031s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008168s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008275s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+NOTIC: [8] Undefined variable: vo F:\Project\haoyunwang\Application\Runtime\Cache\Home\f7e22f047729bb36bf988e95ba070e83.php 第 121 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034743s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034812s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003514s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.004607s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008244s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003063s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003132s ]
+
+[ 2017-06-01T17:23:00+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000782s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005516s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.013389s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.019339s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:23:42+08:00 ] 127.0.0.1 /index.php/Home/News/news3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000671s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002999s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.014138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.017335s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007132s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007250s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000123s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000209s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.054759s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.054861s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002968s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003940s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007134s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003305s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003373s ]
+
+[ 2017-06-01T17:23:44+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000903s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003308s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.019302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.022774s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:25:29+08:00 ] 127.0.0.1 /index.php/Home/News/news3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001307s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002920s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.014851s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.017915s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008302s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008406s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+NOTIC: [8] Undefined variable: upkeepInfo F:\Project\haoyunwang\Application\Runtime\Cache\Home\e042e0e0989278d7cfa65d6650212474.php 第 121 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035059s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035138s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004817s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003870s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008826s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004236s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004312s ]
+
+[ 2017-06-01T17:25:34+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000772s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003007s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.019145s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.022343s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:26:03+08:00 ] 127.0.0.1 /index.php/Home/News/news3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000912s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003671s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.018934s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.022786s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008462s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008579s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+NOTIC: [8] Undefined variable: vo F:\Project\haoyunwang\Application\Runtime\Cache\Home\e042e0e0989278d7cfa65d6650212474.php 第 121 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.038706s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038789s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003421s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.005816s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009370s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003552s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003633s ]
+
+[ 2017-06-01T17:26:08+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001900s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004069s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.035319s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.039577s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:26:35+08:00 ] 127.0.0.1 /index.php/Home/News/trade_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000790s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004061s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015482s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.006894s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.006993s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000114s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000199s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.065232s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.065341s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.008117s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.004171s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012414s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003344s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003422s ]
+
+[ 2017-06-01T17:26:39+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000699s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006049s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.054584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.060989s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:28:36+08:00 ] 127.0.0.1 /index.php/Home/News/trade_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000977s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005838s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.016101s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.022137s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.006918s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007018s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000093s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+NOTIC: [8] Undefined variable: news F:\Project\haoyunwang\Application\Runtime\Cache\Home\176d4c7586fee175a3d81305ce938855.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036311s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036408s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003866s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003182s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007164s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003298s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003370s ]
+
+[ 2017-06-01T17:28:40+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000887s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007403s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.019606s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.027186s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:29:02+08:00 ] 127.0.0.1 /index.php/Home/News/trade_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003642s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.022517s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.025678s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.006868s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.006967s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.038024s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038130s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003401s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003346s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006852s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005039s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005157s ]
+
+[ 2017-06-01T17:29:06+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000764s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006862s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.033724s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.040755s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:29:28+08:00 ] 127.0.0.1 /index.php/Home/News/news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000718s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003193s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011175s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014527s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008771s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008878s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000207s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000320s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043434s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043519s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003238s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.004007s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007372s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003134s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003205s ]
+
+[ 2017-06-01T17:29:32+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000682s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004330s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.058082s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.062583s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:29:47+08:00 ] 127.0.0.1 /index.php/Home/News/trade_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000946s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010979s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.014452s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.025648s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008275s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008382s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000177s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.057803s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.057894s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004021s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.006099s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010261s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005150s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005228s ]
+
+[ 2017-06-01T17:29:51+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000968s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003503s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.141655s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.145366s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:31:13+08:00 ] 127.0.0.1 /index.php/Home/News/trade_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000726s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003109s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.013589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016850s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.006933s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007042s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000187s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031299s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031387s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004637s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.004748s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009530s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003769s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003846s ]
+
+[ 2017-06-01T17:31:14+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001421s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005519s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.018419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.024446s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:32:08+08:00 ] 127.0.0.1 /index.php/Home/News/trade_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000663s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003337s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.014463s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.017973s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007052s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007152s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000094s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037023s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037116s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003110s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003273s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006482s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004830s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004906s ]
+
+[ 2017-06-01T17:32:09+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004874s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005095s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.019532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.024809s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:32:16+08:00 ] 127.0.0.1 /index.php/Home/News/company_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001634s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003709s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.009775s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013664s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007131s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007241s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000197s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.067398s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.067478s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003249s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.005012s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008387s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003272s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003345s ]
+
+[ 2017-06-01T17:32:16+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000752s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003141s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.021531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.024830s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:34:38+08:00 ] 127.0.0.1 /index.php/Home/News/company_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001004s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003095s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.016619s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.021419s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008640s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008751s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000177s ]
+NOTIC: [8] Undefined variable: QA_info F:\Project\haoyunwang\Application\Runtime\Cache\Home\329ede4557c6e1826e4c55f9383d3aad.php 第 122 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035968s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036055s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003856s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.005458s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009460s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004520s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004600s ]
+
+[ 2017-06-01T17:34:39+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000722s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008214s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.016737s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.025120s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:35:00+08:00 ] 127.0.0.1 /index.php/Home/News/company_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000679s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004290s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015829s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.008100s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.008212s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+NOTIC: [8] Undefined variable: vo F:\Project\haoyunwang\Application\Runtime\Cache\Home\329ede4557c6e1826e4c55f9383d3aad.php 第 122 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033711s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033783s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004291s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.006523s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010970s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002994s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003054s ]
+
+[ 2017-06-01T17:35:01+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000920s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007184s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.029017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.036385s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:35:12+08:00 ] 127.0.0.1 /index.php/Home/News/trade_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000781s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003389s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.019225s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.006997s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007111s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000172s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000262s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035572s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035678s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.006609s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.005832s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012580s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003890s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004132s ]
+
+[ 2017-06-01T17:35:13+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000637s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003188s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.016843s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020200s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:37:17+08:00 ] 127.0.0.1 /index.php/Home/News/company_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000619s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003057s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.012934s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016193s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007708s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007830s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000095s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000245s ]
+NOTIC: [8] Undefined variable: vo F:\Project\haoyunwang\Application\Runtime\Cache\Home\329ede4557c6e1826e4c55f9383d3aad.php 第 122 行.
+NOTIC: [8] Undefined variable: vo F:\Project\haoyunwang\Application\Runtime\Cache\Home\329ede4557c6e1826e4c55f9383d3aad.php 第 122 行.
+NOTIC: [8] Undefined variable: vo F:\Project\haoyunwang\Application\Runtime\Cache\Home\329ede4557c6e1826e4c55f9383d3aad.php 第 122 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031989s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032087s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002993s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.003631s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006740s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005458s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005536s ]
+
+[ 2017-06-01T17:37:18+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000674s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002975s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.011311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014461s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:37:47+08:00 ] 127.0.0.1 /index.php/Home/News/company_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000668s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004029s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.013596s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.017806s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007376s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007481s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030503s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030579s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003459s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.004642s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008234s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003584s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003660s ]
+
+[ 2017-06-01T17:37:48+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004848s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005212s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.017176s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.022574s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:41:08+08:00 ] 127.0.0.1 /index.php/Home/News/company_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000890s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002945s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.017119s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020270s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007018s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007120s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031188s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031336s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003055s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.004354s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007547s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004450s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004528s ]
+
+[ 2017-06-01T17:41:08+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000651s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004206s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.085209s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.089746s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:47:18+08:00 ] 127.0.0.1 /index.php/Home/News/company_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000725s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004079s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.015715s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.019971s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007381s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007500s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000112s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000294s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037854s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040180s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003272s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.004107s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007538s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003306s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003382s ]
+
+[ 2017-06-01T17:47:19+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001366s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009539s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.051336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.061053s ]
+ERR: 非法操作:js
+
+[ 2017-06-01T17:48:16+08:00 ] 127.0.0.1 /index.php/Home/News/company_news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000755s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005238s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.052698s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.058127s ]
+INFO: [ view_begin ] --START--
+INFO: Run Home\Behaviors\testBehavior [ RunTime:0.007176s ]
+INFO: [ view_begin ] --END-- [ RunTime:0.007280s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000138s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000241s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031068s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031153s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003401s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.005115s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008648s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003247s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003326s ]
+
+[ 2017-06-01T17:48:18+08:00 ] 127.0.0.1 /index.php/Home/News/js/pptBox.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000724s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003801s ]
+INFO: Run Behavior\CronRunBehavior [ RunTime:0.028229s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.032294s ]
+ERR: 非法操作:js
+

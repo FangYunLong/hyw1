@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/hyw/js/jquery-1.11.1.min.js"></script>
+  
+</head>
+
+
+<body>
+<!--------头部开始-------------->
+<include file="Public/header" />
+<!--------头部结束-------------->
+<!--------位置与搜索开始-------------->
+<include file="Public/userTop" />
+<!--------位置与搜索结束-------------->
+<div class="neiCent2">
+  <div class="mayLeft">  
+    <!--------左边导航开始-------------->
+    <include file="Public/userLeft" />
+    <!--------左边导航结束-------------->
+  </div>
+
+  <div class="mayRight">
+    <div class="rigbiaot">我的求职</div>
+    <div class="mayxiax">
+     <div class="geremi"><span>姓名：</span><h2>{$Resume.user_name} （{$sex[$Resume['sex']]}，{$Resume.age}岁）</h2></div>
+     <div class="geremi2"><span>联系方式：</span>
+       <h2>{$Resume.mobile}</h2></div>
+      <div class="geremi3">
+        <div class="liandi">期望工作地：</div>
+        <div class="liandi2"><if condition="$Resume['province'] eq $Resume['city']">{$Resume.city}<else/>{$Resume.province}{$Resume.city}</if></div>
+      </div>
+      <div class="geremi3">
+        <div class="liandi">叉车证：</div>
+        <div class="chaz"><img src="{$Resume.thumb|default='/Public/hyw/images/getu1.png'}" width="219" height="144" /></div>
+      </div>
+      <div class="yingc">
+        <div class="yican"><a href="javascript:void(0)" class='submit'>{$is_hidden[$Resume['is_hidden']]}</a></div>
+        <div class="fabu"><a href="{:U('User/resume',array('fabu'=>1))}">发布简历</a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="clear"></div>
+</div>
+<!--------尾部开始-------------->
+<include file="Public/footer" />
+<!--------尾部结束--------------> 
+</body>
+<script>
+  $('img[title="删除"]').click(function(){
+    var obj = $(this);
+          // $(this).parents('li').remove();return false;
+    var msg_id = $(this).attr('msg_id');
+    $.post(
+      "{:U('User/delMsg')}",
+      {'msg_id':msg_id},
+      function(data){
+        if(data['status']==1){
+          obj.parents('li').remove();
+          alert(data['msg']);
+        }
+      },
+      'json'
+    )
+    // alert(msg_id);
+  });
+  $('.submit').click(function(){
+    $.post(
+      "{:U('User/hidResume',array('is_hidden'=>$Resume['is_hidden']))}",
+      function(data){
+        if(data['status']==1){
+          $('.submit').html('');
+          $('.submit').append(data['msg']);
+        }
+      },
+      'json'
+    )    
+  })
+</script>
+</html>

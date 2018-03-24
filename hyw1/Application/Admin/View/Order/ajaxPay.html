@@ -1,0 +1,77 @@
+
+                    <form method="post" enctype="multipart/form-data" target="_blank" id="form-order">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" style="font-size:12px;">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_id');">订单id</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_sn');">下单会员</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="javascript:sort('order_sn');">订单编号</a>
+                                    </td>
+                                    <!-- <td class="text-center">
+                                        <a href="javascript:sort('use_user');">支付单号</a>
+                                    </td> -->
+                                    <td class="text-center">
+                                        <a href="javascript:sort('mobile');">甬易流水号</a>
+                                    </td>   
+                                    <td class="text-center">
+                                        <a href="">支付金额</a>
+                                    </td>                                 
+                                    <td class="text-center">
+                                        <a href="">支付类型</a>
+                                    </td>      
+                                    <td class="text-center">
+                                        <a href="javascript:sort('add_time');">付款时间</a>
+                                    </td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach item='Pay' name='Pay'>
+                                    <tr>
+                                        <td class="text-center">{$Pay.order_id}</td>
+                                        <td class="text-center">{$Pay.mobile}</td>
+                                        <td class="text-center">{$Pay.order_sn}</td>
+                                        <!-- <td class="text-center">{$Pay.pay_sn}</td> -->
+                                        <td class="text-center">{$Pay.yongyi_sn}</td>
+                                        <td class="text-center">{$Pay.money}</td>
+                                        <td class="text-center">{$pay_type[$Pay[pay_type]]}</td>
+                                        <td class="text-center">{$Pay.add_time|date='Y-m-d H:i:s',###}</td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-sm-6 text-left"></div>
+                        <div class="col-sm-6 text-right">{$page}</div>
+                    </div>
+<script>
+    $(".pagination  a").click(function(){
+        var page = $(this).data('p');
+        ajax_get_table('search-form2',page);
+    });
+
+    // 删除操作
+    function del(id)
+    {
+        if(!confirm('确定要删除吗?'))
+            return false;
+        $.ajax({
+            url:"/index.php?m=Admin&c=Order&a=del_order&id="+id,
+            success: function(v){
+                var v =  eval('('+v+')');
+                if(v.hasOwnProperty('status') && (v.status == 1))
+                    ajax_get_table('search-form2',cur_page);
+                else
+                    layer.msg(v.msg, {icon: 2,time: 1000}); //alert(v.msg);
+            }
+        });
+        return false;
+    }
+</script>

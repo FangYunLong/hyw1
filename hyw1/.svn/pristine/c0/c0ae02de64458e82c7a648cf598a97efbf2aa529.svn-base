@@ -1,0 +1,83 @@
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script src="/Public/hyw/js/script.js"></script>
+
+
+<div class="noguj">
+    <div class="readTips">    
+      <div class="reading" >请阅读《好运旺租叉车服务条款》</div>      
+      <div class="carsure2">确定</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+<div class="top">
+ <div class="toplink">
+   <div class="toplink2">
+    <div class="tophun"> 您好，欢迎登录东莞市粤力叉车租赁公司官网!</div>
+    <div class="topdeng">
+      <?php 
+        $user = session('user');
+        if(!$user){ 
+      ?>
+      <a href="{:U('Login/login')}" class="huiy1">会员登录</a> 
+      <a href="{:U('Login/regist')}" class="huiy2">免费注册</a>
+      <?php }else{ ?>
+      <a href=""><?php echo $user['mobile'];?></a>
+      <a href="{:U('Login/logout')}">退出登录</a>
+      <?php } ?>  
+    </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+ <div class="logoTel">
+  <div class="logo"><img src="/Public/hyw/images/logo.gif" width="409" height="59" /></div>
+  <div class="tel"><img src="/Public/hyw/images/tel.gif" width="279" height="59" /></div>
+  <div class="clear"></div>
+ </div>
+ <div class="menu">
+   <div class="caid">
+    <ul class="menuLink">
+     <li><a href="{:U('Index/index')}" class="current">首页</a></li>
+     <li><a href="zuli/lease.html">叉车租赁</a>
+       <ul>
+            <li><a href="{:U('Goods/goodsList')}">年月租</a></li>
+            <li><a href="{:U('Goods/goodsTemp')}">临时租</a></li>
+            <li><a href="#">快捷租车</a></li>
+       </ul>
+     </li>
+     <li><a href="{:U('MallShop/index')}">好运商城</a>
+        <ul>
+            <li><a href="{:U('Special/index')}">特价车</a></li>
+            <li><a href="{:U('MallShop/Industry')}">工业品</a></li>
+        </ul>
+     </li>
+     <li> <a href="{:U('News/news')}">资讯中心</a>
+       <ul>
+            <li><a href="{:U('News/news1')}">叉车租赁问答</a></li>
+            <li><a href="{:U('News/news2')}">叉车保养知识</a></li>
+            <li><a href="{:U('News/news3')}">叉车故障排除</a></li>
+            <li><a href="{:U('News/trade_news')}">行业新闻</a></li>
+            <li><a href="{:U('News/company_news')}">公司新闻</a></li>
+            <li><a href="{:U('News/car_ency')}">叉车百科</a></li>
+            <li><a href="{:U('News/car_card')}">叉车证</a></li>
+            <li><a href="{:U('News/car_brand')}">叉车上牌</a></li>
+            <li><a href="{:U('News/download')}">下载专区</a></li>
+       </ul>
+     </li>
+     <li><a href="{:U('service/service')}">服务网络</a></li>
+     <li><a href="{:U('service/join')}">加盟合作</a></li>
+     <li class="last"><a href="{:U('About/about1')}">关于我们</a>
+       <ul>
+            <li><a href="{:U('About/about1')}">好运旺简介</a></li>
+            <li><a href="{:U('About/ContactUs')}">联系方式</a></li>
+            <li><a href="{:U('About/Honor')}">荣誉资质</a></li>
+            <li><a href="{:U('About/SuccessfulCases')}">成功案例</a></li>
+            <li><a href="{:U('About/DevelopCourse')}">发展历程</a></li>
+            <li><a href="{:U('About/Recruit')}">招贤纳士</a></li>
+       </ul>
+     </li> 
+    </ul>
+   </div>
+ </div>

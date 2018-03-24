@@ -1,0 +1,13 @@
+
+<foreach item='goodsList' name='goodsList'>
+<li>
+	<a href="{:U('Goods/GoodsInfo',['goods_id'=>$goodsList['goods_id']])}">
+		<img src="{$goodsList.zm_pic}" width="278" height="259" />
+	</a>
+	<span>
+		<a href="{:U('Goods/GoodsInfo',['goods_id'=>$goodsList['goods_id']])}">
+			{$goodsList.pinpai}{$goodsList.cart_type}
+		</a>
+	</span>
+</li>
+</foreach>

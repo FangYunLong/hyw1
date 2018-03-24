@@ -1,0 +1,221 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好运旺租叉车</title>
+<link href="/Public/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/pptBox.js"></script>
+</head>
+
+</div>
+<body>
+<div class="top">
+    <!--------头部开始-------------->
+    <link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script src="/Public/hyw/js/script.js"></script>
+
+
+<div class="noguj">
+    <div class="readTips">    
+      <div class="reading" >请阅读《好运旺租叉车服务条款》</div>      
+      <div class="carsure2">确定</div>
+      <div class="clear"></div>
+    </div>
+  </div>
+<div class="top">
+ <div class="toplink">
+   <div class="toplink2">
+    <div class="tophun"> 您好，欢迎登录东莞市粤力叉车租赁公司官网!</div>
+    <div class="topdeng">
+      <?php  $user = session('user'); if(!$user){ ?>
+      <a href="<?php echo U('Login/login');?>" class="huiy1">会员登录</a> 
+      <a href="<?php echo U('Login/regist');?>" class="huiy2">免费注册</a>
+      <?php }else{ ?>
+      <a href=""><?php echo $user['mobile'];?></a>
+      <a href="<?php echo U('Login/logout');?>">退出登录</a>
+      <?php } ?>  
+    </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+ <div class="logoTel">
+  <div class="logo"><img src="/Public/hyw/images/logo.gif" width="409" height="59" /></div>
+  <div class="tel"><img src="/Public/hyw/images/tel.gif" width="279" height="59" /></div>
+  <div class="clear"></div>
+ </div>
+ <div class="menu">
+   <div class="caid">
+    <ul class="menuLink">
+     <li><a href="<?php echo U('Index/index');?>" class="current">首页</a></li>
+     <li><a href="zuli/lease.html">叉车租赁</a>
+       <ul>
+            <li><a href="">年月租</a></li>
+            <li><a href="#">临时租</a></li>
+            <li><a href="#">快捷租车</a></li>
+       </ul>
+     </li>
+     <li><a href="mallshop.html">好运商城</a>
+        <ul>
+            <li><a href="#">特价车</a></li>
+            <li><a href="#">工业品</a></li>
+        </ul>
+     </li>
+     <li> <a href="<?php echo U('News/news');?>">资讯中心</a>
+       <ul>
+            <li><a href="<?php echo U('News/news1');?>">叉车租赁问答</a></li>
+            <li><a href="<?php echo U('News/news2');?>">叉车保养知识</a></li>
+            <li><a href="<?php echo U('News/news3');?>">叉车故障排除</a></li>
+            <li><a href="<?php echo U('News/trade_news');?>">行业新闻</a></li>
+            <li><a href="<?php echo U('News/company_news');?>">公司新闻</a></li>
+            <li><a href="<?php echo U('News/car_ency');?>">叉车百科</a></li>
+            <li><a href="<?php echo U('News/car_card');?>">叉车证</a></li>
+            <li><a href="<?php echo U('News/car_brand');?>">叉车上牌</a></li>
+            <li><a href="<?php echo U('News/download');?>">下载专区</a></li>
+       </ul>
+     </li>
+     <li><a href="<?php echo U('service/service');?>">服务网络</a></li>
+     <li><a href="<?php echo U('service/join');?>">加盟合作</a></li>
+     <li class="last"><a href="<?php echo U('About/about1');?>">关于我们</a>
+       <ul>
+            <li><a href="<?php echo U('About/about1');?>">好运旺简介</a></li>
+            <li><a href="<?php echo U('About/ContactUs');?>">联系方式</a></li>
+            <li><a href="<?php echo U('About/Honor');?>">荣誉资质</a></li>
+            <li><a href="<?php echo U('About/SuccessfulCases');?>">成功案例</a></li>
+            <li><a href="<?php echo U('About/DevelopCourse');?>">发展历程</a></li>
+            <li><a href="<?php echo U('About/Recruit');?>">招贤纳士</a></li>
+       </ul>
+     </li> 
+    </ul>
+   </div>
+ </div>
+    <!--------头部结束-------------->
+ <div class="now">
+    <div class="now1">您当前的位置：<a href="#">首页</a>  ><a href="#">资讯中心</a></div>
+    <div class="now2"><form action="" method="get">
+     <div class="souk"><input name="" type="text" class="shur2"  value="请输入关键字  如品牌、吨位、名称、型号" onfocus="if(this.value=='请输入关键字  如品牌、吨位、名称、型号'){this.value='';this.style.color='#444'}" onblur="if(this.value==''){this.value='请输入关键字  如品牌、吨位、名称、型号';this.style.color='#999'}"/></div>
+     <div clsas="souk2">
+      <input name="" type="button" class="anniu2"/>
+     </div>
+     <div class="clear"></div>
+    </form></div>
+    <div class="clear"></div>
+   </div>
+    <div class="neiBanner"><img src="/Public/images/neibn8.jpg" width="1198" height="296" /></div>
+    <div class="neiNav">
+    <ul class="navlist">
+     <li><a href="<?php echo U('News/news');?>" class="current">市场动态</a></li>
+     <li><a href="<?php echo U('News/news1');?>" >租赁问答</a></li>
+    </ul>
+   </div>
+</div>
+<div class="neiCent2">
+  <div class="xinwen">
+    <ul class="newlist">
+        <?php if(is_array($news)): foreach($news as $k=>$vo): ?><li><a href="<?php echo U('News/article_Info',array('article_id'=>$vo['article_id']));?>"><?php echo (htmlspecialchars_decode($vo['title'])); ?></a><span><?php echo (date('Y-m-d',$vo['add_time'])); ?></span></li><?php endforeach; endif; ?>
+      </ul>
+    <div class="wtpage">
+        <a href="#" class="page1">上一页</a> <a href="#" >1</a> <a href="#">2</a>  <a href="#">3</a>  <a href="#">4</a>  <a href="#">5</a>  <a hidden="#">6</a>    <a href="#" class="page2">下一页</a><span>共6页　 　当前第1页 </span>
+    </div>
+  </div>
+</div>
+
+<script>
+
+    // ajax 抓取页面
+    function ajax_get_table(tab,page){
+        cur_page = page; //当前页面 保存为全局变量
+        $.ajax({
+            type : "POST",
+            url:"/index.php/Home/News/news/p/"+page,//+tab,
+            data : $('#'+tab).serialize(),// 你的formid
+            success: function(data){
+                console.log(111);
+                $("#ajax_return").html('');
+                $("#ajax_return").append(data);
+            }
+        });
+    }
+
+    $(".pagination  a").click(function(){
+        var page = $(this).data('p');
+        ajax_get_table('search-form2',page);
+    });
+</script>
+
+<!------底部开始------------>
+
+<link href="/Public/hyw/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/Public/hyw/css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="/Public/hyw/js/jquery1.8.3.min.js"></script>
+<script src="/Public/hyw/js/script.js"></script>
+
+<div class="foot">
+  <div class="foot2">
+  <div class="footlogo">
+   <div class="logo2"><img src="/Public/hyw/images/logo2.gif" width="389" height="65" /></div>
+   <div class="footliax">
+    <p class="tongy">全国统一热线：</p>
+    <p> 400 1648 168； 0769-23102690；  15812814965      </p>
+    <p>地址：广州市天河区建中路勤天大厦</p>
+    </div>
+    <div class="erwm">
+     <div class="erwm1"><img src="/Public/hyw/images/erwm1.gif" width="86" height="85" /><span>app 二维码</span></div>
+     <div class="erwm1"><img src="/Public/hyw/images/erwm1.gif" width="86" height="85" /><span>微信公众号</span></div>
+     <div clsas="clear"></div>
+    </div>
+  </div>
+  <div class="footmenu">
+   <div class="fmen1">
+    <div class="fmen1tit">叉车租赁  </div>
+    <ul class="fmenu1">
+     <li>年月租</li>
+     <li><a href="#">临时租</a></li>
+    </ul>
+   </div>
+   <div class="fmen1">
+    <div class="fmen1tit">好运商城 </div>
+    <ul class="fmenu1">
+     <li><a href="#">特价叉车</a></li>
+     <li>其他</li>
+    </ul>
+   </div>
+   <div class="fmen1">
+      <div class="fmen1tit">最新资讯 </div>
+        <ul class="fmenu1">
+           <li><a href="#">市场动态</a></li>
+           <li><a href="#">租赁问答</a></li>
+        </ul>
+      </div>
+      <div class="fmen1">
+        <div class="fmen1tit">加盟合作 </div>
+        <ul class="fmenu1">
+          <li><a href="#">加盟合作</a></li>   
+        </ul>
+      </div>
+      <div class="fmen1">
+        <div class="fmen1tit">联系我们 </div>
+          <ul class="fmenu1">
+             <li><a href="#">联系方式</a></li>
+             <li><a href="#">公司简介</a></li>
+             <li><a href="#">下载专区</a></li>
+          </ul>
+        </div>
+   <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  </div>
+  <div class="copyright">
+   <div class="coyr2">      
+      Copyright © 2014 好运旺租叉车电商平台 东莞市粤力叉车租赁有限公司 All Rights Reserved<br/>备案号：粤ICP备13001988号  技术支持：
+      <a href="#">云鸿科技111</a> 
+      <a href="#">app开发</a>
+    </div>
+  </div>
+<!------底部结束------------>
+</body>
+</html>

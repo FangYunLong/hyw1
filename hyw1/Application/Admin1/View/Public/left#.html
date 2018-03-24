@@ -1,0 +1,186 @@
+<aside class="main-sidebar" style="overflow-y:auto;">
+      <section class="sidebar">
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span>
+          </div>
+        </form>
+        <!-- /.search form -->
+
+        <ul class="sidebar-menu">
+            <!--系统管理列表-->
+        	<li class="treeview">
+        	    <a href="javascript:void(0)">
+	              <i class="fa {$vo.icon}"></i><span>系统管理</span><i class="fa fa-angle-left pull-right"></i>
+	            </a>
+                <!--子列表-->
+	            <ul class="treeview-menu">
+	            	<li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+	            		<a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>系统配置</a>
+	            	</li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>权限设置</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>操作日志</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>消息中心</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>客服电话设置</a>
+                    </li>
+	            </ul>
+        	</li>
+            <!--会员管理列表-->
+            <li class="treeview">
+                <a href="javascript:void(0)">
+                    <i class="fa {$vo.icon}"></i><span>会员管理</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <!--子列表-->
+                <ul class="treeview-menu">
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='/index.php/Admin/User/levelList' target='rightContent'><i class="fa fa-circle-o"></i>会员分组</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='/index.php/Admin/User/index' target='rightContent'><i class="fa fa-circle-o"></i>会员列表</a>
+                    </li>
+                </ul>
+            </li>
+            <!--产品管理列表-->
+            <li class="treeview">
+                <a href="javascript:void(0)">
+                    <i class="fa {$vo.icon}"></i><span>产品管理</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <!--子列表-->
+                <ul class="treeview-menu">
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='/index.php/Admin/Goods/goodsList' target='rightContent'><i class="fa fa-circle-o"></i>短期租赁叉车列表</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='/index.php/Admin/Goods/goodsList' target='rightContent'><i class="fa fa-circle-o"></i>长期租赁叉车列表</a>
+                    </li>
+                </ul>
+            </li>
+            <!--订单管理列表-->
+            <li class="treeview">
+                <a href="javascript:void(0)">
+                    <i class="fa {$vo.icon}"></i><span>订单管理</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <!--子列表-->
+                <ul class="treeview-menu">
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>订单筛选</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>订单类型</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>订单状态</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>订单列表</a>
+                    </li>
+                </ul>
+            </li>
+            <!--消息管理列表-->
+            <li class="treeview">
+                <a href="javascript:void(0)">
+                    <i class="fa {$vo.icon}"></i><span>消息管理</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <!--子列表-->
+                <ul class="treeview-menu">
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>消息列表</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>消息发布</a>
+                    </li>
+                </ul>
+            </li>
+            <!--文章管理列表-->
+            <li class="treeview">
+                <a href="javascript:void(0)">
+                    <i class="fa {$vo.icon}"></i><span>文章管理</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <!--子列表-->
+                <ul class="treeview-menu">
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>资讯中心</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>关于我们</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>促销信息</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>服务网络</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>联系我们</a>
+                    </li>
+                </ul>
+            </li>
+            <!--报表统计列表-->
+            <li class="treeview">
+                <a href="javascript:void(0)">
+                    <i class="fa {$vo.icon}"></i><span>报表统计</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <!--子列表-->
+                <ul class="treeview-menu">
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>订单统计</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>租车记录统计</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>车辆统计</a>
+                    </li>
+                </ul>
+            </li>
+            <!--股东后台列表-->
+            <li class="treeview">
+                <a href="javascript:void(0)">
+                    <i class="fa {$vo.icon}"></i><span>股东后台</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <!--子列表-->
+                <ul class="treeview-menu">
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>订单管理</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>密码修改</a>
+                    </li>
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>代理商管理</a>
+                    </li>
+                </ul>
+            </li>
+            <!--司机求职-->
+            <li class="treeview">
+                <a href="javascript:void(0)">
+                    <i class="fa {$vo.icon}"></i><span>司机求职</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <!--子列表-->
+                <ul class="treeview-menu">
+                    <li onclick="makecss(this)" data-id="{$vv.act}_{$vv.control}">
+                        <a href='{:U("$vv[control]/$vv[act]")}' target='rightContent'><i class="fa fa-circle-o"></i>求职列表</a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+          <li class="header">帮助中心</li>
+          <li><a href="http://www.tp-shop.cn/index.php/Doc/Index/index" target="_blank"><i class="fa fa-circle-o text-red"></i> <span>使用手册</span></a></li>
+          <li><a href="http://www.99soubao.com/tpshop_video/video.html" target="_blank"><i class="fa fa-circle-o text-yellow"></i> <span>视频教程</span></a></li>
+          <li><a href="http://document.thinkphp.cn/manual_3_2.html" target="_blank"><i class="fa fa-circle-o text-aqua"></i> <span>ThinkPHP手册</span></a></li>
+        </ul>
+      </section>
+</aside>

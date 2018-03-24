@@ -1,0 +1,19 @@
+
+2017-08-15 15:24:38 success:{"sendno":"1502781877","msg_id":"29273397966403319"}
+2017-08-15 17:39:07 success:{"error": {"message": "Unsupport audience type: 11", "code": 1009}}
+2017-08-15 17:41:25 success:{"error": {"message": "Parameter value is invalid", "code": 1003}}
+2017-08-15 17:43:43 success:{"error": {"message": "Parameter value is invalid", "code": 1003}}
+2017-08-15 17:44:02 success:{"error": {"message": "Parameter value is invalid", "code": 1003}}
+2017-08-15 17:45:48 success:{"error": {"message": "Parameter value is invalid", "code": 1003}}
+2017-08-15 17:46:21 success:{"sendno":"1502790381","msg_id":"2251800203176627"}
+2017-08-15 17:47:02 success:{"sendno":"1502790421","msg_id":"54043196047330452"}
+2017-08-15 18:41:30 success:{"error": {"message": "Audience value must be JSON Array format!", "code": 1003}}
+2017-08-15 18:43:48 success:{"sendno":"1502793828","msg_id":"2251800204375432"}
+2017-08-15 18:47:15 success:{"sendno":"1502794034","msg_id":"9007199564600264"}
+2017-08-15 18:50:55 success:{"sendno":"1502794254","msg_id":"20266198777501299"}
+2017-08-15 18:51:54 success:{"sendno":"1502794313","msg_id":"20266198777515304"}
+2017-08-15 18:53:08 success:{"sendno":"1502794388","msg_id":"65302195203206484"}
+2017-08-15 18:56:57 success:{"sendno":"1502794616","msg_id":"2251800204496368"}
+2017-08-15 19:05:26 success:{"sendno":"1502795125","msg_id":"29273397968656277"}
+2017-08-15 19:06:15 success:{"sendno":"1502795175","msg_id":"54043196048068724"}
+2017-08-15 19:09:50 success:{"sendno":"1502795389","msg_id":"20266198777586048"}
